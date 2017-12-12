@@ -1,0 +1,72 @@
+## Group Authenticate Yourself
+
+### Step 1: Login [/_login.json]
+
+This step is not required, if you have your own ID and API key skip to the
+[next step](#reference/authenticate-yourself/step-2-authenticate)
+
+#### View User ID And API Key [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
+    + Attributes (object)
+        + email: example@mail.com (string, required)
+            User e-mail address
+        + pass_md5_hash: 1a79a4d60de6718e8e5b326e338ae533 (string, required)
+            User password encoded with MD5
+
+    + Body
+
+            {
+              "email": "example@mail.com",
+              "pass_md5_hash": "1a79a4d60de6718e8e5b326e338ae533"
+            }
+
++ Response 200 (application/json)
+
+        {
+          "_id": "10000000000000000000000f",
+          "api_key": "1234567890abcdef"
+        }
+
+### Step 2: Authenticate [/_authenticate.json]
+
+Use `_id` and `api_key` returned from [login](#reference/authenticate-yourself/step-1-login)
+
+Will return token and ID to be used on further
+([authenticated](#introduction/overview/authentication)) requests,
+the returned token is valid for one day, as defined by *expires* ISO 8601 date and time,
+then you will need to generate another token
+
+#### Generate Access Token [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
+    + Attributes (object)
+        + _id: 10000000000000000000000f (string, required)
+            User object ID, same returned from login
+        + api_key: 1234567890abcdef (string, required)
+            User API key, 128 bytes hexadecimal string, same returned from login
+
+    + Body
+
+            {
+              "_id": "10000000000000000000000f",
+              "api_key": "1234567890abcdef"
+            }
+
++ Response 200 (application/json)
+
+        {
+          "my_id": "10000000000000000000000f",
+          "access_token": "eyJhbGciOi.eyJzdWIi.AFONFh7HgQ",
+          "expires": "2017-12-01T08:02:17-05:00"
+        }
