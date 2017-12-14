@@ -506,7 +506,7 @@ cart subresources directly at this resource
 
 */carts.json?limit&offset&sort&fields&[field]*
 
-Authentication: **required**
+> Authentication<br>_GET_: **required**
 
 Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
@@ -715,7 +715,7 @@ by particular object properties
 
 */carts.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must obey the specifications of
 [this model](#reference/carts/cart-object)
@@ -1191,7 +1191,7 @@ Request body must obey the specifications of
 
 */carts/[_id].json*
 
-Authentication: **none**
+> Authentication<br>_GET_: **none**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/carts/cart-object)
