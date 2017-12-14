@@ -2783,7 +2783,7 @@ product subresources directly at this resource, such as product images, variatio
 
 */products.json?sku*
 
-Authentication: **none**
+> Authentication<br>_GET_: **none**
 
 Pagination is not available, the unique possible filter is by `sku`
 
@@ -2854,7 +2854,7 @@ Returns only `_id` and `sku` of each product
 
 */products.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must obey the specifications of
 [this model](#reference/products/product-object)
@@ -5199,6 +5199,8 @@ Request body must obey the specifications of
               "name": "Mens Pique Polo Shirt",
               "slug": "mens-pique-polo-shirt",
               "short_description": "Red, 100% cotton, large men’s t-shirt",
+              "body_html": "<p>Red, 100% cotton, large men’s t-shirt.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+              "body_text": "Red, 100% cotton, large men’s t-shirt.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
               "meta_title": "Mens Pique Polo Shirt - My Shirt Shop",
               "meta_description": "Mens Pique Polo Shirt, Red, 100% cotton, large men’s t-shirt",
               "keywords": [
@@ -5294,7 +5296,7 @@ Request body must obey the specifications of
 
 */products/[_id].json*
 
-Authentication: **optional**
+> Authentication<br>_GET_: **optional**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/products/product-object),
@@ -5330,6 +5332,8 @@ but especially for edit requests there are no required fields
               "visible": true,
               "ad_relevance": 0,
               "short_description": "Red, 100% cotton, large men’s t-shirt",
+              "body_html": "<p>Red, 100% cotton, large men’s t-shirt.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+              "body_text": "Red, 100% cotton, large men’s t-shirt.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
               "meta_title": "Mens Pique Polo Shirt - My Shirt Shop",
               "meta_description": "Mens Pique Polo Shirt, Red, 100% cotton, large men’s t-shirt",
               "keywords": [
@@ -5452,6 +5456,8 @@ but especially for edit requests there are no required fields
               "visible": true,
               "ad_relevance": 0,
               "short_description": "Red, 100% cotton, large men’s t-shirt",
+              "body_html": "<p>Red, 100% cotton, large men’s t-shirt.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+              "body_text": "Red, 100% cotton, large men’s t-shirt.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
               "meta_title": "Mens Pique Polo Shirt - My Shirt Shop",
               "meta_description": "Mens Pique Polo Shirt, Red, 100% cotton, large men’s t-shirt",
               "keywords": [
