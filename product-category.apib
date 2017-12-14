@@ -50,7 +50,7 @@ you must specify only the ID of an existent category, other category properties 
 
 */products/[_id]/categories.json?limit&offset&sort&fields&[field]*
 
-Authentication: **required**
+> Authentication<br>_GET_: **required**
 
 Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
@@ -129,7 +129,7 @@ by particular object properties
 
 */products/[_id]/categories.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must be an object with valid category `_id` and no more properties
 
@@ -183,7 +183,7 @@ Request body must be an object with valid category `_id` and no more properties
 
 */products/[_id]/brands/[_id].json*
 
-Authentication: **required**
+> Authentication<br>_GET_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/product-categories/product-category-object)
