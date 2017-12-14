@@ -1154,7 +1154,7 @@ customer subresources directly at this resource
 
 */customers.json?limit&offset&sort&fields&[field]*
 
-Authentication: **required**
+> Authentication<br>_GET_: **required**
 
 Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
@@ -1199,7 +1199,8 @@ by particular object properties
                   "status": "active",
                   "main_email": "123@mail.com",
                   "display_name": "Fulano"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000002",
                   "state": "registered",
                   "enabled": true,
@@ -1207,14 +1208,16 @@ by particular object properties
                   "status": "active",
                   "main_email": "johndoe@mail.com",
                   "display_name": "John"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000003",
                   "state": "registered",
                   "enabled": true,
                   "login": true,
                   "main_email": "mail@sample.ex",
                   "display_name": "Jane"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000004",
                   "state": "registered",
                   "enabled": false,
@@ -1222,7 +1225,8 @@ by particular object properties
                   "status": "untrusted",
                   "main_email": "456@mail.com",
                   "display_name": "Richard"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000005",
                   "state": "registered",
                   "enabled": true,
@@ -1230,7 +1234,8 @@ by particular object properties
                   "status": "star",
                   "main_email": "janerue@mail.ex",
                   "display_name": "Jane Rue"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000006",
                   "state": "registered",
                   "enabled": true,
@@ -1299,7 +1304,8 @@ by particular object properties
                     "given_name": "Richard"
                   },
                   "gender": "m"
-                }, {
+                },
+                {
                   "_id": "3c1000000000000000000006",
                   "emails": [
                     {
@@ -1318,7 +1324,7 @@ by particular object properties
               ]
             }
 
-#### Find Customer [GET /customers.json{?main_email}]
+#### Find Customers [GET /customers.json{?main_email}]
 
 + Parameters
     + `main_email`: `janerue@mail.ex` (string, optional) - Object property to query
@@ -1370,7 +1376,7 @@ by particular object properties
 
 */customers.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must obey the specifications of
 [this model](#reference/customers/customer-object)
@@ -2340,7 +2346,7 @@ Request body must obey the specifications of
                     }
                 }
             }
-    
+
     + Body
 
             {
@@ -2421,7 +2427,7 @@ Request body must obey the specifications of
 
 */customers/[_id].json*
 
-Authentication: **optional**
+> Authentication<br>_GET_: **optional**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/customers/customer-object),
@@ -3527,7 +3533,7 @@ but especially for edit requests there are no required fields
                     }
                 }
             }
-    
+
     + Body
 
             {
@@ -4505,7 +4511,7 @@ but especially for edit requests there are no required fields
                     }
                 }
             }
-    
+
     + Body
 
             {
