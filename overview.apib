@@ -217,11 +217,20 @@ Incorrect URL paths, check [API Host](#introduction/overview/host)
 
 NGINX is blocking your requests for security reasons, please wait few seconds and try again
 
-## Getting Help
+## Server Limits
 
-Feel free to get help or suggest alterations on
-[GitHub repo](https://github.com/ecomclub/ecomplus-api-docs) or by e-mail
-[ti@e-com.club](mailto:ti@e-com.club)
+Whenever possible, **avoid using requests with query string**,
+then you will be able to consume cache and send up to 30 _GET_ requests per second
+with the same IP, to different endpoints
+
+Not cached responses are limited by default to 3 requests per IP per second, but it can vary (to low)
+depending of the resource
+
+The same API user (authentication) can make up to 2 authenticated requests per second
+
+In almost all cases you will not receive an error if you go beyond the limits,
+the response will only be delayed, but even so,
+we recommend that you create treatments in case you receive a *503* status code
 
 ## See Also
 
@@ -237,3 +246,9 @@ E-Com Plus Main API, with some public data about stores and channels
 Recommendations API using Neo4j to define related products by categories, brands and common orders
 - [Search](https://ecomsearch.docs.apiary.io):
 Powerful text search API using Elasticsearch to find and suggest items (products) and terms
+
+## Getting Help
+
+Feel free to get help or suggest alterations on
+[GitHub repo](https://github.com/ecomclub/ecomplus-api-docs) or by e-mail
+[ti@e-com.club](mailto:ti@e-com.club)
