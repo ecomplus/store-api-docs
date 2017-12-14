@@ -51,7 +51,7 @@ you must specify only the ID of an existent brand, other brand properties will b
 
 */products/[_id]/brands.json?limit&offset&sort&fields&[field]*
 
-Authentication: **required**
+> Authentication<br>_GET_: **required**
 
 Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
@@ -84,66 +84,14 @@ by particular object properties
               },
               "result": [
                 {
-                  "_id": "a10000000000000000001110",
-                  "name": "Brand 0",
-                  "slug": "brand-zero",
-                  "logo": {
-                    "url": "https://mycdn.com/brand-0-logo.jpg",
-                    "size": "90x70",
-                    "alt": "Brand Zero"
-                  }
-                },
-                {
-                  "_id": "a10000000000000000001111",
-                  "name": "Brand 1",
-                  "slug": "brand-one",
-                  "logo": {
-                    "url": "https://mycdn.com/brand-1-logo.jpg",
-                    "size": "70x70",
-                    "alt": "Brand One"
-                  }
-                },
-                {
                   "_id": "a10000000000000000001112",
                   "name": "Brand 2",
                   "slug": "brand-two"
                 },
                 {
-                  "_id": "a10000000000000000001113",
-                  "name": "Brand 3",
-                  "slug": "brand-three"
-                },
-                {
-                  "_id": "a10000000000000000001114",
-                  "name": "Brand 4",
-                  "slug": "brand-four",
-                  "logo": {
-                    "url": "https://mycdn.com/brand-4-logo.jpg",
-                    "size": "70x70"
-                  }
-                },
-                {
-                  "_id": "a10000000000000000001115",
-                  "name": "Brand 5",
-                  "slug": "brand-five",
-                  "logo": {
-                    "url": "https://mycdn.com/brand-5-logo.jpg",
-                    "size": "70x70"
-                  }
-                },
-                {
-                  "_id": "a10000000000000000001116",
-                  "name": "Brand 6",
-                  "slug": "brand-six",
-                  "logo": {
-                    "url": "https://mycdn.com/brand-6-logo.jpg",
-                    "size": "70x70",
-                    "alt": "Brand Six"
-                  }
-                },
-                {
                   "_id": "a10000000000000000000001",
                   "name": "Shirts Example",
+                  "slug": "shirts-example",
                   "logo": {
                     "url": "https://mycdn.com/shirts-example.jpg",
                     "size": "100x50"
@@ -156,7 +104,7 @@ by particular object properties
 
 */products/[_id]/brands.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must be an object with valid brand `_id` and no more properties
 
@@ -210,7 +158,7 @@ Request body must be an object with valid brand `_id` and no more properties
 
 */products/[_id]/brands/[_id].json*
 
-Authentication: **required**
+> Authentication<br>_GET_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/product-brands/product-brand-object)
