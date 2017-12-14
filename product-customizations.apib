@@ -175,7 +175,7 @@ use it to create, read, update and delete customization fields of a specific pro
 
 */products/[_id]/customizations.json?limit&offset&sort&fields&[field]*
 
-Authentication: **required**
+> Authentication<br>_GET_: **required**
 
 Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
@@ -330,7 +330,7 @@ by particular object properties
 
 */products/[_id]/customizations.json*
 
-Authentication: **required**
+> Authentication<br>_POST_: **required**
 
 Request body must obey the specifications of
 [this model](#reference/product-customizations/product-field-object)
@@ -507,7 +507,7 @@ Request body must obey the specifications of
 
 */products/[_id]/customizations/[_id].json*
 
-Authentication: **required**
+> Authentication<br>_GET_, _PATCH_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/product-customizations/product-field-object)
