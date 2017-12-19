@@ -9,71 +9,71 @@ order subresources directly at this resource
 ### Order Object [/orders/schema.json]
 
 + Attributes (object)
-    + `checkout_link` (string) - URL to checkout page, if necessary, use `{_id}` where order unique ID must appear at URL - Max length: **255** - Format: **uri**
+    + `checkout_link` (string) - URL to checkout page - Max length: **255** - Format: **uri**
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `status_link` (string) - URL to order status page, if necessary, use `{_id}` where order unique ID must appear - Max length: **255** - Format: **uri**
+    + `status_link` (string) - URL to order status page - Max length: **255** - Format: **uri**
     + `status_mobile_link` (string) - Optional status URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
-        + `source` (string) - Parameter "utm_source", the referrer: (e.g. google, newsletter) - Max length: **100**
-        + `medium` (string) - Parameter "utm_medium", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
-        + `campaign` (string) - Parameter "utm_campaign", the product, promo code, or slogan (e.g. spring_sale) - Max length: **200**
-        + `term` (string) - Parameter "utm_term", identifies the paid keywords - Max length: **100**
-        + `content` (string) - Parameter "utm_content", used to differentiate ads - Max length: **255**
+        + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
+        + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
+        + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
+        + `term` (string) - Parameter "`utm_term`", identifies the paid keywords - Max length: **100**
+        + `content` (string) - Parameter "`utm_content`", used to differentiate ads - Max length: **255**
     + `referring_site` (string) - The website that the customer clicked on to come to the shop - Max length: **255** - Format: **uri**
     + `affiliate_code` (string) - Code to identify the affiliate that referred the customer - Max length: **200**
     + `source_name`: Web (string) - Where the order originated - Max length: **30**
     + `browser_ip` (string) - IP address of the browser used by the customer when placing the order - Max length: **30** - Format: **ipv4**
     + `channel_id` (string) - Domain name or channel unique identificator (numbers and lowercase letters) - Min length: **4** - Max length: **100** - RegEx pattern: **`^[0-9a-z-.]+$`**
     + `channel_type`: ecommerce (enum) - Channel type or source
-        + ecommerce (string)
-        + mobile (string)
-        + pdv (string)
-        + button (string)
-        + facebook (string)
-        + chatbot (string)
+        + `ecommerce` (string)
+        + `mobile` (string)
+        + `pdv` (string)
+        + `button` (string)
+        + `facebook` (string)
+        + `chatbot` (string)
     + `number` (number) - Order number, if not specified will be filled auto incrementing
     + `code` (string) - Order code used by seller and customer for identification, should be unique - Max length: **70**
     + `status`: open (enum) - Order main status
-        + open (string)
-        + closed (string)
-        + cancelled (string)
+        + `open` (string)
+        + `closed` (string)
+        + `cancelled` (string)
     + `opened_at` (string) - Date and time when order was opened, in ISO 8601 standard representation - Format: **date-time**
     + `closed_at` (string) - If the order is closed, specify the date and time it occurred - Format: **date-time**
     + `cancelled_at` (string) - If the order is cancelled, specify the date and time it occurred - Format: **date-time**
     + `cancel_reason` (enum) - If the order is cancelled, specify the reason why it was cancelled
-        + customer (string)
-        + fraud (string)
-        + inventory (string)
-        + declined (string)
-        + other (string)
+        + `customer` (string)
+        + `fraud` (string)
+        + `inventory` (string)
+        + `declined` (string)
+        + `other` (string)
     + `seller_status` (string) - Order status created by seller - Max length: **50**
     + `financial_status` (object) - Financial status and date of change
         + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
         + `current` (enum, required) - Order financial status
-            + pending (string)
-            + under_analysis (string)
-            + authorized (string)
-            + partially_paid (string)
-            + paid (string)
-            + in_dispute (string)
-            + partially_refunded (string)
-            + refunded (string)
-            + voided (string)
-            + unknown (string)
+            + `pending` (string)
+            + `under_analysis` (string)
+            + `authorized` (string)
+            + `partially_paid` (string)
+            + `paid` (string)
+            + `in_dispute` (string)
+            + `partially_refunded` (string)
+            + `refunded` (string)
+            + `voided` (string)
+            + `unknown` (string)
     + `fulfillment_status` (object) - Fulfillment status and date of change
         + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
         + `current` (enum, required) - Order fulfillment (shipping) status
-            + invoice_issued (string)
-            + in_production (string)
-            + in_separation (string)
-            + ready_for_shipping (string)
-            + partially_shippend (string)
-            + shipped (string)
-            + partially_delivered (string)
-            + delivered (string)
-            + returned_for_exchange (string)
-            + received_for_exchange (string)
-            + returned (string)
+            + `invoice_issued` (string)
+            + `in_production` (string)
+            + `in_separation` (string)
+            + `ready_for_shipping` (string)
+            + `partially_shippend` (string)
+            + `shipped` (string)
+            + `partially_delivered` (string)
+            + `delivered` (string)
+            + `returned_for_exchange` (string)
+            + `received_for_exchange` (string)
+            + `returned` (string)
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `amount` (object, required) - Object with sums of values
@@ -87,15 +87,15 @@ order subresources directly at this resource
     + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
     + `buyer` (object) - Customer object
         + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
+        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
         + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
         + `emails` (array) - List of customer email addresses - Max elements: **20**
             + (object) - Email object
                 + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
                 + `type` (enum) - The type of email
-                    + work (string)
-                    + home (string)
-                    + other (string)
+                    + `work` (string)
+                    + `home` (string)
+                    + `other` (string)
                 + `verified`: false (boolean) - States whether or not the email address has been verified
         + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
         + `name` (object) - Customer name object - Min properties: **1**
@@ -103,41 +103,41 @@ order subresources directly at this resource
             + `given_name` (string) - The "first name" of this user - Max length: **70**
             + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
         + `gender` (enum) - Customer gender, female, male or third gender (X)
-            + f (string)
-            + m (string)
-            + x (string)
+            + `f` (string)
+            + `m` (string)
+            + `x` (string)
         + `photos` (array) - User profile pictures - Max elements: **20**
             + (string) - Image URL
         + `phones` (array) - List of customer phone numbers - Max elements: **20**
             + (object) - Phone object
-                + `country_code` (number) - Country calling code (without +), defined by standards E.123 and E.164
+                + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                 + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
                 + `type` (enum) - The type of phone
-                    + home (string)
-                    + personal (string)
-                    + work (string)
-                    + other (string)
+                    + `home` (string)
+                    + `personal` (string)
+                    + `work` (string)
+                    + `other` (string)
         + `registry_type` (enum) - Physical or juridical (company) person
-            + p (string)
-            + j (string)
+            + `p` (string)
+            + `j` (string)
         + `doc_country` (string) - Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
         + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
         + `inscription_type` (enum) - Municipal or state registration if exists
-            + State (string)
-            + Municipal (string)
+            + `State` (string)
+            + `Municipal` (string)
         + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
         + `corporate_name` (string) - Registered company name or responsible fullname - Max length: **255**
     + `gift_to` (object) - If order is originated from a gifts list, specify customer who will receive the gift
         + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
+        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
         + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
         + `emails` (array) - List of customer email addresses - Max elements: **20**
             + (object) - Email object
                 + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
                 + `type` (enum) - The type of email
-                    + work (string)
-                    + home (string)
-                    + other (string)
+                    + `work` (string)
+                    + `home` (string)
+                    + `other` (string)
                 + `verified`: false (boolean) - States whether or not the email address has been verified
         + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
         + `name` (object) - Customer name object - Min properties: **1**
@@ -145,20 +145,20 @@ order subresources directly at this resource
             + `given_name` (string) - The "first name" of this user - Max length: **70**
             + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
         + `gender` (enum) - Customer gender, female, male or third gender (X)
-            + f (string)
-            + m (string)
-            + x (string)
+            + `f` (string)
+            + `m` (string)
+            + `x` (string)
         + `photos` (array) - User profile pictures - Max elements: **20**
             + (string) - Image URL
         + `phones` (array) - List of customer phone numbers - Max elements: **20**
             + (object) - Phone object
-                + `country_code` (number) - Country calling code (without +), defined by standards E.123 and E.164
+                + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                 + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
                 + `type` (enum) - The type of phone
-                    + home (string)
-                    + personal (string)
-                    + work (string)
-                    + other (string)
+                    + `home` (string)
+                    + `personal` (string)
+                    + `work` (string)
+                    + `other` (string)
         + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
             + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
             + `description` (string) - Short text description for the gifts list - Max length: **255**
@@ -170,7 +170,7 @@ order subresources directly at this resource
             + `notification_email` (string) - Email address to be notified after gift purchase - Max length: **200** - Format: **email**
             + `contact` (string) - Email address or phone number to contact list owners - Max length: **200**
     + `shipping_lines` (array) - List of shipping methods and address for this order - Max elements: **100**
-        + (object) - undefined
+        + (object) -
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `from` (object, required) - Sender's address
                 + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
@@ -188,7 +188,7 @@ order subresources directly at this resource
                 + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
                 + `last_name` (string) - The recipient's last name - Max length: **70**
                 + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without +), defined by standards E.123 and E.164
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                     + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `to` (object, required) - Shipping address (recipient)
                 + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
@@ -206,28 +206,28 @@ order subresources directly at this resource
                 + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
                 + `last_name` (string) - The recipient's last name - Max length: **70**
                 + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without +), defined by standards E.123 and E.164
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                     + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `package` (object) - Shipping object information - Min properties: **1**
                 + `dimensions` (object) - Package dimensions - Min properties: **1**
                     + `^width|height|length$` (object) - Package width, height and length
                         + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                         + `unit`: cm (enum) - Unit of measurement
-                            + mm (string)
-                            + cm (string)
-                            + m (string)
-                            + ft (string)
-                            + in (string)
-                            + yd (string)
-                            + mi (string)
+                            + `mm` (string)
+                            + `cm` (string)
+                            + `m` (string)
+                            + `ft` (string)
+                            + `in` (string)
+                            + `yd` (string)
+                            + `mi` (string)
                 + `weight` (object) - Package weight for freight calculation
                     + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                     + `unit`: g (enum) - Unit of measurement
-                        + mg (string)
-                        + g (string)
-                        + kg (string)
-                        + lb (string)
-                        + oz (string)
+                        + `mg` (string)
+                        + `g` (string)
+                        + `kg` (string)
+                        + `lb` (string)
+                        + `oz` (string)
             + `app` (object) - Shipping method (by application) chosen by customer
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
                 + `label` (string) - Name of shipping method shown to customers - Max length: **50**
@@ -286,15 +286,15 @@ order subresources directly at this resource
             + `status` (object) - Fulfillment status and date of change
                 + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
                 + `current` (enum, required) - Shipping status
-                    + invoice_issued (string)
-                    + in_production (string)
-                    + in_separation (string)
-                    + ready_for_shipping (string)
-                    + shipped (string)
-                    + delivered (string)
-                    + returned_for_exchange (string)
-                    + received_for_exchange (string)
-                    + returned (string)
+                    + `invoice_issued` (string)
+                    + `in_production` (string)
+                    + `in_separation` (string)
+                    + `ready_for_shipping` (string)
+                    + `shipped` (string)
+                    + `delivered` (string)
+                    + `returned_for_exchange` (string)
+                    + `received_for_exchange` (string)
+                    + `returned` (string)
             + `items` (array) - List of order items related with this shipping line, use only if items are divided - Max elements: **3000**
                 + (string) - Item ID
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
@@ -305,22 +305,22 @@ order subresources directly at this resource
                     + `value` (string, required) - Field value - Max length: **255**
             + `notes` (string) - Optional notes with additional info about this shipping line - Max length: **255**
     + `transactions` (array) - List of payment transactions for this order - Max elements: **100**
-        + (object) - undefined
+        + (object) -
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `created_at` (string) - Date and time of transaction creation, in ISO 8601 standard representation - Format: **date-time**
             + `type`: payment (enum) - Transaction type
-                + payment (string)
-                + recurrence (string)
+                + `payment` (string)
+                + `recurrence` (string)
             + `payment_method` (object, required) - Payment method object
                 + `code` (enum, required) - Standardized payment method code
-                    + credit_card (string)
-                    + banking_billet (string)
-                    + online_debit (string)
-                    + account_deposit (string)
-                    + debit_card (string)
-                    + balance_on_intermediary (string)
-                    + loyalty_points (string)
-                    + other (string)
+                    + `credit_card` (string)
+                    + `banking_billet` (string)
+                    + `online_debit` (string)
+                    + `account_deposit` (string)
+                    + `debit_card` (string)
+                    + `balance_on_intermediary` (string)
+                    + `loyalty_points` (string)
+                    + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
             + `billing_address` (object) - The mailing address associated with the payment method
                 + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
@@ -338,7 +338,7 @@ order subresources directly at this resource
                 + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
                 + `last_name` (string) - The recipient's last name - Max length: **70**
                 + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without +), defined by standards E.123 and E.164
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                     + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `app` (object) - Payment method (by application) chosen by customer
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -357,25 +357,25 @@ order subresources directly at this resource
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
             + `credit_card` (object) - Credit card data, if payment was done with credit card - Min properties: **1**
-                + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/avs_cvv2_response_codes.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
+                + `avs_result_code` (string) - Response code from AVS: `http://www.emsecommerce.net/avs_cvv2_response_codes.htm` - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
                 + `company` (string) - Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**
                 + `last_digits` (string) - Last digits (up to 4) of credit card number - Max length: **4** - RegEx pattern: **`^[0-9]+$`**
                 + `token` (string) - Unique credit card token - Max length: **255**
                 + `error_code` (enum) - Credit card processing standardized error code
-                    + incorrect_number (string)
-                    + invalid_number (string)
-                    + invalid_expiry_date (string)
-                    + invalid_cvc (string)
-                    + expired_card (string)
-                    + incorrect_cvc (string)
-                    + incorrect_zip (string)
-                    + incorrect_address (string)
-                    + card_declined (string)
-                    + processing_error (string)
-                    + call_issuer (string)
-                    + pick_up_card (string)
+                    + `incorrect_number` (string)
+                    + `invalid_number` (string)
+                    + `invalid_expiry_date` (string)
+                    + `invalid_cvc` (string)
+                    + `expired_card` (string)
+                    + `incorrect_cvc` (string)
+                    + `incorrect_zip` (string)
+                    + `incorrect_address` (string)
+                    + `card_declined` (string)
+                    + `processing_error` (string)
+                    + `call_issuer` (string)
+                    + `pick_up_card` (string)
             + `banking_billet` (object) - Banking billet data, if payment was done with banking billet - Min properties: **1**
                 + `code` (string) - Ticket code, generally a barcode number - Max length: **200**
                 + `valid_thru` (string) - Date and time of expiration, in ISO 8601 standard representation - Format: **date-time**
@@ -399,14 +399,14 @@ order subresources directly at this resource
             + `status` (object) - Financial status and date of change
                 + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
                 + `current`: pending (enum, required) - Payment status
-                    + pending (string)
-                    + under_analysis (string)
-                    + authorized (string)
-                    + paid (string)
-                    + in_dispute (string)
-                    + refunded (string)
-                    + voided (string)
-                    + unknown (string)
+                    + `pending` (string)
+                    + `under_analysis` (string)
+                    + `authorized` (string)
+                    + `paid` (string)
+                    + `in_dispute` (string)
+                    + `refunded` (string)
+                    + `voided` (string)
+                    + `unknown` (string)
             + `items` (array) - List of order items related with this transaction, use only if items are divided - Max elements: **3000**
                 + (string) - Item ID
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
@@ -422,14 +422,14 @@ order subresources directly at this resource
             + `transaction_id` (string) - ID of transaction related with this event - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_time` (string) - Date and time of the event, in ISO 8601 standard representation - Format: **date-time**
             + `status` (enum, required) - Payment status
-                + pending (string)
-                + under_analysis (string)
-                + authorized (string)
-                + paid (string)
-                + in_dispute (string)
-                + refunded (string)
-                + voided (string)
-                + unknown (string)
+                + `pending` (string)
+                + `under_analysis` (string)
+                + `authorized` (string)
+                + `paid` (string)
+                + `in_dispute` (string)
+                + `refunded` (string)
+                + `voided` (string)
+                + `unknown` (string)
             + `notification_code` (string) - Code of received notification with this status change - Max length: **255**
             + `customer_notified`: false (boolean) - If customer was already notified of this event
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
@@ -440,15 +440,15 @@ order subresources directly at this resource
             + `shipping_line_id` (string) - ID of shipping line related with this event - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_time` (string) - Date and time of the event, in ISO 8601 standard representation - Format: **date-time**
             + `status` (enum, required) - Fulfillment status
-                + invoice_issued (string)
-                + in_production (string)
-                + in_separation (string)
-                + ready_for_shipping (string)
-                + shipped (string)
-                + delivered (string)
-                + returned_for_exchange (string)
-                + received_for_exchange (string)
-                + returned (string)
+                + `invoice_issued` (string)
+                + `in_production` (string)
+                + `in_separation` (string)
+                + `ready_for_shipping` (string)
+                + `shipped` (string)
+                + `delivered` (string)
+                + `returned_for_exchange` (string)
+                + `received_for_exchange` (string)
+                + `returned` (string)
             + `notification_code` (string) - Code of received notification with this status change - Max length: **255**
             + `customer_notified`: false (boolean) - If customer was already notified of this event
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
@@ -472,8 +472,8 @@ order subresources directly at this resource
                     + `attachment` (string) - URL of file attached by customer to this field - Max length: **255** - Format: **uri**
                     + `add_to_price` (object) - Price alteration due to this customization
                         + `type`: percentage (enum) - Type of price addition
-                            + percentage (string)
-                            + fixed (string)
+                            + `percentage` (string)
+                            + `fixed` (string)
                         + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `gift_wrap` (object) - Gift wrap chosen by customer
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
@@ -484,7 +484,7 @@ order subresources directly at this resource
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, program_id as property name - Min properties: **1** - Max properties: **20**
+    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Min properties: **1** - Max properties: **20**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
