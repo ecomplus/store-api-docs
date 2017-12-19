@@ -13,8 +13,8 @@ product subresources directly at this resource, such as product images, variatio
         + (number) - Store ID
     + `sku` (string, required) - Product unique reference code - Min length: **2** - Max length: **100** - RegEx pattern: **`^[A-Za-z0-9-_.]+$`**
     + `commodity_type`: physical (enum) - Product type
-        + physical (string)
-        + digital (string)
+        + `physical` (string)
+        + `digital` (string)
     + `name` (string, required) - Product full name - Max length: **255**
     + `i18n` (object) - Product name translations - Min properties: **1** - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full product name - Max length: **255**
@@ -35,7 +35,7 @@ product subresources directly at this resource, such as product images, variatio
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
     + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-    + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), base_price should be applied - Min properties: **1**
+    + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), `base_price` should be applied - Min properties: **1**
         + `start` (string) - Start date and time in ISO 8601 standard representation - Format: **date-time**
         + `end` (string) - Promotion end date and time in ISO 8601 standard representation - Format: **date-time**
     + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -58,55 +58,55 @@ product subresources directly at this resource, such as product images, variatio
             + `quantity` (number, required) - Added or decreased (negative) stock quantity - Mininum: **-9999999** - Maximum: **9999999** - Max precision: **0.0001**
     + `measurement` (object) - Measure and dimension of your product when users might be interested in price per unit
         + `unit` (enum, required) - Unit of measurement
-            + oz (string)
-            + lb (string)
-            + mg (string)
-            + g (string)
-            + kg (string)
-            + floz (string)
-            + pt (string)
-            + qt (string)
-            + gal (string)
-            + ml (string)
-            + cl (string)
-            + l (string)
-            + cbm (string)
-            + in (string)
-            + ft (string)
-            + yd (string)
-            + cm (string)
-            + m (string)
-            + sqft (string)
-            + sqm (string)
-            + ct (string)
+            + `oz` (string)
+            + `lb` (string)
+            + `mg` (string)
+            + `g` (string)
+            + `kg` (string)
+            + `floz` (string)
+            + `pt` (string)
+            + `qt` (string)
+            + `gal` (string)
+            + `ml` (string)
+            + `cl` (string)
+            + `l` (string)
+            + `cbm` (string)
+            + `in` (string)
+            + `ft` (string)
+            + `yd` (string)
+            + `cm` (string)
+            + `m` (string)
+            + `sqft` (string)
+            + `sqm` (string)
+            + `ct` (string)
         + `precision` (number) - Maximum number of decimal places in the product quantity (in unit of measure) - Mininum: **0** - Maximum: **4**
-        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC unit_pricing_base_measure - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
     + `multipack` (number) - Indicate that this item is a group of multiple identical products - Mininum: **0** - Maximum: **999999**
     + `dimensions` (object) - Product dimensions with packaging for freight calculation - Min properties: **1**
         + `^width|height|length$` (object) - Package width, height and length
             + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
             + `unit`: cm (enum) - Unit of measurement
-                + mm (string)
-                + cm (string)
-                + m (string)
-                + ft (string)
-                + in (string)
-                + yd (string)
-                + mi (string)
+                + `mm` (string)
+                + `cm` (string)
+                + `m` (string)
+                + `ft` (string)
+                + `in` (string)
+                + `yd` (string)
+                + `mi` (string)
     + `weight` (object) - Package weight for freight calculation
         + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
         + `unit`: g (enum) - Unit of measurement
-            + mg (string)
-            + g (string)
-            + kg (string)
-            + lb (string)
-            + oz (string)
+            + `mg` (string)
+            + `g` (string)
+            + `kg` (string)
+            + `lb` (string)
+            + `oz` (string)
     + `condition`: new (enum) - Item condition
-        + new (string)
-        + refurbished (string)
-        + used (string)
-        + not_specified (string)
-    + `adult`: false (boolean) - Product restricted to adults (18+)
+        + `new` (string)
+        + `refurbished` (string)
+        + `used` (string)
+        + `not_specified` (string)
+    + `adult`: false (boolean) - Product restricted to adults (`18+`)
     + `warranty` (string) - Warranty time and conditions - Max length: **100**
     + `brands` (array) - List of product brands - Max elements: **100**
         + (object) - Product brand (manufacturer)
@@ -132,30 +132,30 @@ product subresources directly at this resource, such as product images, variatio
         + `energy_efficiency_class` (object) - Attribute to tell users the energy efficiency class of your product
             + `text` (string, required) - Text displayed for the client describing the specification (custom value) - Max length: **100**
             + `value` (enum) - Value in the Google Product Specification
-                + A+++ (string)
-                + A++ (string)
-                + A+ (string)
-                + A (string)
-                + B (string)
-                + C (string)
-                + D (string)
-                + E (string)
-                + F (string)
-                + G (string)
+                + `A+++` (string)
+                + `A++` (string)
+                + `A+` (string)
+                + `A` (string)
+                + `B` (string)
+                + `C` (string)
+                + `D` (string)
+                + `E` (string)
+                + `F` (string)
+                + `G` (string)
         + `age_group` (object) - Attribute to set the demographic that your product is designed for
             + `text` (string, required) - Text displayed for the client describing the specification (custom value) - Max length: **100**
             + `value` (enum) - Value in the Google Product Specification
-                + newborn (string)
-                + infant (string)
-                + toddler (string)
-                + kids (string)
-                + adult (string)
+                + `newborn` (string)
+                + `infant` (string)
+                + `toddler` (string)
+                + `kids` (string)
+                + `adult` (string)
         + `gender` (object) - Specify for what gender your product is designed
             + `text` (string, required) - Text displayed for the client describing the specification (custom value) - Max length: **100**
             + `value` (enum) - Value in the Google Product Specification
-                + male (string)
-                + female (string)
-                + unisex (string)
+                + `male` (string)
+                + `female` (string)
+                + `unisex` (string)
         + `material` (object) - Attribute to describe the main fabric or material that your product is made of
             + `text` (string, required) - Text displayed for the client describing the attribute - Max length: **200**
             + `value` (string) - Default normalized value to use on GMC and other integrations - Max length: **200**
@@ -168,25 +168,25 @@ product subresources directly at this resource, such as product images, variatio
         + `size_type` (object) - Attribute to describe the cut of your product
             + `text` (string, required) - Text displayed for the client describing the attribute - Max length: **100**
             + `value` (enum) - Value in the Google Product Specification
-                + regular (string)
-                + petite (string)
-                + plus (string)
-                + big and tall (string)
-                + maternity (string)
+                + `regular` (string)
+                + `petite` (string)
+                + `plus` (string)
+                + `big and tall` (string)
+                + `maternity` (string)
         + `size_system` (object) - Which country's sizing system your product uses
             + `text` (string, required) - Text displayed for the client describing the attribute - Max length: **100**
             + `value` (enum) - Value in the Google Product Specification
-                + AU (string)
-                + BR (string)
-                + CN (string)
-                + DE (string)
-                + EU (string)
-                + FR (string)
-                + IT (string)
-                + JP (string)
-                + MEX (string)
-                + UK (string)
-                + US (string)
+                + `AU` (string)
+                + `BR` (string)
+                + `CN` (string)
+                + `DE` (string)
+                + `EU` (string)
+                + `FR` (string)
+                + `IT` (string)
+                + `JP` (string)
+                + `MEX` (string)
+                + `UK` (string)
+                + `US` (string)
         + `colors` (array) - Product color palette, list ordered by importance, starting by main color - Max elements: **20**
             + (object) - Color object
                 + `text` (string, required) - Color name - Max length: **50**
@@ -226,15 +226,15 @@ product subresources directly at this resource, such as product images, variatio
                         + (string) - RGB code with #
                     + `add_to_price` (object) - Specific price alteration if customer choose this option
                         + `type`: percentage (enum) - Type of price addition
-                            + percentage (string)
-                            + fixed (string)
+                            + `percentage` (string)
+                            + `fixed` (string)
                         + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `custom_value`: true (boolean) - If this field accept custom value defined by customer
             + `attachment`: true (boolean) - If this field accept customer file attachment
             + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
                 + `type`: percentage (enum) - Type of price addition
-                    + percentage (string)
-                    + fixed (string)
+                    + `percentage` (string)
+                    + `fixed` (string)
                 + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
     + `variations` (array) - Product variations list - Max elements: **3000**
         + (object) - Variation object
@@ -261,21 +261,21 @@ product subresources directly at this resource, such as product images, variatio
                 + `^width|height|length$` (object) - Package width, height and length
                     + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                     + `unit`: cm (enum) - Unit of measurement
-                        + mm (string)
-                        + cm (string)
-                        + m (string)
-                        + ft (string)
-                        + in (string)
-                        + yd (string)
-                        + mi (string)
+                        + `mm` (string)
+                        + `cm` (string)
+                        + `m` (string)
+                        + `ft` (string)
+                        + `in` (string)
+                        + `yd` (string)
+                        + `mi` (string)
             + `weight` (object) - Package weight for freight calculation
                 + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                 + `unit`: g (enum) - Unit of measurement
-                    + mg (string)
-                    + g (string)
-                    + kg (string)
-                    + lb (string)
-                    + oz (string)
+                    + `mg` (string)
+                    + `g` (string)
+                    + `kg` (string)
+                    + `lb` (string)
+                    + `oz` (string)
             + `specifications` (object, required) - Variation attributes and technical specifications - Min properties: **1** - Max properties: **20**
                 + `material` (object) - Attribute to describe the main fabric or material that your product is made of
                     + `text` (string, required) - Text displayed for the client describing the attribute - Max length: **200**
@@ -320,8 +320,8 @@ product subresources directly at this resource, such as product images, variatio
         + `label` (string) - Name of payment method or other label describing applicable discount - Max length: **50**
         + `payment_method_id` (string) - Specify ID if this discount is for an specific payment method - RegEx pattern: **`^[a-f0-9]{24}$`**
         + `type`: percentage (enum) - Discount type
-            + percentage (string)
-            + fixed (string)
+            + `percentage` (string)
+            + `fixed` (string)
         + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
     + `progressive_discount` (object) - Progressive discounts options, product quantity as property name - Min properties: **1** - Max properties: **100**
         + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
@@ -331,8 +331,8 @@ product subresources directly at this resource, such as product images, variatio
             + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
             + `description` (string) - Some optional notes to describe for what this discount is intended - Max length: **255**
             + `type`: percentage (enum) - Discount type
-                + percentage (string)
-                + fixed (string)
+                + `percentage` (string)
+                + `fixed` (string)
             + `discount` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
     + `buy_together` (array) - Buy together options - Max elements: **20**
         + (object) - This product and others composing buy together, product ID as property name
@@ -340,8 +340,8 @@ product subresources directly at this resource, such as product images, variatio
                 + `quantity` (number, required) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
                 + `discount` (object) - Discount object
                     + `type`: percentage (enum) - Discount type
-                        + percentage (string)
-                        + fixed (string)
+                        + `percentage` (string)
+                        + `fixed` (string)
                     + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
     + `loyalty_points` (object) - Specify how many and what type of loyalty points a customer receives
         + `name` (string) - The name of the loyalty points program - Max length: **50**
@@ -354,8 +354,8 @@ product subresources directly at this resource, such as product images, variatio
             + `icon` (string) - Payment icon image URI - Max length: **255** - Format: **uri**
             + `discount` (object) - Discount object
                 + `type`: percentage (enum) - Discount type
-                    + percentage (string)
-                    + fixed (string)
+                    + `percentage` (string)
+                    + `fixed` (string)
                 + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `installments` (object) - Installment options, installments number as property name - Min properties: **1** - Max properties: **100**
                 + `^([2-9]|([1-9][0-9]{1,3}))$` (object) - Installment option object
@@ -400,7 +400,7 @@ product subresources directly at this resource, such as product images, variatio
             + `quantity` (number) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
             + `label` (string) - Label shown to customer, if you want to use a title other than the product name - Max length: **255**
             + `has_variations`: false (boolean) - If this product has variations
-            + `variation_id` (string) - ID to specify a variation if has_variations is true, it's optional - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `variation_id` (string) - ID to specify a variation if `has_variations` is true, it's optional - RegEx pattern: **`^[a-f0-9]{24}$`**
     + `parent_item_id` (string) - Parent product ID, if this product is contained by another (a kit) - RegEx pattern: **`^[a-f0-9]{24}$`**
     + `related_products` (array) - Lists of related products - Max elements: **30**
         + (object) - A list with products related to this
@@ -419,12 +419,12 @@ product subresources directly at this resource, such as product images, variatio
         + `logo` (string) - Image link to shop's logo - Max length: **255** - Format: **uri**
         + `description` (string) - Short description of shop - Max length: **255**
         + `doc_type` (enum) - Responsible person or organization document type
-            + CPF (string)
-            + CNPJ (string)
+            + `CPF` (string)
+            + `CNPJ` (string)
         + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
         + `inscription_type` (enum) - Municipal or state registration if exists
-            + State (string)
-            + Municipal (string)
+            + `State` (string)
+            + `Municipal` (string)
         + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
         + `corporate_name` (string) - Registered company name or responsible fullname - Max length: **255**
         + `address` (string) - Full registered address of company - Max length: **255**

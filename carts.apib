@@ -15,11 +15,11 @@ cart subresources directly at this resource
     + `mobile_link` (string) - Optional URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status` (string) - Status defined by seller - Max length: **50**
     + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
-        + `source` (string) - Parameter "utm_source", the referrer: (e.g. google, newsletter) - Max length: **100**
-        + `medium` (string) - Parameter "utm_medium", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
-        + `campaign` (string) - Parameter "utm_campaign", the product, promo code, or slogan (e.g. spring_sale) - Max length: **200**
-        + `term` (string) - Parameter "utm_term", identifies the paid keywords - Max length: **100**
-        + `content` (string) - Parameter "utm_content", used to differentiate ads - Max length: **255**
+        + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
+        + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
+        + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
+        + `term` (string) - Parameter "`utm_term`", identifies the paid keywords - Max length: **100**
+        + `content` (string) - Parameter "`utm_content`", used to differentiate ads - Max length: **255**
     + `referring_site` (string) - The website that the customer clicked on to come to the shop - Max length: **255** - Format: **uri**
     + `affiliate_code` (string) - Code to identify the affiliate that referred the customer - Max length: **200**
     + `gifts_list_owner_id` (string) - If cart is originated from a gifts list, specify customer ID who will receive the gift - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -45,8 +45,8 @@ cart subresources directly at this resource
                     + `attachment` (string) - URL of file attached by customer to this field - Max length: **255** - Format: **uri**
                     + `add_to_price` (object) - Price alteration due to this customization
                         + `type`: percentage (enum) - Type of price addition
-                            + percentage (string)
-                            + fixed (string)
+                            + `percentage` (string)
+                            + `fixed` (string)
                         + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `gift_wrap` (object) - Gift wrap chosen by customer
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
@@ -61,12 +61,12 @@ cart subresources directly at this resource
     + `subtotal` (number, required) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
     + `discount` (object) - Default discount to be applied
         + `apply_at`: subtotal (enum) - In which value the discount will be applied at checkout
-            + total (string)
-            + subtotal (string)
-            + freight (string)
+            + `total` (string)
+            + `subtotal` (string)
+            + `freight` (string)
         + `type`: percentage (enum) - Discount type
-            + percentage (string)
-            + fixed (string)
+            + `percentage` (string)
+            + `fixed` (string)
         + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
     + `orders` (array) - List of orders completed with this cart - Max elements: **3000**
         + (string) - Order ID

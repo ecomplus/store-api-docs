@@ -1,53 +1,39 @@
-## Group Categories
+## Group Collections
 
-`.categories`
+`.collections`
 
-Use the **categories** resource to create, read, update and delete categories (taxonomy) in
-a merchant's store, you can edit all category properties and also work with all
-category subresources directly at this resource
+Use the **collections** resource to create, read, update and delete groups of products in
+a merchant's store, you can edit all collection properties and also work with all
+collection subresources directly at this resource
 
-### Category Object [/categories/schema.json]
+### Collection Object [/collections/schema.json]
 
 + Attributes (object)
-    + `name` (string, required) - Category full name - Max length: **255**
-    + `i18n` (object) - Category name translations - Min properties: **1** - Max properties: **10**
-        + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full category name - Max length: **255**
+    + `name` (string, required) - Collection full name - Max length: **255**
+    + `i18n` (object) - Collection name translations - Min properties: **1** - Max properties: **10**
+        + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full collection name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
-    + `permalink` (string) - Permanent URL to category page - Max length: **255** - Format: **uri**
+    + `permalink` (string) - Permanent URL to collection page - Max length: **255** - Format: **uri**
     + `mobile_link` (string) - Optional URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `short_description` (string) - Short category description in plain text - Max length: **255**
-    + `body_html` (string) - Full category description, may use HTML tags - Max length: **250000**
-    + `body_text` (string) - Full category description, plain text only - Max length: **250000**
+    + `short_description` (string) - Short collection description in plain text - Max length: **255**
+    + `body_html` (string) - Full collection description, may use HTML tags - Max length: **250000**
+    + `body_text` (string) - Full collection description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
     + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
-    + `parent` (object) - Category parent (above) of this category
-        + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-        + `name` (string, required) - Category name - Max length: **255**
-        + `slug` (string) - Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
-    + `childs` (array) - List of categories daughters of this category - Max elements: **200**
-        + (object) - Child category
-            + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `name` (string, required) - Category name - Max length: **255**
-            + `slug` (string) - Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
-    + `grids` (object) - Grids for results filtering and products composition, `grid_id` as property name - Min properties: **1** - Max properties: **200**
-        + `^[a-z0-9_]{2,30}$` (object) - Grid properties
-            + `_id` (string) - Grid object ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `title` (string, required) - Grid title - Max length: **70**
-            + `is_filter`: false (boolean) - Grid used to results filtering (search aggregations)
-    + `icon` (object) - Category icon image
+    + `products` (array) - List of collection products - Max elements: **3000**
+        + (string) - Product ID
+    + `icon` (object) - Collection icon image
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
-    + `pictures` (array) - List of category images - Max elements: **50**
+    + `pictures` (array) - List of collection images - Max elements: **50**
         + (object) - Image object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
             + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
             + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
             + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
-    + `ml_category_id` (string) - Mercado Libre Taxonomy: https://api.mercadolibre.com/sites/MLB/categories - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**
-    + `google_product_category_id` (number) - Google Taxonomy: https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt - Mininum: **1** - Maximum: **999999999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -56,7 +42,7 @@ category subresources directly at this resource
             + `value` (string, required) - Custom property value - Max length: **255**
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
-    + `notes` (string) - Optional notes with additional info about this category - Max length: **255**
+    + `notes` (string) - Optional notes with additional info about this collection - Max length: **255**
 
 #### JSON Schema [GET]
 
@@ -72,8 +58,8 @@ category subresources directly at this resource
 
             {
                 "$schema": "http://json-schema.org/draft-06/schema#",
-                "title": "Categories",
-                "description": "Category object model",
+                "title": "Collections",
+                "description": "Collection object model",
                 "type": "object",
                 "required": [
                     "name"
@@ -83,7 +69,7 @@ category subresources directly at this resource
                     "name": {
                         "type": "string",
                         "maxLength": 255,
-                        "description": "Category full name"
+                        "description": "Collection full name"
                     },
                     "i18n": {
                         "type": "object",
@@ -94,10 +80,10 @@ category subresources directly at this resource
                             "^[a-z]{2}(_[a-z]{2})?$": {
                                 "type": "string",
                                 "maxLength": 255,
-                                "description": "Translated full category name"
+                                "description": "Translated full collection name"
                             }
                         },
-                        "description": "Category name translations"
+                        "description": "Collection name translations"
                     },
                     "subtitle": {
                         "type": "string",
@@ -114,7 +100,7 @@ category subresources directly at this resource
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "Permanent URL to category page"
+                        "description": "Permanent URL to collection page"
                     },
                     "mobile_link": {
                         "type": "string",
@@ -125,17 +111,17 @@ category subresources directly at this resource
                     "short_description": {
                         "type": "string",
                         "maxLength": 255,
-                        "description": "Short category description in plain text"
+                        "description": "Short collection description in plain text"
                     },
                     "body_html": {
                         "type": "string",
                         "maxLength": 250000,
-                        "description": "Full category description, may use HTML tags"
+                        "description": "Full collection description, may use HTML tags"
                     },
                     "body_text": {
                         "type": "string",
                         "maxLength": 250000,
-                        "description": "Full category description, plain text only"
+                        "description": "Full collection description, plain text only"
                     },
                     "meta_title": {
                         "type": "string",
@@ -147,96 +133,16 @@ category subresources directly at this resource
                         "maxLength": 255,
                         "description": "Meta description tag for page SEO"
                     },
-                    "parent": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "name"
-                        ],
-                        "properties": {
-                            "_id": {
-                                "type": "string",
-                                "pattern": "^[a-f0-9]{24}$",
-                                "description": "Category ID"
-                            },
-                            "name": {
-                                "type": "string",
-                                "maxLength": 255,
-                                "description": "Category name"
-                            },
-                            "slug": {
-                                "type": "string",
-                                "maxLength": 255,
-                                "pattern": "^[a-z0-9]([a-z0-9-_./]+)?$",
-                                "description": "Category page slug"
-                            }
-                        },
-                        "description": "Category parent (above) of this category"
-                    },
-                    "childs": {
+                    "products": {
                         "type": "array",
-                        "maxItems": 200,
+                        "uniqueItems": true,
+                        "maxItems": 3000,
                         "items": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "name"
-                            ],
-                            "properties": {
-                                "_id": {
-                                    "type": "string",
-                                    "pattern": "^[a-f0-9]{24}$",
-                                    "description": "Category ID"
-                                },
-                                "name": {
-                                    "type": "string",
-                                    "maxLength": 255,
-                                    "description": "Category name"
-                                },
-                                "slug": {
-                                    "type": "string",
-                                    "maxLength": 255,
-                                    "pattern": "^[a-z0-9]([a-z0-9-_./]+)?$",
-                                    "description": "Category page slug"
-                                }
-                            },
-                            "description": "Child category"
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{24}$",
+                            "description": "Product ID"
                         },
-                        "description": "List of categories daughters of this category"
-                    },
-                    "grids": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "minProperties": 1,
-                        "maxProperties": 200,
-                        "patternProperties": {
-                            "^[a-z0-9_]{2,30}$": {
-                                "type": "object",
-                                "required": [
-                                    "title"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                    "_id": {
-                                        "type": "string",
-                                        "pattern": "^[a-f0-9]{24}$",
-                                        "description": "Grid object ID"
-                                    },
-                                    "title": {
-                                        "type": "string",
-                                        "maxLength": 70,
-                                        "description": "Grid title"
-                                    },
-                                    "is_filter": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Grid used to results filtering (search aggregations)"
-                                    }
-                                },
-                                "description": "Grid properties"
-                            }
-                        },
-                        "description": "Grids for results filtering and products composition, grid_id as property name"
+                        "description": "List of collection products"
                     },
                     "icon": {
                         "type": "object",
@@ -263,7 +169,7 @@ category subresources directly at this resource
                                 "description": "Alternative text, HTML alt tag (important for SEO)"
                             }
                         },
-                        "description": "Category icon image"
+                        "description": "Collection icon image"
                     },
                     "pictures": {
                         "type": "array",
@@ -307,18 +213,7 @@ category subresources directly at this resource
                             },
                             "description": "Image object"
                         },
-                        "description": "List of category images"
-                    },
-                    "ml_category_id": {
-                        "type": "string",
-                        "pattern": "^ML[A-Z][0-9]{2,9}$",
-                        "description": "Mercado Libre Taxonomy: https://api.mercadolibre.com/sites/MLB/categories"
-                    },
-                    "google_product_category_id": {
-                        "type": "integer",
-                        "minimum": 1,
-                        "maximum": 999999999999,
-                        "description": "Google Taxonomy: https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt"
+                        "description": "List of collection images"
                     },
                     "metafields": {
                         "type": "array",
@@ -370,14 +265,14 @@ category subresources directly at this resource
                     "notes": {
                         "type": "string",
                         "maxLength": 255,
-                        "description": "Optional notes with additional info about this category"
+                        "description": "Optional notes with additional info about this collection"
                     }
                 }
             }
 
-### All Categories [/categories.json{?limit,offset,sort,fields}]
+### All Collections [/collections.json{?limit,offset,sort,fields}]
 
-*/categories.json?limit&offset&sort&fields&[field]*
+*/collections.json?limit&offset&sort&fields&[field]*
 
 > Authentication<br>_GET_: **none**
 
@@ -385,7 +280,7 @@ Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
 by particular object properties
 
-#### List All Store Categories [GET /categories.json]
+#### List All Store Collections [GET /collections.json]
 
 + Request (application/json)
 
@@ -511,7 +406,7 @@ by particular object properties
               ]
             }
 
-#### Find Categories [GET /categories.json{?slug}]
+#### Find Collections [GET /collections.json{?slug}]
 
 + Parameters
     + `slug`: `category-four` (string, optional) - Object property to query
@@ -549,7 +444,7 @@ by particular object properties
               ]
             }
 
-### New Category [/categories.json]
+### New Collection [/collections.json]
 
 */categories.json*
 
@@ -558,7 +453,7 @@ by particular object properties
 Request body must obey the specifications of
 [this model](#reference/categories/category-object)
 
-#### Create New Category [POST]
+#### Create New Collection [POST]
 
 + Request (application/json)
 
@@ -941,9 +836,9 @@ Request body must obey the specifications of
               "_id": "f10000000000000000000001"
             }
 
-### Specific Category [/categories/{_id}.json]
+### Specific Collection [/collections/{_id}.json]
 
-*/categories/[_id].json*
+*/collections/[_id].json*
 
 > Authentication<br>_GET_: **none**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
@@ -953,10 +848,10 @@ In read requests, response body will follow
 For overwriting and editing, request body must obey the same specifications,
 but especially for edit requests there are no required fields
 
-#### Read Category [GET]
+#### Read Collections [GET]
 
 + Parameters
-    + _id: f10000000000000000000001 (string, required) - The category ID
+    + _id: f10000000000000000000001 (string, required) - The collection ID
 
 + Request (application/json)
 
@@ -1028,10 +923,10 @@ but especially for edit requests there are no required fields
               ]
             }
 
-#### Edit Category [PATCH]
+#### Edit Collection [PATCH]
 
 + Parameters
-    + _id: f10000000000000000000001 (string, required) - The category ID
+    + _id: f10000000000000000000001 (string, required) - The collection ID
 
 + Request (application/json)
 
@@ -1356,10 +1251,10 @@ but especially for edit requests there are no required fields
 
 + Response 204
 
-#### Overwrite Category [PUT]
+#### Overwrite Collection [PUT]
 
 + Parameters
-    + _id: f10000000000000000000001 (string, required) - The category ID
+    + _id: f10000000000000000000001 (string, required) - The collection ID
 
 + Request (application/json)
 
@@ -1725,10 +1620,10 @@ but especially for edit requests there are no required fields
 
 + Response 204
 
-#### Remove Category [DELETE]
+#### Remove Collection [DELETE]
 
 + Parameters
-    + _id: f10000000000000000000001 (string, required) - The category ID
+    + _id: f10000000000000000000001 (string, required) - The collection ID
 
 + Request (application/json)
 
