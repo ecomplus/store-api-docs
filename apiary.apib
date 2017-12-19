@@ -565,7 +565,7 @@ product subresources directly at this resource, such as product images, variatio
                             + `fixed` (string)
                         + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `custom_value`: true (boolean) - If this field accept custom value defined by customer
-            + `attachment`: true (boolean) - If this field accept customer file attachment
+            + `attachment`: false (boolean) - If this field accept customer file attachment
             + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
@@ -1823,7 +1823,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -4236,7 +4236,7 @@ Request body must obey the specifications of
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -6937,7 +6937,7 @@ but especially for edit requests there are no required fields
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -9285,7 +9285,7 @@ but especially for edit requests there are no required fields
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -14005,7 +14005,7 @@ by particular object properties
                 "sort": [
                   {
                     "field": "slug",
-                    "order": -1
+                    "order": 1
                   }
                 ],
                 "fields": [
@@ -14068,7 +14068,7 @@ by particular object properties
 
 ### New Collection [/collections.json]
 
-*/categories.json*
+*/collections.json*
 
 > Authentication<br>_POST_: **required**
 
@@ -14851,14 +14851,13 @@ but especially for edit requests there are no required fields
     + Body
 
             {
-              "name": "Special collection",
+              "name": "Special items collection",
               "slug": "special-collection",
               "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               "meta_title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
               "meta_description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
               "products": [
-                "1234567890abcdef01291510",
-                "1234567890abcdef01291511"
+                "1234567890abcdef01291510"
               ],
               "pictures": [
                 {
@@ -14877,6 +14876,1350 @@ but especially for edit requests there are no required fields
 
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204
+
+## Group Grids
+
+`.grids`
+
+Use the **grids** resource to create, read, update and delete product grids in
+a merchant's store, you can edit all grid properties and also work with all
+grid subresources directly at this resource
+
+### Grid Object [/grids/schema.json]
+
++ Attributes (object)
+    + `title` (string, required) - Grid title - Max length: **70**
+    + `i18n` (object) - Grid title translations - Min properties: **1** - Max properties: **10**
+        + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full grid title - Max length: **255**
+    + `grid_id` (string, required) - Unique identifier, grid name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
+    + `options` (array) - Pre-defined options for this grid, used in specifications, customization and variations - Max elements: **3000**
+        + (object) - Option object
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `option_id` (string, required) - Unique identifier, option name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
+            + `text` (string, required) - Option text value displayed for the client - Max length: **255**
+            + `value` (string) - Default normalized value to use in integrations - Max length: **200**
+            + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Min properties: **1** - Max properties: **5**
+                + `^[a-z0-9_]{2,30}$` (string) - Attribute text value - Max length: **200**
+            + `colors` (array) - Option color palette (if the grid involves colors), starting by main color - Max elements: **4**
+                + (object) - Color object
+                    + `text` (string, required) - Color name - Max length: **50**
+                    + `rgb` (string) - RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
+            + `add_to_price` (object) - Default price alteration for product with this option for customization or variations
+                + `type`: percentage (enum) - Type of price addition
+                    + `percentage` (string)
+                    + `fixed` (string)
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+    + `custom_value`: false (boolean) - If this grid accept custom value defined by customer (product customization)
+    + `attachment`: false (boolean) - If this grid accept customer file attachment
+    + `add_to_price` (object) - Default price alteration for product with this grid for customization or variations
+        + `type`: percentage (enum) - Type of price addition
+            + `percentage` (string)
+            + `fixed` (string)
+        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+    + `metafields` (array) - List of custom attributes - Max elements: **100**
+        + (object) - Custom attribute object
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `namespace` (string) - String to help distinguish who (or which app) created and can use the metafield - Max length: **30**
+            + `field` (string) - Field name - Max length: **50**
+            + `value` (string, required) - Custom property value - Max length: **255**
+    + `flags` (array) - Flags to associate additional info - Max elements: **10**
+        + (string) - Flag title
+    + `notes` (string) - Optional notes with additional info about this grid - Max length: **255**
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Grids",
+                "description": "Grid object model",
+                "type": "object",
+                "required": [
+                    "title",
+                    "grid_id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Grid title"
+                    },
+                    "i18n": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 10,
+                        "patternProperties": {
+                            "^[a-z]{2}(_[a-z]{2})?$": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Translated full grid title"
+                            }
+                        },
+                        "description": "Grid title translations"
+                    },
+                    "grid_id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]{2,30}$",
+                        "description": "Unique identifier, grid name using only lowercase, numbers and underscore"
+                    },
+                    "options": {
+                        "type": "array",
+                        "maxItems": 3000,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "_id",
+                                "option_id",
+                                "text"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "option_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9_]{2,30}$",
+                                    "description": "Unique identifier, option name using only lowercase, numbers and underscore"
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Option text value displayed for the client"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "description": "Default normalized value to use in integrations"
+                                },
+                                "external_values": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 5,
+                                    "patternProperties": {
+                                        "^[a-z0-9_]{2,30}$": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "description": "Attribute text value"
+                                        }
+                                    },
+                                    "description": "Normalized values to use in specific integrations (ID in property)"
+                                },
+                                "colors": {
+                                    "type": "array",
+                                    "maxItems": 4,
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "text"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "text": {
+                                                "type": "string",
+                                                "maxLength": 50,
+                                                "description": "Color name"
+                                            },
+                                            "rgb": {
+                                                "type": "string",
+                                                "pattern": "^#[a-f0-9]{6}$",
+                                                "description": "RGB code with #"
+                                            }
+                                        },
+                                        "description": "Color object"
+                                    },
+                                    "description": "Option color palette (if the grid involves colors), starting by main color"
+                                },
+                                "add_to_price": {
+                                    "type": "object",
+                                    "required": [
+                                        "addition"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "percentage",
+                                                "fixed"
+                                            ],
+                                            "default": "percentage",
+                                            "description": "Type of price addition"
+                                        },
+                                        "addition": {
+                                            "type": "number",
+                                            "multipleOf": 0.0001,
+                                            "minimum": -99999999,
+                                            "maximum": 99999999,
+                                            "description": "Additional value, could be negative"
+                                        }
+                                    },
+                                    "description": "Default price alteration for product with this option for customization or variations"
+                                }
+                            },
+                            "description": "Option object"
+                        },
+                        "description": "Pre-defined options for this grid, used in specifications, customization and variations"
+                    },
+                    "custom_value": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept custom value defined by customer (product customization)"
+                    },
+                    "attachment": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept customer file attachment"
+                    },
+                    "add_to_price": {
+                        "type": "object",
+                        "required": [
+                            "addition"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "percentage",
+                                    "fixed"
+                                ],
+                                "default": "percentage",
+                                "description": "Type of price addition"
+                            },
+                            "addition": {
+                                "type": "number",
+                                "multipleOf": 0.0001,
+                                "minimum": -99999999,
+                                "maximum": 99999999,
+                                "description": "Additional value, could be negative"
+                            }
+                        },
+                        "description": "Default price alteration for product with this grid for customization or variations"
+                    },
+                    "metafields": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id",
+                                "value"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "namespace": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "description": "String to help distinguish who (or which app) created and can use the metafield"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Field name"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Custom property value"
+                                }
+                            },
+                            "description": "Custom attribute object"
+                        },
+                        "description": "List of custom attributes"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this grid"
+                    }
+                }
+            }
+
+### All Grids [/grids.json{?limit,offset,sort,fields}]
+
+*/grids.json?limit&offset&sort&fields&[field]*
+
+> Authentication<br>_GET_: **none**
+
+Use [default URL parameters](#introduction/overview/url-params) (metadata)
+for pagination and ordering, you can use any other parameter to query
+by particular object properties
+
+#### List All Store Grids [GET /grids.json]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 1000,
+                "offset": 0,
+                "sort": [],
+                "fields": [
+                  "_id",
+                  "title",
+                  "grid_id"
+                ],
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "9d1500000000000000001110",
+                  "title": "Custom grid",
+                  "grid_id": "custom_grid"
+                },
+                {
+                  "_id": "9d1500000000000000001111",
+                  "title": "Smartphone model",
+                  "grid_id": "smartphone_model"
+                },
+                {
+                  "_id": "9d1500000000000000001112",
+                  "title": "Include glass film",
+                  "grid_id": "glass_film"
+                },
+                {
+                  "_id": "9d1500000000000000001113",
+                  "title": "Gender",
+                  "grid_id": "gender"
+                },
+                {
+                  "_id": "9d1500000000000000001114",
+                  "title": "Shirt size",
+                  "grid_id": "size"
+                },
+                {
+                  "_id": "9d1500000000000000001115",
+                  "title": "Colors",
+                  "grid_id": "colors"
+                }
+              ]
+            }
+
+#### Pagination And Ordering [GET]
+
++ Parameters
+    + limit: 2 (number, optional) - Max number of objects to return
+    + offset: 4 (number, optional) - First entry to return
+    + sort: `grid_id` (string, optional) - Rules to order resultant objects
+    + fields: `grid_id,options` (string, optional) - Object properties to return
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 2,
+                "offset": 4,
+                "sort": [
+                  {
+                    "field": "grid_id",
+                    "order": 1
+                  }
+                ],
+                "fields": [
+                  "grid_id",
+                  "options"
+                ],
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "9d1500000000000000001112",
+                  "grid_id": "glass_film",
+                  "options": [
+                    {
+                      "_id": "9d1500000000000000000031",
+                      "option_id": "add_glass_film",
+                      "text": "Add glass film",
+                      "add_to_price": {
+                        "type": "fixed",
+                        "addition": 10.00
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_id": "9d1500000000000000001111",
+                  "grid_id": "smartphone_model",
+                  "options": [
+                    {
+                      "_id": "9d1500000000000000000032",
+                      "option_id": "iphone_se",
+                      "text": "iPhone SE"
+                    },
+                    {
+                      "_id": "9d1500000000000000000033",
+                      "option_id": "galaxy_s7",
+                      "text": "Galaxy S7"
+                    },
+                    {
+                      "_id": "9d1500000000000000000034",
+                      "option_id": "k10_power",
+                      "text": "K10 Power"
+                    }
+                  ]
+                }
+              ]
+            }
+
+#### Find Grids [GET /grids.json{?grid_id}]
+
++ Parameters
+    + `grid_id`: `size` (string, optional) - Object property to query
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 1000,
+                "offset": 0,
+                "sort": [],
+                "fields": [
+                  "_id",
+                  "title",
+                  "grid_id"
+                ],
+                "query": {
+                  "grid_id": "size"
+                }
+              },
+              "result": [
+                {
+                  "_id": "9d1500000000000000001114",
+                  "title": "Shirt size",
+                  "grid_id": "size"
+                }
+              ]
+            }
+
+### New Grid [/grids.json]
+
+*/grids.json*
+
+> Authentication<br>_POST_: **required**
+
+Request body must obey the specifications of
+[this model](#reference/grids/grid-object)
+
+#### Create New Grid [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Grids",
+                "description": "Grid object model",
+                "type": "object",
+                "required": [
+                    "title",
+                    "grid_id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Grid title"
+                    },
+                    "i18n": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 10,
+                        "patternProperties": {
+                            "^[a-z]{2}(_[a-z]{2})?$": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Translated full grid title"
+                            }
+                        },
+                        "description": "Grid title translations"
+                    },
+                    "grid_id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]{2,30}$",
+                        "description": "Unique identifier, grid name using only lowercase, numbers and underscore"
+                    },
+                    "options": {
+                        "type": "array",
+                        "maxItems": 3000,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "_id",
+                                "option_id",
+                                "text"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "option_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9_]{2,30}$",
+                                    "description": "Unique identifier, option name using only lowercase, numbers and underscore"
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Option text value displayed for the client"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "description": "Default normalized value to use in integrations"
+                                },
+                                "external_values": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 5,
+                                    "patternProperties": {
+                                        "^[a-z0-9_]{2,30}$": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "description": "Attribute text value"
+                                        }
+                                    },
+                                    "description": "Normalized values to use in specific integrations (ID in property)"
+                                },
+                                "colors": {
+                                    "type": "array",
+                                    "maxItems": 4,
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "text"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "text": {
+                                                "type": "string",
+                                                "maxLength": 50,
+                                                "description": "Color name"
+                                            },
+                                            "rgb": {
+                                                "type": "string",
+                                                "pattern": "^#[a-f0-9]{6}$",
+                                                "description": "RGB code with #"
+                                            }
+                                        },
+                                        "description": "Color object"
+                                    },
+                                    "description": "Option color palette (if the grid involves colors), starting by main color"
+                                },
+                                "add_to_price": {
+                                    "type": "object",
+                                    "required": [
+                                        "addition"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "percentage",
+                                                "fixed"
+                                            ],
+                                            "default": "percentage",
+                                            "description": "Type of price addition"
+                                        },
+                                        "addition": {
+                                            "type": "number",
+                                            "multipleOf": 0.0001,
+                                            "minimum": -99999999,
+                                            "maximum": 99999999,
+                                            "description": "Additional value, could be negative"
+                                        }
+                                    },
+                                    "description": "Default price alteration for product with this option for customization or variations"
+                                }
+                            },
+                            "description": "Option object"
+                        },
+                        "description": "Pre-defined options for this grid, used in specifications, customization and variations"
+                    },
+                    "custom_value": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept custom value defined by customer (product customization)"
+                    },
+                    "attachment": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept customer file attachment"
+                    },
+                    "add_to_price": {
+                        "type": "object",
+                        "required": [
+                            "addition"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "percentage",
+                                    "fixed"
+                                ],
+                                "default": "percentage",
+                                "description": "Type of price addition"
+                            },
+                            "addition": {
+                                "type": "number",
+                                "multipleOf": 0.0001,
+                                "minimum": -99999999,
+                                "maximum": 99999999,
+                                "description": "Additional value, could be negative"
+                            }
+                        },
+                        "description": "Default price alteration for product with this grid for customization or variations"
+                    },
+                    "metafields": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id",
+                                "value"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "namespace": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "description": "String to help distinguish who (or which app) created and can use the metafield"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Field name"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Custom property value"
+                                }
+                            },
+                            "description": "Custom attribute object"
+                        },
+                        "description": "List of custom attributes"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this grid"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "title": "Smartphone model",
+              "grid_id": "smartphone_model",
+              "options": [
+                {
+                  "_id": "9d1500000000000000000032",
+                  "option_id": "iphone_se",
+                  "text": "iPhone SE"
+                },
+                {
+                  "_id": "9d1500000000000000000033",
+                  "option_id": "galaxy_s7",
+                  "text": "Galaxy S7"
+                },
+                {
+                  "_id": "9d1500000000000000000034",
+                  "option_id": "k10_power",
+                  "text": "K10 Power"
+                }
+              ],
+              "custom_value": false
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "9d1500000000000000001111"
+            }
+
+### Specific Grid [/grids/{_id}.json]
+
+*/grids/[_id].json*
+
+> Authentication<br>_GET_: **none**<br>_PATCH_, _PUT_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/grids/grid-object)
+
+For overwriting and editing, request body must obey the same specifications,
+but especially for edit requests there are no required fields
+
+#### Read Grid [GET]
+
++ Parameters
+    + _id: 9d1500000000000000001111 (string, required) - The grid ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "9d1500000000000000001111",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "title": "Smartphone model",
+              "grid_id": "smartphone_model",
+              "options": [
+                {
+                  "_id": "9d1500000000000000000032",
+                  "option_id": "iphone_se",
+                  "text": "iPhone SE"
+                },
+                {
+                  "_id": "9d1500000000000000000033",
+                  "option_id": "galaxy_s7",
+                  "text": "Galaxy S7"
+                },
+                {
+                  "_id": "9d1500000000000000000034",
+                  "option_id": "k10_power",
+                  "text": "K10 Power"
+                }
+              ],
+              "custom_value": false,
+              "attachment": false
+            }
+
+#### Edit Grid [PATCH]
+
++ Parameters
+    + _id: 9d1500000000000000001111 (string, required) - The grid ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Grids",
+                "description": "Grid object model",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Grid title"
+                    },
+                    "i18n": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 10,
+                        "patternProperties": {
+                            "^[a-z]{2}(_[a-z]{2})?$": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Translated full grid title"
+                            }
+                        },
+                        "description": "Grid title translations"
+                    },
+                    "grid_id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]{2,30}$",
+                        "description": "Unique identifier, grid name using only lowercase, numbers and underscore"
+                    },
+                    "options": {
+                        "type": "array",
+                        "maxItems": 3000,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "_id",
+                                "option_id",
+                                "text"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "option_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9_]{2,30}$",
+                                    "description": "Unique identifier, option name using only lowercase, numbers and underscore"
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Option text value displayed for the client"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "description": "Default normalized value to use in integrations"
+                                },
+                                "external_values": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 5,
+                                    "patternProperties": {
+                                        "^[a-z0-9_]{2,30}$": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "description": "Attribute text value"
+                                        }
+                                    },
+                                    "description": "Normalized values to use in specific integrations (ID in property)"
+                                },
+                                "colors": {
+                                    "type": "array",
+                                    "maxItems": 4,
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "text"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "text": {
+                                                "type": "string",
+                                                "maxLength": 50,
+                                                "description": "Color name"
+                                            },
+                                            "rgb": {
+                                                "type": "string",
+                                                "pattern": "^#[a-f0-9]{6}$",
+                                                "description": "RGB code with #"
+                                            }
+                                        },
+                                        "description": "Color object"
+                                    },
+                                    "description": "Option color palette (if the grid involves colors), starting by main color"
+                                },
+                                "add_to_price": {
+                                    "type": "object",
+                                    "required": [
+                                        "addition"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "percentage",
+                                                "fixed"
+                                            ],
+                                            "default": "percentage",
+                                            "description": "Type of price addition"
+                                        },
+                                        "addition": {
+                                            "type": "number",
+                                            "multipleOf": 0.0001,
+                                            "minimum": -99999999,
+                                            "maximum": 99999999,
+                                            "description": "Additional value, could be negative"
+                                        }
+                                    },
+                                    "description": "Default price alteration for product with this option for customization or variations"
+                                }
+                            },
+                            "description": "Option object"
+                        },
+                        "description": "Pre-defined options for this grid, used in specifications, customization and variations"
+                    },
+                    "custom_value": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept custom value defined by customer (product customization)"
+                    },
+                    "attachment": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept customer file attachment"
+                    },
+                    "add_to_price": {
+                        "type": "object",
+                        "required": [
+                            "addition"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "percentage",
+                                    "fixed"
+                                ],
+                                "default": "percentage",
+                                "description": "Type of price addition"
+                            },
+                            "addition": {
+                                "type": "number",
+                                "multipleOf": 0.0001,
+                                "minimum": -99999999,
+                                "maximum": 99999999,
+                                "description": "Additional value, could be negative"
+                            }
+                        },
+                        "description": "Default price alteration for product with this grid for customization or variations"
+                    },
+                    "metafields": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id",
+                                "value"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "namespace": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "description": "String to help distinguish who (or which app) created and can use the metafield"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Field name"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Custom property value"
+                                }
+                            },
+                            "description": "Custom attribute object"
+                        },
+                        "description": "List of custom attributes"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this grid"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "custom_value": true
+            }
+
++ Response 204
+
+#### Overwrite Grid [PUT]
+
++ Parameters
+    + _id: 9d1500000000000000001111 (string, required) - The grid ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Grids",
+                "description": "Grid object model",
+                "type": "object",
+                "required": [
+                    "title",
+                    "grid_id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Grid title"
+                    },
+                    "i18n": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 10,
+                        "patternProperties": {
+                            "^[a-z]{2}(_[a-z]{2})?$": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Translated full grid title"
+                            }
+                        },
+                        "description": "Grid title translations"
+                    },
+                    "grid_id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]{2,30}$",
+                        "description": "Unique identifier, grid name using only lowercase, numbers and underscore"
+                    },
+                    "options": {
+                        "type": "array",
+                        "maxItems": 3000,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "_id",
+                                "option_id",
+                                "text"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "option_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9_]{2,30}$",
+                                    "description": "Unique identifier, option name using only lowercase, numbers and underscore"
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Option text value displayed for the client"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "description": "Default normalized value to use in integrations"
+                                },
+                                "external_values": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 5,
+                                    "patternProperties": {
+                                        "^[a-z0-9_]{2,30}$": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "description": "Attribute text value"
+                                        }
+                                    },
+                                    "description": "Normalized values to use in specific integrations (ID in property)"
+                                },
+                                "colors": {
+                                    "type": "array",
+                                    "maxItems": 4,
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "text"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "text": {
+                                                "type": "string",
+                                                "maxLength": 50,
+                                                "description": "Color name"
+                                            },
+                                            "rgb": {
+                                                "type": "string",
+                                                "pattern": "^#[a-f0-9]{6}$",
+                                                "description": "RGB code with #"
+                                            }
+                                        },
+                                        "description": "Color object"
+                                    },
+                                    "description": "Option color palette (if the grid involves colors), starting by main color"
+                                },
+                                "add_to_price": {
+                                    "type": "object",
+                                    "required": [
+                                        "addition"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "percentage",
+                                                "fixed"
+                                            ],
+                                            "default": "percentage",
+                                            "description": "Type of price addition"
+                                        },
+                                        "addition": {
+                                            "type": "number",
+                                            "multipleOf": 0.0001,
+                                            "minimum": -99999999,
+                                            "maximum": 99999999,
+                                            "description": "Additional value, could be negative"
+                                        }
+                                    },
+                                    "description": "Default price alteration for product with this option for customization or variations"
+                                }
+                            },
+                            "description": "Option object"
+                        },
+                        "description": "Pre-defined options for this grid, used in specifications, customization and variations"
+                    },
+                    "custom_value": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept custom value defined by customer (product customization)"
+                    },
+                    "attachment": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "If this grid accept customer file attachment"
+                    },
+                    "add_to_price": {
+                        "type": "object",
+                        "required": [
+                            "addition"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "percentage",
+                                    "fixed"
+                                ],
+                                "default": "percentage",
+                                "description": "Type of price addition"
+                            },
+                            "addition": {
+                                "type": "number",
+                                "multipleOf": 0.0001,
+                                "minimum": -99999999,
+                                "maximum": 99999999,
+                                "description": "Additional value, could be negative"
+                            }
+                        },
+                        "description": "Default price alteration for product with this grid for customization or variations"
+                    },
+                    "metafields": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id",
+                                "value"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "namespace": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "description": "String to help distinguish who (or which app) created and can use the metafield"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Field name"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Custom property value"
+                                }
+                            },
+                            "description": "Custom attribute object"
+                        },
+                        "description": "List of custom attributes"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this grid"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "title": "Smartphone model",
+              "grid_id": "smartphone_model",
+              "options": [
+                {
+                  "_id": "9d1500000000000000000032",
+                  "option_id": "iphone_se",
+                  "text": "iPhone SE"
+                },
+                {
+                  "_id": "9d1500000000000000000033",
+                  "option_id": "galaxy_s7",
+                  "text": "Galaxy S7"
+                },
+                {
+                  "_id": "9d1500000000000000000034",
+                  "option_id": "k10_power",
+                  "text": "K10 Power"
+                },
+                {
+                  "_id": "9d1500000000000000000035",
+                  "option_id": "galaxy_s8",
+                  "text": "Galaxy S8"
+                }
+              ],
+              "custom_value": true
+            }
+
++ Response 204
+
+#### Remove Grid [DELETE]
+
++ Parameters
+    + _id: 9d1500000000000000001111 (string, required) - The grid ID
 
 + Request (application/json)
 
@@ -32148,6 +33491,895 @@ but especially for edit requests there are no required fields
 
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204
+
+## Group Applications
+
+`.apllications`
+
+Use the **apllications** resource to create, read, update and delete apps in
+a merchant's store, you can edit all apllication properties and also work with all
+apllication subresources directly at this resource
+
+### Application Object [/apllications/schema.json]
+
++ Attributes (object)
+    + `app_id` (number, required) - ID of application - Mininum: **1000** - Maximum: **16777215**
+    + `state`: test (enum) - The working state of this app in the shop
+        + `inactive` (string)
+        + `active` (string)
+        + `test` (string)
+    + `title` (string, required) - App title - Max length: **70**
+    + `slug` (string, required) - App unique slug, only lowercase letters, numbers and hyphen - Min length: **3** - Max length: **50** - RegEx pattern: **`^[0-9a-z-]+$`**
+    + `version` (string, required) - Version of the application that was installed, eg.: 1.0.0 - Min length: **5** - Max length: **8** - RegEx pattern: **`^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$`**
+    + `version_date` (string) - When app installation was updated, date and time in ISO 8601 standard representation - Format: **date-time**
+    + `type` (enum, required) - Type of app
+        + `dashboard` (string)
+        + `storefront` (string)
+        + `module_package` (string)
+    + `module` (enum) - If this app is a package of a module, specify the module
+        + `al` (string)
+        + `pd` (string)
+        + `sc` (string)
+        + `sh` (string)
+        + `pa` (string)
+        + `ck` (string)
+        + `cf` (string)
+        + `rg` (string)
+        + `lg` (string)
+        + `ct` (string)
+        + `nw` (string)
+    + `load_events` (array) - If this app is a dashboard or storefront JS, specify resources that trigger the script load - Max elements: **100**
+        + (string) - Resource/Subresources/Third-level/ID
+    + `script_uri` (string) - Script (JS) link - Max length: **255** - Format: **uri**
+    + `github_repository` (string) - Link to GitHub repository - Max length: **255** - Format: **uri**
+    + `status` (string) - Status defined by seller, such as active or waiting - Max length: **50**
+    + `flags` (array) - Flags to associate additional info - Max elements: **10**
+        + (string) - Flag title
+    + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Applications",
+                "description": "App object model",
+                "type": "object",
+                "required": [
+                    "app_id",
+                    "title",
+                    "slug",
+                    "version",
+                    "type"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "app_id": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 16777215,
+                        "description": "ID of application"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "inactive",
+                            "active",
+                            "test"
+                        ],
+                        "default": "test",
+                        "description": "The working state of this app in the shop"
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "App title"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 50,
+                        "pattern": "^[0-9a-z-]+$",
+                        "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "version": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 8,
+                        "pattern": "^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$",
+                        "description": "Version of the application that was installed, eg.: 1.0.0"
+                    },
+                    "version_date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When app installation was updated, date and time in ISO 8601 standard representation"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "dashboard",
+                            "storefront",
+                            "module_package"
+                        ],
+                        "description": "Type of app"
+                    },
+                    "module": {
+                        "type": "string",
+                        "enum": [
+                            "al",
+                            "pd",
+                            "sc",
+                            "sh",
+                            "pa",
+                            "ck",
+                            "cf",
+                            "rg",
+                            "lg",
+                            "ct",
+                            "nw"
+                        ],
+                        "description": "If this app is a package of a module, specify the module"
+                    },
+                    "load_events": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 60,
+                            "pattern": "^(([^/_][a-z0-9/_$+]{1,60}[^/])|[*])$",
+                            "description": "Resource/Subresources/Third-level/ID"
+                        },
+                        "description": "If this app is a dashboard or storefront JS, specify resources that trigger the script load"
+                    },
+                    "script_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Script (JS) link"
+                    },
+                    "github_repository": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Link to GitHub repository"
+                    },
+                    "status": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+### All Applications [/apllications.json{?limit,offset,sort,fields}]
+
+*/apllications.json?limit&offset&sort&fields&[field]*
+
+> Authentication<br>_GET_: **required**
+
+Use [default URL parameters](#introduction/overview/url-params) (metadata)
+for pagination and ordering, you can use any other parameter to query
+by particular object properties
+
+#### List All Store Applications [GET /apllications.json]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 1000,
+                "offset": 0,
+                "sort": [],
+                "fields": [
+                  "_id",
+                  "app_id",
+                  "state",
+                  "version",
+                  "version_date",
+                  "type"
+                ],
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "42aa00000000000000000110",
+                  "app_id": 1001,
+                  "state": "active",
+                  "version": "1.1.1",
+                  "version_date": "2017-11-15T09:15:10Z",
+                  "type": "storefront"
+                },
+                {
+                  "_id": "42aa00000000000000000111",
+                  "app_id": 1002,
+                  "state": "active",
+                  "version": "3.0.0",
+                  "type": "dashboard"
+                },
+                {
+                  "_id": "42aa00000000000000000112",
+                  "app_id": 1003,
+                  "state": "test",
+                  "version": "2.14.0",
+                  "version_date": "2017-11-14T12:00:10Z",
+                  "type": "storefront"
+                },
+                {
+                  "_id": "42aa00000000000000000113",
+                  "app_id": 1004,
+                  "state": "inactive",
+                  "version": "2.0.23",
+                  "version_date": "2017-12-15T00:15:10Z",
+                  "type": "module_package"
+                }
+              ]
+            }
+
+#### Pagination And Ordering [GET]
+
++ Parameters
+    + limit: 3 (number, optional) - Max number of objects to return
+    + offset: 3 (number, optional) - First entry to return
+    + sort: `-version_date` (string, optional) - Rules to order resultant objects
+    + fields: `app_id,title` (string, optional) - Object properties to return
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 3,
+                "offset": 3,
+                "sort": [
+                  {
+                    "field": "version_date",
+                    "order": -1
+                  }
+                ],
+                "fields": [
+                  "app_id",
+                  "title"
+                ],
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "42aa00000000000000000111",
+                  "app_id": 1002,
+                  "title": "Products panel extension"
+                }
+              ]
+            }
+
+#### Find Applications [GET /apllications.json{?apllication_id}]
+
++ Parameters
+    + `app_id`: `1004` (string, optional) - Object property to query
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "limit": 1000,
+                "offset": 0,
+                "sort": [],
+                "fields": [
+                  "_id",
+                  "app_id",
+                  "state",
+                  "version",
+                  "version_date",
+                  "type"
+                ],
+                "query": {
+                  "app_id": 1004
+                }
+              },
+              "result": [
+                {
+                  "_id": "42aa00000000000000000113",
+                  "app_id": 1004,
+                  "state": "inactive",
+                  "version": "2.0.23",
+                  "version_date": "2017-12-15T00:15:10Z",
+                  "type": "module_package"
+                }
+              ]
+            }
+
+### New Application [/apllications.json]
+
+*/apllications.json*
+
+> Authentication<br>_POST_: **required**
+
+Request body must obey the specifications of
+[this model](#reference/applications/application-object)
+
+#### Create New Application [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Applications",
+                "description": "App object model",
+                "type": "object",
+                "required": [
+                    "app_id",
+                    "title",
+                    "slug",
+                    "version",
+                    "type"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "app_id": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 16777215,
+                        "description": "ID of application"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "inactive",
+                            "active",
+                            "test"
+                        ],
+                        "default": "test",
+                        "description": "The working state of this app in the shop"
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "App title"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 50,
+                        "pattern": "^[0-9a-z-]+$",
+                        "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "version": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 8,
+                        "pattern": "^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$",
+                        "description": "Version of the application that was installed, eg.: 1.0.0"
+                    },
+                    "version_date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When app installation was updated, date and time in ISO 8601 standard representation"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "dashboard",
+                            "storefront",
+                            "module_package"
+                        ],
+                        "description": "Type of app"
+                    },
+                    "module": {
+                        "type": "string",
+                        "enum": [
+                            "al",
+                            "pd",
+                            "sc",
+                            "sh",
+                            "pa",
+                            "ck",
+                            "cf",
+                            "rg",
+                            "lg",
+                            "ct",
+                            "nw"
+                        ],
+                        "description": "If this app is a package of a module, specify the module"
+                    },
+                    "load_events": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 60,
+                            "pattern": "^(([^/_][a-z0-9/_$+]{1,60}[^/])|[*])$",
+                            "description": "Resource/Subresources/Third-level/ID"
+                        },
+                        "description": "If this app is a dashboard or storefront JS, specify resources that trigger the script load"
+                    },
+                    "script_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Script (JS) link"
+                    },
+                    "github_repository": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Link to GitHub repository"
+                    },
+                    "status": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "app_id": 1002,
+              "state": "active",
+              "title": "Products panel extension",
+              "slug": "products-panel-ext",
+              "version": "3.0.0",
+              "type": "dashboard",
+              "load_events": [
+                "products"
+              ],
+              "script_uri": "https://sample.mycdn.com/script.min.js"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "42aa00000000000000000111"
+            }
+
+### Specific Application [/apllications/{_id}.json]
+
+*/apllications/[_id].json*
+
+> Authentication<br>_GET_: **optional**<br>_PATCH_, _PUT_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/applications/application-object),
+requests without authentication will receive customer data without `hidden_data` property
+
+For overwriting and editing, request body must obey the same specifications,
+but especially for edit requests there are no required fields
+
+#### Read Application [GET]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "42aa00000000000000000111",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "app_id": 1002,
+              "state": "active",
+              "title": "Products panel extension",
+              "slug": "products-panel-ext",
+              "version": "3.0.0",
+              "type": "dashboard",
+              "load_events": [
+                "products"
+              ],
+              "script_uri": "https://sample.mycdn.com/script.min.js"
+            }
+
+#### Edit Application [PATCH]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Applications",
+                "description": "App object model",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                    "app_id": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 16777215,
+                        "description": "ID of application"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "inactive",
+                            "active",
+                            "test"
+                        ],
+                        "default": "test",
+                        "description": "The working state of this app in the shop"
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "App title"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 50,
+                        "pattern": "^[0-9a-z-]+$",
+                        "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "version": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 8,
+                        "pattern": "^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$",
+                        "description": "Version of the application that was installed, eg.: 1.0.0"
+                    },
+                    "version_date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When app installation was updated, date and time in ISO 8601 standard representation"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "dashboard",
+                            "storefront",
+                            "module_package"
+                        ],
+                        "description": "Type of app"
+                    },
+                    "module": {
+                        "type": "string",
+                        "enum": [
+                            "al",
+                            "pd",
+                            "sc",
+                            "sh",
+                            "pa",
+                            "ck",
+                            "cf",
+                            "rg",
+                            "lg",
+                            "ct",
+                            "nw"
+                        ],
+                        "description": "If this app is a package of a module, specify the module"
+                    },
+                    "load_events": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 60,
+                            "pattern": "^(([^/_][a-z0-9/_$+]{1,60}[^/])|[*])$",
+                            "description": "Resource/Subresources/Third-level/ID"
+                        },
+                        "description": "If this app is a dashboard or storefront JS, specify resources that trigger the script load"
+                    },
+                    "script_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Script (JS) link"
+                    },
+                    "github_repository": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Link to GitHub repository"
+                    },
+                    "status": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "state": "inactive",
+              "status": "paused"
+            }
+
++ Response 204
+
+#### Overwrite Application [PUT]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Applications",
+                "description": "App object model",
+                "type": "object",
+                "required": [
+                    "app_id",
+                    "title",
+                    "slug",
+                    "version",
+                    "type"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "app_id": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 16777215,
+                        "description": "ID of application"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "inactive",
+                            "active",
+                            "test"
+                        ],
+                        "default": "test",
+                        "description": "The working state of this app in the shop"
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "App title"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 50,
+                        "pattern": "^[0-9a-z-]+$",
+                        "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "version": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 8,
+                        "pattern": "^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$",
+                        "description": "Version of the application that was installed, eg.: 1.0.0"
+                    },
+                    "version_date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When app installation was updated, date and time in ISO 8601 standard representation"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "dashboard",
+                            "storefront",
+                            "module_package"
+                        ],
+                        "description": "Type of app"
+                    },
+                    "module": {
+                        "type": "string",
+                        "enum": [
+                            "al",
+                            "pd",
+                            "sc",
+                            "sh",
+                            "pa",
+                            "ck",
+                            "cf",
+                            "rg",
+                            "lg",
+                            "ct",
+                            "nw"
+                        ],
+                        "description": "If this app is a package of a module, specify the module"
+                    },
+                    "load_events": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 60,
+                            "pattern": "^(([^/_][a-z0-9/_$+]{1,60}[^/])|[*])$",
+                            "description": "Resource/Subresources/Third-level/ID"
+                        },
+                        "description": "If this app is a dashboard or storefront JS, specify resources that trigger the script load"
+                    },
+                    "script_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Script (JS) link"
+                    },
+                    "github_repository": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Link to GitHub repository"
+                    },
+                    "status": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "app_id": 1002,
+              "state": "inactive",
+              "title": "Products panel extension",
+              "slug": "products-panel-ext",
+              "version": "3.0.0",
+              "type": "dashboard",
+              "load_events": [
+                "products"
+              ],
+              "script_uri": "https://sample.mycdn.com/script.min.js",
+              "status": "paused"
+            }
+
++ Response 204
+
+#### Remove Application [DELETE]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
 
 + Request (application/json)
 
