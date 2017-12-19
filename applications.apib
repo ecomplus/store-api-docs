@@ -528,15 +528,15 @@ Request body must obey the specifications of
 
 In read requests, response body will follow
 [this model](#reference/applications/application-object),
-requests without authentication will receive customer data without `hidden_data` property
+requests without authentication will receive application data without `hidden_data` property
 
 For overwriting and editing, request body must obey the same specifications,
 but especially for edit requests there are no required fields
 
-#### Read Application [GET]
+#### Read Application [GET /applications/{application}.json]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + application: 42aa00000000000000000111 (string, required) - The apllication ID
 
 + Request (application/json)
 
@@ -561,7 +561,51 @@ but especially for edit requests there are no required fields
               "load_events": [
                 "products"
               ],
-              "script_uri": "https://sample.mycdn.com/script.min.js"
+              "script_uri": "https://sample.mycdn.com/script.min.js",
+              "data": {
+                "sample": 123,
+                "eg": [ 1, 2, 3 ]
+              }
+            }
+
+#### With Authentication [GET]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "42aa00000000000000000111",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "app_id": 1002,
+              "state": "active",
+              "title": "Products panel extension",
+              "slug": "products-panel-ext",
+              "version": "3.0.0",
+              "type": "dashboard",
+              "load_events": [
+                "products"
+              ],
+              "script_uri": "https://sample.mycdn.com/script.min.js",
+              "data": {
+                "sample": 123,
+                "eg": [ 1, 2, 3 ]
+              },
+              "hidden_data": {
+                "token": "sdkcblsdcbslkc"
+              }
             }
 
 #### Edit Application [PATCH]
