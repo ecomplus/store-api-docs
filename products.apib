@@ -230,7 +230,7 @@ product subresources directly at this resource, such as product images, variatio
                             + `fixed` (string)
                         + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
             + `custom_value`: true (boolean) - If this field accept custom value defined by customer
-            + `attachment`: true (boolean) - If this field accept customer file attachment
+            + `attachment`: false (boolean) - If this field accept customer file attachment
             + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
@@ -1488,7 +1488,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -3901,7 +3901,7 @@ Request body must obey the specifications of
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -6602,7 +6602,7 @@ but especially for edit requests there are no required fields
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
@@ -8950,7 +8950,7 @@ but especially for edit requests there are no required fields
                                 },
                                 "attachment": {
                                     "type": "boolean",
-                                    "default": true,
+                                    "default": false,
                                     "description": "If this field accept customer file attachment"
                                 },
                                 "add_to_price": {
