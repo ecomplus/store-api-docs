@@ -12,8 +12,8 @@
 
 :[](collections.apib)
 
+:[](customers.apib)
+
 :[](carts.apib)
 
 :[](orders.apib)
-
-:[](customers.apib)
