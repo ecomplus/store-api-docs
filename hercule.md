@@ -21,3 +21,5 @@
 :[](orders.apib)
 
 :[](applications.apib)
+
+:[](triggers.apib)

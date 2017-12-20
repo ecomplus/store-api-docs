@@ -1,12 +1,12 @@
 ## Group Applications
 
-`.apllications`
+`.applications`
 
-Use the **apllications** resource to create, read, update and delete apps in
-a merchant's store, you can edit all apllication properties and also work with all
-apllication subresources directly at this resource
+Use the **applications** resource to create, read, update and delete apps in
+a merchant's store, you can edit all application properties and also work with all
+application subresources directly at this resource
 
-### Application Object [/apllications/schema.json]
+### Application Object [/applications/schema.json]
 
 + Attributes (object)
     + `app_id` (number, required) - ID of application - Mininum: **1000** - Maximum: **16777215**
@@ -183,9 +183,9 @@ apllication subresources directly at this resource
                 }
             }
 
-### All Applications [/apllications.json{?limit,offset,sort,fields}]
+### All Applications [/applications.json{?limit,offset,sort,fields}]
 
-*/apllications.json?limit&offset&sort&fields&[field]*
+*/applications.json?limit&offset&sort&fields&[field]*
 
 > Authentication<br>_GET_: **required**
 
@@ -193,7 +193,7 @@ Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
 by particular object properties
 
-#### List All Store Applications [GET /apllications.json]
+#### List All Store Applications [GET /applications.json]
 
 + Request (application/json)
 
@@ -302,7 +302,7 @@ by particular object properties
               ]
             }
 
-#### Find Applications [GET /apllications.json{?app_id}]
+#### Find Applications [GET /applications.json{?app_id}]
 
 + Parameters
     + `app_id`: `1004` (string, optional) - Object property to query
@@ -348,9 +348,9 @@ by particular object properties
               ]
             }
 
-### New Application [/apllications.json]
+### New Application [/applications.json]
 
-*/apllications.json*
+*/applications.json*
 
 > Authentication<br>_POST_: **required**
 
@@ -520,9 +520,9 @@ Request body must obey the specifications of
               "_id": "42aa00000000000000000111"
             }
 
-### Specific Application [/apllications/{_id}.json]
+### Specific Application [/applications/{_id}.json]
 
-*/apllications/[_id].json*
+*/applications/[_id].json*
 
 > Authentication<br>_GET_: **optional**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
@@ -536,7 +536,7 @@ but especially for edit requests there are no required fields
 #### Read Application [GET /applications/{application}.json]
 
 + Parameters
-    + application: 42aa00000000000000000111 (string, required) - The apllication ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -571,7 +571,7 @@ but especially for edit requests there are no required fields
 #### With Authentication [GET]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -611,7 +611,7 @@ but especially for edit requests there are no required fields
 #### Edit Application [PATCH]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -758,7 +758,7 @@ but especially for edit requests there are no required fields
 #### Overwrite Application [PUT]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -919,7 +919,7 @@ but especially for edit requests there are no required fields
 #### Remove Application [DELETE]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
