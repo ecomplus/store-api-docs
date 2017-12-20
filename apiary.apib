@@ -33504,13 +33504,13 @@ but especially for edit requests there are no required fields
 
 ## Group Applications
 
-`.apllications`
+`.applications`
 
-Use the **apllications** resource to create, read, update and delete apps in
-a merchant's store, you can edit all apllication properties and also work with all
-apllication subresources directly at this resource
+Use the **applications** resource to create, read, update and delete apps in
+a merchant's store, you can edit all application properties and also work with all
+application subresources directly at this resource
 
-### Application Object [/apllications/schema.json]
+### Application Object [/applications/schema.json]
 
 + Attributes (object)
     + `app_id` (number, required) - ID of application - Mininum: **1000** - Maximum: **16777215**
@@ -33687,9 +33687,9 @@ apllication subresources directly at this resource
                 }
             }
 
-### All Applications [/apllications.json{?limit,offset,sort,fields}]
+### All Applications [/applications.json{?limit,offset,sort,fields}]
 
-*/apllications.json?limit&offset&sort&fields&[field]*
+*/applications.json?limit&offset&sort&fields&[field]*
 
 > Authentication<br>_GET_: **required**
 
@@ -33697,7 +33697,7 @@ Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
 by particular object properties
 
-#### List All Store Applications [GET /apllications.json]
+#### List All Store Applications [GET /applications.json]
 
 + Request (application/json)
 
@@ -33806,7 +33806,7 @@ by particular object properties
               ]
             }
 
-#### Find Applications [GET /apllications.json{?app_id}]
+#### Find Applications [GET /applications.json{?app_id}]
 
 + Parameters
     + `app_id`: `1004` (string, optional) - Object property to query
@@ -33852,9 +33852,9 @@ by particular object properties
               ]
             }
 
-### New Application [/apllications.json]
+### New Application [/applications.json]
 
-*/apllications.json*
+*/applications.json*
 
 > Authentication<br>_POST_: **required**
 
@@ -34024,23 +34024,23 @@ Request body must obey the specifications of
               "_id": "42aa00000000000000000111"
             }
 
-### Specific Application [/apllications/{_id}.json]
+### Specific Application [/applications/{_id}.json]
 
-*/apllications/[_id].json*
+*/applications/[_id].json*
 
 > Authentication<br>_GET_: **optional**<br>_PATCH_, _PUT_, _DELETE_: **required**
 
 In read requests, response body will follow
 [this model](#reference/applications/application-object),
-requests without authentication will receive customer data without `hidden_data` property
+requests without authentication will receive application data without `hidden_data` property
 
 For overwriting and editing, request body must obey the same specifications,
 but especially for edit requests there are no required fields
 
-#### Read Application [GET]
+#### Read Application [GET /applications/{application}.json]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -34065,13 +34065,57 @@ but especially for edit requests there are no required fields
               "load_events": [
                 "products"
               ],
-              "script_uri": "https://sample.mycdn.com/script.min.js"
+              "script_uri": "https://sample.mycdn.com/script.min.js",
+              "data": {
+                "sample": 123,
+                "eg": [ 1, 2, 3 ]
+              }
+            }
+
+#### With Authentication [GET]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "42aa00000000000000000111",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "app_id": 1002,
+              "state": "active",
+              "title": "Products panel extension",
+              "slug": "products-panel-ext",
+              "version": "3.0.0",
+              "type": "dashboard",
+              "load_events": [
+                "products"
+              ],
+              "script_uri": "https://sample.mycdn.com/script.min.js",
+              "data": {
+                "sample": 123,
+                "eg": [ 1, 2, 3 ]
+              },
+              "hidden_data": {
+                "token": "sdkcblsdcbslkc"
+              }
             }
 
 #### Edit Application [PATCH]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -34218,7 +34262,7 @@ but especially for edit requests there are no required fields
 #### Overwrite Application [PUT]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -34379,7 +34423,532 @@ but especially for edit requests there are no required fields
 #### Remove Application [DELETE]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The apllication ID
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204
+
+## Group Triggers
+
+`.triggers`
+
+Triggers are events that call the configured procedures,
+running automatic tasks
+
+They are created automaticly after each
+modification operation (_POST_, _PUT_, _PATCH_ and _DELETE_) at this API
+
+Use the **triggers** resource to read and delete triggers in
+a merchant's store, you can also create fake triggers, mainly for tests purposes
+
+### Trigger Object [/triggers/schema.json]
+
++ Attributes (object)
+    + `datetime` (string, required) - When event occurred, date and time in ISO 8601 standard representation - Format: **date-time**
+    + `authentication_id` (string) - ID of used authentication, should be a valid hexadecimal - RegEx pattern: **`^[a-f0-9]{24}$`**
+    + `method` (enum, required) - Method (HTTP verb) of the event
+        + `POST` (string)
+        + `PATCH` (string)
+        + `PUT` (string)
+        + `DELETE` (string)
+    + `action` (enum, required) - Type of action taken
+        + `create` (string)
+        + `change` (string)
+        + `delete` (string)
+    + `resource` (enum, required) - API resource
+        + `authentications` (string)
+        + `products` (string)
+        + `categories` (string)
+        + `brands` (string)
+        + `collections` (string)
+        + `grids` (string)
+        + `customers` (string)
+        + `carts` (string)
+        + `orders` (string)
+        + `applications` (string)
+    + `resource_id` (string) - Resource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+    + `subresource` (string) - Subresource slug (which appears in the URL), if specified - Max length: **30** - RegEx pattern: **`^[a-z_]+$`**
+    + `subresource_id` (string) - Subresource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+    + `fields` (array) - Document fields involved (created or updated) with the event - Max elements: **100**
+        + (string) - Object property name
+    + `inserted_id` (string) - Unique ID of created object, only for POST method - RegEx pattern: **`^[a-f0-9]{24}$`**
+    + `body` (object) - Request body, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents
+    + `response` (object) - Response received, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Triggers",
+                "description": "Trigger object model",
+                "type": "object",
+                "required": [
+                    "datetime",
+                    "method",
+                    "action",
+                    "resource"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "datetime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When event occurred, date and time in ISO 8601 standard representation"
+                    },
+                    "authentication_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "ID of used authentication, should be a valid hexadecimal"
+                    },
+                    "method": {
+                        "type": "string",
+                        "enum": [
+                            "POST",
+                            "PATCH",
+                            "PUT",
+                            "DELETE"
+                        ],
+                        "description": "Method (HTTP verb) of the event"
+                    },
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "create",
+                            "change",
+                            "delete"
+                        ],
+                        "description": "Type of action taken"
+                    },
+                    "resource": {
+                        "type": "string",
+                        "enum": [
+                            "authentications",
+                            "products",
+                            "categories",
+                            "brands",
+                            "collections",
+                            "grids",
+                            "customers",
+                            "carts",
+                            "orders",
+                            "applications"
+                        ],
+                        "description": "API resource"
+                    },
+                    "resource_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Resource ID, if specified"
+                    },
+                    "subresource": {
+                        "type": "string",
+                        "maxLength": 30,
+                        "pattern": "^[a-z_]+$",
+                        "description": "Subresource slug (which appears in the URL), if specified"
+                    },
+                    "subresource_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Subresource ID, if specified"
+                    },
+                    "fields": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 50,
+                            "pattern": "^[a-z0-9_]+$",
+                            "description": "Object property name"
+                        },
+                        "description": "Document fields involved (created or updated) with the event"
+                    },
+                    "inserted_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Unique ID of created object, only for POST method"
+                    },
+                    "body": {
+                        "type": "object",
+                        "description": "Request body, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
+                    },
+                    "response": {
+                        "type": "object",
+                        "description": "Response received, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
+                    }
+                }
+            }
+
+### All Triggers [/triggers.json{?method,resource}]
+
+*/triggers.json?[field]*
+
+> Authentication<br>_GET_: **required**
+
+Pagination and ordering are not available, but you can use any other parameter,
+such as `method` and `resource`, to query by particular object properties
+
+Returns all properties excepting `body` and `response` of each trigger
+
+#### List All Store Triggers [GET /triggers.json]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "98d010000000000000000110",
+                  "datetime": "2017-11-14T12:00:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "brands",
+                  "inserted_id": "a10000000000000000001110"
+                },
+                {
+                  "_id": "98d010000000000000000111",
+                  "fake": true,
+                  "datetime": "2018-01-02T13:00:00Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "PATCH",
+                  "action": "change",
+                  "resource": "products",
+                  "resource_id": "100a54321098765432112222",
+                  "fields": "quantity"
+                },
+                {
+                  "_id": "98d010000000000000000112",
+                  "datetime": "2017-11-14T12:20:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "DELETE",
+                  "action": "delete",
+                  "resource": "brands",
+                  "resource_id": "a10000000000000000001110"
+                },
+                {
+                  "_id": "98d010000000000000000113",
+                  "datetime": "2017-11-14T12:30:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "PATCH",
+                  "action": "change",
+                  "resource": "products",
+                  "resource_id": "1234567890abcdef01291512",
+                  "subresource": "variations",
+                  "subresource_id": "1ff00000000000000000098f",
+                  "fields": "specifications"
+                },
+                {
+                  "_id": "98d010000000000000000114",
+                  "datetime": "2017-12-01T12:20:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "products",
+                  "inserted_id": "123a5432109876543210cdef"
+                },
+                {
+                  "_id": "98d010000000000000000115",
+                  "fake": true,
+                  "datetime": "2017-12-02T00:05:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "products",
+                  "inserted_id": "123a5432109876543210cdef"
+                },
+                {
+                  "_id": "98d010000000000000000116",
+                  "datetime": "2017-11-15T12:00:10Z",
+                  "authentication_id": "11000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "categories",
+                  "inserted_id": "b10000000000000000001110"
+                }
+              ]
+            }
+
+#### Find Triggers [GET]
+
++ Parameters
+    + `method`: `POST` (string, optional) - Object property to query
+    + `resource`: `products` (string, optional) - Object property to query
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "query": {
+                  "method": "POST",
+                  "resource": "products"
+                }
+              },
+              "result": [
+                {
+                  "_id": "98d010000000000000000114",
+                  "datetime": "2017-12-01T12:20:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "products",
+                  "inserted_id": "123a5432109876543210cdef"
+                },
+                {
+                  "_id": "98d010000000000000000115",
+                  "fake": true,
+                  "datetime": "2017-12-02T00:05:10Z",
+                  "authentication_id": "10000000000000000000000f",
+                  "method": "POST",
+                  "action": "create",
+                  "resource": "products",
+                  "inserted_id": "100a54321098765432112222"
+                }
+              ]
+            }
+
+### New Trigger [/triggers.json]
+
+*/triggers.json*
+
+> Authentication<br>_POST_: **required**
+
+Request body must obey the specifications of
+[this model](#reference/triggers/trigger-object)
+
+All triggers created this way (not automatically) will be marked as fake,
+having the property `fake` equals to true
+
+#### Create New Trigger [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Triggers",
+                "description": "Trigger object model",
+                "type": "object",
+                "required": [
+                    "datetime",
+                    "method",
+                    "action",
+                    "resource"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "datetime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When event occurred, date and time in ISO 8601 standard representation"
+                    },
+                    "authentication_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "ID of used authentication, should be a valid hexadecimal"
+                    },
+                    "method": {
+                        "type": "string",
+                        "enum": [
+                            "POST",
+                            "PATCH",
+                            "PUT",
+                            "DELETE"
+                        ],
+                        "description": "Method (HTTP verb) of the event"
+                    },
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "create",
+                            "change",
+                            "delete"
+                        ],
+                        "description": "Type of action taken"
+                    },
+                    "resource": {
+                        "type": "string",
+                        "enum": [
+                            "authentications",
+                            "products",
+                            "categories",
+                            "brands",
+                            "collections",
+                            "grids",
+                            "customers",
+                            "carts",
+                            "orders",
+                            "applications"
+                        ],
+                        "description": "API resource"
+                    },
+                    "resource_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Resource ID, if specified"
+                    },
+                    "subresource": {
+                        "type": "string",
+                        "maxLength": 30,
+                        "pattern": "^[a-z_]+$",
+                        "description": "Subresource slug (which appears in the URL), if specified"
+                    },
+                    "subresource_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Subresource ID, if specified"
+                    },
+                    "fields": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 100,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 50,
+                            "pattern": "^[a-z0-9_]+$",
+                            "description": "Object property name"
+                        },
+                        "description": "Document fields involved (created or updated) with the event"
+                    },
+                    "inserted_id": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{24}$",
+                        "description": "Unique ID of created object, only for POST method"
+                    },
+                    "body": {
+                        "type": "object",
+                        "description": "Request body, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
+                    },
+                    "response": {
+                        "type": "object",
+                        "description": "Response received, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "datetime": "2018-01-02T13:00:00Z",
+              "authentication_id": "10000000000000000000000f",
+              "method": "PATCH",
+              "action": "change",
+              "resource": "products",
+              "resource_id": "100a54321098765432112222",
+              "fields": "quantity",
+              "body": {
+                "quantity": 100
+              }
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d010000000000000000111"
+            }
+
+### Specific Trigger [/triggers/{_id}.json]
+
+*/triggers/[_id].json*
+
+> Authentication<br>_GET_, _PATCH_, _PUT_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/triggers/trigger-object),
+triggers created manually (forced) will be marked as fake,
+having the property `fake` equals to true
+
+#### Read Trigger [GET /triggers/{trigger}.json]
+
++ Parameters
+    + trigger: 98d010000000000000000111 (string, required) - The trigger ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d010000000000000000111",
+              "store_id": 100,
+              "fake": true,
+              "datetime": "2018-01-02T13:00:00Z",
+              "authentication_id": "10000000000000000000000f",
+              "method": "PATCH",
+              "action": "change",
+              "resource": "products",
+              "resource_id": "100a54321098765432112222",
+              "fields": "quantity",
+              "body": {
+                "quantity": 100
+              }
+            }
+
+#### Remove Trigger [DELETE]
+
++ Parameters
+    + _id: 98d010000000000000000111 (string, required) - The trigger ID
 
 + Request (application/json)
 
