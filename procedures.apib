@@ -1,0 +1,863 @@
+## Group Procedures
+
+`.procedures`
+
+Procedures provides automation to the commerce operation,
+working with triggers to run tasks automatically
+
+Use the **procedures** resource to create, read, update and delete
+automatic tasks in a merchant's store
+
+### Procedure Object [/procedures/schema.json]
+
++ Attributes (object)
+    + `title` (string, required) - Procedure title - Max length: **70**
+    + `short_description` (string) - Short procedure description in plain text - Max length: **255**
+    + `triggers` (array, required) - List of events that call this procedure - Min elements: **1** - Max elements: **20**
+        + (object) - Trigger object
+            + `method` (enum) - Method (HTTP verb) of the event, if undefined will match any method
+                + `POST` (string)
+                + `PATCH` (string)
+                + `PUT` (string)
+                + `DELETE` (string)
+            + `action` (enum) - Type of action taken, if undefined will match any action
+                + `create` (string)
+                + `change` (string)
+                + `delete` (string)
+            + `resource` (enum, required) - API resource
+                + `authentications` (string)
+                + `products` (string)
+                + `categories` (string)
+                + `brands` (string)
+                + `collections` (string)
+                + `grids` (string)
+                + `customers` (string)
+                + `carts` (string)
+                + `orders` (string)
+                + `applications` (string)
+            + `resource_id` (string) - Resource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `subresource` (string) - Subresource slug (which appears in the URL), if specified - Max length: **30** - RegEx pattern: **`^[a-z_]+$`**
+            + `subresource_id` (string) - Subresource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `field` (string) - Property created or updated with the event, if undefined will match any fields - Max length: **50** - RegEx pattern: **`^[a-z0-9_]+$`**
+    + `conditionals` (array) - Conditions to continue with the procedure, based on trigger body - Max elements: **20**
+        + (object) - Conditional object
+            + `field` (string, required) - Body property to compare (variable), use dot notation for nested objects - Max length: **100** - RegEx pattern: **`^[a-z0-9_]+(([.][a-z0-9_]+){1,3})?$`**
+            + `operator` (enum, required) - Conditional operator
+                + `>` (string)
+                + `<` (string)
+                + `>=` (string)
+                + `<=` (string)
+                + `<>` (string)
+                + `==` (string)
+                + `str_equal` (string)
+                + `str_not_equal` (string)
+                + `defined` (string)
+                + `undefined` (string)
+                + `null` (string)
+                + `not_null` (string)
+            + `value`: 0 (number) - Numeric value to compare with field value - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
+            + `str_value` (string) - String value to compare with field, use if operator is "`str_equal`" or "`str_not_equal`" - Max length: **50**
+    + `webhooks` (array, required) - List of notifications (webhooks) to be when this procedure is called - Min elements: **1** - Max elements: **20**
+        + (object) - Webhook object
+            + `endpoint` (object, required) - Endpoint where notification should be sent - Min properties: **1** - Max properties: **1**
+                + `store_api` (object) - Use this property if webhook is to store API (api.e-com.plus)
+                    + `resource` (enum, required) - API resource
+                        + `authentications` (string)
+                        + `products` (string)
+                        + `categories` (string)
+                        + `brands` (string)
+                        + `collections` (string)
+                        + `grids` (string)
+                        + `customers` (string)
+                        + `carts` (string)
+                        + `orders` (string)
+                        + `applications` (string)
+                    + `resource_id` (string) - Resource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+                    + `subresource` (string) - Subresource slug (which appears in the URL), if specified - Max length: **30** - RegEx pattern: **`^[a-z_]+$`**
+                    + `subresource_id` (string) - Subresource ID, if specified - RegEx pattern: **`^[a-f0-9]{24}$`**
+                    + `third_level` (string) - Third-level (subresource property) slug, if specified - Max length: **30** - RegEx pattern: **`^[a-z_]+$`**
+                + `external_api` (object) - Use this property if webhook is to any external API (not api.e-com.plus)
+                    + `uri` (string, required) - Full URL to external API endpoint - Max length: **255** - Format: **uri**
+                    + `headers` (array) - List of headers to be sent on the request - Max elements: **20**
+                        + (object) -
+                            + `name` (string, required) - Header field name, eg.: X-Access-Token - Max length: **50** - RegEx pattern: **`^[A-Za-z0-9-]+$`**
+                            + `value` (string, required) - Header field value - Max length: **1024**
+            + `method` (enum, required) - Method (HTTP verb) to send request
+                + `POST` (string)
+                + `PATCH` (string)
+                + `PUT` (string)
+                + `DELETE` (string)
+            + `send_body`: true (boolean) - Send body on notification, if true and `map_body` undefined, trigger body will be sent
+            + `map_body` (object) - Object to send, use "`{tr.*}`" (eg.: "`{tr.body.name}`") to get values from trigger
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Procedures",
+                "description": "Procedure object model",
+                "type": "object",
+                "required": [
+                    "title",
+                    "triggers",
+                    "webhooks"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Procedure title"
+                    },
+                    "short_description": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Short procedure description in plain text"
+                    },
+                    "triggers": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "resource"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) of the event, if undefined will match any method"
+                                },
+                                "action": {
+                                    "type": "string",
+                                    "enum": [
+                                        "create",
+                                        "change",
+                                        "delete"
+                                    ],
+                                    "description": "Type of action taken, if undefined will match any action"
+                                },
+                                "resource": {
+                                    "type": "string",
+                                    "enum": [
+                                        "authentications",
+                                        "products",
+                                        "categories",
+                                        "brands",
+                                        "collections",
+                                        "grids",
+                                        "customers",
+                                        "carts",
+                                        "orders",
+                                        "applications"
+                                    ],
+                                    "description": "API resource"
+                                },
+                                "resource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Resource ID, if specified"
+                                },
+                                "subresource": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[a-z_]+$",
+                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                },
+                                "subresource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Subresource ID, if specified"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "pattern": "^[a-z0-9_]+$",
+                                    "description": "Property created or updated with the event, if undefined will match any fields"
+                                }
+                            },
+                            "description": "Trigger object"
+                        },
+                        "description": "List of events that call this procedure"
+                    },
+                    "conditionals": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "field",
+                                "operator"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "pattern": "^[a-z0-9_]+(([.][a-z0-9_]+){1,3})?$",
+                                    "description": "Body property to compare (variable), use dot notation for nested objects"
+                                },
+                                "operator": {
+                                    "type": "string",
+                                    "enum": [
+                                        ">",
+                                        "<",
+                                        ">=",
+                                        "<=",
+                                        "<>",
+                                        "==",
+                                        "str_equal",
+                                        "str_not_equal",
+                                        "defined",
+                                        "undefined",
+                                        "null",
+                                        "not_null"
+                                    ],
+                                    "description": "Conditional operator"
+                                },
+                                "value": {
+                                    "type": "number",
+                                    "multipleOf": 0.00001,
+                                    "minimum": 0,
+                                    "maximum": 999999999999,
+                                    "default": 0,
+                                    "description": "Numeric value to compare with field value"
+                                },
+                                "str_value": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "String value to compare with field, use if operator is \"str_equal\" or \"str_not_equal\""
+                                }
+                            },
+                            "description": "Conditional object"
+                        },
+                        "description": "Conditions to continue with the procedure, based on trigger body"
+                    },
+                    "webhooks": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "endpoint",
+                                "method"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "endpoint": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 1,
+                                    "properties": {
+                                        "store_api": {
+                                            "type": "object",
+                                            "required": [
+                                                "resource"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "resource": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "authentications",
+                                                        "products",
+                                                        "categories",
+                                                        "brands",
+                                                        "collections",
+                                                        "grids",
+                                                        "customers",
+                                                        "carts",
+                                                        "orders",
+                                                        "applications"
+                                                    ],
+                                                    "description": "API resource"
+                                                },
+                                                "resource_id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-f0-9]{24}$",
+                                                    "description": "Resource ID, if specified"
+                                                },
+                                                "subresource": {
+                                                    "type": "string",
+                                                    "maxLength": 30,
+                                                    "pattern": "^[a-z_]+$",
+                                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                                },
+                                                "subresource_id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-f0-9]{24}$",
+                                                    "description": "Subresource ID, if specified"
+                                                },
+                                                "third_level": {
+                                                    "type": "string",
+                                                    "maxLength": 30,
+                                                    "pattern": "^[a-z_]+$",
+                                                    "description": "Third-level (subresource property) slug, if specified"
+                                                }
+                                            },
+                                            "description": "Use this property if webhook is to store API (api.e-com.plus)"
+                                        },
+                                        "external_api": {
+                                            "type": "object",
+                                            "required": [
+                                                "uri"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "uri": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "format": "uri",
+                                                    "description": "Full URL to external API endpoint"
+                                                },
+                                                "headers": {
+                                                    "type": "array",
+                                                    "maxItems": 20,
+                                                    "items": {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "name",
+                                                            "value"
+                                                        ],
+                                                        "additionalProperties": false,
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "maxLength": 50,
+                                                                "pattern": "^[A-Za-z0-9-]+$",
+                                                                "description": "Header field name, eg.: X-Access-Token"
+                                                            },
+                                                            "value": {
+                                                                "type": "string",
+                                                                "maxLength": 1024,
+                                                                "description": "Header field value"
+                                                            }
+                                                        }
+                                                    },
+                                                    "description": "List of headers to be sent on the request"
+                                                }
+                                            },
+                                            "description": "Use this property if webhook is to any external API (not api.e-com.plus)"
+                                        }
+                                    },
+                                    "description": "Endpoint where notification should be sent"
+                                },
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) to send request"
+                                },
+                                "send_body": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "description": "Send body on notification, if true and map_body undefined, trigger body will be sent"
+                                },
+                                "map_body": {
+                                    "type": "object",
+                                    "description": "Object to send, use \"{tr.*}\" (eg.: \"{tr.body.name}\") to get values from trigger"
+                                }
+                            },
+                            "description": "Webhook object"
+                        },
+                        "description": "List of notifications (webhooks) to be when this procedure is called"
+                    }
+                }
+            }
+
+### All Procedures [/procedures.json{?triggers.action,triggers.resource}]
+
+*/procedures.json?[field]*
+
+> Authentication<br>_GET_: **required**
+
+Pagination and ordering are not available, but you can use any other parameter,
+such as `triggers.method` and `triggers.resource`, to query by particular object properties
+
+Returns only `title` and `short_description` of each procedure
+
+#### List All Store Procedures [GET /procedures.json]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "98d120000000000000000110",
+                  "title": "My procedure",
+                  "short_description": "Do something after some other thing"
+                },
+                {
+                  "_id": "98d120000000000000000111",
+                  "title": "Reduce inventory after payment approval",
+                  "short_description": "After payment approval, reduce products available quantity to control stock"
+                },
+                {
+                  "_id": "98d120000000000000000112",
+                  "title": "Custom procedure name",
+                  "short_description": "Lorem ipsum dolor sit amet..."
+                }
+              ]
+            }
+
+#### Find Procedures [GET]
+
++ Parameters
+    + `triggers.action`: `create` (string, optional) - Object property to query
+    + `triggers.resource`: `orders` (string, optional) - Object property to query
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "query": {
+                  "triggers.action": "create",
+                  "triggers.resource": "orders"
+                }
+              },
+              "result": [
+                {
+                  "_id": "98d120000000000000000110",
+                  "title": "My procedure",
+                  "short_description": "Do something after some other thing"
+                }
+              ]
+            }
+
+### New Procedure [/procedures.json]
+
+*/procedures.json*
+
+> Authentication<br>_POST_: **required**
+
+Request body must obey the specifications of
+[this model](#reference/procedures/procedure-object)
+
+#### Create New Procedure [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Procedures",
+                "description": "Procedure object model",
+                "type": "object",
+                "required": [
+                    "title",
+                    "triggers",
+                    "webhooks"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Procedure title"
+                    },
+                    "short_description": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Short procedure description in plain text"
+                    },
+                    "triggers": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "resource"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) of the event, if undefined will match any method"
+                                },
+                                "action": {
+                                    "type": "string",
+                                    "enum": [
+                                        "create",
+                                        "change",
+                                        "delete"
+                                    ],
+                                    "description": "Type of action taken, if undefined will match any action"
+                                },
+                                "resource": {
+                                    "type": "string",
+                                    "enum": [
+                                        "authentications",
+                                        "products",
+                                        "categories",
+                                        "brands",
+                                        "collections",
+                                        "grids",
+                                        "customers",
+                                        "carts",
+                                        "orders",
+                                        "applications"
+                                    ],
+                                    "description": "API resource"
+                                },
+                                "resource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Resource ID, if specified"
+                                },
+                                "subresource": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[a-z_]+$",
+                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                },
+                                "subresource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Subresource ID, if specified"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "pattern": "^[a-z0-9_]+$",
+                                    "description": "Property created or updated with the event, if undefined will match any fields"
+                                }
+                            },
+                            "description": "Trigger object"
+                        },
+                        "description": "List of events that call this procedure"
+                    },
+                    "conditionals": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "field",
+                                "operator"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "pattern": "^[a-z0-9_]+(([.][a-z0-9_]+){1,3})?$",
+                                    "description": "Body property to compare (variable), use dot notation for nested objects"
+                                },
+                                "operator": {
+                                    "type": "string",
+                                    "enum": [
+                                        ">",
+                                        "<",
+                                        ">=",
+                                        "<=",
+                                        "<>",
+                                        "==",
+                                        "str_equal",
+                                        "str_not_equal",
+                                        "defined",
+                                        "undefined",
+                                        "null",
+                                        "not_null"
+                                    ],
+                                    "description": "Conditional operator"
+                                },
+                                "value": {
+                                    "type": "number",
+                                    "multipleOf": 0.00001,
+                                    "minimum": 0,
+                                    "maximum": 999999999999,
+                                    "default": 0,
+                                    "description": "Numeric value to compare with field value"
+                                },
+                                "str_value": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "String value to compare with field, use if operator is \"str_equal\" or \"str_not_equal\""
+                                }
+                            },
+                            "description": "Conditional object"
+                        },
+                        "description": "Conditions to continue with the procedure, based on trigger body"
+                    },
+                    "webhooks": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "endpoint",
+                                "method"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "endpoint": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 1,
+                                    "properties": {
+                                        "store_api": {
+                                            "type": "object",
+                                            "required": [
+                                                "resource"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "resource": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "authentications",
+                                                        "products",
+                                                        "categories",
+                                                        "brands",
+                                                        "collections",
+                                                        "grids",
+                                                        "customers",
+                                                        "carts",
+                                                        "orders",
+                                                        "applications"
+                                                    ],
+                                                    "description": "API resource"
+                                                },
+                                                "resource_id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-f0-9]{24}$",
+                                                    "description": "Resource ID, if specified"
+                                                },
+                                                "subresource": {
+                                                    "type": "string",
+                                                    "maxLength": 30,
+                                                    "pattern": "^[a-z_]+$",
+                                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                                },
+                                                "subresource_id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-f0-9]{24}$",
+                                                    "description": "Subresource ID, if specified"
+                                                },
+                                                "third_level": {
+                                                    "type": "string",
+                                                    "maxLength": 30,
+                                                    "pattern": "^[a-z_]+$",
+                                                    "description": "Third-level (subresource property) slug, if specified"
+                                                }
+                                            },
+                                            "description": "Use this property if webhook is to store API (api.e-com.plus)"
+                                        },
+                                        "external_api": {
+                                            "type": "object",
+                                            "required": [
+                                                "uri"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "uri": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "format": "uri",
+                                                    "description": "Full URL to external API endpoint"
+                                                },
+                                                "headers": {
+                                                    "type": "array",
+                                                    "maxItems": 20,
+                                                    "items": {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "name",
+                                                            "value"
+                                                        ],
+                                                        "additionalProperties": false,
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "maxLength": 50,
+                                                                "pattern": "^[A-Za-z0-9-]+$",
+                                                                "description": "Header field name, eg.: X-Access-Token"
+                                                            },
+                                                            "value": {
+                                                                "type": "string",
+                                                                "maxLength": 1024,
+                                                                "description": "Header field value"
+                                                            }
+                                                        }
+                                                    },
+                                                    "description": "List of headers to be sent on the request"
+                                                }
+                                            },
+                                            "description": "Use this property if webhook is to any external API (not api.e-com.plus)"
+                                        }
+                                    },
+                                    "description": "Endpoint where notification should be sent"
+                                },
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) to send request"
+                                },
+                                "send_body": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "description": "Send body on notification, if true and map_body undefined, trigger body will be sent"
+                                },
+                                "map_body": {
+                                    "type": "object",
+                                    "description": "Object to send, use \"{tr.*}\" (eg.: \"{tr.body.name}\") to get values from trigger"
+                                }
+                            },
+                            "description": "Webhook object"
+                        },
+                        "description": "List of notifications (webhooks) to be when this procedure is called"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "title": "Reduce inventory after payment approval",
+              "short_description": "After payment approval, reduce products available quantity to control stock",
+              "triggers": [
+                {
+                  "resource": "orders",
+                  "field": "financial_status"
+                }
+              ],
+              "webhooks": [
+                {
+                  ""
+                }
+              ]
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d120000000000000000111"
+            }
+
+### Specific Procedure [/procedures/{_id}.json]
+
+*/procedures/[_id].json*
+
+> Authentication<br>_GET_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/procedures/procedure-object),
+procedures created manually (forced) will be marked as fake,
+having the property `fake` equals to true
+
+#### Read Procedure [GET /procedures/{procedure}.json]
+
++ Parameters
+    + procedure: 98d120000000000000000111 (string, required) - The procedure ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d120000000000000000111",
+              "store_id": 100,
+              "fake": true,
+              "datetime": "2018-01-02T13:00:00Z",
+              "authentication_id": "10000000000000000000000f",
+              "method": "PATCH",
+              "action": "change",
+              "resource": "products",
+              "resource_id": "100a54321098765432112222",
+              "fields": "quantity",
+              "body": {
+                "quantity": 100
+              }
+            }
+
+#### Remove Procedure [DELETE]
+
++ Parameters
+    + _id: 98d120000000000000000111 (string, required) - The procedure ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204
