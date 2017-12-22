@@ -10,12 +10,6 @@ automatic tasks in a merchant's store
 
 ### Procedure Object [/procedures/schema.json]
 
-In some properties you can use variables as value:
-- `(tr.*)` to get values from trigger object
-  - eg.: `(tr.body.name)`
-- `(rd.*)` to get values from read object
-  - eg.: `(rd._id)`
-
 + Attributes (object)
     + `title` (string, required) - Procedure title - Max length: **70**
     + `short_description` (string) - Short procedure description in plain text - Max length: **255**
@@ -534,6 +528,12 @@ Returns only `title` and `short_description` of each procedure
 
 Request body must obey the specifications of
 [this model](#reference/procedures/procedure-object)
+
+In some properties you can use variables as value:
+- `(tr.*)` to get values from trigger object
+  - eg.: `(tr.body.name)`
+- `(rd.*)` to get values from read object
+  - eg.: `(rd._id)`
 
 #### Create New Procedure [POST]
 
