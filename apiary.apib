@@ -34972,6 +34972,12 @@ automatic tasks in a merchant's store
 
 ### Procedure Object [/procedures/schema.json]
 
+In some properties you can use variables as value:
+- `(tr.*)` to get values from trigger object
+  - eg.: `(tr.body.name)`
+- `(rd.*)` to get values from read object
+  - eg.: `(rd._id)`
+
 + Attributes (object)
     + `title` (string, required) - Procedure title - Max length: **70**
     + `short_description` (string) - Short procedure description in plain text - Max length: **255**
@@ -35052,12 +35058,6 @@ automatic tasks in a merchant's store
                 + `DELETE` (string)
             + `send_body`: true (boolean) - Send body on notification, if true and `map_body` undefined, trigger body will be sent
             + `map_body` (object) - Object to send, it is possible to use variables as properties values
-
-In some properties you can use variables as value:
-- `(tr.*)` to get values from trigger object
-  - eg.: `(tr.body.name)`
-- `(rd.*)` to get values from read object
-  - eg.: `(rd._id)`
 
 #### JSON Schema [GET]
 
