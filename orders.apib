@@ -9,9 +9,9 @@ order subresources directly at this resource
 ### Order Object [/orders/schema.json]
 
 + Attributes (object)
-    + `checkout_link` (string) - URL to checkout page - Max length: **255** - Format: **uri**
+    + `checkout_link` (string) - URL to checkout page, if necessary, use `(_id)` where order unique ID must appear at URL - Max length: **255** - Format: **uri**
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `status_link` (string) - URL to order status page - Max length: **255** - Format: **uri**
+    + `status_link` (string) - URL to order status page, if necessary, use `(_id)` where order unique ID must appear - Max length: **255** - Format: **uri**
     + `status_mobile_link` (string) - Optional status URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
@@ -640,7 +640,7 @@ order subresources directly at this resource
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to checkout page, if necessary, use {_id} where order unique ID must appear at URL"
+                        "description": "URL to checkout page, if necessary, use (_id) where order unique ID must appear at URL"
                     },
                     "checkout_mobile_link": {
                         "type": "string",
@@ -652,7 +652,7 @@ order subresources directly at this resource
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to order status page, if necessary, use {_id} where order unique ID must appear"
+                        "description": "URL to order status page, if necessary, use (_id) where order unique ID must appear"
                     },
                     "status_mobile_link": {
                         "type": "string",
@@ -3197,7 +3197,7 @@ Request body must obey the specifications of
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to checkout page, if necessary, use {_id} where order unique ID must appear at URL"
+                        "description": "URL to checkout page, if necessary, use (_id) where order unique ID must appear at URL"
                     },
                     "checkout_mobile_link": {
                         "type": "string",
@@ -3209,7 +3209,7 @@ Request body must obey the specifications of
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to order status page, if necessary, use {_id} where order unique ID must appear"
+                        "description": "URL to order status page, if necessary, use (_id) where order unique ID must appear"
                     },
                     "status_mobile_link": {
                         "type": "string",
@@ -5306,8 +5306,8 @@ Request body must obey the specifications of
     + Body
 
             {
-              "checkout_link": "https://www.sampleshop.com.br/checkout?_id={_id}",
-              "status_link": "https://www.sampleshop.com.br/order/status?_id={_id}",
+              "checkout_link": "https://www.sampleshop.com.br/checkout?_id=(_id)",
+              "status_link": "https://www.sampleshop.com.br/order/status?_id=(_id)",
               "utm": {
                 "campaign": "adwords_example"
               },
@@ -5932,7 +5932,7 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to checkout page, if necessary, use {_id} where order unique ID must appear at URL"
+                        "description": "URL to checkout page, if necessary, use (_id) where order unique ID must appear at URL"
                     },
                     "checkout_mobile_link": {
                         "type": "string",
@@ -5944,7 +5944,7 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to order status page, if necessary, use {_id} where order unique ID must appear"
+                        "description": "URL to order status page, if necessary, use (_id) where order unique ID must appear"
                     },
                     "status_mobile_link": {
                         "type": "string",
@@ -8185,7 +8185,7 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to checkout page, if necessary, use {_id} where order unique ID must appear at URL"
+                        "description": "URL to checkout page, if necessary, use (_id) where order unique ID must appear at URL"
                     },
                     "checkout_mobile_link": {
                         "type": "string",
@@ -8197,7 +8197,7 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 255,
                         "format": "uri",
-                        "description": "URL to order status page, if necessary, use {_id} where order unique ID must appear"
+                        "description": "URL to order status page, if necessary, use (_id) where order unique ID must appear"
                     },
                     "status_mobile_link": {
                         "type": "string",
@@ -10294,8 +10294,8 @@ but especially for edit requests there are no required fields
     + Body
 
             {
-              "checkout_link": "https://www.sampleshop.com.br/checkout?_id={_id}",
-              "status_link": "https://www.sampleshop.com.br/order/status?_id={_id}",
+              "checkout_link": "https://www.sampleshop.com.br/checkout?_id=(_id)",
+              "status_link": "https://www.sampleshop.com.br/order/status?_id=(_id)",
               "utm": {
                 "campaign": "adwords_example"
               },
