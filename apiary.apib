@@ -35021,7 +35021,7 @@ automatic tasks in a merchant's store
             + `str_value` (string) - String value to compare with field, use if operator is "`str_equal`" or "`str_not_equal`" - Max length: **50**
     + `read` (object) - JSON object to read with a GET request before run webhooks. In some properties you can use variables: `(tr.*)`, eg.: `(tr.body.name)`, to get values from trigger object - Min properties: **1** - Max properties: **1**
         + `store_api` (object) - Use this property if the GET request is to store API (api.e-com.plus)
-            + `endpoint`: /(tr.resource).json (string) - API endpoint, such as /products.json, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
+            + `endpoint`: `/(tr.resource).json` (string) - API endpoint, such as /products.json, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
             + `version`: current (enum) - API version
                 + `v1` (string)
                 + `current` (string)
