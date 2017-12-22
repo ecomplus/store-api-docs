@@ -810,9 +810,7 @@ Request body must obey the specifications of
 > Authentication<br>_GET_, _DELETE_: **required**
 
 In read requests, response body will follow
-[this model](#reference/procedures/procedure-object),
-procedures created manually (forced) will be marked as fake,
-having the property `fake` equals to true
+[this model](#reference/procedures/procedure-object)
 
 #### Read Procedure [GET /procedures/{procedure}.json]
 
@@ -833,18 +831,7 @@ having the property `fake` equals to true
 
             {
               "_id": "98d120000000000000000111",
-              "store_id": 100,
-              "fake": true,
-              "datetime": "2018-01-02T13:00:00Z",
-              "authentication_id": "10000000000000000000000f",
-              "method": "PATCH",
-              "action": "change",
-              "resource": "products",
-              "resource_id": "100a54321098765432112222",
-              "fields": "quantity",
-              "body": {
-                "quantity": 100
-              }
+              "store_id": 100
             }
 
 #### Remove Procedure [DELETE]
