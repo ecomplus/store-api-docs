@@ -16,6 +16,13 @@ application subresources directly at this resource
         + `test` (string)
     + `title` (string, required) - App title - Max length: **70**
     + `slug` (string, required) - App unique slug, only lowercase letters, numbers and hyphen - Min length: **3** - Max length: **50** - RegEx pattern: **`^[0-9a-z-]+$`**
+    + `paid`: false (boolean) - Whether this app is paid
+    + `payment_status` (enum) - If the app is not free, save the current payment status
+        + `trial` (string)
+        + `paid` (string)
+        + `denied` (string)
+        + `late` (string)
+        + `blocked` (string)
     + `version` (string, required) - Version of the application that was installed, eg.: 1.0.0 - Min length: **5** - Max length: **8** - RegEx pattern: **`^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$`**
     + `version_date` (string) - When app installation was updated, date and time in ISO 8601 standard representation - Format: **date-time**
     + `type` (enum, required) - Type of app
@@ -39,6 +46,11 @@ application subresources directly at this resource
     + `script_uri` (string) - Script (JS) link - Max length: **255** - Format: **uri**
     + `github_repository` (string) - Link to GitHub repository - Max length: **255** - Format: **uri**
     + `status` (string) - Status defined by seller, such as active or waiting - Max length: **50**
+    + `authentication`: false (boolean) - Whether this app needs to authenticate with API
+    + `auth_callback_uri` (string) - Endpoint that receives POST back with authentication credentials, must be https - Max length: **255** - Format: **uri**
+    + `auth_scope` (object) - If this app uses authentication, list the needed permissions - Min properties: **1** - Max properties: **20**
+        + `^([$]?(?!app|aut|upd)([a-z]{1,60}))$` (array) - Requested resource, cannot be "applications", "authentications" or "$update"
+            + (string) - Methods to be used (HTTP verbs)
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
@@ -67,6 +79,11 @@ application subresources directly at this resource
                     "version",
                     "type"
                 ],
+                "dependencies": {
+                    "auth_scope": [
+                        "auth_callback_uri"
+                    ]
+                },
                 "additionalProperties": false,
                 "properties": {
                     "app_id": {
@@ -96,6 +113,22 @@ application subresources directly at this resource
                         "maxLength": 50,
                         "pattern": "^[0-9a-z-]+$",
                         "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "paid": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app is paid"
+                    },
+                    "payment_status": {
+                        "type": "string",
+                        "enum": [
+                            "trial",
+                            "paid",
+                            "denied",
+                            "late",
+                            "blocked"
+                        ],
+                        "description": "If the app is not free, save the current payment status"
                     },
                     "version": {
                         "type": "string",
@@ -163,6 +196,44 @@ application subresources directly at this resource
                         "type": "string",
                         "maxLength": 50,
                         "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "authentication": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app needs to authenticate with API"
+                    },
+                    "auth_callback_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "pattern": "^https:",
+                        "description": "Endpoint that receives POST back with authentication credentials, must be https"
+                    },
+                    "auth_scope": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 20,
+                        "patternProperties": {
+                            "^([$]?(?!app|aut|upd)([a-z]{1,60}))$": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "*",
+                                        "GET",
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Methods to be used (HTTP verbs)"
+                                },
+                                "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                            }
+                        },
+                        "description": "If this app uses authentication, list the needed permissions"
                     },
                     "flags": {
                         "type": "array",
@@ -381,6 +452,11 @@ Request body must obey the specifications of
                     "version",
                     "type"
                 ],
+                "dependencies": {
+                    "auth_scope": [
+                        "auth_callback_uri"
+                    ]
+                },
                 "additionalProperties": false,
                 "properties": {
                     "app_id": {
@@ -410,6 +486,22 @@ Request body must obey the specifications of
                         "maxLength": 50,
                         "pattern": "^[0-9a-z-]+$",
                         "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "paid": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app is paid"
+                    },
+                    "payment_status": {
+                        "type": "string",
+                        "enum": [
+                            "trial",
+                            "paid",
+                            "denied",
+                            "late",
+                            "blocked"
+                        ],
+                        "description": "If the app is not free, save the current payment status"
                     },
                     "version": {
                         "type": "string",
@@ -477,6 +569,44 @@ Request body must obey the specifications of
                         "type": "string",
                         "maxLength": 50,
                         "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "authentication": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app needs to authenticate with API"
+                    },
+                    "auth_callback_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "pattern": "^https:",
+                        "description": "Endpoint that receives POST back with authentication credentials, must be https"
+                    },
+                    "auth_scope": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 20,
+                        "patternProperties": {
+                            "^([$]?(?!app|aut|upd)([a-z]{1,60}))$": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "*",
+                                        "GET",
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Methods to be used (HTTP verbs)"
+                                },
+                                "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                            }
+                        },
+                        "description": "If this app uses authentication, list the needed permissions"
                     },
                     "flags": {
                         "type": "array",
@@ -628,8 +758,18 @@ but especially for edit requests there are no required fields
                 "title": "Applications",
                 "description": "App object model",
                 "type": "object",
-                "required": [],
-                "minProperties": 1,
+                "required": [
+                    "app_id",
+                    "title",
+                    "slug",
+                    "version",
+                    "type"
+                ],
+                "dependencies": {
+                    "auth_scope": [
+                        "auth_callback_uri"
+                    ]
+                },
                 "additionalProperties": false,
                 "properties": {
                     "app_id": {
@@ -659,6 +799,22 @@ but especially for edit requests there are no required fields
                         "maxLength": 50,
                         "pattern": "^[0-9a-z-]+$",
                         "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "paid": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app is paid"
+                    },
+                    "payment_status": {
+                        "type": "string",
+                        "enum": [
+                            "trial",
+                            "paid",
+                            "denied",
+                            "late",
+                            "blocked"
+                        ],
+                        "description": "If the app is not free, save the current payment status"
                     },
                     "version": {
                         "type": "string",
@@ -726,6 +882,44 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 50,
                         "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "authentication": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app needs to authenticate with API"
+                    },
+                    "auth_callback_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "pattern": "^https:",
+                        "description": "Endpoint that receives POST back with authentication credentials, must be https"
+                    },
+                    "auth_scope": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 20,
+                        "patternProperties": {
+                            "^([$]?(?!app|aut|upd)([a-z]{1,60}))$": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "*",
+                                        "GET",
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Methods to be used (HTTP verbs)"
+                                },
+                                "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                            }
+                        },
+                        "description": "If this app uses authentication, list the needed permissions"
                     },
                     "flags": {
                         "type": "array",
@@ -782,6 +976,11 @@ but especially for edit requests there are no required fields
                     "version",
                     "type"
                 ],
+                "dependencies": {
+                    "auth_scope": [
+                        "auth_callback_uri"
+                    ]
+                },
                 "additionalProperties": false,
                 "properties": {
                     "app_id": {
@@ -811,6 +1010,22 @@ but especially for edit requests there are no required fields
                         "maxLength": 50,
                         "pattern": "^[0-9a-z-]+$",
                         "description": "App unique slug, only lowercase letters, numbers and hyphen"
+                    },
+                    "paid": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app is paid"
+                    },
+                    "payment_status": {
+                        "type": "string",
+                        "enum": [
+                            "trial",
+                            "paid",
+                            "denied",
+                            "late",
+                            "blocked"
+                        ],
+                        "description": "If the app is not free, save the current payment status"
                     },
                     "version": {
                         "type": "string",
@@ -878,6 +1093,44 @@ but especially for edit requests there are no required fields
                         "type": "string",
                         "maxLength": 50,
                         "description": "Status defined by seller, such as active or waiting"
+                    },
+                    "authentication": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether this app needs to authenticate with API"
+                    },
+                    "auth_callback_uri": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "pattern": "^https:",
+                        "description": "Endpoint that receives POST back with authentication credentials, must be https"
+                    },
+                    "auth_scope": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "maxProperties": 20,
+                        "patternProperties": {
+                            "^([$]?(?!app|aut|upd)([a-z]{1,60}))$": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "*",
+                                        "GET",
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Methods to be used (HTTP verbs)"
+                                },
+                                "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                            }
+                        },
+                        "description": "If this app uses authentication, list the needed permissions"
                     },
                     "flags": {
                         "type": "array",
