@@ -61,7 +61,7 @@ automatic tasks in a merchant's store
         + (object) - Webhook object
             + `api` (object, required) - API where notification should be sent - Min properties: **1** - Max properties: **1**
                 + `store_api` (object) - Use this property if webhook is to store API (api.e-com.plus)
-                    + `endpoint`: /(tr.resource).json (string) - API endpoint, such as /products.json, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
+                    + `endpoint`: `/(tr.resource).json` (string) - API endpoint, such as /products.json, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
                     + `version`: current (enum) - API version
                         + `v1` (string)
                         + `current` (string)
