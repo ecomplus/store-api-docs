@@ -36443,13 +36443,17 @@ but in this case there are no required fields
 
 `.stores`
 
-Use the **stores** resource to read and update the shop main informations
+Use the **stores** resource to read and update the
+shop main informations and IDs of saved documents
 
 ### Store Object [/stores/schema.json]
 
 + Attributes (object)
     + `name` (string, required) - Store name - Max length: **255**
-    + `logo` (string) - Image link to shop's logo - Max length: **255** - Format: **uri**
+    + `logo` (object) - Image link to shop's logo
+        + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
+        + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
+        + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
     + `description` (string) - Simple description of store - Max length: **3000**
     + `segment_id` (number, required) - ID of store main segment, get options and IDs at /segments.json - Mininum: **0** - Maximum: **65535**
     + `doc_type` (enum, required) - Responsible person or organization document type
@@ -36501,9 +36505,30 @@ Use the **stores** resource to read and update the shop main informations
                         "description": "Store name"
                     },
                     "logo": {
-                        "type": "string",
-                        "maxLength": 255,
-                        "format": "uri",
+                        "type": "object",
+                        "required": [
+                            "url"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "format": "uri",
+                                "description": "Image link"
+                            },
+                            "size": {
+                                "type": "string",
+                                "maxLength": 11,
+                                "pattern": "^[1-9]([0-9]+)?x[1-9]([0-9]+)?$",
+                                "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height)"
+                            },
+                            "alt": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Alternative text, HTML alt tag (important for SEO)"
+                            }
+                        },
                         "description": "Image link to shop's logo"
                     },
                     "description": {
@@ -36617,8 +36642,47 @@ but in this case there are no required fields
               "created_at": "2017-11-19T13:10:00Z",
               "store_id": 100,
               "resources": {
-
-              }
+                "products": [
+                  "1234567890abcdef01291510",
+                  "1234567890abcdef01291511",
+                  "1234567890abcdef01291512"
+                ],
+                "brands": [
+                  "a10000000000000000001110",
+                  "a10000000000000000001111",
+                  "a10000000000000000001112",
+                  "a10000000000000000001113",
+                  "a10000000000000000001114",
+                  "a10000000000000000001115",
+                ],
+                "categories": [
+                  "b10000000000000000001110",
+                  "b10000000000000000001111",
+                  "b10000000000000000001112",
+                  "b10000000000000000001113",
+                  "b10000000000000000001114"
+                ],
+                "orders": [
+                  "fe1000000000000000000000",
+                  "fe1000000000000000000001"
+                ]
+              },
+              "name": "Minha Loja Online",
+              "logo": {
+                "url": "https://sample.shop.eg/assets/logo.png",
+                "size": "120x80"
+              },
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "segment_id": 23,
+              "doc_type": "CNPJ",
+              "doc_number": "12345678901234",
+              "corporate_name": "Minha Loja Online LTDA",
+              "address": "Rua Exemplar 100, Bairro Examplar, São Paulo, SP",
+              "phone": "31988887777",
+              "representant_name": "Fulano Ciclano",
+              "representant_email": "fulano@sample.shop.eg",
+              "contact_email": "contato@sample.shop.eg",
+              "financial_email": "financeiro@sample.shop.eg"
             }
 
 #### Edit Store [PATCH]
@@ -36648,9 +36712,30 @@ but in this case there are no required fields
                         "description": "Store name"
                     },
                     "logo": {
-                        "type": "string",
-                        "maxLength": 255,
-                        "format": "uri",
+                        "type": "object",
+                        "required": [
+                            "url"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "format": "uri",
+                                "description": "Image link"
+                            },
+                            "size": {
+                                "type": "string",
+                                "maxLength": 11,
+                                "pattern": "^[1-9]([0-9]+)?x[1-9]([0-9]+)?$",
+                                "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height)"
+                            },
+                            "alt": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Alternative text, HTML alt tag (important for SEO)"
+                            }
+                        },
                         "description": "Image link to shop's logo"
                     },
                     "description": {
@@ -36736,6 +36821,7 @@ but in this case there are no required fields
     + Body
 
             {
+              "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             }
 
 + Response 204
