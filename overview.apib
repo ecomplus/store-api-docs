@@ -90,6 +90,10 @@ setting metadata (`meta`) for filtering and pagination purposes, accepted params
 
 Other parameters must be valid properties of the objects, will be used to filter results
 
+It's possible to use
+[MongoDB dot notation](https://docs.mongodb.com/manual/core/document/#dot-notation)
+to filter by embedded arrays and objects
+
 ### Headers
 
 All requests must have the header `X-Store-ID` with the unique ID (integer) of respective store
