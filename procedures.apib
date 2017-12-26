@@ -57,23 +57,11 @@ automatic tasks in a merchant's store
                 + `not_null` (string)
             + `value`: 0 (number) - Numeric value to compare with field value - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
             + `str_value` (string) - String value to compare with field, use if operator is "`str_equal`" or "`str_not_equal`" - Max length: **50**
-    + `read` (object) - JSON object to read with a GET request before run webhooks. In some properties you can use variables: `(tr.*)`, eg.: `(tr.body.name)`, to get values from trigger object - Min properties: **1** - Max properties: **1**
-        + `store_api` (object) - Use this property if the GET request is to store API (api.e-com.plus)
-            + `endpoint`: `/(tr.resource).json` (string) - API endpoint, such as `/products.json`, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
-            + `version`: current (enum) - API version
-                + `v1` (string)
-                + `current` (string)
-        + `external_api` (object) - Use this property if the GET request is to any external API (not api.e-com.plus)
-            + `uri` (string, required) - Full URL to external API endpoint, you can also use variables here - Max length: **255** - Format: **uri**
-            + `headers` (array) - List of headers to be sent on the request - Max elements: **20**
-                + (object) -
-                    + `name` (string, required) - Header field name, eg.: X-Access-Token - Max length: **50** - RegEx pattern: **`^[A-Za-z0-9-]+$`**
-                    + `value` (string, required) - Header field value, you can also use variables here - Max length: **1024**
-    + `webhooks` (array, required) - List of notifications to be sent when this procedure is called. In some properties you can use variables: `(tr.*)`, eg.: `(tr.body.name)`, to get values from trigger object, or `(rd.*)`, eg.: `(rd._id)`, to get values from read object - Min elements: **1** - Max elements: **20**
+    + `webhooks` (array, required) - List of notifications to be sent when this procedure is called. In some properties you can use variables from trigger object with `(tr.*)` notation, eg.: `(tr.body.name)` - Min elements: **1** - Max elements: **20**
         + (object) - Webhook object
             + `api` (object, required) - API where notification should be sent - Min properties: **1** - Max properties: **1**
                 + `store_api` (object) - Use this property if webhook is to store API (api.e-com.plus)
-                    + `endpoint`: `/(tr.resource).json` (string) - API endpoint, such as `/products.json`, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
+                    + `endpoint`: /(tr.resource).json (string) - API endpoint, such as /products.json, you can also include variables - Max length: **255** - RegEx pattern: **`^[/][\w$+()./]+[.]json$`**
                     + `version`: current (enum) - API version
                         + `v1` (string)
                         + `current` (string)
@@ -90,6 +78,10 @@ automatic tasks in a merchant's store
                 + `DELETE` (string)
             + `send_body`: true (boolean) - Send body on notification, if true and `map_body` undefined, trigger body will be sent
             + `map_body` (object) - Object to send, it is possible to use variables as properties values
+    + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
+    + `flags` (array) - Flags to associate additional info - Max elements: **10**
+        + (string) - Flag title
+    + `notes` (string) - Optional notes with additional info about this procedure - Max length: **255**
 
 #### JSON Schema [GET]
 
@@ -251,80 +243,6 @@ automatic tasks in a merchant's store
                         },
                         "description": "Conditions to continue with the procedure, based on trigger body"
                     },
-                    "read": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "minProperties": 1,
-                        "maxProperties": 1,
-                        "properties": {
-                            "store_api": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "endpoint": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "pattern": "^[/][\\w$+()./]+[.]json$",
-                                        "default": "/(tr.resource).json",
-                                        "description": "API endpoint, such as /products.json, you can also include variables"
-                                    },
-                                    "version": {
-                                        "type": "string",
-                                        "enum": [
-                                            "v1",
-                                            "current"
-                                        ],
-                                        "default": "current",
-                                        "description": "API version"
-                                    }
-                                },
-                                "description": "Use this property if the GET request is to store API (api.e-com.plus)"
-                            },
-                            "external_api": {
-                                "type": "object",
-                                "required": [
-                                    "uri"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                    "uri": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "format": "uri",
-                                        "description": "Full URL to external API endpoint, you can also use variables here"
-                                    },
-                                    "headers": {
-                                        "type": "array",
-                                        "maxItems": 20,
-                                        "items": {
-                                            "type": "object",
-                                            "required": [
-                                                "name",
-                                                "value"
-                                            ],
-                                            "additionalProperties": false,
-                                            "properties": {
-                                                "name": {
-                                                    "type": "string",
-                                                    "maxLength": 50,
-                                                    "pattern": "^[A-Za-z0-9-]+$",
-                                                    "description": "Header field name, eg.: X-Access-Token"
-                                                },
-                                                "value": {
-                                                    "type": "string",
-                                                    "maxLength": 1024,
-                                                    "description": "Header field value, you can also use variables here"
-                                                }
-                                            }
-                                        },
-                                        "description": "List of headers to be sent on the request"
-                                    }
-                                },
-                                "description": "Use this property if the GET request is to any external API (not api.e-com.plus)"
-                            }
-                        },
-                        "description": "JSON object to read with a GET request before run webhooks. In some properties you can use variables: (tr.*), eg.: (tr.body.name), to get values from trigger object"
-                    },
                     "webhooks": {
                         "type": "array",
                         "minItems": 1,
@@ -433,19 +351,43 @@ automatic tasks in a merchant's store
                             },
                             "description": "Webhook object"
                         },
-                        "description": "List of notifications to be sent when this procedure is called. In some properties you can use variables: (tr.*), eg.: (tr.body.name), to get values from trigger object, or (rd.*), eg.: (rd._id), to get values from read object"
+                        "description": "List of notifications to be sent when this procedure is called. In some properties you can use variables from trigger object with (tr.*) notation, eg.: (tr.body.name)"
+                    },
+                    "tag": {
+                        "type": "string",
+                        "maxLength": 20,
+                        "pattern": "^[a-z0-9_]+$",
+                        "description": "Tag to identify object, use only lowercase letters, digits and underscore"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this procedure"
                     }
                 }
             }
 
-### All Procedures [/procedures.json{?triggers.action,triggers.resource}]
+### All Procedures [/procedures.json{?tag}]
 
 */procedures.json?[field]*
 
 > Authentication<br>_GET_: **required**
 
 Pagination and ordering are not available, but you can use any other parameter,
-such as `triggers.method` and `triggers.resource`, to query by particular object properties
+such as `tag` or `triggers.resource`
+(with [dot notation](https://docs.mongodb.com/manual/core/document/#dot-notation)),
+to query by particular object properties
 
 Returns only `title` and `short_description` of each procedure
 
@@ -475,8 +417,8 @@ Returns only `title` and `short_description` of each procedure
                 },
                 {
                   "_id": "98d120000000000000000111",
-                  "title": "Reduce inventory after payment approval",
-                  "short_description": "After payment approval, reduce products available quantity to control stock"
+                  "title": "Reduce inventory after new order",
+                  "short_description": "After receive order, reduce products available quantity to control stock"
                 },
                 {
                   "_id": "98d120000000000000000112",
@@ -489,8 +431,7 @@ Returns only `title` and `short_description` of each procedure
 #### Find Procedures [GET]
 
 + Parameters
-    + `triggers.action`: `create` (string, optional) - Object property to query
-    + `triggers.resource`: `orders` (string, optional) - Object property to query
+    + `tag`: `my_proc` (string, optional) - Object property to query
 
 + Request (application/json)
 
@@ -507,8 +448,7 @@ Returns only `title` and `short_description` of each procedure
             {
               "meta": {
                 "query": {
-                  "triggers.action": "create",
-                  "triggers.resource": "orders"
+                  "tag": "my_proc"
                 }
               },
               "result": [
@@ -532,8 +472,6 @@ Request body must obey the specifications of
 In some properties you can use variables as value:
 - `(tr.*)` to get values from trigger object
   - eg.: `(tr.body.name)`
-- `(rd.*)` to get values from read object
-  - eg.: `(rd._id)`
 
 #### Create New Procedure [POST]
 
@@ -695,79 +633,411 @@ In some properties you can use variables as value:
                         },
                         "description": "Conditions to continue with the procedure, based on trigger body"
                     },
-                    "read": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "minProperties": 1,
-                        "maxProperties": 1,
-                        "properties": {
-                            "store_api": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "endpoint": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "pattern": "^[/][\\w$+()./]+[.]json$",
-                                        "default": "/(tr.resource).json",
-                                        "description": "API endpoint, such as /products.json, you can also include variables"
-                                    },
-                                    "version": {
-                                        "type": "string",
-                                        "enum": [
-                                            "v1",
-                                            "current"
-                                        ],
-                                        "default": "current",
-                                        "description": "API version"
-                                    }
-                                },
-                                "description": "Use this property if the GET request is to store API (api.e-com.plus)"
-                            },
-                            "external_api": {
-                                "type": "object",
-                                "required": [
-                                    "uri"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                    "uri": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "format": "uri",
-                                        "description": "Full URL to external API endpoint, you can also use variables here"
-                                    },
-                                    "headers": {
-                                        "type": "array",
-                                        "maxItems": 20,
-                                        "items": {
+                    "webhooks": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "api",
+                                "method"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "api": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "maxProperties": 1,
+                                    "properties": {
+                                        "store_api": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "endpoint": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "pattern": "^[/][\\w$+()./]+[.]json$",
+                                                    "default": "/(tr.resource).json",
+                                                    "description": "API endpoint, such as /products.json, you can also include variables"
+                                                },
+                                                "version": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "v1",
+                                                        "current"
+                                                    ],
+                                                    "default": "current",
+                                                    "description": "API version"
+                                                }
+                                            },
+                                            "description": "Use this property if webhook is to store API (api.e-com.plus)"
+                                        },
+                                        "external_api": {
                                             "type": "object",
                                             "required": [
-                                                "name",
-                                                "value"
+                                                "uri"
                                             ],
                                             "additionalProperties": false,
                                             "properties": {
-                                                "name": {
+                                                "uri": {
                                                     "type": "string",
-                                                    "maxLength": 50,
-                                                    "pattern": "^[A-Za-z0-9-]+$",
-                                                    "description": "Header field name, eg.: X-Access-Token"
+                                                    "maxLength": 255,
+                                                    "format": "uri",
+                                                    "description": "Full URL to external API endpoint, you can also use variables here"
                                                 },
-                                                "value": {
-                                                    "type": "string",
-                                                    "maxLength": 1024,
-                                                    "description": "Header field value, you can also use variables here"
+                                                "headers": {
+                                                    "type": "array",
+                                                    "maxItems": 20,
+                                                    "items": {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "name",
+                                                            "value"
+                                                        ],
+                                                        "additionalProperties": false,
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "maxLength": 50,
+                                                                "pattern": "^[A-Za-z0-9-]+$",
+                                                                "description": "Header field name, eg.: X-Access-Token"
+                                                            },
+                                                            "value": {
+                                                                "type": "string",
+                                                                "maxLength": 1024,
+                                                                "description": "Header field value, you can also use variables here"
+                                                            }
+                                                        }
+                                                    },
+                                                    "description": "List of headers to be sent on the request"
                                                 }
-                                            }
-                                        },
-                                        "description": "List of headers to be sent on the request"
-                                    }
+                                            },
+                                            "description": "Use this property if webhook is to any external API (not api.e-com.plus)"
+                                        }
+                                    },
+                                    "description": "API where notification should be sent"
                                 },
-                                "description": "Use this property if the GET request is to any external API (not api.e-com.plus)"
-                            }
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) to send request"
+                                },
+                                "send_body": {
+                                    "type": "boolean",
+                                    "default": true,
+                                    "description": "Send body on notification, if true and map_body undefined, trigger body will be sent"
+                                },
+                                "map_body": {
+                                    "type": "object",
+                                    "description": "Object to send, it is possible to use variables as properties values"
+                                }
+                            },
+                            "description": "Webhook object"
                         },
-                        "description": "JSON object to read with a GET request before run webhooks. In some properties you can use variables: (tr.*), eg.: (tr.body.name), to get values from trigger object"
+                        "description": "List of notifications to be sent when this procedure is called. In some properties you can use variables from trigger object with (tr.*) notation, eg.: (tr.body.name)"
+                    },
+                    "tag": {
+                        "type": "string",
+                        "maxLength": 20,
+                        "pattern": "^[a-z0-9_]+$",
+                        "description": "Tag to identify object, use only lowercase letters, digits and underscore"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this procedure"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "title": "Reduce inventory after new order",
+              "short_description": "After receive order, reduce products available quantity to control stock",
+              "triggers": [
+                {
+                  "method": "POST",
+                  "resource": "orders"
+                }
+              ],
+              "conditionals": [
+                {
+                  "field": "status",
+                  "operator": "str_not_equal",
+                  "str_value": "cancelled"
+                }
+              ],
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification"
+                    }
+                  },
+                  "method": "POST",
+                  "map_body": {
+                    "order": {
+                      "_id": "(tr.inserted_id)"
+                    },
+                    "financial_status": "(tr.body.financial_status)"
+                  }
+                }
+              ],
+              "tag": "stock_control"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d120000000000000000111"
+            }
+
+### Specific Procedure [/procedures/{_id}.json]
+
+*/procedures/[_id].json*
+
+> Authentication<br>_GET_, _PATCH_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/procedures/procedure-object)
+
+#### Read Procedure [GET]
+
++ Parameters
+    + _id: 98d120000000000000000111 (string, required) - The procedure ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "98d120000000000000000111",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "title": "Reduce inventory after new order",
+              "short_description": "After receive order, reduce products available quantity to control stock",
+              "triggers": [
+                {
+                  "method": "POST",
+                  "resource": "orders"
+                }
+              ],
+              "conditionals": [
+                {
+                  "field": "status",
+                  "operator": "str_not_equal",
+                  "value": 0,
+                  "str_value": "cancelled"
+                }
+              ],
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification"
+                    }
+                  },
+                  "method": "POST",
+                  "send_body": true,
+                  "map_body": {
+                    "order": {
+                      "_id": "(tr.inserted_id)"
+                    },
+                    "financial_status": "(tr.body.financial_status)"
+                  }
+                }
+              ],
+              "tag": "stock_control"
+            }
+
+#### Edit Grid [PATCH]
+
++ Parameters
+    + _id: 9d1500000000000000001111 (string, required) - The grid ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Procedures",
+                "description": "Procedure object model",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Procedure title"
+                    },
+                    "short_description": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Short procedure description in plain text"
+                    },
+                    "triggers": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "resource"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST",
+                                        "PATCH",
+                                        "PUT",
+                                        "DELETE"
+                                    ],
+                                    "description": "Method (HTTP verb) of the event, if undefined will match any method"
+                                },
+                                "action": {
+                                    "type": "string",
+                                    "enum": [
+                                        "create",
+                                        "change",
+                                        "delete"
+                                    ],
+                                    "description": "Type of action taken, if undefined will match any action"
+                                },
+                                "resource": {
+                                    "type": "string",
+                                    "enum": [
+                                        "authentications",
+                                        "products",
+                                        "categories",
+                                        "brands",
+                                        "collections",
+                                        "grids",
+                                        "customers",
+                                        "carts",
+                                        "orders",
+                                        "applications"
+                                    ],
+                                    "description": "API resource"
+                                },
+                                "resource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Resource ID, if specified"
+                                },
+                                "subresource": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[a-z_]+$",
+                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                },
+                                "subresource_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Subresource ID, if specified"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "pattern": "^[a-z0-9_]+$",
+                                    "description": "Property created or updated with the event, if undefined will match any fields"
+                                }
+                            },
+                            "description": "Trigger object"
+                        },
+                        "description": "List of events that call this procedure"
+                    },
+                    "conditionals": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "field",
+                                "operator"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "pattern": "^[a-z0-9_]+(([.][a-z0-9_]+){1,3})?$",
+                                    "description": "Body property to compare (variable), use dot notation for nested objects"
+                                },
+                                "operator": {
+                                    "type": "string",
+                                    "enum": [
+                                        ">",
+                                        "<",
+                                        ">=",
+                                        "<=",
+                                        "<>",
+                                        "==",
+                                        "str_equal",
+                                        "str_not_equal",
+                                        "defined",
+                                        "undefined",
+                                        "null",
+                                        "not_null"
+                                    ],
+                                    "description": "Conditional operator"
+                                },
+                                "value": {
+                                    "type": "number",
+                                    "multipleOf": 0.00001,
+                                    "minimum": 0,
+                                    "maximum": 999999999999,
+                                    "default": 0,
+                                    "description": "Numeric value to compare with field value"
+                                },
+                                "str_value": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "String value to compare with field, use if operator is \"str_equal\" or \"str_not_equal\""
+                                }
+                            },
+                            "description": "Conditional object"
+                        },
+                        "description": "Conditions to continue with the procedure, based on trigger body"
                     },
                     "webhooks": {
                         "type": "array",
@@ -877,7 +1147,29 @@ In some properties you can use variables as value:
                             },
                             "description": "Webhook object"
                         },
-                        "description": "List of notifications to be sent when this procedure is called. In some properties you can use variables: (tr.*), eg.: (tr.body.name), to get values from trigger object, or (rd.*), eg.: (rd._id), to get values from read object"
+                        "description": "List of notifications to be sent when this procedure is called. In some properties you can use variables from trigger object with (tr.*) notation, eg.: (tr.body.name)"
+                    },
+                    "tag": {
+                        "type": "string",
+                        "maxLength": 20,
+                        "pattern": "^[a-z0-9_]+$",
+                        "description": "Tag to identify object, use only lowercase letters, digits and underscore"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this procedure"
                     }
                 }
             }
@@ -885,85 +1177,20 @@ In some properties you can use variables as value:
     + Body
 
             {
-              "title": "Reduce inventory after payment approval",
-              "short_description": "After payment approval, reduce products available quantity to control stock",
-              "triggers": [
-                {
-                  "resource": "orders",
-                  "field": "financial_status"
-                }
-              ],
-              "conditionals": [
-                {
-
-                }
-              ],
-              "read": {
-                "store_api": {
-                  "endpoint": "/orders/(tr.resource_id).json"
-                }
-              },
               "webhooks": [
                 {
                   "api": {
-                    "store_api": {
-                      "endpoint": "/products/(rd.items.$._id)/quantity.json"
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification?order_id=(tr.inserted_id)"
                     }
                   },
-                  "method": "PUT",
-                  "map_body": {
-                    "resource": "products",
-                    "filter": {
-                      "_id": {
-                        "$in": (rd.items.$._id)
-                      }
-                    },
-                    "update": {
-
-                    }
-                  }
+                  "method": "GET",
+                  "send_body": false
                 }
               ]
             }
 
-+ Response 201 (application/json)
-
-    + Body
-
-            {
-              "_id": "98d120000000000000000111"
-            }
-
-### Specific Procedure [/procedures/{_id}.json]
-
-*/procedures/[_id].json*
-
-> Authentication<br>_GET_, _DELETE_: **required**
-
-In read requests, response body will follow
-[this model](#reference/procedures/procedure-object)
-
-#### Read Procedure [GET]
-
-+ Parameters
-    + _id: 98d120000000000000000111 (string, required) - The procedure ID
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
-            X-My-ID: 10000000000000000000000f
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-              "_id": "98d120000000000000000111",
-              "store_id": 100
-            }
++ Response 204
 
 #### Remove Procedure [DELETE]
 

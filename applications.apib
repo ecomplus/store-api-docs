@@ -634,6 +634,8 @@ Request body must obey the specifications of
               "state": "active",
               "title": "Products panel extension",
               "slug": "products-panel-ext",
+              "paid": true,
+              "payment_status": "trial",
               "version": "3.0.0",
               "type": "dashboard",
               "load_events": [
@@ -658,7 +660,8 @@ Request body must obey the specifications of
 
 In read requests, response body will follow
 [this model](#reference/applications/application-object),
-requests without authentication will receive application data without `hidden_data` property
+requests without authentication will receive application data without
+`authentication`, `auth_scope` and `hidden_data` properties
 
 For overwriting and editing, request body must obey the same specifications,
 but especially for edit requests there are no required fields
@@ -686,6 +689,8 @@ but especially for edit requests there are no required fields
               "state": "active",
               "title": "Products panel extension",
               "slug": "products-panel-ext",
+              "paid": true,
+              "payment_status": "trial",
               "version": "3.0.0",
               "type": "dashboard",
               "load_events": [
@@ -723,12 +728,15 @@ but especially for edit requests there are no required fields
               "state": "active",
               "title": "Products panel extension",
               "slug": "products-panel-ext",
+              "paid": true,
+              "payment_status": "trial",
               "version": "3.0.0",
               "type": "dashboard",
               "load_events": [
                 "products"
               ],
               "script_uri": "https://sample.mycdn.com/script.min.js",
+              "authentication": false,
               "data": {
                 "sample": 123,
                 "eg": [ 1, 2, 3 ]
@@ -1158,6 +1166,8 @@ but especially for edit requests there are no required fields
               "state": "inactive",
               "title": "Products panel extension",
               "slug": "products-panel-ext",
+              "paid": true,
+              "payment_status": "trial",
               "version": "3.0.0",
               "type": "dashboard",
               "load_events": [
