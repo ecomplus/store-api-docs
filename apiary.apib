@@ -36438,3 +36438,304 @@ but in this case there are no required fields
             X-My-ID: 10000000000000000000000f
 
 + Response 204
+
+## Group Stores
+
+`.stores`
+
+Use the **stores** resource to read and update the shop main informations
+
+### Store Object [/stores/schema.json]
+
++ Attributes (object)
+    + `name` (string, required) - Store name - Max length: **255**
+    + `logo` (string) - Image link to shop's logo - Max length: **255** - Format: **uri**
+    + `description` (string) - Simple description of store - Max length: **3000**
+    + `segment_id` (number, required) - ID of store main segment, get options and IDs at /segments.json - Mininum: **0** - Maximum: **65535**
+    + `doc_type` (enum, required) - Responsible person or organization document type
+        + `CPF` (string)
+        + `CNPJ` (string)
+    + `doc_number` (string, required) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+    + `inscription_type` (enum) - Municipal or state registration if exists
+        + `State` (string)
+        + `Municipal` (string)
+    + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
+    + `corporate_name` (string, required) - Registered company name or responsible fullname - Max length: **255**
+    + `address` (string) - Full registered address of company - Max length: **255**
+    + `phone` (string) - Financial contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+    + `representant_name` (string) - Name of company representative for commercial contact - Max length: **255**
+    + `representant_email` (string) - Email address of company representative - Max length: **255** - Format: **email**
+    + `contact_email` (string) - Public email address for news and general contact - Max length: **255** - Format: **email**
+    + `financial_email` (string, required) - Email address to receive notifications, invoices and vouchers - Max length: **255** - Format: **email**
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Stores",
+                "description": "Store info and resource IDs",
+                "type": "object",
+                "required": [
+                    "name",
+                    "segment_id",
+                    "doc_type",
+                    "doc_number",
+                    "corporate_name",
+                    "financial_email"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Store name"
+                    },
+                    "logo": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Image link to shop's logo"
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 3000,
+                        "description": "Simple description of store"
+                    },
+                    "segment_id": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "description": "ID of store main segment, get options and IDs at /segments.json"
+                    },
+                    "doc_type": {
+                        "type": "string",
+                        "enum": [
+                            "CPF",
+                            "CNPJ"
+                        ],
+                        "description": "Responsible person or organization document type"
+                    },
+                    "doc_number": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "Responsible person or organization document number (only numbers)"
+                    },
+                    "inscription_type": {
+                        "type": "string",
+                        "enum": [
+                            "State",
+                            "Municipal"
+                        ],
+                        "description": "Municipal or state registration if exists"
+                    },
+                    "inscription_number": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Municipal or state registration number (with characters) if exists"
+                    },
+                    "corporate_name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Registered company name or responsible fullname"
+                    },
+                    "address": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Full registered address of company"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "Financial contact phone"
+                    },
+                    "representant_name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Name of company representative for commercial contact"
+                    },
+                    "representant_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Email address of company representative"
+                    },
+                    "contact_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Public email address for news and general contact"
+                    },
+                    "financial_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Email address to receive notifications, invoices and vouchers"
+                    }
+                }
+            }
+
+### Your Store [/stores/me.json]
+
+*/stores/me.json*
+
+> Authentication<br>_GET_, _PATCH_: **required**
+
+In read requests, response body will follow
+[this model](#reference/stores/store-object)
+
+For editing, request body must obey the same specifications,
+but in this case there are no required fields
+
+#### Read Store [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "900000000000000000000001",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "resources": {
+
+              }
+            }
+
+#### Edit Store [PATCH]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Stores",
+                "description": "Store info and resource IDs",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Store name"
+                    },
+                    "logo": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Image link to shop's logo"
+                    },
+                    "description": {
+                        "type": "string",
+                        "maxLength": 3000,
+                        "description": "Simple description of store"
+                    },
+                    "segment_id": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "description": "ID of store main segment, get options and IDs at /segments.json"
+                    },
+                    "doc_type": {
+                        "type": "string",
+                        "enum": [
+                            "CPF",
+                            "CNPJ"
+                        ],
+                        "description": "Responsible person or organization document type"
+                    },
+                    "doc_number": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "Responsible person or organization document number (only numbers)"
+                    },
+                    "inscription_type": {
+                        "type": "string",
+                        "enum": [
+                            "State",
+                            "Municipal"
+                        ],
+                        "description": "Municipal or state registration if exists"
+                    },
+                    "inscription_number": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "Municipal or state registration number (with characters) if exists"
+                    },
+                    "corporate_name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Registered company name or responsible fullname"
+                    },
+                    "address": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Full registered address of company"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "Financial contact phone"
+                    },
+                    "representant_name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Name of company representative for commercial contact"
+                    },
+                    "representant_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Email address of company representative"
+                    },
+                    "contact_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Public email address for news and general contact"
+                    },
+                    "financial_email": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "email",
+                        "description": "Email address to receive notifications, invoices and vouchers"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+            }
+
++ Response 204

@@ -25,3 +25,5 @@
 :[](triggers.apib)
 
 :[](procedures.apib)
+
+:[](stores.apib)
