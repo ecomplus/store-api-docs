@@ -4,6 +4,8 @@
 
 :[](authenticate-yourself.apib)
 
+:[](authenticate-app.apib)
+
 :[](products.apib)
 
 :[](brands.apib)
