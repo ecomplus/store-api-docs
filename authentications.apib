@@ -1,0 +1,585 @@
+## Group Authentications
+
+`.authentications`
+
+Use the **authentications** resource to create, read, update and delete
+admin users in a merchant's store
+
+Users created from this resource should authenticate with API by
+[this way](#reference/authenticate-yourself)
+
+### Authentication Object [/authentications/schema.json]
+
++ Attributes (object)
+    + `username` (string, required) - Simple username for identification, only numbers and lowercase letters - Min length: **4** - Max length: **30** - RegEx pattern: **`^[0-9a-z]+$`**
+    + `email` (string) - User email address - Max length: **200** - Format: **email**
+    + `name` (string) - User full name - Max length: **255**
+    + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+    + `hash` (string) - MD5 hash generated with the user's password - RegEx pattern: **`^[a-fA-F0-9]{32}$`**
+    + `flags` (array) - Flags to associate additional info - Max elements: **10**
+        + (string) - Flag title
+    + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
+
+#### JSON Schema [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Authentications",
+                "description": "Authenticated API user",
+                "type": "object",
+                "required": [
+                    "username"
+                ],
+                "dependencies": {
+                    "hash": [
+                        "email"
+                    ]
+                },
+                "additionalProperties": false,
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 30,
+                        "pattern": "^[0-9a-z]+$",
+                        "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "email": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "format": "email",
+                        "description": "User email address"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "User full name"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "User phone number"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "pattern": "^[a-fA-F0-9]{32}$",
+                        "description": "MD5 hash generated with the user's password"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+### All Authentications [/authentications.json]
+
+*/authentications.json*
+
+> Authentication<br>_GET_, _POST_: **required**
+
+Pagination, filtering and ordering are not available,
+you should not use any URL parameters
+
+To create new authentication, request body must obey the specifications of
+[this model](#reference/authentications/authentication-object)
+
+#### List All Store Authentications [GET /authentications.json]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "meta": {
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "100000000000000000000010"
+                },
+                {
+                  "_id": "100000000000000000000011"
+                },
+                {
+                  "_id": "100000000000000000000012"
+                }
+              ]
+            }
+
+#### Create New Authentication [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Authentications",
+                "description": "Authenticated API user",
+                "type": "object",
+                "required": [
+                    "username"
+                ],
+                "dependencies": {
+                    "hash": [
+                        "email"
+                    ]
+                },
+                "additionalProperties": false,
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 30,
+                        "pattern": "^[0-9a-z]+$",
+                        "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "email": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "format": "email",
+                        "description": "User email address"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "User full name"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "User phone number"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "pattern": "^[a-fA-F0-9]{32}$",
+                        "description": "MD5 hash generated with the user's password"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "_id": "100000000000000000000011"
+            }
+
+### Specific Authentication [/authentications/{_id}.json]
+
+*/authentications/[_id].json*
+
+> Authentication<br>_GET_, _PATCH_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/authentications/authentication-object)
+
+For editing, request body must obey the same specifications,
+but in this case there are no required fields
+
+#### Read Authentication [GET]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "100000000000000000000011",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "title": "Reduce inventory after new order",
+              "short_description": "After receive order, reduce products available quantity to control stock",
+              "triggers": [
+                {
+                  "method": "POST",
+                  "resource": "orders"
+                }
+              ],
+              "conditionals": [
+                {
+                  "field": "status",
+                  "operator": "str_not_equal",
+                  "value": 0,
+                  "str_value": "cancelled"
+                }
+              ],
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification"
+                    }
+                  },
+                  "method": "POST",
+                  "send_body": true,
+                  "map_body": {
+                    "order": {
+                      "_id": "(tr.inserted_id)"
+                    },
+                    "financial_status": "(tr.body.financial_status)"
+                  }
+                }
+              ],
+              "tag": "stock_control"
+            }
+
+#### Edit Authentication [PATCH]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Authentications",
+                "description": "Authenticated API user",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "dependencies": {
+                    "hash": [
+                        "email"
+                    ]
+                },
+                "additionalProperties": false,
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 30,
+                        "pattern": "^[0-9a-z]+$",
+                        "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "email": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "format": "email",
+                        "description": "User email address"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "User full name"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "User phone number"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "pattern": "^[a-fA-F0-9]{32}$",
+                        "description": "MD5 hash generated with the user's password"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification?order_id=(tr.inserted_id)"
+                    }
+                  },
+                  "method": "GET",
+                  "send_body": false
+                }
+              ]
+            }
+
++ Response 204
+
+#### Remove Authentication [DELETE]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204
+
+### Yourself [/authentications/me.json]
+
+*/authentications/me.json*
+
+> Authentication<br>_GET_, _PATCH_, _DELETE_: **required**
+
+In read requests, response body will follow
+[this model](#reference/authentications/authentication-object)
+
+For editing, request body must obey the same specifications,
+but in this case there are no required fields
+
+#### Read Authentication [GET]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "100000000000000000000011",
+              "created_at": "2017-11-19T13:10:00Z",
+              "store_id": 100,
+              "title": "Reduce inventory after new order",
+              "short_description": "After receive order, reduce products available quantity to control stock",
+              "triggers": [
+                {
+                  "method": "POST",
+                  "resource": "orders"
+                }
+              ],
+              "conditionals": [
+                {
+                  "field": "status",
+                  "operator": "str_not_equal",
+                  "value": 0,
+                  "str_value": "cancelled"
+                }
+              ],
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification"
+                    }
+                  },
+                  "method": "POST",
+                  "send_body": true,
+                  "map_body": {
+                    "order": {
+                      "_id": "(tr.inserted_id)"
+                    },
+                    "financial_status": "(tr.body.financial_status)"
+                  }
+                }
+              ],
+              "tag": "stock_control"
+            }
+
+#### Edit Authentication [PATCH]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Authentications",
+                "description": "Authenticated API user",
+                "type": "object",
+                "required": [],
+                "minProperties": 1,
+                "dependencies": {
+                    "hash": [
+                        "email"
+                    ]
+                },
+                "additionalProperties": false,
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 30,
+                        "pattern": "^[0-9a-z]+$",
+                        "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "email": {
+                        "type": "string",
+                        "maxLength": 200,
+                        "format": "email",
+                        "description": "User email address"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "User full name"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "User phone number"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "pattern": "^[a-fA-F0-9]{32}$",
+                        "description": "MD5 hash generated with the user's password"
+                    },
+                    "flags": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 10,
+                        "items": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "description": "Flag title"
+                        },
+                        "description": "Flags to associate additional info"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Optional notes with additional info about this user"
+                    }
+                }
+            }
+
+    + Body
+
+            {
+              "webhooks": [
+                {
+                  "api": {
+                    "external_api": {
+                      "uri": "https://appserver.sample/stock/notification?order_id=(tr.inserted_id)"
+                    }
+                  },
+                  "method": "GET",
+                  "send_body": false
+                }
+              ]
+            }
+
++ Response 204
+
+#### Remove Authentication [DELETE]
+
++ Parameters
+    + _id: 100000000000000000000011 (string, required) - The authentication ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 204

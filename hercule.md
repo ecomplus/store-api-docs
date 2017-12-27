@@ -27,3 +27,5 @@
 :[](procedures.apib)
 
 :[](stores.apib)
+
+:[](authentications.apib)
