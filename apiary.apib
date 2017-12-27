@@ -266,6 +266,10 @@ Feel free to get help or suggest alterations on
 
 ## Group Authenticate Yourself
 
+This authentication method is provided to admin users,
+for application authentication you must implement
+[Authenticate APP](#reference/authenticate-app)
+
 ### Step 1: Login [/_login.json]
 
 This step is not required, if you have your own ID and API key skip to the
@@ -336,6 +340,47 @@ then you will need to generate another token
           "access_token": "eyJhbGciOi.eyJzdWIi.AFONFh7HgQ",
           "expires": "2017-12-01T08:02:17-05:00"
         }
+
+## Group Authenticate APP
+
+### Authenticate With Callback [/_callback.json]
+
+Will return _null_ response with _204_ status code,
+token and ID will be sent to application `auth_callback_uri`
+with a _POST_ callback request
+
+The callback body with the follow the model below:
+
+```json
+{
+  "my_id": "100000000000000000000012",
+  "access_token": "eyJhbGciOi.eyYzdWIi.ZEONFh7HgQ",
+  "expires": "2017-12-02T08:02:17-05:00"
+}
+```
+
+Generated token is valid for one day, as defined by *expires* ISO 8601 date and time,
+then you will need to generate another token
+
+#### Request Access Token [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
+    + Attributes (object)
+        + _id: 100000000000000000000012 (string, required)
+            Authentication object ID
+
+    + Body
+
+            {
+              "_id": "100000000000000000000012"
+            }
+
++ Response 204 (application/json)
 
 ## Group Products
 
@@ -37197,7 +37242,7 @@ without `pass_md5_hash` property
 For editing, request body must obey the same specifications,
 but in this case there are no required fields
 
-#### Read Authentication [GET]
+#### Read Your Own Authentication [GET]
 
 + Request (application/json)
 
@@ -37220,7 +37265,7 @@ but in this case there are no required fields
               "name": "My Full Name"
             }
 
-#### Edit Authentication [PATCH]
+#### Edit Your Authentication [PATCH]
 
 + Request (application/json)
 
@@ -37302,7 +37347,7 @@ but in this case there are no required fields
 
 + Response 204
 
-#### Remove Authentication [DELETE]
+#### Remove Your Authentication [DELETE]
 
 + Request (application/json)
 
