@@ -157,7 +157,7 @@ Based on HTTP/1.1 Status Code Definitions:
 
 ## Error Handling
 
-### App Errors
+#### App Errors
 
 All *4xx* (client error) and *5xx* (server error) responses from application
 will have body following the model below:
@@ -189,7 +189,7 @@ will have body following the model below:
 To know how to treat this errors, see
 [status codes reference](#introduction/overview/status-codes)
 
-### Web Server Errors
+#### Web Server Errors
 
 In some cases you can receive an error directly from NGINX web server,
 even in this case the response will be a JSON object, almost in the same model
@@ -197,7 +197,7 @@ of [App Errors](#introduction/error-handling/app-errors),
 but without properties `user_message` and `more_info`,
 the `error_code` will be an negative integer
 
-#### NGINX 404
+##### NGINX 404
 
 ```
 {
@@ -209,7 +209,7 @@ the `error_code` will be an negative integer
 
 Incorrect URL paths, check [API Host](#introduction/overview/host)
 
-#### NGINX 503
+##### NGINX 503
 
 ```
 {
@@ -242,7 +242,7 @@ we recommend that you create treatments in case you receive a *503* status code
 - [GitHub organization](https://github.com/ecomclub)
 - [Community](https://community.e-com.plus)
 
-### Other REST APIs
+#### Other REST APIs
 
 - [Main](https://ecomplus.docs.apiary.io):
 E-Com Plus Main API, with some public data about stores and channels
