@@ -467,7 +467,7 @@ order subresources directly at this resource
                     + `option` (object, required) - Option chosen or created by customer
                         + `option_id` (string) - Identify option if it was predefined (not custom value created by customer) - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
                         + `text` (string, required) - Option text value displayed for the client - Max length: **70**
-                        + `colors` (array) - Option color palette (if the field involves colors), starting by main color - Max elements: **4**
+                        + `colors` (array) - Option color palette (if the field involves colors), starting by main color - Max elements: **6**
                             + (string) - RGB code with #
                     + `attachment` (string) - URL of file attached by customer to this field - Max length: **255** - Format: **uri**
                     + `add_to_price` (object) - Price alteration due to this customization
@@ -2506,7 +2506,7 @@ order subresources directly at this resource
                                                     },
                                                     "colors": {
                                                         "type": "array",
-                                                        "maxItems": 4,
+                                                        "maxItems": 6,
                                                         "items": {
                                                             "type": "string",
                                                             "pattern": "^#[a-f0-9]{6}$",
@@ -5063,7 +5063,7 @@ Request body must obey the specifications of
                                                     },
                                                     "colors": {
                                                         "type": "array",
-                                                        "maxItems": 4,
+                                                        "maxItems": 6,
                                                         "items": {
                                                             "type": "string",
                                                             "pattern": "^#[a-f0-9]{6}$",
@@ -7798,7 +7798,7 @@ but especially for edit requests there are no required fields
                                                     },
                                                     "colors": {
                                                         "type": "array",
-                                                        "maxItems": 4,
+                                                        "maxItems": 6,
                                                         "items": {
                                                             "type": "string",
                                                             "pattern": "^#[a-f0-9]{6}$",
@@ -10051,7 +10051,7 @@ but especially for edit requests there are no required fields
                                                     },
                                                     "colors": {
                                                         "type": "array",
-                                                        "maxItems": 4,
+                                                        "maxItems": 6,
                                                         "items": {
                                                             "type": "string",
                                                             "pattern": "^#[a-f0-9]{6}$",

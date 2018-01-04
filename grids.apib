@@ -21,10 +21,8 @@ grid subresources directly at this resource
             + `value` (string) - Default normalized value to use in integrations - Max length: **200**
             + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Min properties: **1** - Max properties: **5**
                 + `^[a-z0-9_]{2,30}$` (string) - Attribute text value - Max length: **200**
-            + `colors` (array) - Option color palette (if the grid involves colors), starting by main color - Max elements: **4**
-                + (object) - Color object
-                    + `text` (string, required) - Color name - Max length: **50**
-                    + `rgb` (string) - RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
+            + `colors` (array) - Option color palette (if the grid involves colors), starting by main color - Max elements: **6**
+                + (string) - RGB code with #
             + `add_to_price` (object) - Default price alteration for product with this option for customization or variations
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
@@ -142,26 +140,11 @@ grid subresources directly at this resource
                                 },
                                 "colors": {
                                     "type": "array",
-                                    "maxItems": 4,
+                                    "maxItems": 6,
                                     "items": {
-                                        "type": "object",
-                                        "required": [
-                                            "text"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "text": {
-                                                "type": "string",
-                                                "maxLength": 50,
-                                                "description": "Color name"
-                                            },
-                                            "rgb": {
-                                                "type": "string",
-                                                "pattern": "^#[a-f0-9]{6}$",
-                                                "description": "RGB code with #"
-                                            }
-                                        },
-                                        "description": "Color object"
+                                        "type": "string",
+                                        "pattern": "^#[a-f0-9]{6}$",
+                                        "description": "RGB code with #"
                                     },
                                     "description": "Option color palette (if the grid involves colors), starting by main color"
                                 },
@@ -571,26 +554,11 @@ Request body must obey the specifications of
                                 },
                                 "colors": {
                                     "type": "array",
-                                    "maxItems": 4,
+                                    "maxItems": 6,
                                     "items": {
-                                        "type": "object",
-                                        "required": [
-                                            "text"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "text": {
-                                                "type": "string",
-                                                "maxLength": 50,
-                                                "description": "Color name"
-                                            },
-                                            "rgb": {
-                                                "type": "string",
-                                                "pattern": "^#[a-f0-9]{6}$",
-                                                "description": "RGB code with #"
-                                            }
-                                        },
-                                        "description": "Color object"
+                                        "type": "string",
+                                        "pattern": "^#[a-f0-9]{6}$",
+                                        "description": "RGB code with #"
                                     },
                                     "description": "Option color palette (if the grid involves colors), starting by main color"
                                 },
@@ -899,26 +867,11 @@ but especially for edit requests there are no required fields
                                 },
                                 "colors": {
                                     "type": "array",
-                                    "maxItems": 4,
+                                    "maxItems": 6,
                                     "items": {
-                                        "type": "object",
-                                        "required": [
-                                            "text"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "text": {
-                                                "type": "string",
-                                                "maxLength": 50,
-                                                "description": "Color name"
-                                            },
-                                            "rgb": {
-                                                "type": "string",
-                                                "pattern": "^#[a-f0-9]{6}$",
-                                                "description": "RGB code with #"
-                                            }
-                                        },
-                                        "description": "Color object"
+                                        "type": "string",
+                                        "pattern": "^#[a-f0-9]{6}$",
+                                        "description": "RGB code with #"
                                     },
                                     "description": "Option color palette (if the grid involves colors), starting by main color"
                                 },
@@ -1150,26 +1103,11 @@ but especially for edit requests there are no required fields
                                 },
                                 "colors": {
                                     "type": "array",
-                                    "maxItems": 4,
+                                    "maxItems": 6,
                                     "items": {
-                                        "type": "object",
-                                        "required": [
-                                            "text"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "text": {
-                                                "type": "string",
-                                                "maxLength": 50,
-                                                "description": "Color name"
-                                            },
-                                            "rgb": {
-                                                "type": "string",
-                                                "pattern": "^#[a-f0-9]{6}$",
-                                                "description": "RGB code with #"
-                                            }
-                                        },
-                                        "description": "Color object"
+                                        "type": "string",
+                                        "pattern": "^#[a-f0-9]{6}$",
+                                        "description": "RGB code with #"
                                     },
                                     "description": "Option color palette (if the grid involves colors), starting by main color"
                                 },
