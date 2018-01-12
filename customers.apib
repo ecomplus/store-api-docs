@@ -44,6 +44,10 @@ customer subresources directly at this resource
         + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
         + `given_name` (string) - The "first name" of this user - Max length: **70**
         + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
+    + `birth_date` (object) - Date of customer birth - Min properties: **1**
+        + `day` (number) - Day of birth
+        + `month` (number) - Number of month of birth
+        + `year` (number) - Year of birth
     + `gender` (enum) - Customer gender, female, male or third gender (X)
         + `f` (string)
         + `m` (string)
@@ -380,6 +384,32 @@ customer subresources directly at this resource
                             }
                         },
                         "description": "Customer name object"
+                    },
+                    "birth_date": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "properties": {
+                            "day": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 31,
+                                "description": "Day of birth"
+                            },
+                            "month": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 12,
+                                "description": "Number of month of birth"
+                            },
+                            "year": {
+                                "type": "integer",
+                                "min": 1800,
+                                "max": 2200,
+                                "description": "Year of birth"
+                            }
+                        },
+                        "description": "Date of customer birth"
                     },
                     "gender": {
                         "type": "string",
@@ -1583,6 +1613,32 @@ but you can also preset these values if you want to
                         },
                         "description": "Customer name object"
                     },
+                    "birth_date": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "properties": {
+                            "day": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 31,
+                                "description": "Day of birth"
+                            },
+                            "month": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 12,
+                                "description": "Number of month of birth"
+                            },
+                            "year": {
+                                "type": "integer",
+                                "min": 1800,
+                                "max": 2200,
+                                "description": "Year of birth"
+                            }
+                        },
+                        "description": "Date of customer birth"
+                    },
                     "gender": {
                         "type": "string",
                         "enum": [
@@ -2770,6 +2826,32 @@ but especially for edit requests there are no required fields
                         },
                         "description": "Customer name object"
                     },
+                    "birth_date": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "properties": {
+                            "day": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 31,
+                                "description": "Day of birth"
+                            },
+                            "month": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 12,
+                                "description": "Number of month of birth"
+                            },
+                            "year": {
+                                "type": "integer",
+                                "min": 1800,
+                                "max": 2200,
+                                "description": "Year of birth"
+                            }
+                        },
+                        "description": "Date of customer birth"
+                    },
                     "gender": {
                         "type": "string",
                         "enum": [
@@ -3747,6 +3829,32 @@ but especially for edit requests there are no required fields
                             }
                         },
                         "description": "Customer name object"
+                    },
+                    "birth_date": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "properties": {
+                            "day": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 31,
+                                "description": "Day of birth"
+                            },
+                            "month": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 12,
+                                "description": "Number of month of birth"
+                            },
+                            "year": {
+                                "type": "integer",
+                                "min": 1800,
+                                "max": 2200,
+                                "description": "Year of birth"
+                            }
+                        },
+                        "description": "Date of customer birth"
                     },
                     "gender": {
                         "type": "string",
