@@ -55,3 +55,27 @@ the only limitations are to store up to 3000 properties in the data object and o
               "sample": 123,
               "eg": [ 1, 2, 3 ]
             }
+
+#### Edit Application Data [PATCH]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Body
+
+            {
+              "other_sample_field": 123,
+              "field_x": {
+                "y": "some sample string"
+              }
+            }
+
++ Response 204

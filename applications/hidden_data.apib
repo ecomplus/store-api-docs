@@ -33,3 +33,47 @@ the only limitations are to store up to 3000 properties in the data object and o
                 "maxProperties": 3000,
                 "description": "Schema free, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
             }
+
+#### Read Application Hidden Data [GET]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "token": "sdkcblsdcbslkc"
+            }
+
+#### Edit Application Hidden Data [PATCH]
+
++ Parameters
+    + _id: 42aa00000000000000000111 (string, required) - The application ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Body
+
+            {
+              "token": "ajgvcawbhcdjchsdbchasbjk",
+              "client_id": 12345678,
+              "secret": "47cn8n9uqh81c"
+            }
+
++ Response 204
