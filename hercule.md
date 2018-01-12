@@ -24,6 +24,8 @@
 
 :[](applications.apib)
 
+:[](applications/data.apib)
+
 :[](triggers.apib)
 
 :[](procedures.apib)
