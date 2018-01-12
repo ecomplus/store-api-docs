@@ -3,14 +3,15 @@
 `.applications.hidden_data`
 
 Use the **hidden_data** subresource to read and update an
-specific app private data, such as tokens and secret keys.
+specific app private data, such as tokens and secret keys
+
+This endpoint is **schema free**, it means that you can send any valid JSON object,
+the only limitations are to store up to 3000 properties in the data object and obey
+[MongoDB document limits](https://docs.mongodb.com/manual/reference/limits/#bson-documents)
 
 */applications/[_id]/hidden_data.json*
 
 > Authentication<br>_GET_, _PUT_: **required**
-
-+ Attributes (object)
-    + `hidden_data` (object, required) - App private data, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents
 
 #### JSON Schema [GET /applications/schema/hidden_data.json]
 
@@ -24,18 +25,11 @@ specific app private data, such as tokens and secret keys.
 
     + Body
 
-              {
-                  "$schema": "http://json-schema.org/draft-06/schema#",
-                  "title": "Application private data, available only with authentication",
-                  "type": "object",
-                  "required": [
-                      "hidden_data"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                      "hidden_data": {
-                          "type": "object",
-                          "description": "App data, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
-                      }
-                  }
-              }
+            {
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Application private data, available only with authentication",
+                "type": "object",
+                "minProperties": 1,
+                "maxProperties": 3000,
+                "description": "Schema free, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
+            }
