@@ -1,15 +1,14 @@
 ### Brands i18n [/brands/{_id}/i18n.json]
 
-`.applications.data`
+`.brands.i18n`
 
-Use the **i18n** subresource to read and update or create an translation of an specific brand in
-a merchant's store
-
-[MongoDB document limits](https://docs.mongodb.com/manual/reference/limits/#bson-documents)
+Use the **i18n** subresource to read and update
+translations for an specific brand name, with up to 10 languages
 
 */brands/[_id]/i18n.json*
 
 > Authentication<br>_GET_, _PATCH_: **required**
+
 #### JSON Schema [GET /brands/schema/i18n.json]
 
 + Request (application/json)
@@ -23,19 +22,17 @@ a merchant's store
     + Body
 
             {
-               "$schema": "http://json-schema.org/draft-06/schema#",
-               "title": "Name language translations",
-               "type": "object",
-               "additionalProperties": false,
-               "minProperties": 1,
-               "maxProperties": 10,
-               "patternProperties":
-                 {
-                 "^[a-z]{2}(_[a-z]{2})?$":
-                    {
-                    "type": "string",
-                    "maxLength": 255,
-                    "description": "Translated name"
-                     }
-                 }
-             }
+                "$schema": "http://json-schema.org/draft-06/schema#",
+                "title": "Name language translations",
+                "type": "object",
+                "additionalProperties": false,
+                "minProperties": 1,
+                "maxProperties": 10,
+                "patternProperties": {
+                    "^[a-z]{2}(_[a-z]{2})?$": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "Translated name"
+                    }
+                }
+            }
