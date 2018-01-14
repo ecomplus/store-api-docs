@@ -36,3 +36,46 @@ translations for an specific brand name, with up to 10 languages
                     }
                 }
             }
+
+#### Read Brand Name Translations [GET]
+
++ Parameters
+    + _id: a10000000000000000000001 (string, required) - The brand ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "pt_br": "Camisetas Exemplo",
+              "es_es": "Camisetas Ejemplo"
+            }
+
+#### Edit Brand Name Translations [PATCH]
+
++ Parameters
+    + _id: a10000000000000000000001 (string, required) - The brand ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 10000000000000000000000f
+
+    + Body
+
+            {
+              "it_it": "Camicie Esempio"
+            }
+
++ Response 204
