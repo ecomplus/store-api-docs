@@ -10,6 +10,8 @@
 
 :[](brands.apib)
 
+:[](brands/i18n.apib)
+
 :[](categories.apib)
 
 :[](collections.apib)
