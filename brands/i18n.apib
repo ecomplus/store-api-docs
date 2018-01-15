@@ -9,6 +9,9 @@ translations for an specific brand name, with up to 10 languages
 
 > Authentication<br>_GET_, _PATCH_: **required**
 
++ Attributes (object)
+    + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated name - Max length: **255**
+
 #### JSON Schema [GET /brands/schema/i18n.json]
 
 + Request (application/json)
@@ -75,7 +78,7 @@ translations for an specific brand name, with up to 10 languages
     + Body
 
             {
-              "it_it": "Camicie Esempio"
+              "it": "Camicie Esempio"
             }
 
 + Response 204
