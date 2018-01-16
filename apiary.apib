@@ -428,7 +428,7 @@ product subresources directly at this resource, such as product images, variatio
     + `body_html` (string) - Full product description, may use HTML tags - Max length: **500000**
     + `body_text` (string) - Full product description, plain text only - Max length: **500000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
     + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -1000,7 +1000,7 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "keywords": {
@@ -3942,7 +3942,7 @@ brand subresources directly at this resource
     + `body_html` (string) - Full brand description, may use HTML tags - Max length: **250000**
     + `body_text` (string) - Full brand description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `logo` (object) - Brand logo
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
@@ -4050,7 +4050,7 @@ brand subresources directly at this resource
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "logo": {
@@ -4537,6 +4537,9 @@ translations for an specific brand name, with up to 10 languages
 
 > Authentication<br>_GET_, _PATCH_: **required**
 
++ Attributes (object)
+    + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated name - Max length: **255**
+
 #### JSON Schema [GET /brands/schema/i18n.json]
 
 + Request (application/json)
@@ -4603,7 +4606,7 @@ translations for an specific brand name, with up to 10 languages
     + Body
 
             {
-              "it_it": "Camicie Esempio"
+              "it": "Camicie Esempio"
             }
 
 + Response 204
@@ -4630,7 +4633,7 @@ category subresources directly at this resource
     + `body_html` (string) - Full category description, may use HTML tags - Max length: **250000**
     + `body_text` (string) - Full category description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `parent` (object) - Category parent (above) of this category
         + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
         + `name` (string, required) - Category name - Max length: **255**
@@ -4754,7 +4757,7 @@ category subresources directly at this resource
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "parent": {
@@ -5452,7 +5455,7 @@ collection subresources directly at this resource
     + `body_html` (string) - Full collection description, may use HTML tags - Max length: **250000**
     + `body_text` (string) - Full collection description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `products` (array) - List of collection products - Max elements: **3000**
         + (string) - Product ID
     + `icon` (object) - Collection icon image
@@ -5562,7 +5565,7 @@ collection subresources directly at this resource
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "products": {

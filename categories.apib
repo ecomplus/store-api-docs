@@ -20,7 +20,7 @@ category subresources directly at this resource
     + `body_html` (string) - Full category description, may use HTML tags - Max length: **250000**
     + `body_text` (string) - Full category description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `parent` (object) - Category parent (above) of this category
         + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
         + `name` (string, required) - Category name - Max length: **255**
@@ -144,7 +144,7 @@ category subresources directly at this resource
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "parent": {

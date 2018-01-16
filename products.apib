@@ -31,7 +31,7 @@ product subresources directly at this resource, such as product images, variatio
     + `body_html` (string) - Full product description, may use HTML tags - Max length: **500000**
     + `body_text` (string) - Full product description, plain text only - Max length: **500000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
     + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -603,7 +603,7 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "keywords": {

@@ -20,7 +20,7 @@ collection subresources directly at this resource
     + `body_html` (string) - Full collection description, may use HTML tags - Max length: **250000**
     + `body_text` (string) - Full collection description, plain text only - Max length: **250000**
     + `meta_title` (string) - Title tag for page SEO - Max length: **255**
-    + `meta_description` (string) - Meta description tag for page SEO - Max length: **255**
+    + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `products` (array) - List of collection products - Max elements: **3000**
         + (string) - Product ID
     + `icon` (object) - Collection icon image
@@ -130,7 +130,7 @@ collection subresources directly at this resource
                     },
                     "meta_description": {
                         "type": "string",
-                        "maxLength": 255,
+                        "maxLength": 1000,
                         "description": "Meta description tag for page SEO"
                     },
                     "products": {
