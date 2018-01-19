@@ -12,6 +12,7 @@ Users created from this resource should authenticate with API by
 
 + Attributes (object)
     + `username` (string, required) - Simple username for identification, only numbers and lowercase letters - Min length: **4** - Max length: **30** - RegEx pattern: **`^[0-9a-z]+$`**
+    + `locale`: pt_br (string) - User language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
     + `email` (string) - User email address - Max length: **200** - Format: **email**
     + `name` (string) - User full name - Max length: **255**
     + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
@@ -53,6 +54,12 @@ Users created from this resource should authenticate with API by
                         "maxLength": 30,
                         "pattern": "^[0-9a-z]+$",
                         "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "locale": {
+                        "type": "string",
+                        "pattern": "^[a-z]{2}(_[a-z]{2})?$",
+                        "default": "pt_br",
+                        "description": "User language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
                     },
                     "email": {
                         "type": "string",
