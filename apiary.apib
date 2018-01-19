@@ -4526,91 +4526,6 @@ but especially for edit requests there are no required fields
 
 + Response 204
 
-### Brand i18n [/brands/{_id}/i18n.json]
-
-`.brands.i18n`
-
-Use the **i18n** subresource to read and update
-translations for an specific brand name, with up to 10 languages
-
-*/brands/[_id]/i18n.json*
-
-> Authentication<br>_GET_, _PATCH_: **required**
-
-+ Attributes (object)
-    + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated name - Max length: **255**
-
-#### JSON Schema [GET /brands/schema/i18n.json]
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-
-+ Response 200 (i18n/json)
-
-    + Body
-
-            {
-                "$schema": "http://json-schema.org/draft-06/schema#",
-                "title": "Name language translations",
-                "type": "object",
-                "additionalProperties": false,
-                "minProperties": 1,
-                "maxProperties": 10,
-                "patternProperties": {
-                    "^[a-z]{2}(_[a-z]{2})?$": {
-                        "type": "string",
-                        "maxLength": 255,
-                        "description": "Translated name"
-                    }
-                }
-            }
-
-#### Read Brand Name Translations [GET]
-
-+ Parameters
-    + _id: a10000000000000000000001 (string, required) - The brand ID
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
-            X-My-ID: 10000000000000000000000f
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-              "pt_br": "Camisetas Exemplo",
-              "es_es": "Camisetas Ejemplo"
-            }
-
-#### Edit Brand Name Translations [PATCH]
-
-+ Parameters
-    + _id: a10000000000000000000001 (string, required) - The brand ID
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
-            X-My-ID: 10000000000000000000000f
-
-    + Body
-
-            {
-              "it": "Camicie Esempio"
-            }
-
-+ Response 204
-
 ## Group Categories
 
 `.categories`
@@ -15304,6 +15219,7 @@ Users created from this resource should authenticate with API by
 
 + Attributes (object)
     + `username` (string, required) - Simple username for identification, only numbers and lowercase letters - Min length: **4** - Max length: **30** - RegEx pattern: **`^[0-9a-z]+$`**
+    + `locale`: pt_br (string) - User language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
     + `email` (string) - User email address - Max length: **200** - Format: **email**
     + `name` (string) - User full name - Max length: **255**
     + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
@@ -15345,6 +15261,12 @@ Users created from this resource should authenticate with API by
                         "maxLength": 30,
                         "pattern": "^[0-9a-z]+$",
                         "description": "Simple username for identification, only numbers and lowercase letters"
+                    },
+                    "locale": {
+                        "type": "string",
+                        "pattern": "^[a-z]{2}(_[a-z]{2})?$",
+                        "default": "pt_br",
+                        "description": "User language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
                     },
                     "email": {
                         "type": "string",
