@@ -17,6 +17,7 @@ Users created from this resource should authenticate with API by
     + `name` (string) - User full name - Max length: **255**
     + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `pass_md5_hash` (string) - MD5 hash generated with the user's password - RegEx pattern: **`^[a-f0-9]{32}$`**
+    + `edit_storefront`: true (boolean) - Whether the user is able to use builder and file manager to edit storefront
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
@@ -82,6 +83,11 @@ Users created from this resource should authenticate with API by
                         "type": "string",
                         "pattern": "^[a-f0-9]{32}$",
                         "description": "MD5 hash generated with the user's password"
+                    },
+                    "edit_storefront": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Whether the user is able to use builder and file manager to edit storefront"
                     },
                     "flags": {
                         "type": "array",
