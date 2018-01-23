@@ -44,10 +44,6 @@ must be used for tests only, after homologation you should migrate to
 Current version and formats will always be the same of
 [production environment](#introduction/overview/host)
 
-You should
-[create a new sandbox account](https://sandbox.e-com.plus/new)
-to prevent data overwriting on default account
-
 **All data in the sandbox environment is deleted after 7 days**
 
 This documentation uses sandbox by reference on the examples
@@ -8019,11 +8015,13 @@ but you can also preset these values if you want to
     + Body
 
             {
-              "oauth_providers": {
-                "_id": "3c2a00000000000000000003",
-                "provider": "facebook",
-                "user_id": "1234567890"
-              },
+              "oauth_providers": [
+                {
+                  "_id": "3c2a00000000000000000003",
+                  "provider": "facebook",
+                  "user_id": "1234567890"
+                }
+              ],
               "main_email": "mail@sample.ex",
               "emails": [
                 {
@@ -8129,11 +8127,13 @@ but especially for edit requests there are no required fields
               "state": "registered",
               "enabled": true,
               "login": true,
-              "oauth_providers": {
-                "_id": "3c2a00000000000000000003",
-                "provider": "facebook",
-                "user_id": "1234567890"
-              },
+              "oauth_providers": [
+                {
+                  "_id": "3c2a00000000000000000003",
+                  "provider": "facebook",
+                  "user_id": "1234567890"
+                }
+              ],
               "accepts_marketing": true,
               "display_name": "Jane",
               "gender": "f",
@@ -8168,11 +8168,13 @@ but especially for edit requests there are no required fields
               "state": "registered",
               "enabled": true,
               "login": true,
-              "oauth_providers": {
-                "_id": "3c2a00000000000000000003",
-                "provider": "facebook",
-                "user_id": "1234567890"
-              },
+              "oauth_providers": [
+                {
+                  "_id": "3c2a00000000000000000003",
+                  "provider": "facebook",
+                  "user_id": "1234567890"
+                }
+              ],
               "main_email": "mail@sample.ex",
               "emails": [
                 {
@@ -8275,11 +8277,13 @@ but especially for edit requests there are no required fields
 
             {
               "status": "active",
-              "oauth_providers": {
-                "_id": "3c2a00000000000000000003",
-                "provider": "facebook",
-                "user_id": "9999999998"
-              },
+              "oauth_providers": [
+                {
+                  "_id": "3c2a00000000000000000003",
+                  "provider": "facebook",
+                  "user_id": "9999999998"
+                }
+              ],
               "main_email": "mail@sample.ex",
               "emails": [
                 {
