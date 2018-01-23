@@ -463,13 +463,13 @@ product subresources directly at this resource, such as product images, variatio
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2885,13 +2885,13 @@ Returns only `_id` and `sku` of each product
 
 #### List All Store Products [GET /products.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2920,13 +2920,13 @@ Returns only `_id` and `sku` of each product
 + Parameters
     + sku: COD1 (string, optional) - The product SKU
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2955,7 +2955,7 @@ Request body must obey the specifications of
 
 #### Create New Product [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3067,7 +3067,7 @@ Request body must obey the specifications of
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -3093,13 +3093,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + product: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3227,7 +3227,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3235,7 +3235,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3371,7 +3371,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3396,7 +3396,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3513,7 +3513,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

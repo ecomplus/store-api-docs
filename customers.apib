@@ -190,13 +190,13 @@ customer subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1192,7 +1192,7 @@ by particular object properties
 
 #### List All Store Customers [GET /customers.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1200,7 +1200,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1285,7 +1285,7 @@ by particular object properties
     + sort: `gender` (string, optional) - Rules to order resultant objects
     + fields: `emails,name,gender` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1293,7 +1293,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1359,7 +1359,7 @@ by particular object properties
 + Parameters
     + `main_email`: `janerue@mail.ex` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1367,7 +1367,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1418,7 +1418,7 @@ but you can also preset these values if you want to
 
 #### Create New Customer [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1494,7 +1494,7 @@ but you can also preset these values if you want to
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -1522,13 +1522,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + customer: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1559,7 +1559,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1567,7 +1567,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -1651,7 +1651,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1673,7 +1673,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -1758,7 +1758,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

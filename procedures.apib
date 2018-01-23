@@ -85,13 +85,13 @@ automatic tasks in a merchant's store
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -393,7 +393,7 @@ Returns only `title` and `short_description` of each procedure
 
 #### List All Store Procedures [GET /procedures.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -401,7 +401,7 @@ Returns only `title` and `short_description` of each procedure
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -433,7 +433,7 @@ Returns only `title` and `short_description` of each procedure
 + Parameters
     + `tag`: `my_proc` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -441,7 +441,7 @@ Returns only `title` and `short_description` of each procedure
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -475,7 +475,7 @@ In some properties you can use variables as value:
 
 #### Create New Procedure [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -520,7 +520,7 @@ In some properties you can use variables as value:
               "tag": "stock_control"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -545,7 +545,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -553,7 +553,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -602,7 +602,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -633,7 +633,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

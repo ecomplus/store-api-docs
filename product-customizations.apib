@@ -32,13 +32,13 @@ use it to create, read, update and delete customization fields of a specific pro
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -186,7 +186,7 @@ by particular object properties
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -194,7 +194,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -267,7 +267,7 @@ by particular object properties
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + fields: label,options (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -275,7 +275,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -340,7 +340,7 @@ Request body must obey the specifications of
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -495,7 +495,7 @@ Request body must obey the specifications of
               }
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -521,7 +521,7 @@ but there are no required fields, object should have at least one valid property
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + _id: a12000000000000000001110 (string, required) - Customization Field ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -529,7 +529,7 @@ but there are no required fields, object should have at least one valid property
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -559,7 +559,7 @@ but there are no required fields, object should have at least one valid property
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + _id: a12000000000000000001110 (string, required) - Customization Field ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -711,7 +711,7 @@ but there are no required fields, object should have at least one valid property
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + _id: a12000000000000000001110 (string, required) - Customization Field ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

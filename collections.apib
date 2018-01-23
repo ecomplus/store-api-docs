@@ -46,13 +46,13 @@ collection subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -282,13 +282,13 @@ by particular object properties
 
 #### List All Store Collections [GET /collections.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -341,13 +341,13 @@ by particular object properties
     + sort: `slug` (string, optional) - Rules to order resultant objects
     + fields: `name,short_description` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -386,13 +386,13 @@ by particular object properties
 + Parameters
     + `slug`: `special-collection` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -430,7 +430,7 @@ Request body must obey the specifications of
 
 #### Create New Collection [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -461,7 +461,7 @@ Request body must obey the specifications of
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -486,13 +486,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -525,7 +525,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -546,7 +546,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -583,7 +583,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

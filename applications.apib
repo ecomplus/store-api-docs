@@ -52,13 +52,13 @@ application subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -251,7 +251,7 @@ by particular object properties
 
 #### List All Store Applications [GET /applications.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -259,7 +259,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -329,7 +329,7 @@ by particular object properties
     + sort: `-version_date` (string, optional) - Rules to order resultant objects
     + fields: `app_id,title` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -337,7 +337,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -371,7 +371,7 @@ by particular object properties
 + Parameters
     + `app_id`: `1004` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -379,7 +379,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -423,7 +423,7 @@ Request body must obey the specifications of
 
 #### Create New Application [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -447,7 +447,7 @@ Request body must obey the specifications of
               "script_uri": "https://sample.mycdn.com/script.min.js"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -474,13 +474,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + application: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -511,7 +511,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -519,7 +519,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -554,7 +554,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -576,7 +576,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -608,7 +608,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

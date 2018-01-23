@@ -24,13 +24,13 @@ Users created from this resource should authenticate with API by
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -125,7 +125,7 @@ To create new authentication, request body must obey the specifications of
 
 #### List All Store Authentications [GET /authentications.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -133,7 +133,7 @@ To create new authentication, request body must obey the specifications of
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -169,7 +169,7 @@ To create new authentication, request body must obey the specifications of
 
 #### Create New Authentication [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -187,7 +187,7 @@ To create new authentication, request body must obey the specifications of
               "pass_md5_hash": "698dc19d489c4e4db73e28a713eab07b"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -217,7 +217,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -225,7 +225,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -244,7 +244,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -266,7 +266,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -294,7 +294,7 @@ but in this case there are no required fields
 
 #### Read Your Own Authentication [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -302,7 +302,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -317,7 +317,7 @@ but in this case there are no required fields
 
 #### Edit Your Authentication [PATCH]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -335,7 +335,7 @@ but in this case there are no required fields
 
 #### Remove Your Authentication [DELETE]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

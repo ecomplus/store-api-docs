@@ -507,13 +507,13 @@ order subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2758,7 +2758,7 @@ by particular object properties
 
 #### List All Store Orders [GET /orders.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -2766,7 +2766,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2921,7 +2921,7 @@ by particular object properties
     + sort: `-financial_status.updated_at` (string, optional) - Rules to order resultant objects
     + fields: `financial_status,amount` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -2929,7 +2929,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -2999,7 +2999,7 @@ by particular object properties
 + Parameters
     + code: `P300` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3007,7 +3007,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3064,7 +3064,7 @@ Request body must obey the specifications of
 
 #### Create New Order [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3260,7 +3260,7 @@ Request body must obey the specifications of
               "notes": "Sample order notes by customer"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -3288,13 +3288,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + order: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3346,7 +3346,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3354,7 +3354,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3569,7 +3569,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3591,7 +3591,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3796,7 +3796,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 

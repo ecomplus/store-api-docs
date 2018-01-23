@@ -292,7 +292,7 @@ This step is not required, if you have your own ID and API key skip to the
 
 #### View User ID And API Key [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -311,7 +311,7 @@ This step is not required, if you have your own ID and API key skip to the
               "pass_md5_hash": "1a79a4d60de6718e8e5b326e338ae533"
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
           "_id": "5a6757722b66f68dbed44526",
@@ -329,7 +329,7 @@ then you will need to generate another token
 
 #### Generate Access Token [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -348,7 +348,7 @@ then you will need to generate another token
               "api_key": "1234567890abcdef"
             }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
           "my_id": "5a6757722b66f68dbed44526",
@@ -383,7 +383,7 @@ then you will need to generate another token
 
 #### Request Access Token [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -399,7 +399,7 @@ then you will need to generate another token
               "_id": "100000000000000000000012"
             }
 
-+ Response 204 (application/json)
++ Response 204 (application/json; charset=utf-8)
 
 ## Group Products
 
@@ -866,13 +866,13 @@ product subresources directly at this resource, such as product images, variatio
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3288,13 +3288,13 @@ Returns only `_id` and `sku` of each product
 
 #### List All Store Products [GET /products.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3323,13 +3323,13 @@ Returns only `_id` and `sku` of each product
 + Parameters
     + sku: COD1 (string, optional) - The product SKU
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3358,7 +3358,7 @@ Request body must obey the specifications of
 
 #### Create New Product [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3470,7 +3470,7 @@ Request body must obey the specifications of
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -3496,13 +3496,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + product: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3630,7 +3630,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3638,7 +3638,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -3774,7 +3774,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3799,7 +3799,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3916,7 +3916,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 123a5432109876543210cdef (string, required) - The product ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -3972,13 +3972,13 @@ brand subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4197,13 +4197,13 @@ by particular object properties
 
 #### List All Store Brands [GET /brands.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4299,13 +4299,13 @@ by particular object properties
     + sort: `name` (string, optional) - Rules to order resultant objects
     + fields: `name,short_description` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4344,13 +4344,13 @@ by particular object properties
 + Parameters
     + `slug`: `brand-four` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4393,7 +4393,7 @@ Request body must obey the specifications of
 
 #### Create New Brand [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -4415,7 +4415,7 @@ Request body must obey the specifications of
               }
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -4440,13 +4440,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: a10000000000000000000001 (string, required) - The brand ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4470,7 +4470,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: a10000000000000000000001 (string, required) - The brand ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -4491,7 +4491,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: a10000000000000000000001 (string, required) - The brand ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -4522,7 +4522,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: a10000000000000000000001 (string, required) - The brand ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -4594,13 +4594,13 @@ category subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4921,13 +4921,13 @@ by particular object properties
 
 #### List All Store Categories [GET /categories.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -4995,13 +4995,13 @@ by particular object properties
     + sort: `-name` (string, optional) - Rules to order resultant objects
     + fields: `name,short_description` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5050,13 +5050,13 @@ by particular object properties
 + Parameters
     + `slug`: `category-four` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5094,7 +5094,7 @@ Request body must obey the specifications of
 
 #### Create New Category [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5160,7 +5160,7 @@ Request body must obey the specifications of
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -5185,13 +5185,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: f10000000000000000000001 (string, required) - The category ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5260,7 +5260,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: f10000000000000000000001 (string, required) - The category ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5282,7 +5282,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: f10000000000000000000001 (string, required) - The category ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5344,7 +5344,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: f10000000000000000000001 (string, required) - The category ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5402,13 +5402,13 @@ collection subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5638,13 +5638,13 @@ by particular object properties
 
 #### List All Store Collections [GET /collections.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5697,13 +5697,13 @@ by particular object properties
     + sort: `slug` (string, optional) - Rules to order resultant objects
     + fields: `name,short_description` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5742,13 +5742,13 @@ by particular object properties
 + Parameters
     + `slug`: `special-collection` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5786,7 +5786,7 @@ Request body must obey the specifications of
 
 #### Create New Collection [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5817,7 +5817,7 @@ Request body must obey the specifications of
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -5842,13 +5842,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -5881,7 +5881,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5902,7 +5902,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5939,7 +5939,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: c92000000000000000001111 (string, required) - The collection ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -5998,13 +5998,13 @@ grid subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -6233,13 +6233,13 @@ by particular object properties
 
 #### List All Store Grids [GET /grids.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -6297,13 +6297,13 @@ by particular object properties
     + sort: `grid_id` (string, optional) - Rules to order resultant objects
     + fields: `grid_id,options` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -6368,13 +6368,13 @@ by particular object properties
 + Parameters
     + `grid_id`: `size` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -6412,7 +6412,7 @@ Request body must obey the specifications of
 
 #### Create New Grid [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -6445,7 +6445,7 @@ Request body must obey the specifications of
               "custom_value": false
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -6470,13 +6470,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 9d1500000000000000001111 (string, required) - The grid ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -6512,7 +6512,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 9d1500000000000000001111 (string, required) - The grid ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -6533,7 +6533,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 9d1500000000000000001111 (string, required) - The grid ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -6578,7 +6578,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 9d1500000000000000001111 (string, required) - The grid ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -6780,13 +6780,13 @@ customer subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -7782,7 +7782,7 @@ by particular object properties
 
 #### List All Store Customers [GET /customers.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -7790,7 +7790,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -7875,7 +7875,7 @@ by particular object properties
     + sort: `gender` (string, optional) - Rules to order resultant objects
     + fields: `emails,name,gender` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -7883,7 +7883,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -7949,7 +7949,7 @@ by particular object properties
 + Parameters
     + `main_email`: `janerue@mail.ex` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -7957,7 +7957,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -8008,7 +8008,7 @@ but you can also preset these values if you want to
 
 #### Create New Customer [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8084,7 +8084,7 @@ but you can also preset these values if you want to
               ]
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -8112,13 +8112,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + customer: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -8149,7 +8149,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8157,7 +8157,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -8241,7 +8241,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8263,7 +8263,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8348,7 +8348,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 3c1000000000000000000003 (string, required) - The customer ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8442,13 +8442,13 @@ cart subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -8874,7 +8874,7 @@ by particular object properties
 
 #### List All Store Carts [GET /carts.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8882,7 +8882,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -8971,7 +8971,7 @@ by particular object properties
     + sort: `-subtotal` (string, optional) - Rules to order resultant objects
     + fields: `subtotal,discount` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -8979,7 +8979,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -9034,7 +9034,7 @@ by particular object properties
 + Parameters
     + `customers`: `3c1000000000000000000005` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -9042,7 +9042,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -9082,7 +9082,7 @@ Request body must obey the specifications of
 
 #### Create New Cart [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -9127,7 +9127,7 @@ Request body must obey the specifications of
               }
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -9152,13 +9152,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -9210,7 +9210,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -9231,7 +9231,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -9284,7 +9284,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -9803,13 +9803,13 @@ order subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12054,7 +12054,7 @@ by particular object properties
 
 #### List All Store Orders [GET /orders.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12062,7 +12062,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12217,7 +12217,7 @@ by particular object properties
     + sort: `-financial_status.updated_at` (string, optional) - Rules to order resultant objects
     + fields: `financial_status,amount` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12225,7 +12225,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12295,7 +12295,7 @@ by particular object properties
 + Parameters
     + code: `P300` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12303,7 +12303,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12360,7 +12360,7 @@ Request body must obey the specifications of
 
 #### Create New Order [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12556,7 +12556,7 @@ Request body must obey the specifications of
               "notes": "Sample order notes by customer"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -12584,13 +12584,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + order: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12642,7 +12642,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12650,7 +12650,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -12865,7 +12865,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -12887,7 +12887,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13092,7 +13092,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: fe1000000000000000000005 (string, required) - The order ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13156,13 +13156,13 @@ application subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13355,7 +13355,7 @@ by particular object properties
 
 #### List All Store Applications [GET /applications.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13363,7 +13363,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13433,7 +13433,7 @@ by particular object properties
     + sort: `-version_date` (string, optional) - Rules to order resultant objects
     + fields: `app_id,title` (string, optional) - Object properties to return
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13441,7 +13441,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13475,7 +13475,7 @@ by particular object properties
 + Parameters
     + `app_id`: `1004` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13483,7 +13483,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13527,7 +13527,7 @@ Request body must obey the specifications of
 
 #### Create New Application [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13551,7 +13551,7 @@ Request body must obey the specifications of
               "script_uri": "https://sample.mycdn.com/script.min.js"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -13578,13 +13578,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + application: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13615,7 +13615,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13623,7 +13623,7 @@ but especially for edit requests there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13658,7 +13658,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13680,7 +13680,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13712,7 +13712,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13739,13 +13739,13 @@ the only limitations are to store up to 3000 properties in the data object and o
 
 #### JSON Schema [GET /applications/schema/data.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13763,7 +13763,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13771,7 +13771,7 @@ the only limitations are to store up to 3000 properties in the data object and o
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13785,7 +13785,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13821,13 +13821,13 @@ the only limitations are to store up to 3000 properties in the data object and o
 
 #### JSON Schema [GET /applications/schema/hidden_data.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13845,7 +13845,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13853,7 +13853,7 @@ the only limitations are to store up to 3000 properties in the data object and o
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -13866,7 +13866,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 + Parameters
     + _id: 42aa00000000000000000111 (string, required) - The application ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -13933,13 +13933,13 @@ a merchant's store, you can also create fake triggers, mainly for tests purposes
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14061,7 +14061,7 @@ Returns all properties excepting `body` and `response` of each trigger
 
 #### List All Store Triggers [GET /triggers.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14069,7 +14069,7 @@ Returns all properties excepting `body` and `response` of each trigger
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14156,7 +14156,7 @@ Returns all properties excepting `body` and `response` of each trigger
     + `method`: `POST` (string, optional) - Object property to query
     + `resource`: `products` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14164,7 +14164,7 @@ Returns all properties excepting `body` and `response` of each trigger
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14212,7 +14212,7 @@ having the property `fake` equals to _true_
 
 #### Create New Trigger [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14235,7 +14235,7 @@ having the property `fake` equals to _true_
               }
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -14259,7 +14259,7 @@ having the property `fake` equals to _true_
 + Parameters
     + _id: 98d010000000000000000111 (string, required) - The trigger ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14267,7 +14267,7 @@ having the property `fake` equals to _true_
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14292,7 +14292,7 @@ having the property `fake` equals to _true_
 + Parameters
     + _id: 98d010000000000000000111 (string, required) - The trigger ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14389,13 +14389,13 @@ automatic tasks in a merchant's store
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14697,7 +14697,7 @@ Returns only `title` and `short_description` of each procedure
 
 #### List All Store Procedures [GET /procedures.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14705,7 +14705,7 @@ Returns only `title` and `short_description` of each procedure
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14737,7 +14737,7 @@ Returns only `title` and `short_description` of each procedure
 + Parameters
     + `tag`: `my_proc` (string, optional) - Object property to query
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14745,7 +14745,7 @@ Returns only `title` and `short_description` of each procedure
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14779,7 +14779,7 @@ In some properties you can use variables as value:
 
 #### Create New Procedure [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14824,7 +14824,7 @@ In some properties you can use variables as value:
               "tag": "stock_control"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -14849,7 +14849,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14857,7 +14857,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -14906,7 +14906,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14937,7 +14937,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 98d120000000000000000111 (string, required) - The procedure ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -14986,13 +14986,13 @@ shop main informations and IDs of saved documents
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15167,7 +15167,7 @@ but in this case there are no required fields
 
 #### Read Store [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15175,7 +15175,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15229,7 +15229,7 @@ but in this case there are no required fields
 
 #### Edit Store [PATCH]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15271,13 +15271,13 @@ Users created from this resource should authenticate with API by
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15372,7 +15372,7 @@ To create new authentication, request body must obey the specifications of
 
 #### List All Store Authentications [GET /authentications.json]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15380,7 +15380,7 @@ To create new authentication, request body must obey the specifications of
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15416,7 +15416,7 @@ To create new authentication, request body must obey the specifications of
 
 #### Create New Authentication [POST]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15434,7 +15434,7 @@ To create new authentication, request body must obey the specifications of
               "pass_md5_hash": "698dc19d489c4e4db73e28a713eab07b"
             }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
     + Body
 
@@ -15464,7 +15464,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15472,7 +15472,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15491,7 +15491,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15513,7 +15513,7 @@ but in this case there are no required fields
 + Parameters
     + _id: 100000000000000000000011 (string, required) - The authentication ID
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15541,7 +15541,7 @@ but in this case there are no required fields
 
 #### Read Your Own Authentication [GET]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15549,7 +15549,7 @@ but in this case there are no required fields
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
     + Body
 
@@ -15564,7 +15564,7 @@ but in this case there are no required fields
 
 #### Edit Your Authentication [PATCH]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
@@ -15582,7 +15582,7 @@ but in this case there are no required fields
 
 #### Remove Your Authentication [DELETE]
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
     + Headers
 
