@@ -82,13 +82,13 @@ cart subresources directly at this resource
 
 #### JSON Schema [GET]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -514,7 +514,7 @@ by particular object properties
 
 #### List All Store Carts [GET /carts.json]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -522,7 +522,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -611,7 +611,7 @@ by particular object properties
     + sort: `-subtotal` (string, optional) - Rules to order resultant objects
     + fields: `subtotal,discount` (string, optional) - Object properties to return
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -619,7 +619,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -674,7 +674,7 @@ by particular object properties
 + Parameters
     + `customers`: `3c1000000000000000000005` (string, optional) - Object property to query
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -682,7 +682,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -722,7 +722,7 @@ Request body must obey the specifications of
 
 #### Create New Cart [POST]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -767,7 +767,7 @@ Request body must obey the specifications of
               }
             }
 
-+ Response 201 (application/json; charset=utf-8)
++ Response 201 (application/json)
 
     + Body
 
@@ -792,13 +792,13 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -850,7 +850,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -871,7 +871,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -924,7 +924,7 @@ but especially for edit requests there are no required fields
 + Parameters
     + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 

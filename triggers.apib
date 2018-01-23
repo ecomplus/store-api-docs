@@ -47,13 +47,13 @@ a merchant's store, you can also create fake triggers, mainly for tests purposes
 
 #### JSON Schema [GET]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -175,7 +175,7 @@ Returns all properties excepting `body` and `response` of each trigger
 
 #### List All Store Triggers [GET /triggers.json]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -183,7 +183,7 @@ Returns all properties excepting `body` and `response` of each trigger
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -270,7 +270,7 @@ Returns all properties excepting `body` and `response` of each trigger
     + `method`: `POST` (string, optional) - Object property to query
     + `resource`: `products` (string, optional) - Object property to query
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -278,7 +278,7 @@ Returns all properties excepting `body` and `response` of each trigger
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -326,7 +326,7 @@ having the property `fake` equals to _true_
 
 #### Create New Trigger [POST]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -349,7 +349,7 @@ having the property `fake` equals to _true_
               }
             }
 
-+ Response 201 (application/json; charset=utf-8)
++ Response 201 (application/json)
 
     + Body
 
@@ -373,7 +373,7 @@ having the property `fake` equals to _true_
 + Parameters
     + _id: 98d010000000000000000111 (string, required) - The trigger ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -381,7 +381,7 @@ having the property `fake` equals to _true_
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -406,7 +406,7 @@ having the property `fake` equals to _true_
 + Parameters
     + _id: 98d010000000000000000111 (string, required) - The trigger ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 

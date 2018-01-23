@@ -19,13 +19,13 @@ you must specify only the ID of an existent category, other category properties 
 
 #### JSON Schema [GET]
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
             X-Store-ID: 100
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -61,7 +61,7 @@ by particular object properties
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -69,7 +69,7 @@ by particular object properties
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -113,7 +113,7 @@ Request body must be an object with valid category `_id` and no more properties
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -146,7 +146,7 @@ Request body must be an object with valid category `_id` and no more properties
               "_id": "b10000000000000000001112"
             }
 
-+ Response 201 (application/json; charset=utf-8)
++ Response 201 (application/json)
 
     + Body
 
@@ -169,7 +169,7 @@ In read requests, response body will follow
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + _id: f10000000000000000000001 (string, required) - Category ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
@@ -177,7 +177,7 @@ In read requests, response body will follow
             X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
             X-My-ID: 5a6757722b66f68dbed44526
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200 (application/json)
 
     + Body
 
@@ -193,7 +193,7 @@ In read requests, response body will follow
     + product: 1234567890abcdef01291511 (string, required) - Product ID
     + _id: f10000000000000000000001 (string, required) - Category ID
 
-+ Request (application/json; charset=utf-8)
++ Request (application/json)
 
     + Headers
 
