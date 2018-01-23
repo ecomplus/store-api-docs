@@ -6620,8 +6620,9 @@ customer subresources directly at this resource
         + (object) - Email object
             + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
             + `type` (enum) - The type of email
-                + `work` (string)
                 + `home` (string)
+                + `personal` (string)
+                + `work` (string)
                 + `other` (string)
             + `verified`: false (boolean) - States whether or not the email address has been verified
     + `accepts_marketing`: false (boolean) - Indicates whether customer would like to receive email updates from the shop
@@ -6922,8 +6923,9 @@ customer subresources directly at this resource
                                 "type": {
                                     "type": "string",
                                     "enum": [
-                                        "work",
                                         "home",
+                                        "personal",
+                                        "work",
                                         "other"
                                     ],
                                     "description": "The type of email"
