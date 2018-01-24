@@ -210,7 +210,9 @@ Returns all properties excepting `body` and `response` of each trigger
                   "action": "change",
                   "resource": "products",
                   "resource_id": "100a54321098765432112222",
-                  "fields": "quantity"
+                  "fields": [
+                    "quantity"
+                  ]
                 },
                 {
                   "_id": "98d010000000000000000112",
@@ -231,7 +233,9 @@ Returns all properties excepting `body` and `response` of each trigger
                   "resource_id": "1234567890abcdef01291512",
                   "subresource": "variations",
                   "subresource_id": "1ff00000000000000000098f",
-                  "fields": "specifications"
+                  "fields": [
+                    "specifications"
+                  ]
                 },
                 {
                   "_id": "98d010000000000000000114",
@@ -343,7 +347,9 @@ having the property `fake` equals to _true_
               "action": "change",
               "resource": "products",
               "resource_id": "100a54321098765432112222",
-              "fields": "quantity",
+              "fields": [
+                "quantity"
+              ],
               "body": {
                 "quantity": 100
               }
@@ -395,7 +401,9 @@ having the property `fake` equals to _true_
               "action": "change",
               "resource": "products",
               "resource_id": "100a54321098765432112222",
-              "fields": "quantity",
+              "fields": [
+                "quantity"
+              ],
               "body": {
                 "quantity": 100
               }
