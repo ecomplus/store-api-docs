@@ -72,6 +72,7 @@ automatic tasks in a merchant's store
                             + `name` (string, required) - Header field name, eg.: X-Access-Token - Max length: **50** - RegEx pattern: **`^[A-Za-z0-9-]+$`**
                             + `value` (string, required) - Header field value, you can also use variables here - Max length: **1024**
             + `method` (enum, required) - Method (HTTP verb) to send request
+                + `GET` (string)
                 + `POST` (string)
                 + `PATCH` (string)
                 + `PUT` (string)
@@ -332,6 +333,7 @@ automatic tasks in a merchant's store
                                 "method": {
                                     "type": "string",
                                     "enum": [
+                                        "GET",
                                         "POST",
                                         "PATCH",
                                         "PUT",
