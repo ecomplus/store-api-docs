@@ -9481,8 +9481,42 @@ order subresources directly at this resource
     + `shipping_lines` (array) - List of shipping methods and address for this order - Max elements: **100**
         + (object) - Order shipping method
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `from` (undefined, required) - Sender's address
-            + `to` (undefined, required) - Shipping address (recipient)
+            + `from` (object, required) - Sender's address
+                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
+                + `street` (string) - Street or public place name - Max length: **200**
+                + `number` (number) - House or building street number
+                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
+                + `borough` (string) - Borough name - Max length: **100**
+                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
+                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
+                + `city` (string) - City name - Max length: **100**
+                + `country` (string) - Country name - Max length: **50**
+                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `province` (string) - Province or state name - Max length: **100**
+                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
+                + `last_name` (string) - The recipient's last name - Max length: **70**
+                + `phone` (object) - Customer phone number for this mailing address
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+            + `to` (object, required) - Shipping address (recipient)
+                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
+                + `street` (string) - Street or public place name - Max length: **200**
+                + `number` (number) - House or building street number
+                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
+                + `borough` (string) - Borough name - Max length: **100**
+                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
+                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
+                + `city` (string) - City name - Max length: **100**
+                + `country` (string) - Country name - Max length: **50**
+                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `province` (string) - Province or state name - Max length: **100**
+                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
+                + `last_name` (string) - The recipient's last name - Max length: **70**
+                + `phone` (object) - Customer phone number for this mailing address
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `package` (object) - Shipping object information - Min properties: **1**
                 + `dimensions` (object) - Package dimensions - Min properties: **1**
                     + `^width|height|length$` (object) - Package width, height and length
@@ -9597,7 +9631,24 @@ order subresources directly at this resource
                     + `loyalty_points` (string)
                     + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
-            + `billing_address` (undefined) - The mailing address associated with the payment method
+            + `billing_address` (object) - The mailing address associated with the payment method
+                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
+                + `street` (string) - Street or public place name - Max length: **200**
+                + `number` (number) - House or building street number
+                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
+                + `borough` (string) - Borough name - Max length: **100**
+                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
+                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
+                + `city` (string) - City name - Max length: **100**
+                + `country` (string) - Country name - Max length: **50**
+                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `province` (string) - Province or state name - Max length: **100**
+                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
+                + `last_name` (string) - The recipient's last name - Max length: **70**
+                + `phone` (object) - Customer phone number for this mailing address
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `app` (object) - Payment method (by application) chosen by customer
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
                 + `label` (string) - Name of payment method shown to customers - Max length: **50**
