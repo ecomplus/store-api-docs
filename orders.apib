@@ -3072,26 +3072,28 @@ Request body must obey the specifications of
               },
               "payment_method_label": "PayPal",
               "shipping_method_label": "PAC",
-              "buyer": {
-                "_id": "3c1000000000000000000001",
-                "locale": "pt_br",
-                "main_email": "123@mail.com",
-                "display_name": "Fulano",
-                "name": {
-                  "family_name": "Beltrano",
-                  "given_name": "Fulano",
-                  "middle_name": "Sicrano"
-                },
-                "gender": "m",
-                "phones": {
-                  "country_code": "55",
-                  "number": "31999889988",
-                  "type": "personal"
-                },
-                "registry_type": "p",
-                "doc_country": "BR",
-                "doc_number": "11111111111"
-              },
+              "buyers": [
+                {
+                  "_id": "3c1000000000000000000001",
+                  "locale": "pt_br",
+                  "main_email": "123@mail.com",
+                  "display_name": "Fulano",
+                  "name": {
+                    "family_name": "Beltrano",
+                    "given_name": "Fulano",
+                    "middle_name": "Sicrano"
+                  },
+                  "gender": "m",
+                  "phones": {
+                    "country_code": "55",
+                    "number": "31999889988",
+                    "type": "personal"
+                  },
+                  "registry_type": "p",
+                  "doc_country": "BR",
+                  "doc_number": "11111111111"
+                }
+              ],
               "shipping_lines": [
                 {
                   "_id": "3ab0000000000000000000e1",
@@ -3365,26 +3367,28 @@ but especially for edit requests there are no required fields
               },
               "payment_method_label": "PayPal",
               "shipping_method_label": "PAC",
-              "buyer": {
-                "_id": "3c1000000000000000000001",
-                "locale": "pt_br",
-                "main_email": "123@mail.com",
-                "display_name": "Fulano",
-                "name": {
-                  "family_name": "Beltrano",
-                  "given_name": "Fulano",
-                  "middle_name": "Sicrano"
-                },
-                "gender": "m",
-                "phones": {
-                  "country_code": "55",
-                  "number": "31999889988",
-                  "type": "personal"
-                },
-                "registry_type": "p",
-                "doc_country": "BR",
-                "doc_number": "11111111111"
-              },
+              "buyers": [
+                {
+                  "_id": "3c1000000000000000000001",
+                  "locale": "pt_br",
+                  "main_email": "123@mail.com",
+                  "display_name": "Fulano",
+                  "name": {
+                    "family_name": "Beltrano",
+                    "given_name": "Fulano",
+                    "middle_name": "Sicrano"
+                  },
+                  "gender": "m",
+                  "phones": {
+                    "country_code": "55",
+                    "number": "31999889988",
+                    "type": "personal"
+                  },
+                  "registry_type": "p",
+                  "doc_country": "BR",
+                  "doc_number": "11111111111"
+                }
+              ],
               "shipping_lines": [
                 {
                   "_id": "3ab0000000000000000000e1",
