@@ -9314,9 +9314,9 @@ order subresources directly at this resource
 ### Order Object [/orders/schema.json]
 
 + Attributes (object)
-    + `checkout_link` (string) - URL to checkout page, if necessary, use `(_id)` where order unique ID must appear at URL - Max length: **255** - Format: **uri**
+    + `checkout_link` (string) - URL to checkout page, if necessary, use (`_id`) where order unique ID must appear at URL - Max length: **255** - Format: **uri**
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `status_link` (string) - URL to order status page, if necessary, use `(_id)` where order unique ID must appear - Max length: **255** - Format: **uri**
+    + `status_link` (string) - URL to order status page, if necessary, use (`_id`) where order unique ID must appear - Max length: **255** - Format: **uri**
     + `status_mobile_link` (string) - Optional status URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
@@ -9328,7 +9328,7 @@ order subresources directly at this resource
     + `affiliate_code` (string) - Code to identify the affiliate that referred the customer - Max length: **200**
     + `source_name`: Web (string) - Where the order originated - Max length: **30**
     + `browser_ip` (string) - IP address of the browser used by the customer when placing the order - Max length: **30** - Format: **ipv4**
-    + `channel_id` (string) - Domain name or channel unique identificator (numbers and lowercase letters) - Min length: **4** - Max length: **100** - RegEx pattern: **`^[0-9a-z-.]+$`**
+    + `channel_id` (number) - Channel unique identificator
     + `channel_type`: ecommerce (enum) - Channel type or source
         + `ecommerce` (string)
         + `mobile` (string)
@@ -9336,6 +9336,7 @@ order subresources directly at this resource
         + `button` (string)
         + `facebook` (string)
         + `chatbot` (string)
+    + `domain` (string) - Store domain name (numbers and lowercase letters, eg.: www.myshop.sample) - Min length: **4** - Max length: **100** - RegEx pattern: **`^[0-9a-z-.]+$`**
     + `number` (number) - Order number, if not specified will be filled auto incrementing
     + `code` (string) - Order code used by seller and customer for identification, should be unique - Max length: **70**
     + `status`: open (enum) - Order main status
@@ -9390,129 +9391,98 @@ order subresources directly at this resource
         + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
     + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
     + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
-    + `buyer` (object) - Customer object
-        + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
-        + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
-        + `emails` (array) - List of customer email addresses - Max elements: **20**
-            + (object) - Email object
-                + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
-                + `type` (enum) - The type of email
-                    + `work` (string)
-                    + `home` (string)
-                    + `other` (string)
-                + `verified`: false (boolean) - States whether or not the email address has been verified
-        + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-        + `name` (object) - Customer name object - Min properties: **1**
-            + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
-            + `given_name` (string) - The "first name" of this user - Max length: **70**
-            + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
-        + `gender` (enum) - Customer gender, female, male or third gender (X)
-            + `f` (string)
-            + `m` (string)
-            + `x` (string)
-        + `photos` (array) - User profile pictures - Max elements: **20**
-            + (string) - Image URL
-        + `phones` (array) - List of customer phone numbers - Max elements: **20**
-            + (object) - Phone object
-                + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
-                + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-                + `type` (enum) - The type of phone
-                    + `home` (string)
-                    + `personal` (string)
-                    + `work` (string)
-                    + `other` (string)
-        + `registry_type` (enum) - Physical or juridical (company) person
-            + `p` (string)
-            + `j` (string)
-        + `doc_country` (string) - Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-        + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-        + `inscription_type` (enum) - Municipal or state registration if exists
-            + `State` (string)
-            + `Municipal` (string)
-        + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
-        + `corporate_name` (string) - Registered company name or responsible fullname - Max length: **255**
-    + `gift_to` (object) - If order is originated from a gifts list, specify customer who will receive the gift
-        + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-        + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
-        + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
-        + `emails` (array) - List of customer email addresses - Max elements: **20**
-            + (object) - Email object
-                + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
-                + `type` (enum) - The type of email
-                    + `work` (string)
-                    + `home` (string)
-                    + `other` (string)
-                + `verified`: false (boolean) - States whether or not the email address has been verified
-        + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-        + `name` (object) - Customer name object - Min properties: **1**
-            + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
-            + `given_name` (string) - The "first name" of this user - Max length: **70**
-            + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
-        + `gender` (enum) - Customer gender, female, male or third gender (X)
-            + `f` (string)
-            + `m` (string)
-            + `x` (string)
-        + `photos` (array) - User profile pictures - Max elements: **20**
-            + (string) - Image URL
-        + `phones` (array) - List of customer phone numbers - Max elements: **20**
-            + (object) - Phone object
-                + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
-                + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-                + `type` (enum) - The type of phone
-                    + `home` (string)
-                    + `personal` (string)
-                    + `work` (string)
-                    + `other` (string)
-        + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
-            + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
-            + `description` (string) - Short text description for the gifts list - Max length: **255**
-            + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
-            + `event_date` (string) - Date and time of the event in ISO 8601 standard representation - Format: **date-time**
-            + `valid_thru` (string) - Validity of the list, until this date the gifts can be bought - Format: **date-time**
-            + `authors` (array) - Authors of the list, if it is a wedding list, the names of the bride and groom - Max elements: **10**
-                + (string) - Author name
-            + `notification_email` (string) - Email address to be notified after gift purchase - Max length: **200** - Format: **email**
-            + `contact` (string) - Email address or phone number to contact list owners - Max length: **200**
+    + `buyers` (array) - List of order customers - Max elements: **20**
+        + (object) - Customer object
+            + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
+            + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
+            + `emails` (array) - List of customer email addresses - Max elements: **20**
+                + (object) - Email object
+                    + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
+                    + `type` (enum) - The type of email
+                        + `work` (string)
+                        + `home` (string)
+                        + `other` (string)
+                    + `verified`: false (boolean) - States whether or not the email address has been verified
+            + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
+            + `name` (object) - Customer name object - Min properties: **1**
+                + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
+                + `given_name` (string) - The "first name" of this user - Max length: **70**
+                + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
+            + `gender` (enum) - Customer gender, female, male or third gender (X)
+                + `f` (string)
+                + `m` (string)
+                + `x` (string)
+            + `photos` (array) - User profile pictures - Max elements: **20**
+                + (string) - Image URL
+            + `phones` (array) - List of customer phone numbers - Max elements: **20**
+                + (object) - Phone object
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `type` (enum) - The type of phone
+                        + `home` (string)
+                        + `personal` (string)
+                        + `work` (string)
+                        + `other` (string)
+            + `registry_type` (enum) - Physical or juridical (company) person
+                + `p` (string)
+                + `j` (string)
+            + `doc_country` (string) - Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+            + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+            + `inscription_type` (enum) - Municipal or state registration if exists
+                + `State` (string)
+                + `Municipal` (string)
+            + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
+            + `corporate_name` (string) - Registered company name or responsible fullname - Max length: **255**
+    + `gift_to` (array) - If order is originated from a gifts list, specify customers who will receive the gift - Max elements: **20**
+        + (object) - Customer object
+            + `_id` (string, required) - Customer ID - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `locale` (string) - Customer language two letter code, sometimes with region, eg.: `pt_br`, fr, `en_us` - RegEx pattern: **`^[a-z]{2}(_[a-z]{2})?$`**
+            + `main_email` (string) - Customer main email address - Max length: **200** - Format: **email**
+            + `emails` (array) - List of customer email addresses - Max elements: **20**
+                + (object) - Email object
+                    + `address` (string, required) - The actual email address - Max length: **200** - Format: **email**
+                    + `type` (enum) - The type of email
+                        + `work` (string)
+                        + `home` (string)
+                        + `other` (string)
+                    + `verified`: false (boolean) - States whether or not the email address has been verified
+            + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
+            + `name` (object) - Customer name object - Min properties: **1**
+                + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
+                + `given_name` (string) - The "first name" of this user - Max length: **70**
+                + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
+            + `gender` (enum) - Customer gender, female, male or third gender (X)
+                + `f` (string)
+                + `m` (string)
+                + `x` (string)
+            + `photos` (array) - User profile pictures - Max elements: **20**
+                + (string) - Image URL
+            + `phones` (array) - List of customer phone numbers - Max elements: **20**
+                + (object) - Phone object
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `type` (enum) - The type of phone
+                        + `home` (string)
+                        + `personal` (string)
+                        + `work` (string)
+                        + `other` (string)
+            + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
+                + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
+                + `description` (string) - Short text description for the gifts list - Max length: **255**
+                + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
+                + `event_date` (string) - Date and time of the event in ISO 8601 standard representation - Format: **date-time**
+                + `valid_thru` (string) - Validity of the list, until this date the gifts can be bought - Format: **date-time**
+                + `authors` (array) - Authors of the list, if it is a wedding list, the names of the bride and groom - Max elements: **10**
+                    + (string) - Author name
+                + `notification_email` (string) - Email address to be notified after gift purchase - Max length: **200** - Format: **email**
+                + `contact` (string) - Email address or phone number to contact list owners - Max length: **200**
+    + `budget_only`: false (boolean) - Whether the order is only budget, without payment transactions
     + `shipping_lines` (array) - List of shipping methods and address for this order - Max elements: **100**
-        + (object) -
+        + (object) - Order shipping method
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `from` (object, required) - Sender's address
-                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
-                + `street` (string) - Street or public place name - Max length: **200**
-                + `number` (number) - House or building street number
-                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
-                + `borough` (string) - Borough name - Max length: **100**
-                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
-                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
-                + `city` (string) - City name - Max length: **100**
-                + `country` (string) - Country name - Max length: **50**
-                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `province` (string) - Province or state name - Max length: **100**
-                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
-                + `last_name` (string) - The recipient's last name - Max length: **70**
-                + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
-                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-            + `to` (object, required) - Shipping address (recipient)
-                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
-                + `street` (string) - Street or public place name - Max length: **200**
-                + `number` (number) - House or building street number
-                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
-                + `borough` (string) - Borough name - Max length: **100**
-                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
-                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
-                + `city` (string) - City name - Max length: **100**
-                + `country` (string) - Country name - Max length: **50**
-                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `province` (string) - Province or state name - Max length: **100**
-                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
-                + `last_name` (string) - The recipient's last name - Max length: **70**
-                + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
-                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+            + `from` (undefined, required) - Sender's address
+            + `to` (undefined, required) - Shipping address (recipient)
             + `package` (object) - Shipping object information - Min properties: **1**
                 + `dimensions` (object) - Package dimensions - Min properties: **1**
                     + `^width|height|length$` (object) - Package width, height and length
@@ -9610,7 +9580,7 @@ order subresources directly at this resource
                     + `value` (string, required) - Field value - Max length: **255**
             + `notes` (string) - Optional notes with additional info about this shipping line - Max length: **255**
     + `transactions` (array) - List of payment transactions for this order - Max elements: **100**
-        + (object) -
+        + (object) - Order payment transaction
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `created_at` (string) - Date and time of transaction creation, in ISO 8601 standard representation - Format: **date-time**
             + `type`: payment (enum) - Transaction type
@@ -9627,24 +9597,7 @@ order subresources directly at this resource
                     + `loyalty_points` (string)
                     + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
-            + `billing_address` (object) - The mailing address associated with the payment method
-                + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
-                + `street` (string) - Street or public place name - Max length: **200**
-                + `number` (number) - House or building street number
-                + `complement` (string) - Address complement or second line, such as apartment number - Max length: **100**
-                + `borough` (string) - Borough name - Max length: **100**
-                + `near_to` (string) - Some optional other reference for this address - Max length: **100**
-                + `line_address` (string) - Full in line mailing address, should include street, number and borough - Max length: **255**
-                + `city` (string) - City name - Max length: **100**
-                + `country` (string) - Country name - Max length: **50**
-                + `country_code` (string) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `province` (string) - Province or state name - Max length: **100**
-                + `province_code` (string) - The two-letter code for the province or state - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-                + `name` (string) - The name of recipient, generally is the customer's name - Max length: **70**
-                + `last_name` (string) - The recipient's last name - Max length: **70**
-                + `phone` (object) - Customer phone number for this mailing address
-                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
-                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+            + `billing_address` (undefined) - The mailing address associated with the payment method
             + `app` (object) - Payment method (by application) chosen by customer
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
                 + `label` (string) - Name of payment method shown to customers - Max length: **50**
@@ -9662,7 +9615,7 @@ order subresources directly at this resource
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
             + `credit_card` (object) - Credit card data, if payment was done with credit card - Min properties: **1**
-                + `avs_result_code` (string) - Response code from AVS: `http://www.emsecommerce.net/avs_cvv2_response_codes.htm` - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
+                + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/`avs_cvv2_response_codes`.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
                 + `company` (string) - Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**
@@ -9758,8 +9711,8 @@ order subresources directly at this resource
             + `customer_notified`: false (boolean) - If customer was already notified of this event
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `items` (array) - Products composing the cart - Max elements: **3000**
-        + (object) - One of the cart items
+    + `items` (array) - Products composing the order - Max elements: **3000**
+        + (object) - One of the order items
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `product_id` (string, required) - Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `variation_id` (string) - ID to specify the variation added to cart, if product has variations - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -9789,7 +9742,7 @@ order subresources directly at this resource
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Min properties: **1** - Max properties: **20**
+    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Min properties: **1** - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -10022,11 +9975,10 @@ order subresources directly at this resource
                         "description": "IP address of the browser used by the customer when placing the order"
                     },
                     "channel_id": {
-                        "type": "string",
-                        "minLength": 4,
-                        "maxLength": 100,
-                        "pattern": "^[0-9a-z-.]+$",
-                        "description": "Domain name or channel unique identificator (numbers and lowercase letters)"
+                        "type": "integer",
+                        "min": 10000,
+                        "max": 4294967295,
+                        "description": "Channel unique identificator"
                     },
                     "channel_type": {
                         "type": "string",
@@ -10041,6 +9993,13 @@ order subresources directly at this resource
                         ],
                         "default": "ecommerce",
                         "description": "Channel type or source"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 100,
+                        "pattern": "^[0-9a-z-.]+$",
+                        "description": "Store domain name (numbers and lowercase letters, eg.: www.myshop.sample)"
                     },
                     "number": {
                         "type": "integer",
@@ -10231,392 +10190,407 @@ order subresources directly at this resource
                         "maxLength": 100,
                         "description": "Name of order shipping method(s)"
                     },
-                    "buyer": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "_id"
-                        ],
-                        "properties": {
-                            "_id": {
-                                "type": "string",
-                                "pattern": "^[a-f0-9]{24}$",
-                                "description": "Customer ID"
-                            },
-                            "locale": {
-                                "type": "string",
-                                "pattern": "^[a-z]{2}(_[a-z]{2})?$",
-                                "description": "Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
-                            },
-                            "main_email": {
-                                "type": "string",
-                                "maxLength": 200,
-                                "format": "email",
-                                "description": "Customer main email address"
-                            },
-                            "emails": {
-                                "type": "array",
-                                "maxItems": 20,
-                                "items": {
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "required": [
-                                        "address"
-                                    ],
-                                    "properties": {
-                                        "address": {
-                                            "type": "string",
-                                            "maxLength": 200,
-                                            "format": "email",
-                                            "description": "The actual email address"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "work",
-                                                "home",
-                                                "other"
-                                            ],
-                                            "description": "The type of email"
-                                        },
-                                        "verified": {
-                                            "type": "boolean",
-                                            "default": false,
-                                            "description": "States whether or not the email address has been verified"
-                                        }
-                                    },
-                                    "description": "Email object"
-                                },
-                                "description": "List of customer email addresses"
-                            },
-                            "display_name": {
-                                "type": "string",
-                                "maxLength": 50,
-                                "description": "The name of this Customer, suitable for display"
-                            },
-                            "name": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "properties": {
-                                    "family_name": {
-                                        "type": "string",
-                                        "maxLength": 70,
-                                        "description": "The family name of this user, or \"last name\""
-                                    },
-                                    "given_name": {
-                                        "type": "string",
-                                        "maxLength": 70,
-                                        "description": "The \"first name\" of this user"
-                                    },
-                                    "middle_name": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "description": "The middle name(s) of this user"
-                                    }
-                                },
-                                "description": "Customer name object"
-                            },
-                            "gender": {
-                                "type": "string",
-                                "enum": [
-                                    "f",
-                                    "m",
-                                    "x"
-                                ],
-                                "description": "Customer gender, female, male or third gender (X)"
-                            },
-                            "photos": {
-                                "type": "array",
-                                "uniqueItems": true,
-                                "maxItems": 20,
-                                "items": {
+                    "buyers": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id"
+                            ],
+                            "properties": {
+                                "_id": {
                                     "type": "string",
-                                    "maxLength": 255,
-                                    "description": "Image URL"
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Customer ID"
                                 },
-                                "description": "User profile pictures"
-                            },
-                            "phones": {
-                                "type": "array",
-                                "maxItems": 20,
-                                "items": {
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "required": [
-                                        "number"
-                                    ],
-                                    "properties": {
-                                        "country_code": {
-                                            "type": "integer",
-                                            "min": 1,
-                                            "max": 999,
-                                            "description": "Country calling code (without +), defined by standards E.123 and E.164"
-                                        },
-                                        "number": {
-                                            "type": "string",
-                                            "maxLength": 19,
-                                            "pattern": "^[0-9]+$",
-                                            "description": "The actual phone number, digits only"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "home",
-                                                "personal",
-                                                "work",
-                                                "other"
-                                            ],
-                                            "description": "The type of phone"
-                                        }
-                                    },
-                                    "description": "Phone object"
-                                },
-                                "description": "List of customer phone numbers"
-                            },
-                            "registry_type": {
-                                "type": "string",
-                                "enum": [
-                                    "p",
-                                    "j"
-                                ],
-                                "description": "Physical or juridical (company) person"
-                            },
-                            "doc_country": {
-                                "type": "string",
-                                "minLength": 2,
-                                "maxLength": 2,
-                                "pattern": "^[A-Z]+$",
-                                "description": "Country of document origin, an ISO 3166-2 code"
-                            },
-                            "doc_number": {
-                                "type": "string",
-                                "maxLength": 19,
-                                "pattern": "^[0-9]+$",
-                                "description": "Responsible person or organization document number (only numbers)"
-                            },
-                            "inscription_type": {
-                                "type": "string",
-                                "enum": [
-                                    "State",
-                                    "Municipal"
-                                ],
-                                "description": "Municipal or state registration if exists"
-                            },
-                            "inscription_number": {
-                                "type": "string",
-                                "maxLength": 50,
-                                "description": "Municipal or state registration number (with characters) if exists"
-                            },
-                            "corporate_name": {
-                                "type": "string",
-                                "maxLength": 255,
-                                "description": "Registered company name or responsible fullname"
-                            }
-                        },
-                        "description": "Customer object"
-                    },
-                    "gift_to": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                            "_id"
-                        ],
-                        "properties": {
-                            "_id": {
-                                "type": "string",
-                                "pattern": "^[a-f0-9]{24}$",
-                                "description": "Customer ID"
-                            },
-                            "locale": {
-                                "type": "string",
-                                "pattern": "^[a-z]{2}(_[a-z]{2})?$",
-                                "description": "Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
-                            },
-                            "main_email": {
-                                "type": "string",
-                                "maxLength": 200,
-                                "format": "email",
-                                "description": "Customer main email address"
-                            },
-                            "emails": {
-                                "type": "array",
-                                "maxItems": 20,
-                                "items": {
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "required": [
-                                        "address"
-                                    ],
-                                    "properties": {
-                                        "address": {
-                                            "type": "string",
-                                            "maxLength": 200,
-                                            "format": "email",
-                                            "description": "The actual email address"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "work",
-                                                "home",
-                                                "other"
-                                            ],
-                                            "description": "The type of email"
-                                        },
-                                        "verified": {
-                                            "type": "boolean",
-                                            "default": false,
-                                            "description": "States whether or not the email address has been verified"
-                                        }
-                                    },
-                                    "description": "Email object"
-                                },
-                                "description": "List of customer email addresses"
-                            },
-                            "display_name": {
-                                "type": "string",
-                                "maxLength": 50,
-                                "description": "The name of this Customer, suitable for display"
-                            },
-                            "name": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "properties": {
-                                    "family_name": {
-                                        "type": "string",
-                                        "maxLength": 70,
-                                        "description": "The family name of this user, or \"last name\""
-                                    },
-                                    "given_name": {
-                                        "type": "string",
-                                        "maxLength": 70,
-                                        "description": "The \"first name\" of this user"
-                                    },
-                                    "middle_name": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "description": "The middle name(s) of this user"
-                                    }
-                                },
-                                "description": "Customer name object"
-                            },
-                            "gender": {
-                                "type": "string",
-                                "enum": [
-                                    "f",
-                                    "m",
-                                    "x"
-                                ],
-                                "description": "Customer gender, female, male or third gender (X)"
-                            },
-                            "photos": {
-                                "type": "array",
-                                "uniqueItems": true,
-                                "maxItems": 20,
-                                "items": {
+                                "locale": {
                                     "type": "string",
-                                    "maxLength": 255,
-                                    "description": "Image URL"
+                                    "pattern": "^[a-z]{2}(_[a-z]{2})?$",
+                                    "description": "Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
                                 },
-                                "description": "User profile pictures"
-                            },
-                            "phones": {
-                                "type": "array",
-                                "maxItems": 20,
-                                "items": {
+                                "main_email": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "format": "email",
+                                    "description": "Customer main email address"
+                                },
+                                "emails": {
+                                    "type": "array",
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "address"
+                                        ],
+                                        "properties": {
+                                            "address": {
+                                                "type": "string",
+                                                "maxLength": 200,
+                                                "format": "email",
+                                                "description": "The actual email address"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "work",
+                                                    "home",
+                                                    "other"
+                                                ],
+                                                "description": "The type of email"
+                                            },
+                                            "verified": {
+                                                "type": "boolean",
+                                                "default": false,
+                                                "description": "States whether or not the email address has been verified"
+                                            }
+                                        },
+                                        "description": "Email object"
+                                    },
+                                    "description": "List of customer email addresses"
+                                },
+                                "display_name": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "The name of this Customer, suitable for display"
+                                },
+                                "name": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "required": [
-                                        "number"
-                                    ],
+                                    "minProperties": 1,
                                     "properties": {
-                                        "country_code": {
-                                            "type": "integer",
-                                            "min": 1,
-                                            "max": 999,
-                                            "description": "Country calling code (without +), defined by standards E.123 and E.164"
-                                        },
-                                        "number": {
-                                            "type": "string",
-                                            "maxLength": 19,
-                                            "pattern": "^[0-9]+$",
-                                            "description": "The actual phone number, digits only"
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "home",
-                                                "personal",
-                                                "work",
-                                                "other"
-                                            ],
-                                            "description": "The type of phone"
-                                        }
-                                    },
-                                    "description": "Phone object"
-                                },
-                                "description": "List of customer phone numbers"
-                            },
-                            "gifts_list_info": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "minProperties": 1,
-                                "properties": {
-                                    "title": {
-                                        "type": "string",
-                                        "maxLength": 100,
-                                        "description": "Title for the gifts list, generally defined by the customer"
-                                    },
-                                    "description": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "description": "Short text description for the gifts list"
-                                    },
-                                    "permalink": {
-                                        "type": "string",
-                                        "maxLength": 255,
-                                        "format": "uri",
-                                        "description": "URL to gifts list page"
-                                    },
-                                    "event_date": {
-                                        "type": "string",
-                                        "format": "date-time",
-                                        "description": "Date and time of the event in ISO 8601 standard representation"
-                                    },
-                                    "valid_thru": {
-                                        "type": "string",
-                                        "format": "date-time",
-                                        "description": "Validity of the list, until this date the gifts can be bought"
-                                    },
-                                    "authors": {
-                                        "type": "array",
-                                        "uniqueItems": true,
-                                        "maxItems": 10,
-                                        "items": {
+                                        "family_name": {
                                             "type": "string",
                                             "maxLength": 70,
-                                            "description": "Author name"
+                                            "description": "The family name of this user, or \"last name\""
                                         },
-                                        "description": "Authors of the list, if it is a wedding list, the names of the bride and groom"
+                                        "given_name": {
+                                            "type": "string",
+                                            "maxLength": 70,
+                                            "description": "The \"first name\" of this user"
+                                        },
+                                        "middle_name": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "The middle name(s) of this user"
+                                        }
                                     },
-                                    "notification_email": {
-                                        "type": "string",
-                                        "maxLength": 200,
-                                        "format": "email",
-                                        "description": "Email address to be notified after gift purchase"
-                                    },
-                                    "contact": {
-                                        "type": "string",
-                                        "maxLength": 200,
-                                        "description": "Email address or phone number to contact list owners"
-                                    }
+                                    "description": "Customer name object"
                                 },
-                                "description": "Informations about this customer gifts list"
-                            }
+                                "gender": {
+                                    "type": "string",
+                                    "enum": [
+                                        "f",
+                                        "m",
+                                        "x"
+                                    ],
+                                    "description": "Customer gender, female, male or third gender (X)"
+                                },
+                                "photos": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "string",
+                                        "maxLength": 255,
+                                        "description": "Image URL"
+                                    },
+                                    "description": "User profile pictures"
+                                },
+                                "phones": {
+                                    "type": "array",
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "number"
+                                        ],
+                                        "properties": {
+                                            "country_code": {
+                                                "type": "integer",
+                                                "min": 1,
+                                                "max": 999,
+                                                "description": "Country calling code (without +), defined by standards E.123 and E.164"
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "maxLength": 19,
+                                                "pattern": "^[0-9]+$",
+                                                "description": "The actual phone number, digits only"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "home",
+                                                    "personal",
+                                                    "work",
+                                                    "other"
+                                                ],
+                                                "description": "The type of phone"
+                                            }
+                                        },
+                                        "description": "Phone object"
+                                    },
+                                    "description": "List of customer phone numbers"
+                                },
+                                "registry_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "p",
+                                        "j"
+                                    ],
+                                    "description": "Physical or juridical (company) person"
+                                },
+                                "doc_country": {
+                                    "type": "string",
+                                    "minLength": 2,
+                                    "maxLength": 2,
+                                    "pattern": "^[A-Z]+$",
+                                    "description": "Country of document origin, an ISO 3166-2 code"
+                                },
+                                "doc_number": {
+                                    "type": "string",
+                                    "maxLength": 19,
+                                    "pattern": "^[0-9]+$",
+                                    "description": "Responsible person or organization document number (only numbers)"
+                                },
+                                "inscription_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "State",
+                                        "Municipal"
+                                    ],
+                                    "description": "Municipal or state registration if exists"
+                                },
+                                "inscription_number": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Municipal or state registration number (with characters) if exists"
+                                },
+                                "corporate_name": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Registered company name or responsible fullname"
+                                }
+                            },
+                            "description": "Customer object"
                         },
-                        "description": "If order is originated from a gifts list, specify customer who will receive the gift"
+                        "description": "List of order customers"
+                    },
+                    "gift_to": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Customer ID"
+                                },
+                                "locale": {
+                                    "type": "string",
+                                    "pattern": "^[a-z]{2}(_[a-z]{2})?$",
+                                    "description": "Customer language two letter code, sometimes with region, eg.: pt_br, fr, en_us"
+                                },
+                                "main_email": {
+                                    "type": "string",
+                                    "maxLength": 200,
+                                    "format": "email",
+                                    "description": "Customer main email address"
+                                },
+                                "emails": {
+                                    "type": "array",
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "address"
+                                        ],
+                                        "properties": {
+                                            "address": {
+                                                "type": "string",
+                                                "maxLength": 200,
+                                                "format": "email",
+                                                "description": "The actual email address"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "work",
+                                                    "home",
+                                                    "other"
+                                                ],
+                                                "description": "The type of email"
+                                            },
+                                            "verified": {
+                                                "type": "boolean",
+                                                "default": false,
+                                                "description": "States whether or not the email address has been verified"
+                                            }
+                                        },
+                                        "description": "Email object"
+                                    },
+                                    "description": "List of customer email addresses"
+                                },
+                                "display_name": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "The name of this Customer, suitable for display"
+                                },
+                                "name": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "properties": {
+                                        "family_name": {
+                                            "type": "string",
+                                            "maxLength": 70,
+                                            "description": "The family name of this user, or \"last name\""
+                                        },
+                                        "given_name": {
+                                            "type": "string",
+                                            "maxLength": 70,
+                                            "description": "The \"first name\" of this user"
+                                        },
+                                        "middle_name": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "The middle name(s) of this user"
+                                        }
+                                    },
+                                    "description": "Customer name object"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "enum": [
+                                        "f",
+                                        "m",
+                                        "x"
+                                    ],
+                                    "description": "Customer gender, female, male or third gender (X)"
+                                },
+                                "photos": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "string",
+                                        "maxLength": 255,
+                                        "description": "Image URL"
+                                    },
+                                    "description": "User profile pictures"
+                                },
+                                "phones": {
+                                    "type": "array",
+                                    "maxItems": 20,
+                                    "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "number"
+                                        ],
+                                        "properties": {
+                                            "country_code": {
+                                                "type": "integer",
+                                                "min": 1,
+                                                "max": 999,
+                                                "description": "Country calling code (without +), defined by standards E.123 and E.164"
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "maxLength": 19,
+                                                "pattern": "^[0-9]+$",
+                                                "description": "The actual phone number, digits only"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "home",
+                                                    "personal",
+                                                    "work",
+                                                    "other"
+                                                ],
+                                                "description": "The type of phone"
+                                            }
+                                        },
+                                        "description": "Phone object"
+                                    },
+                                    "description": "List of customer phone numbers"
+                                },
+                                "gifts_list_info": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "properties": {
+                                        "title": {
+                                            "type": "string",
+                                            "maxLength": 100,
+                                            "description": "Title for the gifts list, generally defined by the customer"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "Short text description for the gifts list"
+                                        },
+                                        "permalink": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "format": "uri",
+                                            "description": "URL to gifts list page"
+                                        },
+                                        "event_date": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Date and time of the event in ISO 8601 standard representation"
+                                        },
+                                        "valid_thru": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Validity of the list, until this date the gifts can be bought"
+                                        },
+                                        "authors": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "maxItems": 10,
+                                            "items": {
+                                                "type": "string",
+                                                "maxLength": 70,
+                                                "description": "Author name"
+                                            },
+                                            "description": "Authors of the list, if it is a wedding list, the names of the bride and groom"
+                                        },
+                                        "notification_email": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "format": "email",
+                                            "description": "Email address to be notified after gift purchase"
+                                        },
+                                        "contact": {
+                                            "type": "string",
+                                            "maxLength": 200,
+                                            "description": "Email address or phone number to contact list owners"
+                                        }
+                                    },
+                                    "description": "Informations about this customer gifts list"
+                                }
+                            },
+                            "description": "Customer object"
+                        },
+                        "description": "If order is originated from a gifts list, specify customers who will receive the gift"
+                    },
+                    "budget_only": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether the order is only budget, without payment transactions"
                     },
                     "shipping_lines": {
                         "type": "array",
@@ -11149,7 +11123,8 @@ order subresources directly at this resource
                                     "maxLength": 255,
                                     "description": "Optional notes with additional info about this shipping line"
                                 }
-                            }
+                            },
+                            "description": "Order shipping method"
                         },
                         "description": "List of shipping methods and address for this order"
                     },
@@ -11594,7 +11569,8 @@ order subresources directly at this resource
                                     "maxLength": 255,
                                     "description": "Optional notes with additional info about this transaction"
                                 }
-                            }
+                            },
+                            "description": "Order payment transaction"
                         },
                         "description": "List of payment transactions for this order"
                     },
@@ -11920,15 +11896,15 @@ order subresources directly at this resource
                                     "description": "Flags to associate additional info"
                                 }
                             },
-                            "description": "One of the cart items"
+                            "description": "One of the order items"
                         },
-                        "description": "Products composing the cart"
+                        "description": "Products composing the order"
                     },
                     "loyalty_points": {
                         "type": "object",
                         "additionalProperties": false,
                         "minProperties": 1,
-                        "maxProperties": 20,
+                        "maxProperties": 30,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {
                                 "type": "object",
@@ -12401,26 +12377,28 @@ Request body must obey the specifications of
               },
               "payment_method_label": "PayPal",
               "shipping_method_label": "PAC",
-              "buyer": {
-                "_id": "3c1000000000000000000001",
-                "locale": "pt_br",
-                "main_email": "123@mail.com",
-                "display_name": "Fulano",
-                "name": {
-                  "family_name": "Beltrano",
-                  "given_name": "Fulano",
-                  "middle_name": "Sicrano"
-                },
-                "gender": "m",
-                "phones": {
-                  "country_code": "55",
-                  "number": "31999889988",
-                  "type": "personal"
-                },
-                "registry_type": "p",
-                "doc_country": "BR",
-                "doc_number": "11111111111"
-              },
+              "buyers": [
+                {
+                  "_id": "3c1000000000000000000001",
+                  "locale": "pt_br",
+                  "main_email": "123@mail.com",
+                  "display_name": "Fulano",
+                  "name": {
+                    "family_name": "Beltrano",
+                    "given_name": "Fulano",
+                    "middle_name": "Sicrano"
+                  },
+                  "gender": "m",
+                  "phones": {
+                    "country_code": "55",
+                    "number": "31999889988",
+                    "type": "personal"
+                  },
+                  "registry_type": "p",
+                  "doc_country": "BR",
+                  "doc_number": "11111111111"
+                }
+              ],
               "shipping_lines": [
                 {
                   "_id": "3ab0000000000000000000e1",
@@ -12694,26 +12672,28 @@ but especially for edit requests there are no required fields
               },
               "payment_method_label": "PayPal",
               "shipping_method_label": "PAC",
-              "buyer": {
-                "_id": "3c1000000000000000000001",
-                "locale": "pt_br",
-                "main_email": "123@mail.com",
-                "display_name": "Fulano",
-                "name": {
-                  "family_name": "Beltrano",
-                  "given_name": "Fulano",
-                  "middle_name": "Sicrano"
-                },
-                "gender": "m",
-                "phones": {
-                  "country_code": "55",
-                  "number": "31999889988",
-                  "type": "personal"
-                },
-                "registry_type": "p",
-                "doc_country": "BR",
-                "doc_number": "11111111111"
-              },
+              "buyers": [
+                {
+                  "_id": "3c1000000000000000000001",
+                  "locale": "pt_br",
+                  "main_email": "123@mail.com",
+                  "display_name": "Fulano",
+                  "name": {
+                    "family_name": "Beltrano",
+                    "given_name": "Fulano",
+                    "middle_name": "Sicrano"
+                  },
+                  "gender": "m",
+                  "phones": {
+                    "country_code": "55",
+                    "number": "31999889988",
+                    "type": "personal"
+                  },
+                  "registry_type": "p",
+                  "doc_country": "BR",
+                  "doc_number": "11111111111"
+                }
+              ],
               "shipping_lines": [
                 {
                   "_id": "3ab0000000000000000000e1",
@@ -12930,26 +12910,28 @@ but especially for edit requests there are no required fields
               },
               "payment_method_label": "PayPal",
               "shipping_method_label": "PAC",
-              "buyer": {
-                "_id": "3c1000000000000000000001",
-                "locale": "pt_br",
-                "main_email": "123@mail.com",
-                "display_name": "Fulano",
-                "name": {
-                  "family_name": "Beltrano",
-                  "given_name": "Fulano",
-                  "middle_name": "Sicrano"
-                },
-                "gender": "m",
-                "phones": {
-                  "country_code": "55",
-                  "number": "31999889988",
-                  "type": "personal"
-                },
-                "registry_type": "p",
-                "doc_country": "BR",
-                "doc_number": "11111111111"
-              },
+              "buyers": [
+                {
+                  "_id": "3c1000000000000000000001",
+                  "locale": "pt_br",
+                  "main_email": "123@mail.com",
+                  "display_name": "Fulano",
+                  "name": {
+                    "family_name": "Beltrano",
+                    "given_name": "Fulano",
+                    "middle_name": "Sicrano"
+                  },
+                  "gender": "m",
+                  "phones": {
+                    "country_code": "55",
+                    "number": "31999889988",
+                    "type": "personal"
+                  },
+                  "registry_type": "p",
+                  "doc_country": "BR",
+                  "doc_number": "11111111111"
+                }
+              ],
               "shipping_lines": [
                 {
                   "_id": "3ab0000000000000000000e1",
