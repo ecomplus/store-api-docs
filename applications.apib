@@ -45,7 +45,13 @@ application subresources directly at this resource
     + `auth_callback_uri` (string) - Endpoint that receives POST back with authentication credentials, must be https - Max length: **255** - Format: **uri**
     + `auth_scope` (object) - If this app uses authentication, list the needed permissions - Min properties: **1** - Max properties: **20**
         + `^([$]?(?!app|aut|upd)([a-z]{1,60}))$` (array) - Requested resource, cannot be "applications", "authentications" or "$update"
-            + (string) - Methods to be used (HTTP verbs)
+            + (enum) - Methods to be used (HTTP verbs)
+                + `all` (string)
+                + `GET` (string)
+                + `POST` (string)
+                + `PATCH` (string)
+                + `PUT` (string)
+                + `DELETE` (string)
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
@@ -206,7 +212,7 @@ application subresources directly at this resource
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "*",
+                                        "all",
                                         "GET",
                                         "POST",
                                         "PATCH",
