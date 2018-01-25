@@ -30,6 +30,8 @@ shop main informations and IDs of saved documents
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `languages` (array) - List of available languages on store channels - Max elements: **30**
+        + (string) - Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`
     + `oauth_providers` (object) - Providers for OAuth customer authentication in store - Min properties: **1**
         + `^facebook|google|windowslive$` (object) - Social network OAuth app
             + `client_id` (string, required) - App client ID - Max length: **255**
@@ -170,6 +172,17 @@ shop main informations and IDs of saved documents
                             }
                         },
                         "description": "Image link to shop's logo"
+                    },
+                    "languages": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 30,
+                        "items": {
+                            "type": "string",
+                            "pattern": "^[a-z]{2}(_[a-z]{2})?$",
+                            "description": "Language two letters code, sometimes with region, eg.: pt_br, fr, en_us"
+                        },
+                        "description": "List of available languages on store channels"
                     },
                     "oauth_providers": {
                         "type": "object",
