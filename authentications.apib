@@ -17,6 +17,34 @@ Users created from this resource should authenticate with API by
     + `name` (string) - User full name - Max length: **255**
     + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `pass_md5_hash` (string) - MD5 hash generated with the user's password - RegEx pattern: **`^[a-f0-9]{32}$`**
+    + `panel_preferences` (object) - User preferences in the admin dashboard - Max properties: **100**
+        + `^[a-z0-9_]+$`: true (boolean) - Boolean option value
+    + `panel_shortcuts` (object) - Keyboard shortcuts, keys separated by `+` as property name - Max properties: **100**
+        + `^[a-z0-9](([+][a-z0-9])+)?$` (string) - Shortcut JS (or jQuery) action - Min length: **3** - Max length: **255**
+    + `panel_random_cards`: 0 (number) - Number of random cards to show on dashboard home
+    + `panel_cards` (array) - List of dashboard cards chosen by user - Max elements: **40**
+        + (object) - Card object
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `card_id` (string) - Unique identifier, card name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,60}$`**
+            + `title` (string) - Card title - Max length: **70**
+            + `paragraph` (string) - Card text, usually a brief description - Max length: **255**
+            + `custom_aggregation` (object) - Custom card calling MongoDB aggregate
+                + `resource` (enum) - API resource
+                    + `products` (string)
+                    + `categories` (string)
+                    + `brands` (string)
+                    + `collections` (string)
+                    + `grids` (string)
+                    + `customers` (string)
+                    + `carts` (string)
+                    + `orders` (string)
+                + `pipeline` (array) - Aggregation pipeline - Min elements: **1** - Max elements: **50**
+                    + (object) - Custom aggregation pipeline step
+    + `panel_dismissed_cards` (array) - List of dashboard dismissed cards, by `card_id` - Max elements: **300**
+        + (string) - Unique identifier, card name using only lowercase, numbers and underscore
+    + `panel_form_fields` (object) - Custom (user-selected) fields to display on dashboard forms, resource as property name - Max properties: **20**
+        + `^[a-z]{4,60}s$` (array) - List of chosen resource properties (fields) - Max elements: **200**
+            + (string) - Resource property name with dot notation for nested object
     + `edit_storefront`: true (boolean) - Whether the user is able to use builder and file manager to edit storefront
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
@@ -83,6 +111,139 @@ Users created from this resource should authenticate with API by
                         "type": "string",
                         "pattern": "^[a-f0-9]{32}$",
                         "description": "MD5 hash generated with the user's password"
+                    },
+                    "panel_preferences": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 100,
+                        "patternProperties": {
+                            "^[a-z0-9_]+$": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Boolean option value"
+                            }
+                        },
+                        "description": "User preferences in the admin dashboard"
+                    },
+                    "panel_shortcuts": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 100,
+                        "patternProperties": {
+                            "^[a-z0-9](([+][a-z0-9])+)?$": {
+                                "type": "string",
+                                "minLength": 3,
+                                "maxLength": 255,
+                                "description": "Shortcut JS (or jQuery) action"
+                            }
+                        },
+                        "description": "Keyboard shortcuts, keys separated by + as property name"
+                    },
+                    "panel_random_cards": {
+                        "type": "integer",
+                        "min": 0,
+                        "max": 20,
+                        "default": 0,
+                        "description": "Number of random cards to show on dashboard home"
+                    },
+                    "panel_cards": {
+                        "type": "array",
+                        "maxItems": 40,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "_id"
+                            ],
+                            "additionalProperties": false,
+                            "minProperties": 2,
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "card_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-z0-9_]{2,60}$",
+                                    "description": "Unique identifier, card name using only lowercase, numbers and underscore"
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "maxLength": 70,
+                                    "description": "Card title"
+                                },
+                                "paragraph": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Card text, usually a brief description"
+                                },
+                                "custom_aggregation": {
+                                    "type": "object",
+                                    "required": [
+                                        "_id"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "resource": {
+                                            "type": "string",
+                                            "enum": [
+                                                "products",
+                                                "categories",
+                                                "brands",
+                                                "collections",
+                                                "grids",
+                                                "customers",
+                                                "carts",
+                                                "orders"
+                                            ],
+                                            "description": "API resource"
+                                        },
+                                        "pipeline": {
+                                            "type": "array",
+                                            "minItems": 1,
+                                            "maxItems": 50,
+                                            "items": {
+                                                "type": "object",
+                                                "description": "Custom aggregation pipeline step"
+                                            },
+                                            "description": "Aggregation pipeline"
+                                        }
+                                    },
+                                    "description": "Custom card calling MongoDB aggregate"
+                                }
+                            },
+                            "description": "Card object"
+                        },
+                        "description": "List of dashboard cards chosen by user"
+                    },
+                    "panel_dismissed_cards": {
+                        "type": "array",
+                        "maxItems": 300,
+                        "items": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9_]{2,60}$",
+                            "description": "Unique identifier, card name using only lowercase, numbers and underscore"
+                        },
+                        "description": "List of dashboard dismissed cards, by card_id"
+                    },
+                    "panel_form_fields": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 20,
+                        "patternProperties": {
+                            "^[a-z]{4,60}s$": {
+                                "type": "array",
+                                "maxItems": 200,
+                                "items": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "pattern": "^[a-z0-9_.]+$",
+                                    "description": "Resource property name with dot notation for nested object"
+                                },
+                                "description": "List of chosen resource properties (fields)"
+                            }
+                        },
+                        "description": "Custom (user-selected) fields to display on dashboard forms, resource as property name"
                     },
                     "edit_storefront": {
                         "type": "boolean",
