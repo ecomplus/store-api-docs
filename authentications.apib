@@ -29,7 +29,7 @@ Users created from this resource should authenticate with API by
             + `title` (string) - Card title - Max length: **70**
             + `paragraph` (string) - Card text, usually a brief description - Max length: **255**
             + `custom_aggregation` (object) - Custom card calling MongoDB aggregate
-                + `resource` (enum) - API resource
+                + `resource` (enum, required) - API resource
                     + `products` (string)
                     + `categories` (string)
                     + `brands` (string)
@@ -38,7 +38,7 @@ Users created from this resource should authenticate with API by
                     + `customers` (string)
                     + `carts` (string)
                     + `orders` (string)
-                + `pipeline` (array) - Aggregation pipeline - Min elements: **1** - Max elements: **50**
+                + `pipeline` (array, required) - Aggregation pipeline - Min elements: **1** - Max elements: **50**
                     + (object) - Custom aggregation pipeline step
     + `panel_dismissed_cards` (array) - List of dashboard dismissed cards, by `card_id` - Max elements: **300**
         + (string) - Unique identifier, card name using only lowercase, numbers and underscore
@@ -180,7 +180,8 @@ Users created from this resource should authenticate with API by
                                 "custom_aggregation": {
                                     "type": "object",
                                     "required": [
-                                        "_id"
+                                        "resource",
+                                        "pipeline"
                                     ],
                                     "additionalProperties": false,
                                     "properties": {
