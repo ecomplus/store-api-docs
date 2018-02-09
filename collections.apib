@@ -10,7 +10,7 @@ collection subresources directly at this resource
 
 + Attributes (object)
     + `name` (string, required) - Collection full name - Max length: **255**
-    + `i18n` (object) - Collection name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Collection name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full collection name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -74,7 +74,6 @@ collection subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {

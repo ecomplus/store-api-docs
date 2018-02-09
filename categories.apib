@@ -10,7 +10,7 @@ category subresources directly at this resource
 
 + Attributes (object)
     + `name` (string, required) - Category full name - Max length: **255**
-    + `i18n` (object) - Category name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Category name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full category name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -30,7 +30,7 @@ category subresources directly at this resource
             + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `name` (string, required) - Category name - Max length: **255**
             + `slug` (string) - Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
-    + `grids` (object) - Grids for results filtering and products composition, `grid_id` as property name - Min properties: **1** - Max properties: **200**
+    + `grids` (object) - Grids for results filtering and products composition, `grid_id` as property name - Max properties: **200**
         + `^[a-z0-9_]{2,30}$` (object) - Grid properties
             + `_id` (string) - Grid object ID - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `title` (string, required) - Grid title - Max length: **70**
@@ -88,7 +88,6 @@ category subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -207,7 +206,6 @@ category subresources directly at this resource
                     "grids": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 200,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {

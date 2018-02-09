@@ -13,7 +13,7 @@ order subresources directly at this resource
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status_link` (string) - URL to order status page, if necessary, use (`_id`) where order unique ID must appear - Max length: **255** - Format: **uri**
     + `status_mobile_link` (string) - Optional status URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
+    + `utm` (object) - UTM campaign HTTP parameters
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
         + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
         + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
@@ -100,7 +100,7 @@ order subresources directly at this resource
                         + `other` (string)
                     + `verified`: false (boolean) - States whether or not the email address has been verified
             + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-            + `name` (object) - Customer name object - Min properties: **1**
+            + `name` (object) - Customer name object
                 + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
                 + `given_name` (string) - The "first name" of this user - Max length: **70**
                 + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
@@ -143,7 +143,7 @@ order subresources directly at this resource
                         + `other` (string)
                     + `verified`: false (boolean) - States whether or not the email address has been verified
             + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-            + `name` (object) - Customer name object - Min properties: **1**
+            + `name` (object) - Customer name object
                 + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
                 + `given_name` (string) - The "first name" of this user - Max length: **70**
                 + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
@@ -162,7 +162,7 @@ order subresources directly at this resource
                         + `personal` (string)
                         + `work` (string)
                         + `other` (string)
-            + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
+            + `gifts_list_info` (object) - Informations about this customer gifts list
                 + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
                 + `description` (string) - Short text description for the gifts list - Max length: **255**
                 + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
@@ -212,8 +212,8 @@ order subresources directly at this resource
                 + `phone` (object) - Customer phone number for this mailing address
                     + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                     + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-            + `package` (object) - Shipping object information - Min properties: **1**
-                + `dimensions` (object) - Package dimensions - Min properties: **1**
+            + `package` (object) - Shipping object information
+                + `dimensions` (object) - Package dimensions
                     + `^width|height|length$` (object) - Package width, height and length
                         + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                         + `unit`: cm (enum) - Unit of measurement
@@ -348,11 +348,11 @@ order subresources directly at this resource
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
                 + `label` (string) - Name of payment method shown to customers - Max length: **50**
                 + `icon` (string) - Payment icon image URI - Max length: **255** - Format: **uri**
-                + `intermediator` (object) - Payment intermediator - Min properties: **1**
+                + `intermediator` (object) - Payment intermediator
                     + `name` (string) - Name of payment intermediator - Max length: **255**
                     + `link` (string) - URI to intermediator website - Max length: **255** - Format: **uri**
                 + `payment_url` (string) - Base URI to payments - Max length: **255** - Format: **uri**
-            + `intermediator` (object) - Transaction properties in the intermediator - Min properties: **1**
+            + `intermediator` (object) - Transaction properties in the intermediator
                 + `transaction_id` (string) - Transaction ID in the intermediator - Max length: **255**
                 + `transaction_code` (string) - Transaction code in the intermediator - Max length: **255**
                 + `transaction_reference` (string) - Transaction reference code - Max length: **255**
@@ -360,7 +360,7 @@ order subresources directly at this resource
                     + `code` (string, required) - Payment method code - Max length: **100**
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
-            + `credit_card` (object) - Credit card data, if payment was done with credit card - Min properties: **1**
+            + `credit_card` (object) - Credit card data, if payment was done with credit card
                 + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/`avs_cvv2_response_codes`.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
@@ -380,7 +380,7 @@ order subresources directly at this resource
                     + `processing_error` (string)
                     + `call_issuer` (string)
                     + `pick_up_card` (string)
-            + `banking_billet` (object) - Banking billet data, if payment was done with banking billet - Min properties: **1**
+            + `banking_billet` (object) - Banking billet data, if payment was done with banking billet
                 + `code` (string) - Ticket code, generally a barcode number - Max length: **200**
                 + `valid_thru` (string) - Date and time of expiration, in ISO 8601 standard representation - Format: **date-time**
                 + `text_lines` (array) - Text lines on ticket - Max elements: **5**
@@ -395,7 +395,7 @@ order subresources directly at this resource
                 + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
                 + `tax`: false (boolean) - Tax applied
                 + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `creditor_fees` (object) - Cost data collected - Min properties: **1**
+            + `creditor_fees` (object) - Cost data collected
                 + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
                 + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
                 + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
@@ -488,7 +488,7 @@ order subresources directly at this resource
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Min properties: **1** - Max properties: **30**
+    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -667,7 +667,6 @@ order subresources directly at this resource
                     "utm": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "source": {
                                 "type": "string",
@@ -1005,7 +1004,6 @@ order subresources directly at this resource
                                 "name": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "family_name": {
                                             "type": "string",
@@ -1195,7 +1193,6 @@ order subresources directly at this resource
                                 "name": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "family_name": {
                                             "type": "string",
@@ -1275,7 +1272,6 @@ order subresources directly at this resource
                                 "gifts_list_info": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "title": {
                                             "type": "string",
@@ -1366,12 +1362,10 @@ order subresources directly at this resource
                                 "package": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "dimensions": {
                                             "type": "object",
                                             "additionalProperties": false,
-                                            "minProperties": 1,
                                             "patternProperties": {
                                                 "^width|height|length$": {
                                                     "type": "object",
@@ -1964,7 +1958,6 @@ order subresources directly at this resource
                                         "intermediator": {
                                             "type": "object",
                                             "additionalProperties": false,
-                                            "minProperties": 1,
                                             "properties": {
                                                 "name": {
                                                     "type": "string",
@@ -1992,7 +1985,6 @@ order subresources directly at this resource
                                 "intermediator": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "transaction_id": {
                                             "type": "string",
@@ -2040,7 +2032,6 @@ order subresources directly at this resource
                                 "credit_card": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "avs_result_code": {
                                             "type": [
@@ -2106,7 +2097,6 @@ order subresources directly at this resource
                                 "banking_billet": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "code": {
                                             "type": "string",
@@ -2199,7 +2189,6 @@ order subresources directly at this resource
                                 "creditor_fees": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "installment": {
                                             "type": "number",
@@ -2649,7 +2638,6 @@ order subresources directly at this resource
                     "loyalty_points": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 30,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {

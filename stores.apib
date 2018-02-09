@@ -32,7 +32,7 @@ shop main informations and IDs of saved documents
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**
         + (string) - Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`
-    + `oauth_providers` (object) - Providers for OAuth customer authentication in store - Min properties: **1**
+    + `oauth_providers` (object) - Providers for OAuth customer authentication in store
         + `^facebook|google|windowslive$` (object) - Social network OAuth app
             + `client_id` (string, required) - App client ID - Max length: **255**
             + `client_secret` (string, required) - App client secret - Max length: **255**
@@ -187,7 +187,6 @@ shop main informations and IDs of saved documents
                     "oauth_providers": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "patternProperties": {
                             "^facebook|google|windowslive$": {
                                 "type": "object",

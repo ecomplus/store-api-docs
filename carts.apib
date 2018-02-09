@@ -14,7 +14,7 @@ cart subresources directly at this resource
     + `permalink` (string) - URL to this cart's page - Max length: **255** - Format: **uri**
     + `mobile_link` (string) - Optional URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status` (string) - Status defined by seller - Max length: **50**
-    + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
+    + `utm` (object) - UTM campaign HTTP parameters
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
         + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
         + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
@@ -133,7 +133,6 @@ cart subresources directly at this resource
                     "utm": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "source": {
                                 "type": "string",

@@ -415,7 +415,7 @@ product subresources directly at this resource, such as product images, variatio
         + `physical` (string)
         + `digital` (string)
     + `name` (string, required) - Product full name - Max length: **255**
-    + `i18n` (object) - Product name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Product name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full product name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -434,7 +434,7 @@ product subresources directly at this resource, such as product images, variatio
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
     + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-    + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), `base_price` should be applied - Min properties: **1**
+    + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), `base_price` should be applied
         + `start` (string) - Start date and time in ISO 8601 standard representation - Format: **date-time**
         + `end` (string) - Promotion end date and time in ISO 8601 standard representation - Format: **date-time**
     + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -481,7 +481,7 @@ product subresources directly at this resource, such as product images, variatio
         + `precision` (number) - Maximum number of decimal places in the product quantity (in unit of measure) - Mininum: **0** - Maximum: **4**
         + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
     + `multipack` (number) - Indicate that this item is a group of multiple identical products - Mininum: **0** - Maximum: **999999**
-    + `dimensions` (object) - Product dimensions with packaging for freight calculation - Min properties: **1**
+    + `dimensions` (object) - Product dimensions with packaging for freight calculation
         + `^width|height|length$` (object) - Package width, height and length
             + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
             + `unit`: cm (enum) - Unit of measurement
@@ -525,9 +525,9 @@ product subresources directly at this resource, such as product images, variatio
             + `google_product_category_id` (number) - ID in Google Taxonomy - Mininum: **1** - Maximum: **999999999999**
     + `ml_category_id` (string) - Preferential category of the product in the Mercado Libre Taxonomy - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**
     + `google_product_category_id` (number) - Preferential category of the product in the Google Products Taxonomy - Mininum: **1** - Maximum: **999999999999**
-    + `grids` (object) - Grids for specifications and variations, `grid_id` as property name, such as gender or colors - Min properties: **1** - Max properties: **200**
+    + `grids` (object) - Grids for specifications and variations, `grid_id` as property name, such as gender or colors - Max properties: **200**
         + `^[a-z0-9_]{2,30}$` (string) - Grid title - Max length: **70**
-    + `specifications` (object) - Product attributes and technical specifications - Min properties: **1** - Max properties: **200**
+    + `specifications` (object) - Product attributes and technical specifications - Max properties: **200**
         + `energy_efficiency_class` (array) - Attribute to tell users the energy efficiency class of your product - Max elements: **1**
             + (object) - Specification object
                 + `text` (string, required) - Text displayed for the client describing the specification (custom value) - Max length: **100**
@@ -602,7 +602,7 @@ product subresources directly at this resource, such as product images, variatio
             + (object) - Attribute object
                 + `text` (string, required) - Text displayed for the client describing the specification - Max length: **255**
                 + `value` (string) - Default normalized value to use in integrations - Max length: **200**
-                + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Min properties: **1** - Max properties: **5**
+                + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Max properties: **5**
                     + `^[a-z0-9_]{2,30}$` (string) - Attribute text external value - Max length: **200**
     + `pictures` (array) - List of product images - Max elements: **50**
         + (object) - Image object
@@ -627,7 +627,7 @@ product subresources directly at this resource, such as product images, variatio
             + `label` (string, required) - Title for this customization field, can be the grid title - Max length: **70**
             + `grid_id` (string) - If this field is related to a grid, put the `grid_id` - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
             + `require`: false (boolean) - If field is required (true), customer must always choose a value
-            + `options` (object) - Pre-defined options for this customization field, `option_id` as property name - Min properties: **1** - Max properties: **200**
+            + `options` (object) - Pre-defined options for this customization field, `option_id` as property name - Max properties: **200**
                 + `^[a-z0-9_]{2,30}$` (object) - Option object
                     + `text` (string, required) - Option text value displayed for the client - Max length: **70**
                     + `colors` (array) - Option color palette (if the field involves colors), starting by main color - Max elements: **6**
@@ -665,7 +665,7 @@ product subresources directly at this resource, such as product images, variatio
                 + `working_days`: true (boolean) - If the deadline is calculated in working days
                 + `cumulative`: false (boolean) - If the production time is cumulative per unit
                 + `max_time` (number) - When cumulative, increase up to this maximum in days - Mininum: **0** - Maximum: **99999**
-            + `dimensions` (object) - Product dimensions with packaging for freight calculation - Min properties: **1**
+            + `dimensions` (object) - Product dimensions with packaging for freight calculation
                 + `^width|height|length$` (object) - Package width, height and length
                     + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                     + `unit`: cm (enum) - Unit of measurement
@@ -705,7 +705,7 @@ product subresources directly at this resource, such as product images, variatio
                     + (object) - Attribute object
                         + `text` (string, required) - Text displayed for the client describing the specification - Max length: **255**
                         + `value` (string) - Default normalized value to use in integrations - Max length: **200**
-                        + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Min properties: **1** - Max properties: **5**
+                        + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Max properties: **5**
                             + `^[a-z0-9_]{2,30}$` (string) - Attribute text external value - Max length: **200**
             + `picture_id` (string) - ID of one of the product pictures for this variation - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
@@ -737,7 +737,7 @@ product subresources directly at this resource, such as product images, variatio
             + `percentage` (string)
             + `fixed` (string)
         + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
-    + `progressive_discount` (object) - Progressive discounts options, product quantity as property name - Min properties: **1** - Max properties: **100**
+    + `progressive_discount` (object) - Progressive discounts options, product quantity as property name - Max properties: **100**
         + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
     + `other_discounts` (array) - Other discounts for custom applications - Max elements: **100**
         + (object) - Discount object
@@ -762,7 +762,7 @@ product subresources directly at this resource, such as product images, variatio
         + `program_id` (string, required) - Unique identifier, program name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
         + `points_value` (number, required) - Number of loyalty points a customer receives when purchasing the product - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
         + `ratio` (number) - The ratio of a point when converted to currency - Mininum: **0** - Maximum: **9999** - Max precision: **0.001**
-    + `payment_methods` (object) - Payment methods for this product, application ID as property name - Min properties: **1** - Max properties: **30**
+    + `payment_methods` (object) - Payment methods for this product, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Payment option
             + `label` (string, required) - Name of payment method shown to customers - Max length: **50**
             + `icon` (string) - Payment icon image URI - Max length: **255** - Format: **uri**
@@ -771,11 +771,11 @@ product subresources directly at this resource, such as product images, variatio
                     + `percentage` (string)
                     + `fixed` (string)
                 + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
-            + `installments` (object) - Installment options, installments number as property name - Min properties: **1** - Max properties: **100**
+            + `installments` (object) - Installment options, installments number as property name - Max properties: **100**
                 + `^([2-9]|([1-9][0-9]{1,3}))$` (object) - Installment option object
                     + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
                     + `tax`: false (boolean) - Tax applied
-    + `shipping_methods` (object) - Shipping methods, application ID as property name - Min properties: **1** - Max properties: **30**
+    + `shipping_methods` (object) - Shipping methods, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Shipping method object
             + `label` (string, required) - Name of shipping method shown to customers - Max length: **50**
             + `icon` (string) - Shipping method icon image URI - Max length: **255** - Format: **uri**
@@ -785,12 +785,12 @@ product subresources directly at this resource, such as product images, variatio
             + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
             + `label` (string, required) - Title describing this gift wrap - Max length: **70**
             + `add_to_price` (number) - Additional value for this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
-    + `destinations` (object) - List of available shipping destinations - Min properties: **1**
+    + `destinations` (object) - List of available shipping destinations
         + `^included|excluded$` (object) - Available or unavailable destination
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
-            + `zip_codes_range` (object) - ZIP codes range for shipping rules (include or exclude) - Min properties: **1**
+            + `zip_codes_range` (object) - ZIP codes range for shipping rules (include or exclude)
                 + `^start|end$` (string) - ZIP (CEP, postal...) code - Max length: **30**
-    + `location` (object) - Product location(s), shipping origin - Min properties: **1**
+    + `location` (object) - Product location(s), shipping origin
         + `zip_codes` (array) - Collection of ZIP codes of product origin locations - Max elements: **30**
             + (object) - Shipping origin, ZIP code and identifier
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
@@ -806,7 +806,7 @@ product subresources directly at this resource, such as product images, variatio
             + `rate` (number, required) - Tax rate as a percentage of the price - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
             + `tax_ship`: false (boolean) - Whether you charge tax on shipping
-            + `zip_codes_range` (object) - ZIP codes range defining region to apply tax - Min properties: **1**
+            + `zip_codes_range` (object) - ZIP codes range defining region to apply tax
                 + `^start|end$` (string) - ZIP (CEP, postal...) code - Max length: **30**
     + `kit_composition` (array) - If this product is a kit, set its composition - Max elements: **100**
         + (object) - One of the kit items
@@ -827,7 +827,7 @@ product subresources directly at this resource, such as product images, variatio
         + (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14
     + `mpn` (array) - List of product MPN codes - Max elements: **10**
         + (string) - Unique code specified by manufacturer to identify the product
-    + `seller` (object) - Whether the product is sold by a third party, usual in marketplaces - Min properties: **1**
+    + `seller` (object) - Whether the product is sold by a third party, usual in marketplaces
         + `code` (string) - Unique reference code to identify this seller - Max length: **100**
         + `name` (string) - Seller name - Max length: **200**
         + `logo` (string) - Image link to shop's logo - Max length: **255** - Format: **uri**
@@ -919,7 +919,6 @@ product subresources directly at this resource, such as product images, variatio
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -1026,7 +1025,6 @@ product subresources directly at this resource, such as product images, variatio
                     "price_effective_date": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "start": {
                                 "type": "string",
@@ -1216,7 +1214,6 @@ product subresources directly at this resource, such as product images, variatio
                     "dimensions": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "patternProperties": {
                             "^width|height|length$": {
                                 "type": "object",
@@ -1418,7 +1415,6 @@ product subresources directly at this resource, such as product images, variatio
                     "grids": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 200,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {
@@ -1432,7 +1428,6 @@ product subresources directly at this resource, such as product images, variatio
                     "specifications": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 200,
                         "properties": {
                             "energy_efficiency_class": {
@@ -1716,7 +1711,6 @@ product subresources directly at this resource, such as product images, variatio
                                         "external_values": {
                                             "type": "object",
                                             "additionalProperties": false,
-                                            "minProperties": 1,
                                             "maxProperties": 5,
                                             "patternProperties": {
                                                 "^[a-z0-9_]{2,30}$": {
@@ -1883,7 +1877,6 @@ product subresources directly at this resource, such as product images, variatio
                                 "options": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "maxProperties": 200,
                                     "patternProperties": {
                                         "^[a-z0-9_]{2,30}$": {
@@ -1900,7 +1893,7 @@ product subresources directly at this resource, such as product images, variatio
                                                 },
                                                 "colors": {
                                                     "type": "array",
-                                                    "maxItems": 4,
+                                                    "maxItems": 6,
                                                     "items": {
                                                         "type": "string",
                                                         "pattern": "^#[a-f0-9]{6}$",
@@ -2118,7 +2111,6 @@ product subresources directly at this resource, such as product images, variatio
                                 "dimensions": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "patternProperties": {
                                         "^width|height|length$": {
                                             "type": "object",
@@ -2311,7 +2303,6 @@ product subresources directly at this resource, such as product images, variatio
                                                     "external_values": {
                                                         "type": "object",
                                                         "additionalProperties": false,
-                                                        "minProperties": 1,
                                                         "maxProperties": 5,
                                                         "patternProperties": {
                                                             "^[a-z0-9_]{2,30}$": {
@@ -2521,7 +2512,6 @@ product subresources directly at this resource, such as product images, variatio
                     "progressive_discount": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 100,
                         "patternProperties": {
                             "^([2-9]|([1-9][0-9]{1,8}))$": {
@@ -2679,7 +2669,6 @@ product subresources directly at this resource, such as product images, variatio
                     "payment_methods": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 30,
                         "patternProperties": {
                             "^[a-f0-9]{24}$": {
@@ -2729,7 +2718,6 @@ product subresources directly at this resource, such as product images, variatio
                                     "installments": {
                                         "type": "object",
                                         "additionalProperties": false,
-                                        "minProperties": 1,
                                         "maxProperties": 100,
                                         "patternProperties": {
                                             "^([2-9]|([1-9][0-9]{1,3}))$": {
@@ -2766,7 +2754,6 @@ product subresources directly at this resource, such as product images, variatio
                     "shipping_methods": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 30,
                         "patternProperties": {
                             "^[a-f0-9]{24}$": {
@@ -2834,7 +2821,6 @@ product subresources directly at this resource, such as product images, variatio
                     "destinations": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "patternProperties": {
                             "^included|excluded$": {
                                 "type": "object",
@@ -2853,7 +2839,6 @@ product subresources directly at this resource, such as product images, variatio
                                     "zip_codes_range": {
                                         "type": "object",
                                         "additionalProperties": false,
-                                        "minProperties": 1,
                                         "patternProperties": {
                                             "^start|end$": {
                                                 "type": "string",
@@ -2872,7 +2857,6 @@ product subresources directly at this resource, such as product images, variatio
                     "location": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "zip_codes": {
                                 "type": "array",
@@ -2978,7 +2962,6 @@ product subresources directly at this resource, such as product images, variatio
                                 "zip_codes_range": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "patternProperties": {
                                         "^start|end$": {
                                             "type": "string",
@@ -3106,7 +3089,6 @@ product subresources directly at this resource, such as product images, variatio
                     "seller": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "code": {
                                 "type": "string",
@@ -3934,7 +3916,7 @@ brand subresources directly at this resource
 
 + Attributes (object)
     + `name` (string, required) - Brand full name - Max length: **255**
-    + `i18n` (object) - Brand name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Brand name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full brand name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -3996,7 +3978,6 @@ brand subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -4540,7 +4521,7 @@ category subresources directly at this resource
 
 + Attributes (object)
     + `name` (string, required) - Category full name - Max length: **255**
-    + `i18n` (object) - Category name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Category name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full category name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -4560,7 +4541,7 @@ category subresources directly at this resource
             + `_id` (string) - Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `name` (string, required) - Category name - Max length: **255**
             + `slug` (string) - Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
-    + `grids` (object) - Grids for results filtering and products composition, `grid_id` as property name - Min properties: **1** - Max properties: **200**
+    + `grids` (object) - Grids for results filtering and products composition, `grid_id` as property name - Max properties: **200**
         + `^[a-z0-9_]{2,30}$` (object) - Grid properties
             + `_id` (string) - Grid object ID - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `title` (string, required) - Grid title - Max length: **70**
@@ -4618,7 +4599,6 @@ category subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -4737,7 +4717,6 @@ category subresources directly at this resource
                     "grids": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 200,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {
@@ -5362,7 +5341,7 @@ collection subresources directly at this resource
 
 + Attributes (object)
     + `name` (string, required) - Collection full name - Max length: **255**
-    + `i18n` (object) - Collection name translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Collection name translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full collection name - Max length: **255**
     + `subtitle` (string) - Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**
     + `slug` (string) - Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**
@@ -5426,7 +5405,6 @@ collection subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -5957,7 +5935,7 @@ grid subresources directly at this resource
 
 + Attributes (object)
     + `title` (string, required) - Grid title - Max length: **70**
-    + `i18n` (object) - Grid title translations - Min properties: **1** - Max properties: **10**
+    + `i18n` (object) - Grid title translations - Max properties: **10**
         + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated full grid title - Max length: **255**
     + `grid_id` (string, required) - Unique identifier, grid name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
     + `options` (array) - Pre-defined options for this grid, used in specifications, customization and variations - Max elements: **3000**
@@ -5966,7 +5944,7 @@ grid subresources directly at this resource
             + `option_id` (string, required) - Unique identifier, option name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
             + `text` (string, required) - Option text value displayed for the client - Max length: **255**
             + `value` (string) - Default normalized value to use in integrations - Max length: **200**
-            + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Min properties: **1** - Max properties: **5**
+            + `external_values` (object) - Normalized values to use in specific integrations (ID in property) - Max properties: **5**
                 + `^[a-z0-9_]{2,30}$` (string) - Attribute text value - Max length: **200**
             + `colors` (array) - Option color palette (if the grid involves colors), starting by main color - Max elements: **6**
                 + (string) - RGB code with #
@@ -6023,7 +6001,6 @@ grid subresources directly at this resource
                     "i18n": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 10,
                         "patternProperties": {
                             "^[a-z]{2}(_[a-z]{2})?$": {
@@ -6074,7 +6051,6 @@ grid subresources directly at this resource
                                 "external_values": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "maxProperties": 5,
                                     "patternProperties": {
                                         "^[a-z0-9_]{2,30}$": {
@@ -6603,7 +6579,7 @@ customer subresources directly at this resource
     + `login`: true (boolean) - Whether the customer can sign in to the store with this account
     + `status` (string) - Status defined by seller, such as active or blocked - Max length: **50**
     + `referral` (string) - ID of customer who invited this new customer, if he was invited by another account - RegEx pattern: **`^[a-f0-9]{24}$`**
-    + `utm` (object) - UTM campaign HTTP parameters associated with this customer's first access - Min properties: **1**
+    + `utm` (object) - UTM campaign HTTP parameters associated with this customer's first access
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
         + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
         + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
@@ -6627,7 +6603,7 @@ customer subresources directly at this resource
             + `verified`: false (boolean) - States whether or not the email address has been verified
     + `accepts_marketing`: false (boolean) - Indicates whether customer would like to receive email updates from the shop
     + `display_name` (string, required) - The name of this Customer, suitable for display - Max length: **50**
-    + `name` (object) - Customer name object - Min properties: **1**
+    + `name` (object) - Customer name object
         + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
         + `given_name` (string) - The "first name" of this user - Max length: **70**
         + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
@@ -6735,7 +6711,7 @@ customer subresources directly at this resource
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `orders_count` (number) - Total number of orders completed by this customer
     + `orders_total_value` (number) - The total amount in orders completed by this customer - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
-    + `loyalty_points` (object) - Loyalty points programs, `program_id` as property name - Min properties: **1** - Max properties: **100**
+    + `loyalty_points` (object) - Loyalty points programs, `program_id` as property name - Max properties: **100**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object, specify how many points the customer have
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `accumulated_points` (number, required) - Number of accumulated loyalty points - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -6831,7 +6807,6 @@ customer subresources directly at this resource
                     "utm": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "source": {
                                 "type": "string",
@@ -6953,7 +6928,6 @@ customer subresources directly at this resource
                     "name": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "family_name": {
                                 "type": "string",
@@ -6976,7 +6950,6 @@ customer subresources directly at this resource
                     "birth_date": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "day": {
                                 "type": "integer",
@@ -7365,7 +7338,6 @@ customer subresources directly at this resource
                     "gifts_list_info": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "title": {
                                 "type": "string",
@@ -7520,7 +7492,6 @@ customer subresources directly at this resource
                     "loyalty_points": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 100,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {
@@ -8383,7 +8354,7 @@ cart subresources directly at this resource
     + `permalink` (string) - URL to this cart's page - Max length: **255** - Format: **uri**
     + `mobile_link` (string) - Optional URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status` (string) - Status defined by seller - Max length: **50**
-    + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
+    + `utm` (object) - UTM campaign HTTP parameters
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
         + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
         + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
@@ -8502,7 +8473,6 @@ cart subresources directly at this resource
                     "utm": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "source": {
                                 "type": "string",
@@ -9318,7 +9288,7 @@ order subresources directly at this resource
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status_link` (string) - URL to order status page, if necessary, use (`_id`) where order unique ID must appear - Max length: **255** - Format: **uri**
     + `status_mobile_link` (string) - Optional status URL specific to mobile devices - Max length: **255** - Format: **uri**
-    + `utm` (object) - UTM campaign HTTP parameters - Min properties: **1**
+    + `utm` (object) - UTM campaign HTTP parameters
         + `source` (string) - Parameter "`utm_source`", the referrer: (e.g. google, newsletter) - Max length: **100**
         + `medium` (string) - Parameter "`utm_medium`", the marketing medium: (e.g. cpc, banner, email) - Max length: **100**
         + `campaign` (string) - Parameter "`utm_campaign`", the product, promo code, or slogan (e.g. `spring_sale`) - Max length: **200**
@@ -9405,7 +9375,7 @@ order subresources directly at this resource
                         + `other` (string)
                     + `verified`: false (boolean) - States whether or not the email address has been verified
             + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-            + `name` (object) - Customer name object - Min properties: **1**
+            + `name` (object) - Customer name object
                 + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
                 + `given_name` (string) - The "first name" of this user - Max length: **70**
                 + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
@@ -9448,7 +9418,7 @@ order subresources directly at this resource
                         + `other` (string)
                     + `verified`: false (boolean) - States whether or not the email address has been verified
             + `display_name` (string) - The name of this Customer, suitable for display - Max length: **50**
-            + `name` (object) - Customer name object - Min properties: **1**
+            + `name` (object) - Customer name object
                 + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
                 + `given_name` (string) - The "first name" of this user - Max length: **70**
                 + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
@@ -9467,7 +9437,7 @@ order subresources directly at this resource
                         + `personal` (string)
                         + `work` (string)
                         + `other` (string)
-            + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
+            + `gifts_list_info` (object) - Informations about this customer gifts list
                 + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
                 + `description` (string) - Short text description for the gifts list - Max length: **255**
                 + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
@@ -9517,8 +9487,8 @@ order subresources directly at this resource
                 + `phone` (object) - Customer phone number for this mailing address
                     + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
                     + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
-            + `package` (object) - Shipping object information - Min properties: **1**
-                + `dimensions` (object) - Package dimensions - Min properties: **1**
+            + `package` (object) - Shipping object information
+                + `dimensions` (object) - Package dimensions
                     + `^width|height|length$` (object) - Package width, height and length
                         + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
                         + `unit`: cm (enum) - Unit of measurement
@@ -9653,11 +9623,11 @@ order subresources directly at this resource
                 + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
                 + `label` (string) - Name of payment method shown to customers - Max length: **50**
                 + `icon` (string) - Payment icon image URI - Max length: **255** - Format: **uri**
-                + `intermediator` (object) - Payment intermediator - Min properties: **1**
+                + `intermediator` (object) - Payment intermediator
                     + `name` (string) - Name of payment intermediator - Max length: **255**
                     + `link` (string) - URI to intermediator website - Max length: **255** - Format: **uri**
                 + `payment_url` (string) - Base URI to payments - Max length: **255** - Format: **uri**
-            + `intermediator` (object) - Transaction properties in the intermediator - Min properties: **1**
+            + `intermediator` (object) - Transaction properties in the intermediator
                 + `transaction_id` (string) - Transaction ID in the intermediator - Max length: **255**
                 + `transaction_code` (string) - Transaction code in the intermediator - Max length: **255**
                 + `transaction_reference` (string) - Transaction reference code - Max length: **255**
@@ -9665,7 +9635,7 @@ order subresources directly at this resource
                     + `code` (string, required) - Payment method code - Max length: **100**
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
-            + `credit_card` (object) - Credit card data, if payment was done with credit card - Min properties: **1**
+            + `credit_card` (object) - Credit card data, if payment was done with credit card
                 + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/`avs_cvv2_response_codes`.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
@@ -9685,7 +9655,7 @@ order subresources directly at this resource
                     + `processing_error` (string)
                     + `call_issuer` (string)
                     + `pick_up_card` (string)
-            + `banking_billet` (object) - Banking billet data, if payment was done with banking billet - Min properties: **1**
+            + `banking_billet` (object) - Banking billet data, if payment was done with banking billet
                 + `code` (string) - Ticket code, generally a barcode number - Max length: **200**
                 + `valid_thru` (string) - Date and time of expiration, in ISO 8601 standard representation - Format: **date-time**
                 + `text_lines` (array) - Text lines on ticket - Max elements: **5**
@@ -9700,7 +9670,7 @@ order subresources directly at this resource
                 + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
                 + `tax`: false (boolean) - Tax applied
                 + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `creditor_fees` (object) - Cost data collected - Min properties: **1**
+            + `creditor_fees` (object) - Cost data collected
                 + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
                 + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
                 + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
@@ -9793,7 +9763,7 @@ order subresources directly at this resource
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Min properties: **1** - Max properties: **30**
+    + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
@@ -9972,7 +9942,6 @@ order subresources directly at this resource
                     "utm": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "properties": {
                             "source": {
                                 "type": "string",
@@ -10310,7 +10279,6 @@ order subresources directly at this resource
                                 "name": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "family_name": {
                                             "type": "string",
@@ -10500,7 +10468,6 @@ order subresources directly at this resource
                                 "name": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "family_name": {
                                             "type": "string",
@@ -10580,7 +10547,6 @@ order subresources directly at this resource
                                 "gifts_list_info": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "title": {
                                             "type": "string",
@@ -10671,12 +10637,10 @@ order subresources directly at this resource
                                 "package": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "dimensions": {
                                             "type": "object",
                                             "additionalProperties": false,
-                                            "minProperties": 1,
                                             "patternProperties": {
                                                 "^width|height|length$": {
                                                     "type": "object",
@@ -11269,7 +11233,6 @@ order subresources directly at this resource
                                         "intermediator": {
                                             "type": "object",
                                             "additionalProperties": false,
-                                            "minProperties": 1,
                                             "properties": {
                                                 "name": {
                                                     "type": "string",
@@ -11297,7 +11260,6 @@ order subresources directly at this resource
                                 "intermediator": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "transaction_id": {
                                             "type": "string",
@@ -11345,7 +11307,6 @@ order subresources directly at this resource
                                 "credit_card": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "avs_result_code": {
                                             "type": [
@@ -11411,7 +11372,6 @@ order subresources directly at this resource
                                 "banking_billet": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "code": {
                                             "type": "string",
@@ -11504,7 +11464,6 @@ order subresources directly at this resource
                                 "creditor_fees": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "minProperties": 1,
                                     "properties": {
                                         "installment": {
                                             "type": "number",
@@ -11954,7 +11913,6 @@ order subresources directly at this resource
                     "loyalty_points": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "maxProperties": 30,
                         "patternProperties": {
                             "^[a-z0-9_]{2,30}$": {
@@ -15049,7 +15007,7 @@ shop main informations and IDs of saved documents
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**
         + (string) - Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`
-    + `oauth_providers` (object) - Providers for OAuth customer authentication in store - Min properties: **1**
+    + `oauth_providers` (object) - Providers for OAuth customer authentication in store
         + `^facebook|google|windowslive$` (object) - Social network OAuth app
             + `client_id` (string, required) - App client ID - Max length: **255**
             + `client_secret` (string, required) - App client secret - Max length: **255**
@@ -15204,7 +15162,6 @@ shop main informations and IDs of saved documents
                     "oauth_providers": {
                         "type": "object",
                         "additionalProperties": false,
-                        "minProperties": 1,
                         "patternProperties": {
                             "^facebook|google|windowslive$": {
                                 "type": "object",
