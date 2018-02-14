@@ -34,6 +34,39 @@ This step is not required, if you have your own ID and API key skip to the
 
         {
           "_id": "5a6757722b66f68dbed44526",
+          "store_id": 100,
+          "api_key": "1234567890abcdef"
+        }
+
+#### With username instead of email [POST]
+
+If you don't know the store ID, you can login with username and password only,
+passing any positive integer on `X-Store-ID` header
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+
+    + Attributes (object)
+        + username: sample (string, required)
+            Username
+        + pass_md5_hash: 1a79a4d60de6718e8e5b326e338ae533 (string, required)
+            User password encoded with MD5
+
+    + Body
+
+            {
+              "username": "sample",
+              "pass_md5_hash": "1a79a4d60de6718e8e5b326e338ae533"
+            }
+
++ Response 200 (application/json)
+
+        {
+          "_id": "5a6757722b66f68dbed44526",
+          "store_id": 100,
           "api_key": "1234567890abcdef"
         }
 
