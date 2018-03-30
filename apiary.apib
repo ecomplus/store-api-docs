@@ -9556,7 +9556,7 @@ items from an specific shopping cart in a merchant's store
 #### List All Cart Items [GET]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The application ID
+    + _id: 2ca000000000000000000003 (string, required) - The cart ID
 
 + Request (application/json)
 
@@ -9571,9 +9571,140 @@ items from an specific shopping cart in a merchant's store
     + Body
 
             {
-              "sample": 123,
-              "eg": [ 1, 2, 3 ]
+              "meta": {
+                "limit": 1000,
+                "offset": 0,
+                "sort": [],
+                "fields": [
+                  "_id",
+                  "product_id",
+                  "variation_id",
+                  "sku",
+                  "quantity",
+                  "price",
+                  "final_price"
+                ],
+                "query": {}
+              },
+              "result": [
+                {
+                  "_id": "2ca00000000000000000e001",
+                  "product_id": "123a5432109876543210cdef",
+                  "quantity": 2,
+                  "price": 42.9
+                },
+                {
+                  "_id": "2ca00000000000000000e002",
+                  "product_id": "1234567890abcdef01291511",
+                  "variation_id": "a234567890abcdef01291511",
+                  "sku": "S_123456789",
+                  "quantity": 1,
+                  "price": 70
+                },
+                {
+                  "_id": "2ca00000000000000000e002",
+                  "product_id": "1234567890abcdef01291511",
+                  "variation_id": "a334567890abcdef01291512",
+                  "sku": "S_123456789",
+                  "quantity": 1,
+                  "price": 65
+                }
+              ]
             }
+
+#### Create New Cart Item [POST]
+
++ Parameters
+    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 5a6757722b66f68dbed44526
+
+    + Body
+
+            {
+              "product_id": "123a5432109876543210cdef",
+              "quantity": 2,
+              "price": 42.9
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "2ca00000000000000000e001"
+            }
+
+#### Read Cart Item [GET /carts/{_id}/items/{item}.json]
+
++ Parameters
+    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 5a6757722b66f68dbed44526
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "2ca00000000000000000e002",
+              "product_id": "1234567890abcdef01291511",
+              "variation_id": "a234567890abcdef01291511",
+              "sku": "S_123456789",
+              "quantity": 1,
+              "price": 70
+            }
+
+#### Edit Cart Item [PATCH /carts/{_id}/items/{item}.json]
+
++ Parameters
+    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 5a6757722b66f68dbed44526
+
+    + Body
+
+            {
+              "quantity": 2
+            }
+
++ Response 204
+
+#### Remove Cart Item [DELETE /carts/{_id}/items/{item}.json]
+
++ Parameters
+    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+
++ Request (application/json)
+
+    + Headers
+
+            X-Store-ID: 100
+            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
+            X-My-ID: 5a6757722b66f68dbed44526
+
++ Response 204
 
 ## Group Orders
 
