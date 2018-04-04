@@ -10212,6 +10212,12 @@ order subresources directly at this resource
             + `namespace` (string) - String to help distinguish who (or which app) created and can use the metafield - Max length: **30**
             + `field` (string) - Field name - Max length: **50**
             + `value` (string, required) - Custom property value - Max length: **255**
+    + `private_metafields` (array) - List of custom attributes, hidden by default, visible for the order buyers - Max elements: **100**
+        + (object) - Custom attribute object
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `namespace` (string) - String to help distinguish who (or which app) created and can use the metafield - Max length: **30**
+            + `field` (string) - Field name - Max length: **50**
+            + `value` (string, required) - Custom property value - Max length: **255**
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this order - Max length: **255**
@@ -12445,6 +12451,42 @@ order subresources directly at this resource
                         },
                         "description": "List of custom attributes"
                     },
+                    "private_metafields": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "_id",
+                                "value"
+                            ],
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
+                                "namespace": {
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "description": "String to help distinguish who (or which app) created and can use the metafield"
+                                },
+                                "field": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "description": "Field name"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Custom property value"
+                                }
+                            },
+                            "description": "Custom attribute object"
+                        },
+                        "description": "List of custom attributes, hidden by default, visible for the order buyers"
+                    },
                     "flags": {
                         "type": "array",
                         "uniqueItems": true,
@@ -13006,7 +13048,7 @@ In read requests, response body will follow
 [this model](#reference/orders/order-object),
 requests without authentication will receive order data without
 `browser_ip`, `buyer`, `gift_to`, `shipping_lines`, `transactions`, `payments_history`,
-`fulfillments`, `hidden_metafields` and `staff_notes` properties
+`fulfillments`, `hidden_metafields`, `private_metafields` and `staff_notes` properties
 
 For overwriting and editing, request body must obey the same specifications,
 but especially for edit requests there are no required fields
