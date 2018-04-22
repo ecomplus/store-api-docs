@@ -58,6 +58,11 @@ cart subresources directly at this resource
                 + `label` (string, required) - Title describing this gift wrap - Max length: **70**
                 + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
             + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+            + `min_quantity` (number) - Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
+            + `max_quantity` (number) - Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+            + `keep_item_quantity`: false (boolean) - True if product quantity should not be checked, using quantity specified for this item
+            + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
+            + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
             + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
             + `keep_item_price`: false (boolean) - True if the product price should not be checked, using price specified for this item
@@ -395,6 +400,37 @@ cart subresources directly at this resource
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Item quantity in cart"
+                                },
+                                "min_quantity": {
+                                    "type": "number",
+                                    "multipleOf": 0.0001,
+                                    "minimum": 0,
+                                    "maximum": 999999,
+                                    "description": "Minimum item quantity for this cart"
+                                },
+                                "max_quantity": {
+                                    "type": "number",
+                                    "multipleOf": 0.0001,
+                                    "minimum": 0,
+                                    "maximum": 9999999,
+                                    "description": "Maximum item quantity for this cart"
+                                },
+                                "keep_item_quantity": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "description": "True if product quantity should not be checked, using quantity specified for this item"
+                                },
+                                "currency_id": {
+                                    "type": "string",
+                                    "pattern": "^[A-Z]{3}$",
+                                    "default": "BRL",
+                                    "description": "Designator of currency according to ISO 4217 (3 uppercase letters)"
+                                },
+                                "currency_symbol": {
+                                    "type": "string",
+                                    "maxLength": 20,
+                                    "default": "R$",
+                                    "description": "Graphic symbol used as a shorthand for currency's name"
                                 },
                                 "price": {
                                     "type": "number",
