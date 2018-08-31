@@ -1,19 +1,23 @@
-### Brand i18n [/brands/{_id}/i18n.json]
+## Group Brand i18n
 
 `.brands.i18n`
 
 Use the **i18n** subresource to read and update
 translations for an specific brand name, with up to 10 languages
 
+### Brand i18n Object [/brands/schema/i18n.json]
+
+:[](.brand-i18n-object.apib)
+
+#### JSON Schema [GET]
+
+:[](.json-schema.apib)
+
+### i18n From a Brand [/brands/{_id}/i18n.json]
+
 */brands/[_id]/i18n.json*
 
 > Authentication<br>_GET_, _PATCH_: **required**
-
-:[](.brand-i18n.apib)
-
-#### JSON Schema [GET /brands/schema/i18n.json]
-
-:[](.json-schema.apib)
 
 #### Read Brand Name Translations [GET]
 

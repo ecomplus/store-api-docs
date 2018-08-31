@@ -1,18 +1,16 @@
-### Brand i18n [/brands/{_id}/i18n.json]
+## Group Brand i18n
 
 `.brands.i18n`
 
 Use the **i18n** subresource to read and update
 translations for an specific brand name, with up to 10 languages
 
-*/brands/[_id]/i18n.json*
-
-> Authentication<br>_GET_, _PATCH_: **required**
+### Brand i18n Object [/brands/schema/i18n.json]
 
 + Attributes (object)
     + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated name - Max length: **255**
 
-#### JSON Schema [GET /brands/schema/i18n.json]
+#### JSON Schema [GET]
 
 + Request (application/json)
 
@@ -39,6 +37,12 @@ translations for an specific brand name, with up to 10 languages
                     }
                 }
             }
+
+### i18n From a Brand [/brands/{_id}/i18n.json]
+
+*/brands/[_id]/i18n.json*
+
+> Authentication<br>_GET_, _PATCH_: **required**
 
 #### Read Brand Name Translations [GET]
 

@@ -1,19 +1,17 @@
-### Application Data [/applications/{_id}/data.json]
+## Group Application Data
 
 `.applications.data`
 
 Use the **data** subresource to read and update an specific app data in
 a merchant's store
 
+### Application Data Object [/applications/schema/data.json]
+
 This endpoint is **schema free**, it means that you can send any valid JSON object,
 the only limitations are to store up to 3000 properties in the data object and obey
 [MongoDB document limits](https://docs.mongodb.com/manual/reference/limits/#bson-documents)
 
-*/applications/[_id]/data.json*
-
-> Authentication<br>_GET_, _PATCH_: **required**
-
-#### JSON Schema [GET /applications/schema/data.json]
+#### JSON Schema [GET]
 
 + Request (application/json)
 
@@ -33,6 +31,12 @@ the only limitations are to store up to 3000 properties in the data object and o
                 "maxProperties": 3000,
                 "description": "Schema free, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
             }
+
+### Data From an Application [/applications/{_id}/data.json]
+
+*/applications/[_id]/data.json*
+
+> Authentication<br>_GET_, _PATCH_: **required**
 
 #### Read Application Data [GET]
 
