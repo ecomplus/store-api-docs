@@ -6,7 +6,7 @@ Use **grids** subresource (of *products* resource)
 to edit *grids* property of a specific product by ID, at this point you can
 add and update titles of grids used with specifications and variations of the product
 
-### Product Grid Object [/products/schema/grids.json]
+### Product Grids Object [/products/schema/grids.json]
 
 + Attributes (object)
     + `^[a-z0-9_]{2,30}$` (string) - Grid title - Max length: **70**
@@ -39,7 +39,7 @@ add and update titles of grids used with specifications and variations of the pr
                 }
             }
 
-### All Product Grids [/products/{product}/grids.json]
+### Grids of a Product [/products/{product}/grids.json]
 
 */products/[_id]/grids.json*
 
@@ -51,7 +51,7 @@ In read requests, response body will follow
 [model above](#reference/product-grids/product-grid-object),
 for editing, request body must obey the same specifications
 
-#### List All Product Grids [GET]
+#### Read Product Grids [GET]
 
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID

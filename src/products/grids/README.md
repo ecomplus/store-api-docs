@@ -6,40 +6,15 @@ Use **grids** subresource (of *products* resource)
 to edit *grids* property of a specific product by ID, at this point you can
 add and update titles of grids used with specifications and variations of the product
 
-### Product Grid Object [/products/schema/grids.json]
+### Product Grids Object [/products/schema/grids.json]
 
-+ Attributes (object)
-    + `^[a-z0-9_]{2,30}$` (string) - Grid title - Max length: **70**
+:[](.product-grids-object.apib)
 
 #### JSON Schema [GET]
 
-+ Request (application/json)
+:[](.json-schema.apib)
 
-    + Headers
-
-            X-Store-ID: 100
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-                "$schema": "http://json-schema.org/draft-06/schema#",
-                "title": "Grids for specifications and variations, grid_id as property name",
-                "type": "object",
-                "additionalProperties": false,
-                "minProperties": 1,
-                "maxProperties": 200,
-                "patternProperties": {
-                    "^[a-z0-9_]{2,30}$": {
-                        "type": "string",
-                        "maxLength": 70,
-                        "description": "Grid title"
-                    }
-                }
-            }
-
-### All Product Grids [/products/{product}/grids.json]
+### Grids of a Product [/products/{product}/grids.json]
 
 */products/[_id]/grids.json*
 
@@ -51,64 +26,10 @@ In read requests, response body will follow
 [model above](#reference/product-grids/product-grid-object),
 for editing, request body must obey the same specifications
 
-#### List All Product Grids [GET]
+#### Read Product Grids [GET]
 
-+ Parameters
-    + product: 1234567890abcdef01291511 (string, required) - Product ID
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
-            X-My-ID: 5a6757722b66f68dbed44526
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-              "age_group": "Age group",
-              "colors": "Colors",
-              "size": "Shirt size"
-            }
+:[](.read-product-grids.apib)
 
 #### Edit Product Grids [PATCH]
 
-+ Parameters
-    + product: 1234567890abcdef01291511 (string, required) - Product ID
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-            X-Access-Token: eyJhbGciOi.eyJzdWIi.AFONFh7HgQ
-            X-My-ID: 5a6757722b66f68dbed44526
-
-    + Schema
-
-            {
-                "$schema": "http://json-schema.org/draft-06/schema#",
-                "title": "Grids for specifications and variations, grid_id as property name",
-                "type": "object",
-                "additionalProperties": false,
-                "minProperties": 1,
-                "maxProperties": 200,
-                "patternProperties": {
-                    "^[a-z0-9_]{2,30}$": {
-                        "type": "string",
-                        "maxLength": 70,
-                        "description": "Grid title"
-                    }
-                }
-            }
-
-    + Body
-
-            {
-              "size_type": "Size guide"
-            }
-
-+ Response 204
+:[](.edit-product-grids.apib)
