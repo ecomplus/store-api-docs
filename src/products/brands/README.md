@@ -54,6 +54,6 @@ In read requests, response body will follow
 
 :[](.read-product-brand.apib)
 
-#### Remove Product Brand [DELETE]
+#### Remove Brand From Product [DELETE]
 
-:[](.remove-product-brand.apib)
+:[](.remove-brand-from-product.apib)

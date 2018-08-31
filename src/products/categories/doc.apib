@@ -46,7 +46,7 @@ you must specify only the ID of an existent category, other category properties 
                 "title": "Add category by ID to product"
             }
 
-### All Product Categories [/products/{product}/categories.json{?limit,offset,sort,fields}]
+### All Categories of a Product [/products/{product}/categories.json{?limit,offset,sort,fields}]
 
 */products/[_id]/categories.json?limit&offset&sort&fields&[field]*
 
@@ -100,7 +100,7 @@ by particular object properties
               ]
             }
 
-### New Product Category [/products/{product}/categories.json]
+### New Category to a Product [/products/{product}/categories.json]
 
 */products/[_id]/categories.json*
 
@@ -108,7 +108,7 @@ by particular object properties
 
 Request body must be an object with valid category `_id` and no more properties
 
-#### Add New Category To Product [POST]
+#### Add New Product Category [POST]
 
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
@@ -154,7 +154,7 @@ Request body must be an object with valid category `_id` and no more properties
               "_id": "b10000000000000000001112"
             }
 
-### Specific Product Category [/products/{product}/categories/{_id}.json]
+### Specific Category of a Product [/products/{product}/categories/{_id}.json]
 
 */products/[_id]/brands/[_id].json*
 
