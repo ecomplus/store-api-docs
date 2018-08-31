@@ -16,7 +16,7 @@ brand subresources directly at this resource
 
 ### All Brands [/brands.json{?limit,offset,sort,fields}]
 
-*/brands.json?limit&offset&sort&fields&[field]*
+*/brands.json?limit&offset&sort&fields\&[field]*
 
 > Authentication<br>_GET_: **none**
 

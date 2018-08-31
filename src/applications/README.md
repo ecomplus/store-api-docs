@@ -16,7 +16,7 @@ application subresources directly at this resource
 
 ### All Applications [/applications.json{?limit,offset,sort,fields}]
 
-*/applications.json?limit&offset&sort&fields&[field]*
+*/applications.json?limit&offset&sort&fields\&[field]*
 
 > Authentication<br>_GET_: **required**
 
