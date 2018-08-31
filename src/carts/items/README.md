@@ -5,15 +5,15 @@
 Use the **items** subresource to create, read, update and delete
 items from an specific shopping cart in a merchant's store
 
-### Cart Items Object [/carts/schema/items.json]
+### Cart Item Object [/carts/schema/items.json]
 
-:[](.cart-items-object.apib)
+:[](.cart-item-object.apib)
 
 #### JSON Schema [GET]
 
 :[](.json-schema.apib)
 
-### All Items From a Cart [/carts/{_id}/items.json{?limit,offset,sort,fields}]
+### All Items of a Cart [/carts/{cart}/items.json{?limit,offset,sort,fields}]
 
 */carts/[_id]/items.json?limit&offset&sort&fields\&[field]*
 
@@ -23,11 +23,11 @@ Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
 by particular object properties
 
-#### List All Cart Items [GET /carts/{_id}/items.json]
+#### List All Cart Items [GET /carts/{cart}/items.json]
 
 :[](.list-all-cart-items.apib)
 
-### New Cart [/carts/{_id}/items.json]
+### New Item to a Cart [/carts/{cart}/items.json]
 
 */carts/[_id]/items.json*
 
@@ -36,11 +36,11 @@ by particular object properties
 Request body must obey the specifications of
 [this model](#reference/cart-items/cart-items-object)
 
-#### Create New Cart Item [POST]
+#### Add New Cart Item [POST]
 
-:[](.create-new-cart-item.apib)
+:[](.add-new-cart-item.apib)
 
-### Specific Item From a Cart [/carts/{_id}/items/{item}.json]
+### Specific Item of a Cart [/carts/{cart}/items/{_id}.json]
 
 */carts/[_id]/items/[_id].json*
 

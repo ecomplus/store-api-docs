@@ -47,9 +47,9 @@ you must specify only the ID of an existent brand, other brand properties will b
                 "title": "Add brand by ID to product"
             }
 
-### All Product Brands [/products/{product}/brands.json{?limit,offset,sort,fields}]
+### All Brands of a Product [/products/{product}/brands.json{?limit,offset,sort,fields}]
 
-*/products/[_id]/brands.json?limit&offset&sort&fields&[field]*
+*/products/[_id]/brands.json?limit&offset&sort&fields\&[field]*
 
 > Authentication<br>_GET_: **required**
 
@@ -100,7 +100,7 @@ by particular object properties
               ]
             }
 
-### New Product Brand [/products/{product}/brands.json]
+### New Brand to a Product [/products/{product}/brands.json]
 
 */products/[_id]/brands.json*
 
@@ -108,7 +108,7 @@ by particular object properties
 
 Request body must be an object with valid brand `_id` and no more properties
 
-#### Add New Brand To Product [POST]
+#### Add New Product Brand [POST]
 
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID
@@ -154,7 +154,7 @@ Request body must be an object with valid brand `_id` and no more properties
               "_id": "a10000000000000000001112"
             }
 
-### Specific Product Brand [/products/{product}/brands/{_id}.json]
+### Specific Brand of a Product [/products/{product}/brands/{_id}.json]
 
 */products/[_id]/brands/[_id].json*
 
@@ -191,7 +191,7 @@ In read requests, response body will follow
               }
             }
 
-#### Remove Brand From Product [DELETE]
+#### Remove Product Brand [DELETE]
 
 + Parameters
     + product: 1234567890abcdef01291511 (string, required) - Product ID

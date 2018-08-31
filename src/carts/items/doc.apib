@@ -5,7 +5,7 @@
 Use the **items** subresource to create, read, update and delete
 items from an specific shopping cart in a merchant's store
 
-### Cart Items Object [/carts/schema/items.json]
+### Cart Item Object [/carts/schema/items.json]
 
 + Attributes (object)
     + `product_id` (string, required) - Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -314,7 +314,7 @@ items from an specific shopping cart in a merchant's store
                 }
             }
 
-### All Items From a Cart [/carts/{_id}/items.json{?limit,offset,sort,fields}]
+### All Items of a Cart [/carts/{cart}/items.json{?limit,offset,sort,fields}]
 
 */carts/[_id]/items.json?limit&offset&sort&fields\&[field]*
 
@@ -324,10 +324,10 @@ Use [default URL parameters](#introduction/overview/url-params) (metadata)
 for pagination and ordering, you can use any other parameter to query
 by particular object properties
 
-#### List All Cart Items [GET /carts/{_id}/items.json]
+#### List All Cart Items [GET /carts/{cart}/items.json]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
 
 + Request (application/json)
 
@@ -383,7 +383,7 @@ by particular object properties
               ]
             }
 
-### New Cart [/carts/{_id}/items.json]
+### New Item to a Cart [/carts/{cart}/items.json]
 
 */carts/[_id]/items.json*
 
@@ -392,10 +392,10 @@ by particular object properties
 Request body must obey the specifications of
 [this model](#reference/cart-items/cart-items-object)
 
-#### Create New Cart Item [POST]
+#### Add New Cart Item [POST]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
 
 + Request (application/json)
 
@@ -421,7 +421,7 @@ Request body must obey the specifications of
               "_id": "2ca00000000000000000e001"
             }
 
-### Specific Item From a Cart [/carts/{_id}/items/{item}.json]
+### Specific Item of a Cart [/carts/{cart}/items/{_id}.json]
 
 */carts/[_id]/items/[_id].json*
 
@@ -436,8 +436,8 @@ without required fields
 #### Read Cart Item [GET]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 
@@ -463,8 +463,8 @@ without required fields
 #### Edit Cart Item [PATCH]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 
@@ -485,8 +485,8 @@ without required fields
 #### Remove Cart Item [DELETE]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 

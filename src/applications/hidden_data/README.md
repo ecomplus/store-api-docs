@@ -15,7 +15,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 
 :[](.json-schema.apib)
 
-### Hidden Data From an Application [/applications/{_id}/hidden_data.json]
+### Hidden Data of an Application [/applications/{application}/hidden_data.json]
 
 */applications/[_id]/hidden_data.json*
 

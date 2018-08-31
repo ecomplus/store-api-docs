@@ -32,7 +32,7 @@ the only limitations are to store up to 3000 properties in the data object and o
                 "description": "Schema free, limitations: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
             }
 
-### Data From an Application [/applications/{_id}/data.json]
+### Data of an Application [/applications/{application}/data.json]
 
 */applications/[_id]/data.json*
 
@@ -41,7 +41,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 #### Read Application Data [GET]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The application ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -63,7 +63,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 #### Edit Application Data [PATCH]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The application ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 

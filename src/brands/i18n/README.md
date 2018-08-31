@@ -13,7 +13,7 @@ translations for an specific brand name, with up to 10 languages
 
 :[](.json-schema.apib)
 
-### i18n From a Brand [/brands/{_id}/i18n.json]
+### i18n of a Brand [/brands/{brand}/i18n.json]
 
 */brands/[_id]/i18n.json*
 

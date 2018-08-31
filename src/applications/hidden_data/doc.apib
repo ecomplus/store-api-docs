@@ -32,7 +32,7 @@ the only limitations are to store up to 3000 properties in the data object and o
                 "description": "Schema free, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents"
             }
 
-### Hidden Data From an Application [/applications/{_id}/hidden_data.json]
+### Hidden Data of an Application [/applications/{application}/hidden_data.json]
 
 */applications/[_id]/hidden_data.json*
 
@@ -41,7 +41,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 #### Read Application Hidden Data [GET]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The application ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 
@@ -62,7 +62,7 @@ the only limitations are to store up to 3000 properties in the data object and o
 #### Edit Application Hidden Data [PATCH]
 
 + Parameters
-    + _id: 42aa00000000000000000111 (string, required) - The application ID
+    + application: 42aa00000000000000000111 (string, required) - The application ID
 
 + Request (application/json)
 

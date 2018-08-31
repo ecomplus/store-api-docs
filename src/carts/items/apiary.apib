@@ -323,7 +323,7 @@ items from an specific shopping cart in a merchant's store
 #### List All Cart Items [GET]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
 
 + Request (application/json)
 
@@ -382,7 +382,7 @@ items from an specific shopping cart in a merchant's store
 #### Create New Cart Item [POST]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
 
 + Request (application/json)
 
@@ -411,8 +411,8 @@ items from an specific shopping cart in a merchant's store
 #### Read Cart Item [GET /carts/{_id}/items/{item}.json]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 
@@ -438,8 +438,8 @@ items from an specific shopping cart in a merchant's store
 #### Edit Cart Item [PATCH /carts/{_id}/items/{item}.json]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 
@@ -460,8 +460,8 @@ items from an specific shopping cart in a merchant's store
 #### Remove Cart Item [DELETE /carts/{_id}/items/{item}.json]
 
 + Parameters
-    + _id: 2ca000000000000000000003 (string, required) - The cart ID
-    + item: 2ca00000000000000000e002 (string, required) - The cart item ID
+    + cart: 2ca000000000000000000003 (string, required) - The cart ID
+    + _id: 2ca00000000000000000e002 (string, required) - The cart item ID
 
 + Request (application/json)
 
