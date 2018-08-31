@@ -274,32 +274,32 @@ Feel free to get help or suggest alterations on
 [GitHub repo](https://github.com/ecomclub/ecomplus-api-docs) or by e-mail
 [ti@e-com.club](mailto:ti@e-com.club)
 
-:[](authenticate-yourself/apiary.apib)
+:[](authenticate-yourself/doc.apib)
 
-:[](authenticate-app/apiary.apib)
+:[](authenticate-app/doc.apib)
 
-:[](products/apiary.apib)
+:[](products/doc.apib)
 
-:[](brands/apiary.apib)
+:[](brands/doc.apib)
 
-:[](categories/apiary.apib)
+:[](categories/doc.apib)
 
-:[](collections/apiary.apib)
+:[](collections/doc.apib)
 
-:[](grids/apiary.apib)
+:[](grids/doc.apib)
 
-:[](customers/apiary.apib)
+:[](customers/doc.apib)
 
-:[](carts/apiary.apib)
+:[](carts/doc.apib)
 
-:[](orders/apiary.apib)
+:[](orders/doc.apib)
 
-:[](applications/apiary.apib)
+:[](applications/doc.apib)
 
-:[](triggers/apiary.apib)
+:[](triggers/doc.apib)
 
-:[](procedures/apiary.apib)
+:[](procedures/doc.apib)
 
-:[](stores/apiary.apib)
+:[](stores/doc.apib)
 
-:[](authentications/apiary.apib)
+:[](authentications/doc.apib)
