@@ -12,7 +12,7 @@ token and ID will be sent to application `auth_callback_uri`
 with a __POST callback__ request
 
 The callback body will follow the model below:
-```
+```json
 {
   "my_id": "100000000000000000000012",
   "access_token": "eyJhbGciOi.eyYzdWIi.ZEONFh7HgQ",
@@ -22,23 +22,3 @@ The callback body will follow the model below:
 
 Generated token is valid for one day, as defined by *expires* ISO 8601 date and time,
 then you will need to generate another token
-
-#### Request Access Token [POST]
-
-+ Request (application/json)
-
-    + Headers
-
-            X-Store-ID: 100
-
-    + Attributes (object)
-        + _id: 100000000000000000000012 (string, required)
-            Authentication object ID
-
-    + Body
-
-            {
-              "_id": "100000000000000000000012"
-            }
-
-+ Response 204 (application/json)

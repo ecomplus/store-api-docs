@@ -1,3 +1,19 @@
+FORMAT: 1A
+HOST: https://sandbox.e-com.plus/v1/
+
+# E-Com Plus Store API
+
+[E-Com Plus](https://www.e-com.plus)
+is a robust and flexible cloud commerce software,
+totally based on REST APIs, providing a large library of methods and specifications
+to deploy any digital commerce operation easly
+
+**Store API** is the "hearth" of our software, a REST interface to the
+[MongoDB](https://www.mongodb.com/) stores database,
+given full access to all store data, so be creative, but be careful too
+
+_With great power comes great responsibility_, _may the force be with you_!
+
 ## Overview
 
 This API tries to be truly *RESTful*, following Web API Standards, taking as specifications references:
@@ -55,13 +71,12 @@ At root of a resource or an embedded documents subresource, response body will f
 - `meta` is an object
 - `result` is an array of objects
 
-```
+```json
 {
   "meta": {
   },
   "result": [
     {}, {}
-    ...
   ]
 }
 ```
@@ -175,7 +190,7 @@ will have body following the model below:
 
 **Example**
 
-```
+```json
 {
   "status": 406,
   "error_code": 123,
@@ -201,7 +216,7 @@ the `error_code` will be an negative integer
 
 ##### NGINX 404
 
-```
+```json
 {
   "status": 404,
   "error_code": -44,
@@ -213,7 +228,7 @@ Incorrect URL paths, check [API Host](#introduction/overview/host)
 
 ##### NGINX 503
 
-```
+```json
 {
   "status": 503,
   "error_code": -53,
@@ -258,3 +273,33 @@ Powerful text search API using Elasticsearch to find and suggest items (products
 Feel free to get help or suggest alterations on
 [GitHub repo](https://github.com/ecomclub/ecomplus-api-docs) or by e-mail
 [ti@e-com.club](mailto:ti@e-com.club)
+
+:[](authenticate-yourself/apiary.apib)
+
+:[](authenticate-app/apiary.apib)
+
+:[](products/apiary.apib)
+
+:[](brands/apiary.apib)
+
+:[](categories/apiary.apib)
+
+:[](collections/apiary.apib)
+
+:[](grids/apiary.apib)
+
+:[](customers/apiary.apib)
+
+:[](carts/apiary.apib)
+
+:[](orders/apiary.apib)
+
+:[](applications/apiary.apib)
+
+:[](triggers/apiary.apib)
+
+:[](procedures/apiary.apib)
+
+:[](stores/apiary.apib)
+
+:[](authentications/apiary.apib)
