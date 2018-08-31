@@ -22,3 +22,7 @@ The callback body will follow the model below:
 
 Generated token is valid for one day, as defined by *expires* ISO 8601 date and time,
 then you will need to generate another token
+
+#### Request Access Token [POST]
+
+:[](.request-access-token.apib)
