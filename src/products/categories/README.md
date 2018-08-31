@@ -18,7 +18,7 @@ you must specify only the ID of an existent category, other category properties 
 
 ### All Categories of a Product [/products/{product}/categories.json{?limit,offset,sort,fields}]
 
-*/products/[_id]/categories.json?limit&offset&sort&fields&[field]*
+*/products/[_id]/categories.json?limit&offset&sort&fields\&[field]*
 
 > Authentication<br>_GET_: **required**
 

@@ -171,9 +171,9 @@ use it to create, read, update and delete customization fields of a specific pro
                 }
             }
 
-### All Product Fields [/products/{product}/customizations.json{?limit,offset,sort,fields}]
+### All Fields of a Product [/products/{product}/customizations.json{?limit,offset,sort,fields}]
 
-*/products/[_id]/customizations.json?limit&offset&sort&fields&[field]*
+*/products/[_id]/customizations.json?limit&offset&sort&fields\&[field]*
 
 > Authentication<br>_GET_: **required**
 
@@ -326,7 +326,7 @@ by particular object properties
               ]
             }
 
-### New Product Field [/products/{product}/customizations.json]
+### New Field to a Product [/products/{product}/customizations.json]
 
 */products/[_id]/customizations.json*
 
@@ -503,7 +503,7 @@ Request body must obey the specifications of
               "_id": "a12000000000000000001111"
             }
 
-### Specific Product Field [/products/{product}/customizations/{_id}.json]
+### Specific Field of a Product [/products/{product}/customizations/{_id}.json]
 
 */products/[_id]/customizations/[_id].json*
 
