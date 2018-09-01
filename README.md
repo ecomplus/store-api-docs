@@ -3,10 +3,10 @@ API Blueprint to E-Com Plus Store API documentation
 
 # Setting up
 Install [Hercule](https://github.com/jamesramsay/hercule)
-and give permissions to shell script:
+and [Drafter](https://github.com/apiaryio/drafter.js),
+then give permissions to shell script:
 
 ```bash
-npm install -g hercule
 chmod +x build.sh
 ```
 
