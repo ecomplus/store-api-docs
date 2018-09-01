@@ -9,7 +9,7 @@ function traverse() {
   done
   # run hercule
   # https://github.com/jamesramsay/hercule
-  hercule $1/README.md -o $1/doc.apib
+  hercule $1/README.md -o $1/blueprint.apib
 }
 
 traverse "./src"

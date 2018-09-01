@@ -274,32 +274,32 @@ Feel free to get help or suggest alterations on
 [GitHub repo](https://github.com/ecomclub/ecomplus-api-docs) or by e-mail
 [ti@e-com.club](mailto:ti@e-com.club)
 
-:[](authenticate-yourself/doc.apib)
+:[](authenticate-yourself/blueprint.apib)
 
-:[](authenticate-app/doc.apib)
+:[](authenticate-app/blueprint.apib)
 
-:[](products/doc.apib)
+:[](products/blueprint.apib)
 
-:[](brands/doc.apib)
+:[](brands/blueprint.apib)
 
-:[](categories/doc.apib)
+:[](categories/blueprint.apib)
 
-:[](collections/doc.apib)
+:[](collections/blueprint.apib)
 
-:[](grids/doc.apib)
+:[](grids/blueprint.apib)
 
-:[](customers/doc.apib)
+:[](customers/blueprint.apib)
 
-:[](carts/doc.apib)
+:[](carts/blueprint.apib)
 
-:[](orders/doc.apib)
+:[](orders/blueprint.apib)
 
-:[](applications/doc.apib)
+:[](applications/blueprint.apib)
 
-:[](triggers/doc.apib)
+:[](triggers/blueprint.apib)
 
-:[](procedures/doc.apib)
+:[](procedures/blueprint.apib)
 
-:[](stores/doc.apib)
+:[](stores/blueprint.apib)
 
-:[](authentications/doc.apib)
+:[](authentications/blueprint.apib)
