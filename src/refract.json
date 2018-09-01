@@ -9,46 +9,6 @@
         ],
         "title": "E-Com Plus Store API"
       },
-      "attributes": {
-        "meta": [
-          {
-            "element": "member",
-            "meta": {
-              "classes": [
-                "user"
-              ]
-            },
-            "content": {
-              "key": {
-                "element": "string",
-                "content": "FORMAT"
-              },
-              "value": {
-                "element": "string",
-                "content": "1A"
-              }
-            }
-          },
-          {
-            "element": "member",
-            "meta": {
-              "classes": [
-                "user"
-              ]
-            },
-            "content": {
-              "key": {
-                "element": "string",
-                "content": "HOST"
-              },
-              "value": {
-                "element": "string",
-                "content": "https://sandbox.e-com.plus/v1/"
-              }
-            }
-          }
-        ]
-      },
       "content": [
         {
           "element": "copy",

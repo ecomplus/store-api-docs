@@ -1,6 +1,3 @@
-FORMAT: 1A
-HOST: https://sandbox.e-com.plus/v1/
-
 # E-Com Plus Store API
 
 [E-Com Plus](https://www.e-com.plus)

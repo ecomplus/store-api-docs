@@ -14,3 +14,6 @@ function traverse() {
 }
 
 traverse "./src"
+# blueprint to repo root for Apiary sync
+cp ./src/blueprint.apib ./apiary.apib
+sed -i '1s/^/FORMAT: 1A\nHOST: https:\/\/sandbox.e-com.plus\/v1\/\n\n/' ./apiary.apib
