@@ -5,7 +5,7 @@ is a robust and flexible cloud commerce software,
 totally based on REST APIs, providing a large library of methods and specifications
 to deploy any digital commerce operation easly
 
-**Store API** is the "hearth" of our software, a REST interface to the
+**Store API** is the hearth of our software, a REST interface to the
 [MongoDB](https://www.mongodb.com/) stores database,
 given full access to all store data, so be creative, but be careful too
 
