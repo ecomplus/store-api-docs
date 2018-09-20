@@ -30,7 +30,7 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Step 1 Login"
+                "title": "Step 1 - Login"
               },
               "attributes": {
                 "href": "/_login.json"
@@ -384,7 +384,7 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Step 2 Authenticate"
+                "title": "Step 2 - Authenticate"
               },
               "attributes": {
                 "href": "/_authenticate.json"
