@@ -11122,11 +11122,36 @@ order subresources directly at this resource
                                             "number"
                                         ],
                                         "properties": {
-                                            "issuer_doc_number": {
-                                                "type": "string",
-                                                "maxLength": 19,
-                                                "pattern": "^[0-9]+$",
-                                                "description": "Company document number (only numbers)"
+                                            "issuer": {
+                                                "type": "object",
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                    "doc_number": {
+                                                        "type": "string",
+                                                        "maxLength": 19,
+                                                        "pattern": "^[0-9]+$",
+                                                        "description": "Organization document number (only numbers)"
+                                                    },
+                                                    "inscription_type": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "State",
+                                                            "Municipal"
+                                                        ],
+                                                        "description": "Municipal or state registration if exists"
+                                                    },
+                                                    "inscription_number": {
+                                                        "type": "string",
+                                                        "maxLength": 50,
+                                                        "description": "Municipal or state registration number (with characters) if exists"
+                                                    },
+                                                    "corporate_name": {
+                                                        "type": "string",
+                                                        "maxLength": 255,
+                                                        "description": "Registered company name"
+                                                    }
+                                                },
+                                                "description": "Company that issued this invoice, usually the store company"
                                             },
                                             "number": {
                                                 "type": "string",
