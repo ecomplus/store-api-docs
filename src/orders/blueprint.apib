@@ -1959,6 +1959,96 @@ order subresources directly at this resource
                                     },
                                     "description": "Payment method object"
                                 },
+                                "payer": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "fullname": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "Payer full name or company corporate name"
+                                        },
+                                        "birth_date": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "day": {
+                                                    "type": "integer",
+                                                    "min": 1,
+                                                    "max": 31,
+                                                    "description": "Day of birth"
+                                                },
+                                                "month": {
+                                                    "type": "integer",
+                                                    "min": 1,
+                                                    "max": 12,
+                                                    "description": "Number of month of birth"
+                                                },
+                                                "year": {
+                                                    "type": "integer",
+                                                    "min": 1800,
+                                                    "max": 2200,
+                                                    "description": "Year of birth"
+                                                }
+                                            },
+                                            "description": "Date of payer birth"
+                                        },
+                                        "phone": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "required": [
+                                                "number"
+                                            ],
+                                            "properties": {
+                                                "country_code": {
+                                                    "type": "integer",
+                                                    "min": 1,
+                                                    "max": 999,
+                                                    "description": "Country calling code (without +), defined by standards E.123 and E.164"
+                                                },
+                                                "number": {
+                                                    "type": "string",
+                                                    "maxLength": 19,
+                                                    "pattern": "^[0-9]+$",
+                                                    "description": "The actual phone number, digits only"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "home",
+                                                        "personal",
+                                                        "work",
+                                                        "other"
+                                                    ],
+                                                    "description": "The type of phone"
+                                                }
+                                            },
+                                            "description": "Payer contact phone"
+                                        },
+                                        "registry_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "p",
+                                                "j"
+                                            ],
+                                            "description": "Physical or juridical (company) person"
+                                        },
+                                        "doc_country": {
+                                            "type": "string",
+                                            "minLength": 2,
+                                            "maxLength": 2,
+                                            "pattern": "^[A-Z]+$",
+                                            "description": "Country of document origin, an ISO 3166-2 code"
+                                        },
+                                        "doc_number": {
+                                            "type": "string",
+                                            "maxLength": 19,
+                                            "pattern": "^[0-9]+$",
+                                            "description": "Responsible person or organization document number (only numbers)"
+                                        }
+                                    },
+                                    "description": "Transation payer info"
+                                },
                                 "billing_address": {
                                     "$ref": "#/definitions/address",
                                     "description": "The mailing address associated with the payment method"
@@ -1989,6 +2079,9 @@ order subresources directly at this resource
                                         "intermediator": {
                                             "type": "object",
                                             "additionalProperties": false,
+                                            "required": [
+                                                "code"
+                                            ],
                                             "properties": {
                                                 "name": {
                                                     "type": "string",
@@ -2000,6 +2093,13 @@ order subresources directly at this resource
                                                     "maxLength": 255,
                                                     "format": "uri",
                                                     "description": "URI to intermediator website"
+                                                },
+                                                "code": {
+                                                    "type": "string",
+                                                    "minLength": 6,
+                                                    "maxLength": 70,
+                                                    "pattern": "^[a-z0-9_]+$",
+                                                    "description": "Gateway name standardized as identification code"
                                                 }
                                             },
                                             "description": "Payment intermediator"
@@ -2064,6 +2164,11 @@ order subresources directly at this resource
                                     "type": "object",
                                     "additionalProperties": false,
                                     "properties": {
+                                        "holder_name": {
+                                            "type": "string",
+                                            "maxLength": 100,
+                                            "description": "Full name of the holder, as it is on the credit card"
+                                        },
                                         "avs_result_code": {
                                             "type": [
                                                 "string",
@@ -2101,8 +2206,8 @@ order subresources directly at this resource
                                         },
                                         "token": {
                                             "type": "string",
-                                            "maxLength": 255,
-                                            "description": "Unique credit card token"
+                                            "maxLength": 1000,
+                                            "description": "Unique credit card encrypted hash"
                                         },
                                         "error_code": {
                                             "type": "string",

@@ -1081,6 +1081,83 @@ customer subresources directly at this resource
                         },
                         "description": "List of customer orders"
                     },
+                    "credit_cards": {
+                        "type": "array",
+                        "maxItems": 100,
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                                "last_digits",
+                                "intermediator"
+                            ],
+                            "properties": {
+                                "holder_name": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "description": "Full name of the holder, as it is on the credit card"
+                                },
+                                "bin": {
+                                    "type": "integer",
+                                    "min": 1,
+                                    "max": 9999999,
+                                    "description": "Issuer identification number (IIN), known as bank identification number (BIN)"
+                                },
+                                "company": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "description": "Credit card issuer name, eg.: Visa, American Express, MasterCard"
+                                },
+                                "last_digits": {
+                                    "type": "string",
+                                    "maxLength": 4,
+                                    "pattern": "^[0-9]+$",
+                                    "description": "Last digits (up to 4) of credit card number"
+                                },
+                                "intermediator": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "required": [
+                                        "code",
+                                        "credit_card_id"
+                                    ],
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "Name of payment intermediator"
+                                        },
+                                        "link": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "format": "uri",
+                                            "description": "URI to intermediator website"
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "minLength": 6,
+                                            "maxLength": 70,
+                                            "pattern": "^[a-z0-9_]+$",
+                                            "description": "Gateway name standardized as identification code"
+                                        },
+                                        "buyer_id": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "ID of respective customer account in the intermediator"
+                                        },
+                                        "credit_card_id": {
+                                            "type": "string",
+                                            "maxLength": 255,
+                                            "description": "ID of current credit card in the intermediator"
+                                        }
+                                    },
+                                    "description": "Payment intermediator"
+                                }
+                            },
+                            "description": "Credit card and PCI gateway info for one click buy"
+                        },
+                        "description": "List of customer saved credit cards"
+                    },
                     "metafields": {
                         "type": "array",
                         "maxItems": 100,
