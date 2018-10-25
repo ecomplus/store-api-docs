@@ -7674,15 +7674,22 @@ customer subresources directly at this resource
                     },
                     "credit_cards": {
                         "type": "array",
-                        "maxItems": 100,
+                        "maxItems": 40,
                         "items": {
                             "type": "object",
                             "additionalProperties": false,
                             "required": [
+                                "_id",
                                 "last_digits",
+                                "token",
                                 "intermediator"
                             ],
                             "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Unique ID (ObjectID)"
+                                },
                                 "holder_name": {
                                     "type": "string",
                                     "maxLength": 100,
@@ -7705,25 +7712,18 @@ customer subresources directly at this resource
                                     "pattern": "^[0-9]+$",
                                     "description": "Last digits (up to 4) of credit card number"
                                 },
+                                "token": {
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "description": "Unique credit card token"
+                                },
                                 "intermediator": {
                                     "type": "object",
                                     "additionalProperties": false,
                                     "required": [
-                                        "code",
-                                        "credit_card_id"
+                                        "code"
                                     ],
                                     "properties": {
-                                        "name": {
-                                            "type": "string",
-                                            "maxLength": 255,
-                                            "description": "Name of payment intermediator"
-                                        },
-                                        "link": {
-                                            "type": "string",
-                                            "maxLength": 255,
-                                            "format": "uri",
-                                            "description": "URI to intermediator website"
-                                        },
                                         "code": {
                                             "type": "string",
                                             "minLength": 6,
@@ -7735,11 +7735,6 @@ customer subresources directly at this resource
                                             "type": "string",
                                             "maxLength": 255,
                                             "description": "ID of respective customer account in the intermediator"
-                                        },
-                                        "credit_card_id": {
-                                            "type": "string",
-                                            "maxLength": 255,
-                                            "description": "ID of current credit card in the intermediator"
                                         }
                                     },
                                     "description": "Payment intermediator"
@@ -11662,8 +11657,8 @@ order subresources directly at this resource
                                         },
                                         "token": {
                                             "type": "string",
-                                            "maxLength": 1000,
-                                            "description": "Unique credit card encrypted hash"
+                                            "maxLength": 255,
+                                            "description": "Unique credit card token"
                                         },
                                         "error_code": {
                                             "type": "string",
