@@ -26,6 +26,30 @@
                     ]
                 },
                 "additionalProperties": false,
+                "definitions": {
+                    "module": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "enabled",
+                            "endpoint"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Whether current app is enabled to handle the module requests"
+                            },
+                            "endpoint": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "format": "uri",
+                                "description": "URL to receive POST request of respective module"
+                            }
+                        },
+                        "description": "Module object"
+                    }
+                },
                 "properties": {
                     "app_id": {
                         "type": "integer",
@@ -77,27 +101,160 @@
                         "enum": [
                             "dashboard",
                             "storefront",
-                            "module_package",
                             "external"
                         ],
                         "description": "Type of app"
                     },
-                    "module": {
-                        "type": "string",
-                        "enum": [
-                            "al",
-                            "pd",
-                            "sc",
-                            "sh",
-                            "pa",
-                            "ck",
-                            "cf",
-                            "rg",
-                            "lg",
-                            "ct",
-                            "nw"
-                        ],
-                        "description": "If this app is a package of a module, specify the module"
+                    "modules": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "page_loaded": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered after each storefront page load"
+                            },
+                            "term_searched": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered after each term searched on storefront"
+                            },
+                            "cart_confirmed": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered after each cart saves on storefront, just before checkout"
+                            },
+                            "calculate_shipping": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered to calculate shipping options, must return calculated values and times"
+                            },
+                            "list_payments": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered when listing payments, must return available methods"
+                            },
+                            "apply_discount": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered to validate and apply discout value, must return discount and conditions"
+                            },
+                            "create_transaction": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered when order is being closed, must create payment transaction and return info"
+                            },
+                            "checkout_done": {
+                                "$ref": "#/definitions/module",
+                                "description": "Triggered after each order created from storefront, could return custom fields"
+                            }
+                        },
+                        "description": "Modules handled by this app"
+                    },
+                    "admin_settings": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 100,
+                        "patternProperties": {
+                            "^[a-z0-9_]{2,30}$": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "label": {
+                                        "type": "string",
+                                        "minLength": 2,
+                                        "maxLength": 70,
+                                        "description": "Field label shown to staff on admin dashboard"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "string",
+                                            "number",
+                                            "integer",
+                                            "boolean"
+                                        ],
+                                        "default": "string",
+                                        "description": "Type of configuration field value"
+                                    },
+                                    "default": {
+                                        "type": [
+                                            "string",
+                                            "number",
+                                            "integer",
+                                            "boolean"
+                                        ],
+                                        "maximum": 999999999,
+                                        "maxLength": 255,
+                                        "description": "Default configuration field value"
+                                    },
+                                    "options": {
+                                        "type": "array",
+                                        "maxItems": 100,
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "label": {
+                                                    "type": "string",
+                                                    "minLength": 2,
+                                                    "maxLength": 70,
+                                                    "description": "Option label shown to staff on admin dashboard"
+                                                },
+                                                "value": {
+                                                    "type": [
+                                                        "string",
+                                                        "number",
+                                                        "integer",
+                                                        "boolean"
+                                                    ],
+                                                    "maximum": 999999999,
+                                                    "maxLength": 255,
+                                                    "description": "Field option value"
+                                                }
+                                            },
+                                            "description": "Configuration field option object"
+                                        },
+                                        "description": "Predefined options for field value"
+                                    },
+                                    "min_length": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 9999,
+                                        "description": "Validate field checking minimum number of characters"
+                                    },
+                                    "max_length": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 99999,
+                                        "description": "Validate field checking maximum number of characters"
+                                    },
+                                    "pattern": {
+                                        "type": "string",
+                                        "minLength": 2,
+                                        "maxLength": 70,
+                                        "description": "Validate field by regular expression pattern"
+                                    },
+                                    "minimum": {
+                                        "type": "integer",
+                                        "minimum": -99999999,
+                                        "maximum": 999999999,
+                                        "description": "If field is a number, validate checking minimum value"
+                                    },
+                                    "maximum": {
+                                        "type": "integer",
+                                        "minimum": -99999999,
+                                        "maximum": 999999999,
+                                        "description": "If field is a number, validate checking maximum value"
+                                    },
+                                    "is_multiple": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "Whether this configuration field accepts multiple values, saved as array"
+                                    },
+                                    "hide": {
+                                        "type": "boolean",
+                                        "default": true,
+                                        "description": "Whether the field value is private, saved in `hidden_data`"
+                                    }
+                                },
+                                "description": "Configuration field object, property name same as saved on data object"
+                            }
+                        },
+                        "description": "Configuration options for staff on admin dashboard, saved on app data"
                     },
                     "load_events": {
                         "type": "array",
