@@ -1493,26 +1493,6 @@ order subresources directly at this resource
                                             "maxLength": 255,
                                             "format": "uri",
                                             "description": "URI to carrier website to get package tracking status"
-                                        },
-                                        "rule": {
-                                            "type": "object",
-                                            "required": [
-                                                "_id"
-                                            ],
-                                            "additionalProperties": false,
-                                            "properties": {
-                                                "_id": {
-                                                    "type": "string",
-                                                    "pattern": "^[a-f0-9]{24}$",
-                                                    "description": "Rule ID"
-                                                },
-                                                "label": {
-                                                    "type": "string",
-                                                    "maxLength": 50,
-                                                    "description": "Shipping rule label"
-                                                }
-                                            },
-                                            "description": "Selected shipping rule of this shipping method"
                                         }
                                     },
                                     "description": "Shipping method (by application) chosen by customer"
