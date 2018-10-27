@@ -1959,6 +1959,12 @@ order subresources directly at this resource
                                     },
                                     "description": "Payment method object"
                                 },
+                                "payment_link": {
+                                    "type": "string",
+                                    "maxLength": 1000,
+                                    "format": "uri",
+                                    "description": "Direct link to pay current transaction"
+                                },
                                 "payer": {
                                     "type": "object",
                                     "additionalProperties": false,
