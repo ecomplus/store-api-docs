@@ -12,20 +12,36 @@
     + `type` (enum, required) - Type of app
         + `dashboard` (string)
         + `storefront` (string)
-        + `module_package` (string)
         + `external` (string)
-    + `module` (enum) - If this app is a package of a module, specify the module
-        + `al` (string)
-        + `pd` (string)
-        + `sc` (string)
-        + `sh` (string)
-        + `pa` (string)
-        + `ck` (string)
-        + `cf` (string)
-        + `rg` (string)
-        + `lg` (string)
-        + `ct` (string)
-        + `nw` (string)
+    + `modules` (object) - Modules handled by this app
+        + `page_loaded` (object) - Triggered after each storefront page load
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `term_searched` (object) - Triggered after each term searched on storefront
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `cart_confirmed` (object) - Triggered after each cart saves on storefront, just before checkout
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `calculate_shipping` (object) - Triggered to calculate shipping options, must return calculated values and times
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `list_payments` (object) - Triggered when listing payments, must return available methods
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `apply_discount` (object) - Triggered to validate and apply discout value, must return discount and conditions
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `create_transaction` (object) - Triggered when order is being closed, must create payment transaction and return info
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `checkout_done` (object) - Triggered after each order created from storefront, could return custom fields
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+    + `admin_settings` (object) - Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**
+        + `^[a-z0-9_]{2,30}$` (object) - Configuration field object, property name same as saved on data object
+            + `schema` (object, required) - JSON Schema (https://json-schema.org/specification.html) for field model
+            + `hide`: true (boolean) - Whether the field value is private, saved in ``hidden_data``
     + `load_events` (array) - If this app is a dashboard or storefront JS, specify resources that trigger the script load - Max elements: **100**
         + (string) - Resource/Subresources/Third-level/ID
     + `script_uri` (string) - Script (JS) link - Max length: **255** - Format: **uri**

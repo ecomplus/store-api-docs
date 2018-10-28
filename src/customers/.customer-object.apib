@@ -35,7 +35,7 @@
         + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
         + `given_name` (string) - The "first name" of this user - Max length: **70**
         + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
-    + `birth_date` (object) - Date of customer birth - Min properties: **1**
+    + `birth_date` (object) - Date of customer birth
         + `day` (number) - Day of birth
         + `month` (number) - Number of month of birth
         + `year` (number) - Year of birth
@@ -109,7 +109,7 @@
             + `waiting`: true (boolean) - Whether the gift is waiting to buyer or has already been purchased
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
+    + `gifts_list_info` (object) - Informations about this customer gifts list
         + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
         + `description` (string) - Short text description for the gifts list - Max length: **255**
         + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
@@ -162,6 +162,17 @@
                 + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
             + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
+    + `credit_cards` (array) - List of customer saved credit cards - Max elements: **40**
+        + (object) - Credit card and PCI gateway info for one click buy
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `holder_name` (string) - Full name of the holder, as it is on the credit card - Max length: **100**
+            + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
+            + `company` (string) - Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**
+            + `last_digits` (string, required) - Last digits (up to 4) of credit card number - Max length: **4** - RegEx pattern: **`^[0-9]+$`**
+            + `token` (string, required) - Unique credit card token - Max length: **255**
+            + `intermediator` (object, required) - Payment intermediator
+                + `code` (string, required) - Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**
+                + `buyer_id` (string) - ID of respective customer account in the intermediator - Max length: **255**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
