@@ -6639,7 +6639,7 @@ customer subresources directly at this resource
         + `family_name` (string) - The family name of this user, or "last name" - Max length: **70**
         + `given_name` (string) - The "first name" of this user - Max length: **70**
         + `middle_name` (string) - The middle name(s) of this user - Max length: **255**
-    + `birth_date` (object) - Date of customer birth - Min properties: **1**
+    + `birth_date` (object) - Date of customer birth
         + `day` (number) - Day of birth
         + `month` (number) - Number of month of birth
         + `year` (number) - Year of birth
@@ -6713,7 +6713,7 @@ customer subresources directly at this resource
             + `waiting`: true (boolean) - Whether the gift is waiting to buyer or has already been purchased
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `gifts_list_info` (object) - Informations about this customer gifts list - Min properties: **1**
+    + `gifts_list_info` (object) - Informations about this customer gifts list
         + `title` (string) - Title for the gifts list, generally defined by the customer - Max length: **100**
         + `description` (string) - Short text description for the gifts list - Max length: **255**
         + `permalink` (string) - URL to gifts list page - Max length: **255** - Format: **uri**
@@ -6766,6 +6766,17 @@ customer subresources directly at this resource
                 + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
             + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
+    + `credit_cards` (array) - List of customer saved credit cards - Max elements: **40**
+        + (object) - Credit card and PCI gateway info for one click buy
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `holder_name` (string) - Full name of the holder, as it is on the credit card - Max length: **100**
+            + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
+            + `company` (string) - Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**
+            + `last_digits` (string, required) - Last digits (up to 4) of credit card number - Max length: **4** - RegEx pattern: **`^[0-9]+$`**
+            + `token` (string, required) - Unique credit card token - Max length: **255**
+            + `intermediator` (object, required) - Payment intermediator
+                + `code` (string, required) - Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**
+                + `buyer_id` (string) - ID of respective customer account in the intermediator - Max length: **255**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -9696,9 +9707,6 @@ order subresources directly at this resource
                 + `contract` (string) - Contract number of the shop with carrier, if exists - Max length: **70**
                 + `icon` (string) - Shipping method icon image URI - Max length: **255** - Format: **uri**
                 + `tracking_url` (string) - URI to carrier website to get package tracking status - Max length: **255** - Format: **uri**
-                + `rule` (object) - Selected shipping rule of this shipping method
-                    + `_id` (string, required) - Rule ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-                    + `label` (string) - Shipping rule label - Max length: **50**
             + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
@@ -9734,7 +9742,13 @@ order subresources directly at this resource
                     + `link` (string) - URI for carrier website to get the tracking status with this code - Max length: **255** - Format: **uri**
             + `invoices` (array) - List of invoices - Max elements: **30**
                 + (object) - Issued invoice
-                    + `issuer_doc_number` (string) - Company document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `issuer` (object) - Company that issued this invoice, usually the store company
+                        + `doc_number` (string) - Organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                        + `inscription_type` (enum) - Municipal or state registration if exists
+                            + `State` (string)
+                            + `Municipal` (string)
+                        + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
+                        + `corporate_name` (string) - Registered company name - Max length: **255**
                     + `number` (string, required) - Invoice number - Max length: **200**
                     + `serial_number` (string) - Invoice serial number - Max length: **200**
                     + `issued_at` (string) - Date and time of issue, in ISO 8601 standard representation - Format: **date-time**
@@ -9780,6 +9794,26 @@ order subresources directly at this resource
                     + `loyalty_points` (string)
                     + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
+            + `payment_link` (string) - Direct link to pay current transaction - Max length: **1000** - Format: **uri**
+            + `payer` (object) - Transation payer info
+                + `fullname` (string) - Payer full name or company corporate name - Max length: **255**
+                + `birth_date` (object) - Date of payer birth
+                    + `day` (number) - Day of birth
+                    + `month` (number) - Number of month of birth
+                    + `year` (number) - Year of birth
+                + `phone` (object) - Payer contact phone
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `type` (enum) - The type of phone
+                        + `home` (string)
+                        + `personal` (string)
+                        + `work` (string)
+                        + `other` (string)
+                + `registry_type` (enum) - Physical or juridical (company) person
+                    + `p` (string)
+                    + `j` (string)
+                + `doc_country` (string) - Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `billing_address` (object) - The mailing address associated with the payment method
                 + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
                 + `street` (string) - Street or public place name - Max length: **200**
@@ -9805,6 +9839,7 @@ order subresources directly at this resource
                 + `intermediator` (object) - Payment intermediator
                     + `name` (string) - Name of payment intermediator - Max length: **255**
                     + `link` (string) - URI to intermediator website - Max length: **255** - Format: **uri**
+                    + `code` (string, required) - Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**
                 + `payment_url` (string) - Base URI to payments - Max length: **255** - Format: **uri**
             + `intermediator` (object) - Transaction properties in the intermediator
                 + `transaction_id` (string) - Transaction ID in the intermediator - Max length: **255**
@@ -9815,6 +9850,7 @@ order subresources directly at this resource
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
             + `credit_card` (object) - Credit card data, if payment was done with credit card
+                + `holder_name` (string) - Full name of the holder, as it is on the credit card - Max length: **100**
                 + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/`avs_cvv2_response_codes`.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
@@ -13473,20 +13509,36 @@ application subresources directly at this resource
     + `type` (enum, required) - Type of app
         + `dashboard` (string)
         + `storefront` (string)
-        + `module_package` (string)
         + `external` (string)
-    + `module` (enum) - If this app is a package of a module, specify the module
-        + `al` (string)
-        + `pd` (string)
-        + `sc` (string)
-        + `sh` (string)
-        + `pa` (string)
-        + `ck` (string)
-        + `cf` (string)
-        + `rg` (string)
-        + `lg` (string)
-        + `ct` (string)
-        + `nw` (string)
+    + `modules` (object) - Modules handled by this app
+        + `page_loaded` (object) - Triggered after each storefront page load
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `term_searched` (object) - Triggered after each term searched on storefront
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `cart_confirmed` (object) - Triggered after each cart saves on storefront, just before checkout
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `calculate_shipping` (object) - Triggered to calculate shipping options, must return calculated values and times
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `list_payments` (object) - Triggered when listing payments, must return available methods
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `apply_discount` (object) - Triggered to validate and apply discout value, must return discount and conditions
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `create_transaction` (object) - Triggered when order is being closed, must create payment transaction and return info
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+        + `checkout_done` (object) - Triggered after each order created from storefront, could return custom fields
+            + `enabled`: true (boolean, required) - Whether current app is enabled to handle the module requests
+            + `endpoint` (string, required) - URL to receive POST request of respective module - Max length: **255** - Format: **uri**
+    + `admin_settings` (object) - Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**
+        + `^[a-z0-9_]{2,30}$` (object) - Configuration field object, property name same as saved on data object
+            + `schema` (object, required) - JSON Schema (https://json-schema.org/specification.html) for field model
+            + `hide`: true (boolean) - Whether the field value is private, saved in ``hidden_data``
     + `load_events` (array) - If this app is a dashboard or storefront JS, specify resources that trigger the script load - Max elements: **100**
         + (string) - Resource/Subresources/Third-level/ID
     + `script_uri` (string) - Script (JS) link - Max length: **255** - Format: **uri**
@@ -13837,7 +13889,7 @@ by particular object properties
                   "state": "inactive",
                   "version": "2.0.23",
                   "version_date": "2017-12-15T00:15:10.612Z",
-                  "type": "module_package"
+                  "type": "external"
                 },
                 {
                   "_id": "42aa00000000000000000114",
@@ -13936,7 +13988,7 @@ by particular object properties
                   "state": "inactive",
                   "version": "2.0.23",
                   "version_date": "2017-12-15T00:15:10.612Z",
-                  "type": "module_package"
+                  "type": "external"
                 }
               ]
             }

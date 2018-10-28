@@ -543,7 +543,7 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Date of customer birth - Min properties: **1**"
+                            "description": "Date of customer birth"
                           },
                           "content": {
                             "key": {
@@ -1509,7 +1509,7 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Informations about this customer gifts list - Min properties: **1**"
+                            "description": "Informations about this customer gifts list"
                           },
                           "content": {
                             "key": {
@@ -2260,6 +2260,190 @@
                                         },
                                         "value": {
                                           "element": "string"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "element": "member",
+                          "meta": {
+                            "description": "List of customer saved credit cards - Max elements: **40**"
+                          },
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "credit_cards"
+                            },
+                            "value": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "object",
+                                  "content": [
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "_id"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Full name of the holder, as it is on the credit card - Max length: **100**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "holder_name"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Issuer identification number (IIN), known as bank identification number (BIN)"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "bin"
+                                        },
+                                        "value": {
+                                          "element": "number"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "company"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Last digits (up to 4) of credit card number - Max length: **4** - RegEx pattern: **`^[0-9]+$`**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "last_digits"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Unique credit card token - Max length: **255**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "token"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Payment intermediator"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "intermediator"
+                                        },
+                                        "value": {
+                                          "element": "object",
+                                          "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                              },
+                                              "attributes": {
+                                                "typeAttributes": [
+                                                  "required"
+                                                ]
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "code"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "ID of respective customer account in the intermediator - Max length: **255**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "buyer_id"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            }
+                                          ]
                                         }
                                       }
                                     }

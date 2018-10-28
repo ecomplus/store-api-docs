@@ -15376,7 +15376,7 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Date of customer birth - Min properties: **1**"
+                            "description": "Date of customer birth"
                           },
                           "content": {
                             "key": {
@@ -16342,7 +16342,7 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Informations about this customer gifts list - Min properties: **1**"
+                            "description": "Informations about this customer gifts list"
                           },
                           "content": {
                             "key": {
@@ -17093,6 +17093,190 @@
                                         },
                                         "value": {
                                           "element": "string"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "element": "member",
+                          "meta": {
+                            "description": "List of customer saved credit cards - Max elements: **40**"
+                          },
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "credit_cards"
+                            },
+                            "value": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "object",
+                                  "content": [
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "_id"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Full name of the holder, as it is on the credit card - Max length: **100**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "holder_name"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Issuer identification number (IIN), known as bank identification number (BIN)"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "bin"
+                                        },
+                                        "value": {
+                                          "element": "number"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Credit card issuer name, eg.: Visa, American Express, MasterCard - Max length: **100**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "company"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Last digits (up to 4) of credit card number - Max length: **4** - RegEx pattern: **`^[0-9]+$`**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "last_digits"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Unique credit card token - Max length: **255**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "token"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Payment intermediator"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "intermediator"
+                                        },
+                                        "value": {
+                                          "element": "object",
+                                          "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                              },
+                                              "attributes": {
+                                                "typeAttributes": [
+                                                  "required"
+                                                ]
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "code"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "ID of respective customer account in the intermediator - Max length: **255**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "buyer_id"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            }
+                                          ]
                                         }
                                       }
                                     }
@@ -24028,58 +24212,6 @@
                                                   "element": "string"
                                                 }
                                               }
-                                            },
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Selected shipping rule of this shipping method"
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "rule"
-                                                },
-                                                "value": {
-                                                  "element": "object",
-                                                  "content": [
-                                                    {
-                                                      "element": "member",
-                                                      "meta": {
-                                                        "description": "Rule ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                                      },
-                                                      "attributes": {
-                                                        "typeAttributes": [
-                                                          "required"
-                                                        ]
-                                                      },
-                                                      "content": {
-                                                        "key": {
-                                                          "element": "string",
-                                                          "content": "_id"
-                                                        },
-                                                        "value": {
-                                                          "element": "string"
-                                                        }
-                                                      }
-                                                    },
-                                                    {
-                                                      "element": "member",
-                                                      "meta": {
-                                                        "description": "Shipping rule label - Max length: **50**"
-                                                      },
-                                                      "content": {
-                                                        "key": {
-                                                          "element": "string",
-                                                          "content": "label"
-                                                        },
-                                                        "value": {
-                                                          "element": "string"
-                                                        }
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              }
                                             }
                                           ]
                                         }
@@ -24609,15 +24741,87 @@
                                                 {
                                                   "element": "member",
                                                   "meta": {
-                                                    "description": "Company document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                    "description": "Company that issued this invoice, usually the store company"
                                                   },
                                                   "content": {
                                                     "key": {
                                                       "element": "string",
-                                                      "content": "issuer_doc_number"
+                                                      "content": "issuer"
                                                     },
                                                     "value": {
-                                                      "element": "string"
+                                                      "element": "object",
+                                                      "content": [
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "doc_number"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Municipal or state registration if exists"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "inscription_type"
+                                                            },
+                                                            "value": {
+                                                              "element": "enum",
+                                                              "content": [
+                                                                {
+                                                                  "element": "string",
+                                                                  "content": "State"
+                                                                },
+                                                                {
+                                                                  "element": "string",
+                                                                  "content": "Municipal"
+                                                                }
+                                                              ]
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Municipal or state registration number (with characters) if exists - Max length: **50**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "inscription_number"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Registered company name - Max length: **255**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "corporate_name"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
                                                     }
                                                   }
                                                 },
@@ -25121,6 +25325,255 @@
                                     {
                                       "element": "member",
                                       "meta": {
+                                        "description": "Direct link to pay current transaction - Max length: **1000** - Format: **uri**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "payment_link"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Transation payer info"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "payer"
+                                        },
+                                        "value": {
+                                          "element": "object",
+                                          "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Payer full name or company corporate name - Max length: **255**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "fullname"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Date of payer birth"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "birth_date"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Day of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "day"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Number of month of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "month"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Year of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "year"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Payer contact phone"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "phone"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Country calling code (without `+`), defined by standards E.123 and E.164"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "country_code"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "number"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "The type of phone"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "type"
+                                                        },
+                                                        "value": {
+                                                          "element": "enum",
+                                                          "content": [
+                                                            {
+                                                              "element": "string",
+                                                              "content": "home"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "personal"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "work"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "other"
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Physical or juridical (company) person"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "registry_type"
+                                                },
+                                                "value": {
+                                                  "element": "enum",
+                                                  "content": [
+                                                    {
+                                                      "element": "string",
+                                                      "content": "p"
+                                                    },
+                                                    {
+                                                      "element": "string",
+                                                      "content": "j"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "doc_country"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "doc_number"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
                                         "description": "The mailing address associated with the payment method"
                                       },
                                       "content": {
@@ -25507,6 +25960,26 @@
                                                           "element": "string"
                                                         }
                                                       }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "code"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
                                                     }
                                                   ]
                                                 }
@@ -25673,6 +26146,21 @@
                                         "value": {
                                           "element": "object",
                                           "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Full name of the holder, as it is on the credit card - Max length: **100**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "holder_name"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
                                             {
                                               "element": "member",
                                               "meta": {
@@ -29185,10 +29673,6 @@
                                 },
                                 {
                                   "element": "string",
-                                  "content": "module_package"
-                                },
-                                {
-                                  "element": "string",
                                   "content": "external"
                                 }
                               ]
@@ -29198,59 +29682,549 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "If this app is a package of a module, specify the module"
+                            "description": "Modules handled by this app"
                           },
                           "content": {
                             "key": {
                               "element": "string",
-                              "content": "module"
+                              "content": "modules"
                             },
                             "value": {
-                              "element": "enum",
+                              "element": "object",
                               "content": [
                                 {
-                                  "element": "string",
-                                  "content": "al"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each storefront page load"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "page_loaded"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "pd"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each term searched on storefront"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "term_searched"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "sc"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each cart saves on storefront, just before checkout"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "cart_confirmed"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "sh"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered to calculate shipping options, must return calculated values and times"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "calculate_shipping"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "pa"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered when listing payments, must return available methods"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "list_payments"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "ck"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered to validate and apply discout value, must return discount and conditions"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "apply_discount"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "cf"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered when order is being closed, must create payment transaction and return info"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "create_transaction"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "rg"
-                                },
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each order created from storefront, could return custom fields"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "checkout_done"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "element": "member",
+                          "meta": {
+                            "description": "Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**"
+                          },
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "admin_settings"
+                            },
+                            "value": {
+                              "element": "object",
+                              "content": [
                                 {
-                                  "element": "string",
-                                  "content": "lg"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "ct"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "nw"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Configuration field object, property name same as saved on data object"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "^[a-z0-9_]{2,30}$"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "JSON Schema (https://json-schema.org/specification.html) for field model"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "schema"
+                                            },
+                                            "value": {
+                                              "element": "object"
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether the field value is private, saved in ``hidden_data``"
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "hide"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 }
                               ]
                             }
@@ -29677,7 +30651,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000110\",\n      \"app_id\": 1001,\n      \"state\": \"active\",\n      \"version\": \"1.1.1\",\n      \"version_date\": \"2017-11-15T09:15:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"state\": \"active\",\n      \"version\": \"3.0.0\",\n      \"type\": \"dashboard\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000112\",\n      \"app_id\": 1003,\n      \"state\": \"test\",\n      \"version\": \"2.14.0\",\n      \"version_date\": \"2017-11-14T12:00:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"module_package\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000114\",\n      \"app_id\": 1005,\n      \"state\": \"active\",\n      \"version\": \"3.1.3\",\n      \"version_date\": \"2017-12-20T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000110\",\n      \"app_id\": 1001,\n      \"state\": \"active\",\n      \"version\": \"1.1.1\",\n      \"version_date\": \"2017-11-15T09:15:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"state\": \"active\",\n      \"version\": \"3.0.0\",\n      \"type\": \"dashboard\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000112\",\n      \"app_id\": 1003,\n      \"state\": \"test\",\n      \"version\": \"2.14.0\",\n      \"version_date\": \"2017-11-14T12:00:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000114\",\n      \"app_id\": 1005,\n      \"state\": \"active\",\n      \"version\": \"3.1.3\",\n      \"version_date\": \"2017-12-20T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }
@@ -30032,7 +31006,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {\n      \"app_id\": 1004\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"module_package\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {\n      \"app_id\": 1004\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }

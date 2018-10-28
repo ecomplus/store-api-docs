@@ -2875,58 +2875,6 @@
                                                   "element": "string"
                                                 }
                                               }
-                                            },
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Selected shipping rule of this shipping method"
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "rule"
-                                                },
-                                                "value": {
-                                                  "element": "object",
-                                                  "content": [
-                                                    {
-                                                      "element": "member",
-                                                      "meta": {
-                                                        "description": "Rule ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                                      },
-                                                      "attributes": {
-                                                        "typeAttributes": [
-                                                          "required"
-                                                        ]
-                                                      },
-                                                      "content": {
-                                                        "key": {
-                                                          "element": "string",
-                                                          "content": "_id"
-                                                        },
-                                                        "value": {
-                                                          "element": "string"
-                                                        }
-                                                      }
-                                                    },
-                                                    {
-                                                      "element": "member",
-                                                      "meta": {
-                                                        "description": "Shipping rule label - Max length: **50**"
-                                                      },
-                                                      "content": {
-                                                        "key": {
-                                                          "element": "string",
-                                                          "content": "label"
-                                                        },
-                                                        "value": {
-                                                          "element": "string"
-                                                        }
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              }
                                             }
                                           ]
                                         }
@@ -3456,15 +3404,87 @@
                                                 {
                                                   "element": "member",
                                                   "meta": {
-                                                    "description": "Company document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                    "description": "Company that issued this invoice, usually the store company"
                                                   },
                                                   "content": {
                                                     "key": {
                                                       "element": "string",
-                                                      "content": "issuer_doc_number"
+                                                      "content": "issuer"
                                                     },
                                                     "value": {
-                                                      "element": "string"
+                                                      "element": "object",
+                                                      "content": [
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "doc_number"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Municipal or state registration if exists"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "inscription_type"
+                                                            },
+                                                            "value": {
+                                                              "element": "enum",
+                                                              "content": [
+                                                                {
+                                                                  "element": "string",
+                                                                  "content": "State"
+                                                                },
+                                                                {
+                                                                  "element": "string",
+                                                                  "content": "Municipal"
+                                                                }
+                                                              ]
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Municipal or state registration number (with characters) if exists - Max length: **50**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "inscription_number"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "element": "member",
+                                                          "meta": {
+                                                            "description": "Registered company name - Max length: **255**"
+                                                          },
+                                                          "content": {
+                                                            "key": {
+                                                              "element": "string",
+                                                              "content": "corporate_name"
+                                                            },
+                                                            "value": {
+                                                              "element": "string"
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
                                                     }
                                                   }
                                                 },
@@ -3968,6 +3988,255 @@
                                     {
                                       "element": "member",
                                       "meta": {
+                                        "description": "Direct link to pay current transaction - Max length: **1000** - Format: **uri**"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "payment_link"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Transation payer info"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "payer"
+                                        },
+                                        "value": {
+                                          "element": "object",
+                                          "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Payer full name or company corporate name - Max length: **255**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "fullname"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Date of payer birth"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "birth_date"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Day of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "day"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Number of month of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "month"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Year of birth"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "year"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Payer contact phone"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "phone"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Country calling code (without `+`), defined by standards E.123 and E.164"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "country_code"
+                                                        },
+                                                        "value": {
+                                                          "element": "number"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "number"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "The type of phone"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "type"
+                                                        },
+                                                        "value": {
+                                                          "element": "enum",
+                                                          "content": [
+                                                            {
+                                                              "element": "string",
+                                                              "content": "home"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "personal"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "work"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "other"
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Physical or juridical (company) person"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "registry_type"
+                                                },
+                                                "value": {
+                                                  "element": "enum",
+                                                  "content": [
+                                                    {
+                                                      "element": "string",
+                                                      "content": "p"
+                                                    },
+                                                    {
+                                                      "element": "string",
+                                                      "content": "j"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "doc_country"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "doc_number"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
                                         "description": "The mailing address associated with the payment method"
                                       },
                                       "content": {
@@ -4354,6 +4623,26 @@
                                                           "element": "string"
                                                         }
                                                       }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "code"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
                                                     }
                                                   ]
                                                 }
@@ -4520,6 +4809,21 @@
                                         "value": {
                                           "element": "object",
                                           "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Full name of the holder, as it is on the credit card - Max length: **100**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "holder_name"
+                                                },
+                                                "value": {
+                                                  "element": "string"
+                                                }
+                                              }
+                                            },
                                             {
                                               "element": "member",
                                               "meta": {

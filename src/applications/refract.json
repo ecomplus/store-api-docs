@@ -219,10 +219,6 @@
                                 },
                                 {
                                   "element": "string",
-                                  "content": "module_package"
-                                },
-                                {
-                                  "element": "string",
                                   "content": "external"
                                 }
                               ]
@@ -232,59 +228,549 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "If this app is a package of a module, specify the module"
+                            "description": "Modules handled by this app"
                           },
                           "content": {
                             "key": {
                               "element": "string",
-                              "content": "module"
+                              "content": "modules"
                             },
                             "value": {
-                              "element": "enum",
+                              "element": "object",
                               "content": [
                                 {
-                                  "element": "string",
-                                  "content": "al"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each storefront page load"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "page_loaded"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "pd"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each term searched on storefront"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "term_searched"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "sc"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each cart saves on storefront, just before checkout"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "cart_confirmed"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "sh"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered to calculate shipping options, must return calculated values and times"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "calculate_shipping"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "pa"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered when listing payments, must return available methods"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "list_payments"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "ck"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered to validate and apply discout value, must return discount and conditions"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "apply_discount"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "cf"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered when order is being closed, must create payment transaction and return info"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "create_transaction"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 },
                                 {
-                                  "element": "string",
-                                  "content": "rg"
-                                },
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Triggered after each order created from storefront, could return custom fields"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "checkout_done"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether current app is enabled to handle the module requests"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "enabled"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "endpoint"
+                                            },
+                                            "value": {
+                                              "element": "string"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "element": "member",
+                          "meta": {
+                            "description": "Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**"
+                          },
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "admin_settings"
+                            },
+                            "value": {
+                              "element": "object",
+                              "content": [
                                 {
-                                  "element": "string",
-                                  "content": "lg"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "ct"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "nw"
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Configuration field object, property name same as saved on data object"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "^[a-z0-9_]{2,30}$"
+                                    },
+                                    "value": {
+                                      "element": "object",
+                                      "content": [
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "JSON Schema (https://json-schema.org/specification.html) for field model"
+                                          },
+                                          "attributes": {
+                                            "typeAttributes": [
+                                              "required"
+                                            ]
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "schema"
+                                            },
+                                            "value": {
+                                              "element": "object"
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "element": "member",
+                                          "meta": {
+                                            "description": "Whether the field value is private, saved in ``hidden_data``"
+                                          },
+                                          "content": {
+                                            "key": {
+                                              "element": "string",
+                                              "content": "hide"
+                                            },
+                                            "value": {
+                                              "element": "boolean",
+                                              "content": true
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 }
                               ]
                             }
@@ -711,7 +1197,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000110\",\n      \"app_id\": 1001,\n      \"state\": \"active\",\n      \"version\": \"1.1.1\",\n      \"version_date\": \"2017-11-15T09:15:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"state\": \"active\",\n      \"version\": \"3.0.0\",\n      \"type\": \"dashboard\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000112\",\n      \"app_id\": 1003,\n      \"state\": \"test\",\n      \"version\": \"2.14.0\",\n      \"version_date\": \"2017-11-14T12:00:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"module_package\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000114\",\n      \"app_id\": 1005,\n      \"state\": \"active\",\n      \"version\": \"3.1.3\",\n      \"version_date\": \"2017-12-20T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000110\",\n      \"app_id\": 1001,\n      \"state\": \"active\",\n      \"version\": \"1.1.1\",\n      \"version_date\": \"2017-11-15T09:15:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"state\": \"active\",\n      \"version\": \"3.0.0\",\n      \"type\": \"dashboard\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000112\",\n      \"app_id\": 1003,\n      \"state\": \"test\",\n      \"version\": \"2.14.0\",\n      \"version_date\": \"2017-11-14T12:00:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000114\",\n      \"app_id\": 1005,\n      \"state\": \"active\",\n      \"version\": \"3.1.3\",\n      \"version_date\": \"2017-12-20T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }
@@ -1066,7 +1552,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {\n      \"app_id\": 1004\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"module_package\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {\n      \"app_id\": 1004\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }

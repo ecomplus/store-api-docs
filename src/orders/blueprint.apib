@@ -242,9 +242,6 @@ order subresources directly at this resource
                 + `contract` (string) - Contract number of the shop with carrier, if exists - Max length: **70**
                 + `icon` (string) - Shipping method icon image URI - Max length: **255** - Format: **uri**
                 + `tracking_url` (string) - URI to carrier website to get package tracking status - Max length: **255** - Format: **uri**
-                + `rule` (object) - Selected shipping rule of this shipping method
-                    + `_id` (string, required) - Rule ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-                    + `label` (string) - Shipping rule label - Max length: **50**
             + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
             + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
@@ -280,7 +277,13 @@ order subresources directly at this resource
                     + `link` (string) - URI for carrier website to get the tracking status with this code - Max length: **255** - Format: **uri**
             + `invoices` (array) - List of invoices - Max elements: **30**
                 + (object) - Issued invoice
-                    + `issuer_doc_number` (string) - Company document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `issuer` (object) - Company that issued this invoice, usually the store company
+                        + `doc_number` (string) - Organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                        + `inscription_type` (enum) - Municipal or state registration if exists
+                            + `State` (string)
+                            + `Municipal` (string)
+                        + `inscription_number` (string) - Municipal or state registration number (with characters) if exists - Max length: **50**
+                        + `corporate_name` (string) - Registered company name - Max length: **255**
                     + `number` (string, required) - Invoice number - Max length: **200**
                     + `serial_number` (string) - Invoice serial number - Max length: **200**
                     + `issued_at` (string) - Date and time of issue, in ISO 8601 standard representation - Format: **date-time**
@@ -326,6 +329,26 @@ order subresources directly at this resource
                     + `loyalty_points` (string)
                     + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
+            + `payment_link` (string) - Direct link to pay current transaction - Max length: **1000** - Format: **uri**
+            + `payer` (object) - Transation payer info
+                + `fullname` (string) - Payer full name or company corporate name - Max length: **255**
+                + `birth_date` (object) - Date of payer birth
+                    + `day` (number) - Day of birth
+                    + `month` (number) - Number of month of birth
+                    + `year` (number) - Year of birth
+                + `phone` (object) - Payer contact phone
+                    + `country_code` (number) - Country calling code (without `+`), defined by standards E.123 and E.164
+                    + `number` (string, required) - The actual phone number, digits only - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
+                    + `type` (enum) - The type of phone
+                        + `home` (string)
+                        + `personal` (string)
+                        + `work` (string)
+                        + `other` (string)
+                + `registry_type` (enum) - Physical or juridical (company) person
+                    + `p` (string)
+                    + `j` (string)
+                + `doc_country` (string) - Country of document origin, an ISO 3166-2 code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
+                + `doc_number` (string) - Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
             + `billing_address` (object) - The mailing address associated with the payment method
                 + `zip` (string, required) - ZIP (CEP, postal...) code - Max length: **30**
                 + `street` (string) - Street or public place name - Max length: **200**
@@ -351,6 +374,7 @@ order subresources directly at this resource
                 + `intermediator` (object) - Payment intermediator
                     + `name` (string) - Name of payment intermediator - Max length: **255**
                     + `link` (string) - URI to intermediator website - Max length: **255** - Format: **uri**
+                    + `code` (string, required) - Gateway name standardized as identification code - Min length: **6** - Max length: **70** - RegEx pattern: **`^[a-z0-9_]+$`**
                 + `payment_url` (string) - Base URI to payments - Max length: **255** - Format: **uri**
             + `intermediator` (object) - Transaction properties in the intermediator
                 + `transaction_id` (string) - Transaction ID in the intermediator - Max length: **255**
@@ -361,6 +385,7 @@ order subresources directly at this resource
                     + `name` (string) - Short description for payment method - Max length: **200**
                 + `buyer_id` (string) - ID of customer account in the intermediator - Max length: **255**
             + `credit_card` (object) - Credit card data, if payment was done with credit card
+                + `holder_name` (string) - Full name of the holder, as it is on the credit card - Max length: **100**
                 + `avs_result_code` (string) - Response code from AVS: http://www.emsecommerce.net/`avs_cvv2_response_codes`.htm - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `cvv_result_code` (string) - Response code from credit card company, such as AVS result code - Max length: **1** - RegEx pattern: **`^[A-Z]$`**
                 + `bin` (number) - Issuer identification number (IIN), known as bank identification number (BIN)
