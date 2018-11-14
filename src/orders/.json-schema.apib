@@ -2085,6 +2085,40 @@
                                     "maxLength": 255,
                                     "description": "Product or variation full name, or other label for this cart item"
                                 },
+                                "picture": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "patternProperties": {
+                                        "^small|normal|big|zoom|custom$": {
+                                            "type": "object",
+                                            "required": [
+                                                "url"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "url": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "format": "uri",
+                                                    "description": "Image link"
+                                                },
+                                                "size": {
+                                                    "type": "string",
+                                                    "maxLength": 11,
+                                                    "pattern": "^[1-9]([0-9]+)?x[1-9]([0-9]+)?$",
+                                                    "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height)"
+                                                },
+                                                "alt": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "description": "Alternative text, HTML alt tag (important for SEO)"
+                                                }
+                                            },
+                                            "description": "Image size variation"
+                                        }
+                                    },
+                                    "description": "Product or variation picture for this cart item"
+                                },
                                 "customizations": {
                                     "type": "array",
                                     "maxItems": 100,

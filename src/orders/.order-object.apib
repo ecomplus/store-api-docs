@@ -479,6 +479,11 @@
             + `variation_id` (string) - ID to specify the variation added to cart, if product has variations - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `sku` (string) - Product or variation unique reference code - Min length: **2** - Max length: **100** - RegEx pattern: **`^[A-Za-z0-9-_.]+$`**
             + `name` (string) - Product or variation full name, or other label for this cart item - Max length: **255**
+            + `picture` (object) - Product or variation picture for this cart item
+                + `^small|normal|big|zoom|custom$` (object) - Image size variation
+                    + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
+                    + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
+                    + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
             + `customizations` (array) - Item customization fields - Max elements: **100**
                 + (object) - Customization field
                     + `_id` (string, required) - Customization field ID - RegEx pattern: **`^[a-f0-9]{24}$`**
