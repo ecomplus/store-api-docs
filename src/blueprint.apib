@@ -15257,6 +15257,7 @@ shop main informations and IDs of saved documents
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `contact_phone` (string) - Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**
         + (string) - Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`
     + `oauth_providers` (object) - Providers for OAuth customer authentication in store
@@ -15400,6 +15401,12 @@ shop main informations and IDs of saved documents
                         },
                         "description": "Image link to shop's logo"
                     },
+                    "contact_phone": {
+                        "type": "string",
+                        "maxLength": 19,
+                        "pattern": "^[0-9]+$",
+                        "description": "Public contact phone"
+                    },
                     "languages": {
                         "type": "array",
                         "uniqueItems": true,
@@ -15452,7 +15459,8 @@ shop main informations and IDs of saved documents
 Response body will follow
 [this model](#reference/stores/store-object), but only with public data,
 returning `_id`, `store_id`, `name`, `description`, `segment_id`,
-`contact_email`, `referral_id`, `partner_id`, `logo` and `languages` properties
+`contact_email`, `referral_id`, `partner_id`, `logo`,
+`contact_phone` and `languages` properties
 
 #### Read Store [GET]
 
