@@ -22,7 +22,8 @@ shop main informations and IDs of saved documents
 Response body will follow
 [this model](#reference/stores/store-object), but only with public data,
 returning `_id`, `store_id`, `name`, `description`, `segment_id`,
-`contact_email`, `referral_id`, `partner_id`, `logo` and `languages` properties
+`contact_email`, `referral_id`, `partner_id`, `logo`,
+`contact_phone` and `languages` properties
 
 #### Read Store [GET]
 
