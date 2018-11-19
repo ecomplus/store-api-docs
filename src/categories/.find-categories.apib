@@ -19,7 +19,8 @@
                 "fields": [
                   "_id",
                   "name",
-                  "slug"
+                  "slug",
+                  "parent"
                 ],
                 "query": {
                   "slug": "category-four"
@@ -29,7 +30,12 @@
                 {
                   "_id": "b10000000000000000001114",
                   "name": "Category 4",
-                  "slug": "category-four"
+                  "slug": "category-four",
+                  "parent": {
+                    "_id": "b10000000000000000001113",
+                    "name": "Category 3",
+                    "slug": "category-three"
+                  }
                 }
               ]
             }
