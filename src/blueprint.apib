@@ -13867,9 +13867,9 @@ application subresources directly at this resource
                         "type": "object",
                         "additionalProperties": false,
                         "minProperties": 1,
-                        "maxProperties": 20,
+                        "maxProperties": 500,
                         "patternProperties": {
-                            "^([$]?(?!app|aut|upd)([a-z]{1,60}))$": {
+                            "^([$]?(?!app|aut|upd)([a-z][a-z0-9/_]{1,60}[^/]))$": {
                                 "type": "array",
                                 "uniqueItems": true,
                                 "items": {
