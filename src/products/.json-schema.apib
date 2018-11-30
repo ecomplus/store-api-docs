@@ -285,6 +285,11 @@
                                     "minimum": -9999999,
                                     "maximum": 9999999,
                                     "description": "Added or decreased (negative) stock quantity"
+                                },
+                                "variation_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "ID to specify the variation, if the stock was changed from a variation"
                                 }
                             },
                             "description": "Historical record"
@@ -1574,6 +1579,11 @@
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price"
+                                },
+                                "variation_id": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "ID to specify the variation, if the price was changed from a variation"
                                 }
                             },
                             "description": "Historical record"
