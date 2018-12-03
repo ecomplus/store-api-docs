@@ -9,6 +9,7 @@ order subresources directly at this resource
 ### Order Object [/orders/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether order was created by staff and is trusted
     + `checkout_link` (string) - URL to checkout page, if necessary, use (`_id`) where order unique ID must appear at URL - Max length: **255** - Format: **uri**
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status_link` (string) - URL to order status page, if necessary, use (`_id`) where order unique ID must appear - Max length: **255** - Format: **uri**
@@ -679,6 +680,11 @@ order subresources directly at this resource
                     }
                 },
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether order was created by staff and is trusted"
+                    },
                     "checkout_link": {
                         "type": "string",
                         "maxLength": 255,

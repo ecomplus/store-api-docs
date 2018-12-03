@@ -9,6 +9,7 @@ cart subresources directly at this resource
 ### Cart Object [/carts/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether cart was created by staff and is trusted
     + `available`: true (boolean) - Whether cart still available to complete checkout
     + `completed`: false (boolean) - If the cart has been completed, generating an order
     + `permalink` (string) - URL to this cart's page - Max length: **255** - Format: **uri**
@@ -113,6 +114,11 @@ cart subresources directly at this resource
                 ],
                 "additionalProperties": false,
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether cart was created by staff and is trusted"
+                    },
                     "available": {
                         "type": "boolean",
                         "default": true,

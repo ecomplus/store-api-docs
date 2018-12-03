@@ -853,6 +853,9 @@ product subresources directly at this resource, such as product images, variatio
             + `product_ids` (array, required) - List of products - Max elements: **100**
                 + (string) - Product ID
     + `auto_fill_related_products`: true (boolean) - True when related products lists should be created and updated automatically (ML)
+    + `views`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
+    + `sales`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
+    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
     + `gtin` (array) - List of product GTIN codes - Max elements: **10**
         + (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14
     + `mpn` (array) - List of product MPN codes - Max elements: **10**
@@ -3110,6 +3113,27 @@ product subresources directly at this resource, such as product images, variatio
                         "type": "boolean",
                         "default": true,
                         "description": "True when related products lists should be created and updated automatically (ML)"
+                    },
+                    "views": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 999999999,
+                        "default": 0,
+                        "description": "Product popularity, will be filled automatically"
+                    },
+                    "sales": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 999999999,
+                        "default": 0,
+                        "description": "On how many orders this product is present, filled automatically"
+                    },
+                    "total_sold": {
+                        "type": "number",
+                        "multipleOf": 0.00001,
+                        "minimum": 0,
+                        "maximum": 9999999999,
+                        "description": "Total amount earned with sales of this product, filled automatically"
                     },
                     "gtin": {
                         "type": "array",
@@ -6653,6 +6677,7 @@ customer subresources directly at this resource
 ### Customer Object [/customers/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether customer was registered by staff and is trusted
     + `state`: registered (enum) - The state of registration, if completed, invited and waiting, or declined by customer
         + `invited` (string)
         + `registered` (string)
@@ -6867,6 +6892,11 @@ customer subresources directly at this resource
                 ],
                 "additionalProperties": false,
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether customer was registered by staff and is trusted"
+                    },
                     "state": {
                         "type": "string",
                         "enum": [
@@ -8514,6 +8544,7 @@ cart subresources directly at this resource
 ### Cart Object [/carts/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether cart was created by staff and is trusted
     + `available`: true (boolean) - Whether cart still available to complete checkout
     + `completed`: false (boolean) - If the cart has been completed, generating an order
     + `permalink` (string) - URL to this cart's page - Max length: **255** - Format: **uri**
@@ -8618,6 +8649,11 @@ cart subresources directly at this resource
                 ],
                 "additionalProperties": false,
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether cart was created by staff and is trusted"
+                    },
                     "available": {
                         "type": "boolean",
                         "default": true,
@@ -9524,6 +9560,7 @@ order subresources directly at this resource
 ### Order Object [/orders/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether order was created by staff and is trusted
     + `checkout_link` (string) - URL to checkout page, if necessary, use (`_id`) where order unique ID must appear at URL - Max length: **255** - Format: **uri**
     + `checkout_mobile_link` (string) - Optional checkout URL specific to mobile devices - Max length: **255** - Format: **uri**
     + `status_link` (string) - URL to order status page, if necessary, use (`_id`) where order unique ID must appear - Max length: **255** - Format: **uri**
@@ -10194,6 +10231,11 @@ order subresources directly at this resource
                     }
                 },
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether order was created by staff and is trusted"
+                    },
                     "checkout_link": {
                         "type": "string",
                         "maxLength": 255,

@@ -9,6 +9,7 @@ customer subresources directly at this resource
 ### Customer Object [/customers/schema.json]
 
 + Attributes (object)
+    + `staff_signature`: false (boolean) - Whether customer was registered by staff and is trusted
     + `state`: registered (enum) - The state of registration, if completed, invited and waiting, or declined by customer
         + `invited` (string)
         + `registered` (string)
@@ -223,6 +224,11 @@ customer subresources directly at this resource
                 ],
                 "additionalProperties": false,
                 "properties": {
+                    "staff_signature": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Whether customer was registered by staff and is trusted"
+                    },
                     "state": {
                         "type": "string",
                         "enum": [
