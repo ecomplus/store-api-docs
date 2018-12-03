@@ -415,6 +415,9 @@
             + `product_ids` (array, required) - List of products - Max elements: **100**
                 + (string) - Product ID
     + `auto_fill_related_products`: true (boolean) - True when related products lists should be created and updated automatically (ML)
+    + `views`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
+    + `sales`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
+    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
     + `gtin` (array) - List of product GTIN codes - Max elements: **10**
         + (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14
     + `mpn` (array) - List of product MPN codes - Max elements: **10**
