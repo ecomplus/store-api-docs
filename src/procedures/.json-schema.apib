@@ -82,10 +82,14 @@
                                     "description": "Resource ID, if specified"
                                 },
                                 "subresource": {
-                                    "type": "string",
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ],
+                                    "default": null,
                                     "maxLength": 30,
-                                    "pattern": "^[a-z_]+$",
-                                    "description": "Subresource slug (which appears in the URL), if specified"
+                                    "pattern": "^([a-z_]+|[*])$",
+                                    "description": "Subresource slug (URL path), use wildcard `*` to match either none or any subresource"
                                 },
                                 "subresource_id": {
                                     "type": "string",
