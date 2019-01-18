@@ -22,19 +22,19 @@
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
                     + `fixed` (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `gift_wrap` (object) - Gift wrap chosen by customer
         + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
         + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-        + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
-    + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-    + `min_quantity` (number) - Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
-    + `max_quantity` (number) - Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+        + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**
+    + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999**
+    + `min_quantity` (number) - Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999**
+    + `max_quantity` (number) - Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999**
     + `keep_item_quantity`: false (boolean) - True if product quantity should not be checked, using quantity specified for this item
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-    + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-    + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+    + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**
+    + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**
     + `keep_item_price`: false (boolean) - True if the product price should not be checked, using price specified for this item
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title

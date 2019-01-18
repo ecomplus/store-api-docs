@@ -24,16 +24,16 @@
     + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
-    + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+    + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999**
     + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), `base_price` should be applied
         + `start` (string) - Start date and time in ISO 8601 standard representation - Format: **date-time**
         + `end` (string) - Promotion end date and time in ISO 8601 standard representation - Format: **date-time**
-    + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-    + `cost_price` (number) - Product cost price to calculate profit - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+    + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999**
+    + `cost_price` (number) - Product cost price to calculate profit - Mininum: **0** - Maximum: **999999999**
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-    + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-    + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
+    + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999**
+    + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999**
     + `production_time` (object) - Deadline for production or handling of pre-ordered product
         + `days` (number, required) - Number of days to post the product after purchase, deadline for production or handling - Mininum: **0** - Maximum: **99999**
         + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -45,7 +45,7 @@
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_of_change` (string, required) - Date and time when stock changed in ISO 8601 standard representation - Format: **date-time**
             + `origin` (string) - Optional note about origin or reason of stock changing - Max length: **50**
-            + `quantity` (number, required) - Added or decreased (negative) stock quantity - Mininum: **-9999999** - Maximum: **9999999** - Max precision: **0.0001**
+            + `quantity` (number, required) - Added or decreased (negative) stock quantity - Mininum: **-9999999** - Maximum: **9999999**
     + `measurement` (object) - Measure and dimension of your product when users might be interested in price per unit
         + `unit` (enum, required) - Unit of measurement
             + `oz` (string)
@@ -70,11 +70,11 @@
             + `sqm` (string)
             + `ct` (string)
         + `precision` (number) - Maximum number of decimal places in the product quantity (in unit of measure) - Mininum: **0** - Maximum: **4**
-        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999**
     + `multipack` (number) - Indicate that this item is a group of multiple identical products - Mininum: **0** - Maximum: **999999**
     + `dimensions` (object) - Product dimensions with packaging for freight calculation
         + `^width|height|length$` (object) - Package width, height and length
-            + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+            + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
             + `unit`: cm (enum) - Unit of measurement
                 + `mm` (string)
                 + `cm` (string)
@@ -84,7 +84,7 @@
                 + `yd` (string)
                 + `mi` (string)
     + `weight` (object) - Package weight for freight calculation
-        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
         + `unit`: g (enum) - Unit of measurement
             + `mg` (string)
             + `g` (string)
@@ -228,14 +228,14 @@
                         + `type`: percentage (enum) - Type of price addition
                             + `percentage` (string)
                             + `fixed` (string)
-                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
             + `custom_value`: true (boolean) - If this field accept custom value defined by customer
             + `attachment`: false (boolean) - If this field accept customer file attachment
             + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
                     + `fixed` (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `variations` (array) - Product variations list - Max elements: **3000**
         + (object) - Variation object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -243,15 +243,15 @@
             + `name` (string) - Product name for this specific variation - Max length: **100**
             + `gtin` (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14 - RegEx pattern: **`^([0-9]{8}|[0-9]{12,14})$`**
             + `mpn` (string) - Unique code specified by manufacturer to identify the product - Max length: **70**
-            + `price` (number) - Variation sale price, when undefined, product default price should be used - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `base_price` (number) - Variation original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `cost_price` (number) - Variation cost price to calculate profit - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number) - Variation sale price, when undefined, product default price should be used - Mininum: **0** - Maximum: **999999999**
+            + `base_price` (number) - Variation original sale price, without discounts - Mininum: **0** - Maximum: **999999999**
+            + `cost_price` (number) - Variation cost price to calculate profit - Mininum: **0** - Maximum: **999999999**
             + `installments` (object) - Default installments option
                 + `number` (number, required) - Default number of installments for this product variation - Mininum: **2** - Maximum: **999**
-                + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
                 + `tax`: false (boolean) - Tax applied
-            + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-            + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
+            + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999**
+            + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999**
             + `production_time` (object) - Deadline for production or handling of pre-ordered product
                 + `days` (number, required) - Number of days to post after purchase, deadline for production or handling - Mininum: **0** - Maximum: **99999**
                 + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -259,7 +259,7 @@
                 + `max_time` (number) - When cumulative, increase up to this maximum in days - Mininum: **0** - Maximum: **99999**
             + `dimensions` (object) - Product dimensions with packaging for freight calculation
                 + `^width|height|length$` (object) - Package width, height and length
-                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                     + `unit`: cm (enum) - Unit of measurement
                         + `mm` (string)
                         + `cm` (string)
@@ -269,7 +269,7 @@
                         + `yd` (string)
                         + `mi` (string)
             + `weight` (object) - Package weight for freight calculation
-                + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                 + `unit`: g (enum) - Unit of measurement
                     + `mg` (string)
                     + `g` (string)
@@ -309,18 +309,18 @@
             + `description` (string) - Some optional notes to describe for what this price is intended - Max length: **255**
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999**
     + `price_change_records` (array) - Historical of recent practiced sale prices - Max elements: **180**
         + (object) - Historical record
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_of_change` (string, required) - Date and time when price changed in ISO 8601 standard representation - Format: **date-time**
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999**
     + `installments` (object) - Default installments option
         + `payment_method_id` (string) - Specify ID if this installments option is for an specific payment method - RegEx pattern: **`^[a-f0-9]{24}$`**
         + `number` (number, required) - Default number of installments for this product - Mininum: **2** - Maximum: **999**
-        + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+        + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
         + `tax`: false (boolean) - Tax applied
     + `discount` (object) - Default discount option, commonly by payment method
         + `label` (string) - Name of payment method or other label describing applicable discount - Max length: **50**
@@ -328,9 +328,9 @@
         + `type`: percentage (enum) - Discount type
             + `percentage` (string)
             + `fixed` (string)
-        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `progressive_discount` (object) - Progressive discounts options, product quantity as property name - Max properties: **100**
-        + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
+        + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999**
     + `other_discounts` (array) - Other discounts for custom applications - Max elements: **100**
         + (object) - Discount object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -339,21 +339,21 @@
             + `type`: percentage (enum) - Discount type
                 + `percentage` (string)
                 + `fixed` (string)
-            + `discount` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+            + `discount` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `buy_together` (array) - Buy together options - Max elements: **20**
         + (object) - This product and others composing buy together, product ID as property name
             + `^([a-f0-9]{24}|this)$` (object) - Product in buy together
-                + `quantity` (number, required) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+                + `quantity` (number, required) - Product quantity - Mininum: **0** - Maximum: **9999999**
                 + `discount` (object) - Discount object
                     + `type`: percentage (enum) - Discount type
                         + `percentage` (string)
                         + `fixed` (string)
-                    + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                    + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `loyalty_points` (object) - Specify how many and what type of loyalty points a customer receives
         + `name` (string) - The name of the loyalty points program - Max length: **50**
         + `program_id` (string, required) - Unique identifier, program name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
-        + `points_value` (number, required) - Number of loyalty points a customer receives when purchasing the product - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-        + `ratio` (number) - The ratio of a point when converted to currency - Mininum: **0** - Maximum: **9999** - Max precision: **0.001**
+        + `points_value` (number, required) - Number of loyalty points a customer receives when purchasing the product - Mininum: **0** - Maximum: **999999999**
+        + `ratio` (number) - The ratio of a point when converted to currency - Mininum: **0** - Maximum: **9999**
     + `payment_methods` (object) - Payment methods for this product, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Payment option
             + `label` (string, required) - Name of payment method shown to customers - Max length: **50**
@@ -362,10 +362,10 @@
                 + `type`: percentage (enum) - Discount type
                     + `percentage` (string)
                     + `fixed` (string)
-                + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
             + `installments` (object) - Installment options, installments number as property name - Max properties: **100**
                 + `^([2-9]|([1-9][0-9]{1,3}))$` (object) - Installment option object
-                    + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                    + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
                     + `tax`: false (boolean) - Tax applied
     + `shipping_methods` (object) - Shipping methods, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Shipping method object
@@ -376,7 +376,7 @@
         + (object) - Gift wrap object
             + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
             + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-            + `add_to_price` (number) - Additional value for this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
+            + `add_to_price` (number) - Additional value for this gift wrap - Mininum: **0** - Maximum: **99999999**
     + `destinations` (object) - List of available shipping destinations
         + `^included|excluded$` (object) - Available or unavailable destination
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
@@ -391,11 +391,11 @@
         + `region` (string) - State, territory or prefecture name - Max length: **30**
         + `address` (string) - Full address of product location - Max length: **255**
         + `geolocation` (object) - Geolocation of origin
-            + `latitude` (number, required) - Geolocation latitude - Mininum: **-90** - Maximum: **90** - Max precision: **1e-7**
-            + `longitude` (number, required) - Geolocation longitude - Mininum: **-180** - Maximum: **180** - Max precision: **1e-7**
+            + `latitude` (number, required) - Geolocation latitude - Mininum: **-90** - Maximum: **90**
+            + `longitude` (number, required) - Geolocation longitude - Mininum: **-180** - Maximum: **180**
     + `tax` (array) - List of taxes applied by region - Max elements: **100**
         + (object) - Tax object
-            + `rate` (number, required) - Tax rate as a percentage of the price - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
+            + `rate` (number, required) - Tax rate as a percentage of the price - Mininum: **-999** - Maximum: **999**
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
             + `tax_ship`: false (boolean) - Whether you charge tax on shipping
             + `zip_codes_range` (object) - ZIP codes range defining region to apply tax
@@ -403,7 +403,7 @@
     + `kit_composition` (array) - If this product is a kit, set its composition - Max elements: **100**
         + (object) - One of the kit items
             + `_id` (string, required) - Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `quantity` (number) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+            + `quantity` (number) - Product quantity - Mininum: **0** - Maximum: **9999999**
             + `label` (string) - Label shown to customer, if you want to use a title other than the product name - Max length: **255**
             + `has_variations`: false (boolean) - If this product has variations
             + `variation_id` (string) - ID to specify a variation if `has_variations` is true, it's optional - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -417,7 +417,7 @@
     + `auto_fill_related_products`: true (boolean) - True when related products lists should be created and updated automatically (ML)
     + `views`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
     + `sales`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
-    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999**
     + `gtin` (array) - List of product GTIN codes - Max elements: **10**
         + (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14
     + `mpn` (array) - List of product MPN codes - Max elements: **10**

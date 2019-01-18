@@ -17,14 +17,14 @@
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
                     + `fixed` (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `custom_value`: false (boolean) - If this grid accept custom value defined by customer (product customization)
     + `attachment`: false (boolean) - If this grid accept customer file attachment
     + `add_to_price` (object) - Default price alteration for product with this grid for customization or variations
         + `type`: percentage (enum) - Type of price addition
             + `percentage` (string)
             + `fixed` (string)
-        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**

@@ -465,16 +465,16 @@ product subresources directly at this resource, such as product images, variatio
     + `meta_description` (string) - Meta description tag for page SEO - Max length: **1000**
     + `keywords` (array) - Tags related with product for internal search - Max elements: **200**
         + (string) - Term (keyword)
-    + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+    + `price` (number) - Product sale price, when undefined, product could be bought by any price - Mininum: **0** - Maximum: **999999999**
     + `price_effective_date` (object) - How long sale price is valid, out of this range (if defined), `base_price` should be applied
         + `start` (string) - Start date and time in ISO 8601 standard representation - Format: **date-time**
         + `end` (string) - Promotion end date and time in ISO 8601 standard representation - Format: **date-time**
-    + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-    + `cost_price` (number) - Product cost price to calculate profit - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+    + `base_price` (number) - Product original sale price, without discounts - Mininum: **0** - Maximum: **999999999**
+    + `cost_price` (number) - Product cost price to calculate profit - Mininum: **0** - Maximum: **999999999**
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-    + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-    + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
+    + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999**
+    + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999**
     + `production_time` (object) - Deadline for production or handling of pre-ordered product
         + `days` (number, required) - Number of days to post the product after purchase, deadline for production or handling - Mininum: **0** - Maximum: **99999**
         + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -486,7 +486,7 @@ product subresources directly at this resource, such as product images, variatio
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_of_change` (string, required) - Date and time when stock changed in ISO 8601 standard representation - Format: **date-time**
             + `origin` (string) - Optional note about origin or reason of stock changing - Max length: **50**
-            + `quantity` (number, required) - Added or decreased (negative) stock quantity - Mininum: **-9999999** - Maximum: **9999999** - Max precision: **0.0001**
+            + `quantity` (number, required) - Added or decreased (negative) stock quantity - Mininum: **-9999999** - Maximum: **9999999**
     + `measurement` (object) - Measure and dimension of your product when users might be interested in price per unit
         + `unit` (enum, required) - Unit of measurement
             + `oz` (string)
@@ -511,11 +511,11 @@ product subresources directly at this resource, such as product images, variatio
             + `sqm` (string)
             + `ct` (string)
         + `precision` (number) - Maximum number of decimal places in the product quantity (in unit of measure) - Mininum: **0** - Maximum: **4**
-        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+        + `pricing_base_measure` (number) - Quantity to calculate the price to be shown on ads, such as GMC `unit_pricing_base_measure` - Mininum: **0** - Maximum: **9999999**
     + `multipack` (number) - Indicate that this item is a group of multiple identical products - Mininum: **0** - Maximum: **999999**
     + `dimensions` (object) - Product dimensions with packaging for freight calculation
         + `^width|height|length$` (object) - Package width, height and length
-            + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+            + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
             + `unit`: cm (enum) - Unit of measurement
                 + `mm` (string)
                 + `cm` (string)
@@ -525,7 +525,7 @@ product subresources directly at this resource, such as product images, variatio
                 + `yd` (string)
                 + `mi` (string)
     + `weight` (object) - Package weight for freight calculation
-        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
         + `unit`: g (enum) - Unit of measurement
             + `mg` (string)
             + `g` (string)
@@ -669,14 +669,14 @@ product subresources directly at this resource, such as product images, variatio
                         + `type`: percentage (enum) - Type of price addition
                             + `percentage` (string)
                             + `fixed` (string)
-                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
             + `custom_value`: true (boolean) - If this field accept custom value defined by customer
             + `attachment`: false (boolean) - If this field accept customer file attachment
             + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
                     + `fixed` (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `variations` (array) - Product variations list - Max elements: **3000**
         + (object) - Variation object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -684,15 +684,15 @@ product subresources directly at this resource, such as product images, variatio
             + `name` (string) - Product name for this specific variation - Max length: **100**
             + `gtin` (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14 - RegEx pattern: **`^([0-9]{8}|[0-9]{12,14})$`**
             + `mpn` (string) - Unique code specified by manufacturer to identify the product - Max length: **70**
-            + `price` (number) - Variation sale price, when undefined, product default price should be used - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `base_price` (number) - Variation original sale price, without discounts - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `cost_price` (number) - Variation cost price to calculate profit - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number) - Variation sale price, when undefined, product default price should be used - Mininum: **0** - Maximum: **999999999**
+            + `base_price` (number) - Variation original sale price, without discounts - Mininum: **0** - Maximum: **999999999**
+            + `cost_price` (number) - Variation cost price to calculate profit - Mininum: **0** - Maximum: **999999999**
             + `installments` (object) - Default installments option
                 + `number` (number, required) - Default number of installments for this product variation - Mininum: **2** - Maximum: **999**
-                + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
                 + `tax`: false (boolean) - Tax applied
-            + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-            + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
+            + `quantity` (number) - Product quantity available to sell, max to put in cart - Mininum: **0** - Maximum: **9999999**
+            + `min_quantity` (number) - Minimum quantity to put in cart - Mininum: **0** - Maximum: **999999**
             + `production_time` (object) - Deadline for production or handling of pre-ordered product
                 + `days` (number, required) - Number of days to post after purchase, deadline for production or handling - Mininum: **0** - Maximum: **99999**
                 + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -700,7 +700,7 @@ product subresources directly at this resource, such as product images, variatio
                 + `max_time` (number) - When cumulative, increase up to this maximum in days - Mininum: **0** - Maximum: **99999**
             + `dimensions` (object) - Product dimensions with packaging for freight calculation
                 + `^width|height|length$` (object) - Package width, height and length
-                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                     + `unit`: cm (enum) - Unit of measurement
                         + `mm` (string)
                         + `cm` (string)
@@ -710,7 +710,7 @@ product subresources directly at this resource, such as product images, variatio
                         + `yd` (string)
                         + `mi` (string)
             + `weight` (object) - Package weight for freight calculation
-                + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                 + `unit`: g (enum) - Unit of measurement
                     + `mg` (string)
                     + `g` (string)
@@ -750,18 +750,18 @@ product subresources directly at this resource, such as product images, variatio
             + `description` (string) - Some optional notes to describe for what this price is intended - Max length: **255**
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999**
     + `price_change_records` (array) - Historical of recent practiced sale prices - Max elements: **180**
         + (object) - Historical record
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
             + `date_of_change` (string, required) - Date and time when price changed in ISO 8601 standard representation - Format: **date-time**
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number, required) - Product sale price - Mininum: **0** - Maximum: **999999999**
     + `installments` (object) - Default installments option
         + `payment_method_id` (string) - Specify ID if this installments option is for an specific payment method - RegEx pattern: **`^[a-f0-9]{24}$`**
         + `number` (number, required) - Default number of installments for this product - Mininum: **2** - Maximum: **999**
-        + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+        + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
         + `tax`: false (boolean) - Tax applied
     + `discount` (object) - Default discount option, commonly by payment method
         + `label` (string) - Name of payment method or other label describing applicable discount - Max length: **50**
@@ -769,9 +769,9 @@ product subresources directly at this resource, such as product images, variatio
         + `type`: percentage (enum) - Discount type
             + `percentage` (string)
             + `fixed` (string)
-        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `progressive_discount` (object) - Progressive discounts options, product quantity as property name - Max properties: **100**
-        + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
+        + `^([2-9]|([1-9][0-9]{1,8}))$` (number) - Percentage discount - Mininum: **-999** - Maximum: **999**
     + `other_discounts` (array) - Other discounts for custom applications - Max elements: **100**
         + (object) - Discount object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -780,21 +780,21 @@ product subresources directly at this resource, such as product images, variatio
             + `type`: percentage (enum) - Discount type
                 + `percentage` (string)
                 + `fixed` (string)
-            + `discount` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+            + `discount` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `buy_together` (array) - Buy together options - Max elements: **20**
         + (object) - This product and others composing buy together, product ID as property name
             + `^([a-f0-9]{24}|this)$` (object) - Product in buy together
-                + `quantity` (number, required) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+                + `quantity` (number, required) - Product quantity - Mininum: **0** - Maximum: **9999999**
                 + `discount` (object) - Discount object
                     + `type`: percentage (enum) - Discount type
                         + `percentage` (string)
                         + `fixed` (string)
-                    + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                    + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `loyalty_points` (object) - Specify how many and what type of loyalty points a customer receives
         + `name` (string) - The name of the loyalty points program - Max length: **50**
         + `program_id` (string, required) - Unique identifier, program name using only lowercase, numbers and underscore - RegEx pattern: **`^[a-z0-9_]{2,30}$`**
-        + `points_value` (number, required) - Number of loyalty points a customer receives when purchasing the product - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-        + `ratio` (number) - The ratio of a point when converted to currency - Mininum: **0** - Maximum: **9999** - Max precision: **0.001**
+        + `points_value` (number, required) - Number of loyalty points a customer receives when purchasing the product - Mininum: **0** - Maximum: **999999999**
+        + `ratio` (number) - The ratio of a point when converted to currency - Mininum: **0** - Maximum: **9999**
     + `payment_methods` (object) - Payment methods for this product, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Payment option
             + `label` (string, required) - Name of payment method shown to customers - Max length: **50**
@@ -803,10 +803,10 @@ product subresources directly at this resource, such as product images, variatio
                 + `type`: percentage (enum) - Discount type
                     + `percentage` (string)
                     + `fixed` (string)
-                + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
             + `installments` (object) - Installment options, installments number as property name - Max properties: **100**
                 + `^([2-9]|([1-9][0-9]{1,3}))$` (object) - Installment option object
-                    + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                    + `value` (number, required) - Installment value - Mininum: **0** - Maximum: **999999999**
                     + `tax`: false (boolean) - Tax applied
     + `shipping_methods` (object) - Shipping methods, application ID as property name - Max properties: **30**
         + `^[a-f0-9]{24}$` (object) - Shipping method object
@@ -817,7 +817,7 @@ product subresources directly at this resource, such as product images, variatio
         + (object) - Gift wrap object
             + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
             + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-            + `add_to_price` (number) - Additional value for this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
+            + `add_to_price` (number) - Additional value for this gift wrap - Mininum: **0** - Maximum: **99999999**
     + `destinations` (object) - List of available shipping destinations
         + `^included|excluded$` (object) - Available or unavailable destination
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
@@ -832,11 +832,11 @@ product subresources directly at this resource, such as product images, variatio
         + `region` (string) - State, territory or prefecture name - Max length: **30**
         + `address` (string) - Full address of product location - Max length: **255**
         + `geolocation` (object) - Geolocation of origin
-            + `latitude` (number, required) - Geolocation latitude - Mininum: **-90** - Maximum: **90** - Max precision: **1e-7**
-            + `longitude` (number, required) - Geolocation longitude - Mininum: **-180** - Maximum: **180** - Max precision: **1e-7**
+            + `latitude` (number, required) - Geolocation latitude - Mininum: **-90** - Maximum: **90**
+            + `longitude` (number, required) - Geolocation longitude - Mininum: **-180** - Maximum: **180**
     + `tax` (array) - List of taxes applied by region - Max elements: **100**
         + (object) - Tax object
-            + `rate` (number, required) - Tax rate as a percentage of the price - Mininum: **-999** - Maximum: **999** - Max precision: **0.01**
+            + `rate` (number, required) - Tax rate as a percentage of the price - Mininum: **-999** - Maximum: **999**
             + `country` (string, required) - An ISO 3166-2 country code - Min length: **2** - Max length: **2** - RegEx pattern: **`^[A-Z]+$`**
             + `tax_ship`: false (boolean) - Whether you charge tax on shipping
             + `zip_codes_range` (object) - ZIP codes range defining region to apply tax
@@ -844,7 +844,7 @@ product subresources directly at this resource, such as product images, variatio
     + `kit_composition` (array) - If this product is a kit, set its composition - Max elements: **100**
         + (object) - One of the kit items
             + `_id` (string, required) - Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**
-            + `quantity` (number) - Product quantity - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+            + `quantity` (number) - Product quantity - Mininum: **0** - Maximum: **9999999**
             + `label` (string) - Label shown to customer, if you want to use a title other than the product name - Max length: **255**
             + `has_variations`: false (boolean) - If this product has variations
             + `variation_id` (string) - ID to specify a variation if `has_variations` is true, it's optional - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -858,7 +858,7 @@ product subresources directly at this resource, such as product images, variatio
     + `auto_fill_related_products`: true (boolean) - True when related products lists should be created and updated automatically (ML)
     + `views`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
     + `sales`: 0 (number) - Product popularity, will be filled automatically - Mininum: **0** - Maximum: **999999999**
-    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+    + `total_sold` (number) - Total amount earned with sales of this product, filled automatically - Mininum: **0** - Maximum: **9999999999**
     + `gtin` (array) - List of product GTIN codes - Max elements: **10**
         + (string) - Global Trade Item Numbers (barcode number): UPC, EAN, JAN, ISBN, ITF-14
     + `mpn` (array) - List of product MPN codes - Max elements: **10**
@@ -1053,7 +1053,7 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "price": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999,
                         "description": "Product sale price, when undefined, product could be bought by any price"
@@ -1077,14 +1077,14 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "base_price": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999,
                         "description": "Product original sale price, without discounts"
                     },
                     "cost_price": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999,
                         "description": "Product cost price to calculate profit"
@@ -1103,14 +1103,14 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "quantity": {
                         "type": "number",
-                        "multipleOf": 0.0001,
+                        
                         "minimum": 0,
                         "maximum": 9999999,
                         "description": "Product quantity available to sell, max to put in cart"
                     },
                     "min_quantity": {
                         "type": "number",
-                        "multipleOf": 0.0001,
+                        
                         "minimum": 0,
                         "maximum": 999999,
                         "description": "Minimum quantity to put in cart"
@@ -1181,7 +1181,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": -9999999,
                                     "maximum": 9999999,
                                     "description": "Added or decreased (negative) stock quantity"
@@ -1238,7 +1238,7 @@ product subresources directly at this resource, such as product images, variatio
                             },
                             "pricing_base_measure": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": 0,
                                 "maximum": 9999999,
                                 "description": "Quantity to calculate the price to be shown on ads, such as GMC unit_pricing_base_measure"
@@ -1265,7 +1265,7 @@ product subresources directly at this resource, such as product images, variatio
                                 "properties": {
                                     "value": {
                                         "type": "number",
-                                        "multipleOf": 0.001,
+                                        
                                         "minimum": 0,
                                         "maximum": 999999,
                                         "description": "Size in specified unit"
@@ -1299,7 +1299,7 @@ product subresources directly at this resource, such as product images, variatio
                         "properties": {
                             "value": {
                                 "type": "number",
-                                "multipleOf": 0.001,
+                                
                                 "minimum": 0,
                                 "maximum": 999999,
                                 "description": "Size in specified unit"
@@ -1965,7 +1965,7 @@ product subresources directly at this resource, such as product images, variatio
                                                         },
                                                         "addition": {
                                                             "type": "number",
-                                                            "multipleOf": 0.0001,
+                                                            
                                                             "minimum": -99999999,
                                                             "maximum": 99999999,
                                                             "description": "Additional value, could be negative"
@@ -2007,7 +2007,7 @@ product subresources directly at this resource, such as product images, variatio
                                         },
                                         "addition": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+                                            
                                             "minimum": -99999999,
                                             "maximum": 99999999,
                                             "description": "Additional value, could be negative"
@@ -2060,21 +2060,21 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Variation sale price, when undefined, product default price should be used"
                                 },
                                 "base_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Variation original sale price, without discounts"
                                 },
                                 "cost_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Variation cost price to calculate profit"
@@ -2095,7 +2095,7 @@ product subresources directly at this resource, such as product images, variatio
                                         },
                                         "value": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 999999999,
                                             "description": "Installment value"
@@ -2110,14 +2110,14 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Product quantity available to sell, max to put in cart"
                                 },
                                 "min_quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Minimum quantity to put in cart"
@@ -2167,7 +2167,7 @@ product subresources directly at this resource, such as product images, variatio
                                             "properties": {
                                                 "value": {
                                                     "type": "number",
-                                                    "multipleOf": 0.001,
+                                                    
                                                     "minimum": 0,
                                                     "maximum": 999999,
                                                     "description": "Size in specified unit"
@@ -2201,7 +2201,7 @@ product subresources directly at this resource, such as product images, variatio
                                     "properties": {
                                         "value": {
                                             "type": "number",
-                                            "multipleOf": 0.001,
+                                            
                                             "minimum": 0,
                                             "maximum": 999999,
                                             "description": "Size in specified unit"
@@ -2429,7 +2429,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price"
@@ -2475,7 +2475,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price"
@@ -2511,7 +2511,7 @@ product subresources directly at this resource, such as product images, variatio
                             },
                             "value": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+                                
                                 "minimum": 0,
                                 "maximum": 999999999,
                                 "description": "Installment value"
@@ -2552,7 +2552,7 @@ product subresources directly at this resource, such as product images, variatio
                             },
                             "value": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Discount value, percentage or fixed"
@@ -2567,7 +2567,7 @@ product subresources directly at this resource, such as product images, variatio
                         "patternProperties": {
                             "^([2-9]|([1-9][0-9]{1,8}))$": {
                                 "type": "number",
-                                "multipleOf": 0.01,
+                                
                                 "minimum": -999,
                                 "maximum": 999,
                                 "description": "Percentage discount"
@@ -2613,7 +2613,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "discount": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": -99999999,
                                     "maximum": 99999999,
                                     "description": "Discount value, percentage or fixed"
@@ -2643,7 +2643,7 @@ product subresources directly at this resource, such as product images, variatio
                                     "properties": {
                                         "quantity": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999,
                                             "description": "Product quantity"
@@ -2666,7 +2666,7 @@ product subresources directly at this resource, such as product images, variatio
                                                 },
                                                 "value": {
                                                     "type": "number",
-                                                    "multipleOf": 0.0001,
+                                                    
                                                     "minimum": -99999999,
                                                     "maximum": 99999999,
                                                     "description": "Discount value, percentage or fixed"
@@ -2702,14 +2702,14 @@ product subresources directly at this resource, such as product images, variatio
                             },
                             "points_value": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+                                
                                 "minimum": 0,
                                 "maximum": 999999999,
                                 "description": "Number of loyalty points a customer receives when purchasing the product"
                             },
                             "ratio": {
                                 "type": "number",
-                                "multipleOf": 0.001,
+                                
                                 "minimum": 0,
                                 "maximum": 9999,
                                 "description": "The ratio of a point when converted to currency"
@@ -2758,7 +2758,7 @@ product subresources directly at this resource, such as product images, variatio
                                             },
                                             "value": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+                                                
                                                 "minimum": -99999999,
                                                 "maximum": 99999999,
                                                 "description": "Discount value, percentage or fixed"
@@ -2780,7 +2780,7 @@ product subresources directly at this resource, such as product images, variatio
                                                 "properties": {
                                                     "value": {
                                                         "type": "number",
-                                                        "multipleOf": 0.00001,
+                                                        
                                                         "minimum": 0,
                                                         "maximum": 999999999,
                                                         "description": "Installment value"
@@ -2859,7 +2859,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "add_to_price": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 99999999,
                                     "description": "Additional value for this gift wrap"
@@ -2962,14 +2962,14 @@ product subresources directly at this resource, such as product images, variatio
                                 "properties": {
                                     "latitude": {
                                         "type": "number",
-                                        "multipleOf": 1e-7,
+                                        
                                         "minimum": -90,
                                         "maximum": 90,
                                         "description": "Geolocation latitude"
                                     },
                                     "longitude": {
                                         "type": "number",
-                                        "multipleOf": 1e-7,
+                                        
                                         "minimum": -180,
                                         "maximum": 180,
                                         "description": "Geolocation longitude"
@@ -2993,7 +2993,7 @@ product subresources directly at this resource, such as product images, variatio
                             "properties": {
                                 "rate": {
                                     "type": "number",
-                                    "multipleOf": 0.01,
+                                    
                                     "minimum": -999,
                                     "maximum": 999,
                                     "description": "Tax rate as a percentage of the price"
@@ -3044,7 +3044,7 @@ product subresources directly at this resource, such as product images, variatio
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Product quantity"
@@ -3133,7 +3133,7 @@ product subresources directly at this resource, such as product images, variatio
                     },
                     "total_sold": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 9999999999,
                         "description": "Total amount earned with sales of this product, filled automatically"
@@ -6061,14 +6061,14 @@ grid subresources directly at this resource
                 + `type`: percentage (enum) - Type of price addition
                     + `percentage` (string)
                     + `fixed` (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `custom_value`: false (boolean) - If this grid accept custom value defined by customer (product customization)
     + `attachment`: false (boolean) - If this grid accept customer file attachment
     + `add_to_price` (object) - Default price alteration for product with this grid for customization or variations
         + `type`: percentage (enum) - Type of price addition
             + `percentage` (string)
             + `fixed` (string)
-        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -6198,7 +6198,7 @@ grid subresources directly at this resource
                                         },
                                         "addition": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+                                            
                                             "minimum": -99999999,
                                             "maximum": 99999999,
                                             "description": "Additional value, could be negative"
@@ -6239,7 +6239,7 @@ grid subresources directly at this resource
                             },
                             "addition": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Additional value, could be negative"
@@ -6815,19 +6815,19 @@ customer subresources directly at this resource
         + `type`: percentage (enum) - Discount type
             + `percentage` (string)
             + `fixed` (string)
-        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `tax_exempt`: true (boolean) - Whether the customer should be charged taxes when placing orders
     + `currency_id`: BRL (string) - Default currency for the user, designator according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `orders_count` (number) - Total number of orders completed by this customer
-    + `orders_total_value` (number) - The total amount in orders completed by this customer - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
+    + `orders_total_value` (number) - The total amount in orders completed by this customer - Mininum: **0** - Maximum: **999999999999**
     + `loyalty_points` (object) - Loyalty points programs, `program_id` as property name - Max properties: **100**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object, specify how many points the customer have
             + `name` (string) - The name of the loyalty points program - Max length: **50**
-            + `accumulated_points` (number, required) - Number of accumulated loyalty points - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `accumulated_points` (number, required) - Number of accumulated loyalty points - Mininum: **0** - Maximum: **999999999**
     + `affiliate_code` (string) - Code to identify the affiliate that referred the customer - Max length: **200**
-    + `total_spent` (number) - The total amount of money that this customer has spent at the store - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
-    + `total_cancelled` (number) - The total amount in cancelled orders - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
+    + `total_spent` (number) - The total amount of money that this customer has spent at the store - Mininum: **0** - Maximum: **999999999999**
+    + `total_cancelled` (number) - The total amount in cancelled orders - Mininum: **0** - Maximum: **999999999999**
     + `orders` (array) - List of customer orders - Max elements: **1000**
         + (object) - Registered order
             + `_id` (string, required) - Order ID - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -6836,12 +6836,12 @@ customer subresources directly at this resource
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
             + `amount` (object) - Object with sums of values
-                + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999**
+                + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+                + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999**
+                + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999**
+                + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999**
+                + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999**
             + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
             + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
     + `credit_cards` (array) - List of customer saved credit cards - Max elements: **40**
@@ -7577,7 +7577,7 @@ customer subresources directly at this resource
                             },
                             "value": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Discount value, percentage or fixed"
@@ -7610,7 +7610,7 @@ customer subresources directly at this resource
                     },
                     "orders_total_value": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999999,
                         "description": "The total amount in orders completed by this customer"
@@ -7634,7 +7634,7 @@ customer subresources directly at this resource
                                     },
                                     "accumulated_points": {
                                         "type": "number",
-                                        "multipleOf": 0.00001,
+                                        
                                         "minimum": 0,
                                         "maximum": 999999999,
                                         "description": "Number of accumulated loyalty points"
@@ -7652,14 +7652,14 @@ customer subresources directly at this resource
                     },
                     "total_spent": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999999,
                         "description": "The total amount of money that this customer has spent at the store"
                     },
                     "total_cancelled": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 999999999999,
                         "description": "The total amount in cancelled orders"
@@ -7711,42 +7711,42 @@ customer subresources directly at this resource
                                     "properties": {
                                         "total": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Order total amount"
                                         },
                                         "subtotal": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "The sum of all items prices"
                                         },
                                         "freight": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Order freight cost"
                                         },
                                         "discount": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Applied discount value"
                                         },
                                         "tax": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "The sum of all the taxes applied to the order"
                                         },
                                         "extra": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+                                            
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Sum of optional extra costs applied"
@@ -8591,23 +8591,23 @@ cart subresources directly at this resource
                         + `type`: percentage (enum) - Type of price addition
                             + `percentage` (string)
                             + `fixed` (string)
-                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
             + `gift_wrap` (object) - Gift wrap chosen by customer
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                 + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
-            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-            + `min_quantity` (number) - Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999** - Max precision: **0.0001**
-            + `max_quantity` (number) - Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
+                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**
+            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999**
+            + `min_quantity` (number) - Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999**
+            + `max_quantity` (number) - Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999**
             + `keep_item_quantity`: false (boolean) - True if product quantity should not be checked, using quantity specified for this item
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
-            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**
+            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**
             + `keep_item_price`: false (boolean) - True if the product price should not be checked, using price specified for this item
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
-    + `subtotal` (number, required) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+    + `subtotal` (number, required) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
     + `discount` (object) - Default discount to be applied
         + `apply_at`: subtotal (enum) - In which value the discount will be applied at checkout
             + `total` (string)
@@ -8616,7 +8616,7 @@ cart subresources directly at this resource
         + `type`: percentage (enum) - Discount type
             + `percentage` (string)
             + `fixed` (string)
-        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `orders` (array) - List of orders completed with this cart - Max elements: **3000**
         + (string) - Order ID
     + `metafields` (array) - List of custom attributes - Max elements: **100**
@@ -8897,7 +8897,7 @@ cart subresources directly at this resource
                                                     },
                                                     "addition": {
                                                         "type": "number",
-                                                        "multipleOf": 0.0001,
+                                                        
                                                         "minimum": -99999999,
                                                         "maximum": 99999999,
                                                         "description": "Additional value, could be negative"
@@ -8930,7 +8930,7 @@ cart subresources directly at this resource
                                         },
                                         "add_to_price": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+                                            
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Additional value due to this gift wrap"
@@ -8940,21 +8940,21 @@ cart subresources directly at this resource
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Item quantity in cart"
                                 },
                                 "min_quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Minimum item quantity for this cart"
                                 },
                                 "max_quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+                                    
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Maximum item quantity for this cart"
@@ -8978,14 +8978,14 @@ cart subresources directly at this resource
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price specifically for this cart"
                                 },
                                 "final_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+                                    
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Final item price including additions due to customizations and gift wrap"
@@ -9013,7 +9013,7 @@ cart subresources directly at this resource
                     },
                     "subtotal": {
                         "type": "number",
-                        "multipleOf": 0.00001,
+                        
                         "minimum": 0,
                         "maximum": 9999999999,
                         "description": "The sum of all items prices"
@@ -9046,7 +9046,7 @@ cart subresources directly at this resource
                             },
                             "value": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Discount value, percentage or fixed"
@@ -9634,12 +9634,12 @@ order subresources directly at this resource
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `amount` (object, required) - Object with sums of values
-        + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+        + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999**
+        + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+        + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999**
+        + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999**
+        + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999**
+        + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999**
     + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
     + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
     + `buyers` (array) - List of order customers - Max elements: **20**
@@ -9771,7 +9771,7 @@ order subresources directly at this resource
             + `package` (object) - Shipping object information
                 + `dimensions` (object) - Package dimensions
                     + `^width|height|length$` (object) - Package width, height and length
-                        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                         + `unit`: cm (enum) - Unit of measurement
                             + `mm` (string)
                             + `cm` (string)
@@ -9781,7 +9781,7 @@ order subresources directly at this resource
                             + `yd` (string)
                             + `mi` (string)
                 + `weight` (object) - Package weight for freight calculation
-                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                     + `unit`: g (enum) - Unit of measurement
                         + `mg` (string)
                         + `g` (string)
@@ -9798,26 +9798,26 @@ order subresources directly at this resource
                 + `contract` (string) - Contract number of the shop with carrier, if exists - Max length: **70**
                 + `icon` (string) - Shipping method icon image URI - Max length: **255** - Format: **uri**
                 + `tracking_url` (string) - URI to carrier website to get package tracking status - Max length: **255** - Format: **uri**
-            + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999**
+            + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+            + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999**
             + `own_hand`: false (boolean) - Whether the package must be delivered with additional service "own hand"
-            + `own_hand_price` (number) - Cost for the "own hand" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `own_hand_price` (number) - Cost for the "own hand" additional service - Mininum: **0** - Maximum: **999999**
             + `receipt`: false (boolean) - If the package will be delivered with acknowledgment of receipt
-            + `receipt_price` (number) - Cost for the "acknowledgment of receipt" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `receipt_price` (number) - Cost for the "acknowledgment of receipt" additional service - Mininum: **0** - Maximum: **999999**
             + `other_additionals` (array) - List of other additional services for this shipping line - Max elements: **30**
                 + (object) - Additional service
                     + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                     + `label` (string, required) - Name of the additional service - Max length: **50**
-                    + `price` (number) - Cost for this additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+                    + `price` (number) - Cost for this additional service - Mininum: **0** - Maximum: **999999**
             + `taxes` (array) - List of taxes or other additional services for this shipping line - Max elements: **30**
                 + (object) - Applied tax or additional service
                     + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                     + `label` (string, required) - Tax title - Max length: **50**
-                    + `price` (number) - Tax value applied - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-                    + `rate` (number) - Tax rate as a function of package value - Mininum: **0** - Maximum: **100** - Max precision: **0.0001**
-            + `discount` (number) - Discount on shipping price, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999** - Max precision: **0.0001**
-            + `total_price` (number) - Total cost for this shipping line, with additionals and taxes - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                    + `price` (number) - Tax value applied - Mininum: **0** - Maximum: **999999999**
+                    + `rate` (number) - Tax rate as a function of package value - Mininum: **0** - Maximum: **100**
+            + `discount` (number) - Discount on shipping price, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999**
+            + `total_price` (number) - Total cost for this shipping line, with additionals and taxes - Mininum: **0** - Maximum: **9999999999**
             + `posting_deadline` (object) - Deadline for sending the package
                 + `days` (number, required) - Number of days to post the product after purchase - Mininum: **0** - Maximum: **999999**
                 + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -9969,18 +9969,18 @@ order subresources directly at this resource
                 + `link` (string) - Direct link (URI) to banking billet - Max length: **255** - Format: **uri**
             + `currency_id` (string) - Currency ID specific for this transaction, if different of order currency ID - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol` (string) - Currency symbol specific for this transaction - Max length: **20**
-            + `discount` (number) - Discount by payment method, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999** - Max precision: **0.0001**
-            + `amount` (number, required) - Transaction amount, disregarding installment rates - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+            + `discount` (number) - Discount by payment method, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999**
+            + `amount` (number, required) - Transaction amount, disregarding installment rates - Mininum: **0** - Maximum: **9999999999**
             + `installments` (object) - Installments option
                 + `number` (number, required) - Number of installments - Mininum: **1** - Maximum: **199**
-                + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999**
                 + `tax`: false (boolean) - Tax applied
-                + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999**
             + `creditor_fees` (object) - Cost data collected
-                + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `other` (number) - Sum of other transaction rates - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
+                + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999**
+                + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999**
+                + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999**
+                + `other` (number) - Sum of other transaction rates - Mininum: **0** - Maximum: **99999999**
             + `status` (object) - Financial status and date of change
                 + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
                 + `current`: pending (enum, required) - Payment status
@@ -10066,20 +10066,20 @@ order subresources directly at this resource
                         + `type`: percentage (enum) - Type of price addition
                             + `percentage` (string)
                             + `fixed` (string)
-                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
             + `gift_wrap` (object) - Gift wrap chosen by customer
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                 + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
-            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**
+            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999**
+            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**
+            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
     + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
-            + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -10481,42 +10481,42 @@ order subresources directly at this resource
                         "properties": {
                             "total": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order total amount"
                             },
                             "subtotal": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all items prices"
                             },
                             "freight": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order freight cost"
                             },
                             "discount": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Applied discount value"
                             },
                             "tax": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all the taxes applied to the order"
                             },
                             "extra": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Sum of optional extra costs applied"
@@ -10975,7 +10975,7 @@ order subresources directly at this resource
                                                     "properties": {
                                                         "value": {
                                                             "type": "number",
-                                                            "multipleOf": 0.001,
+
                                                             "minimum": 0,
                                                             "maximum": 999999,
                                                             "description": "Size in specified unit"
@@ -11009,7 +11009,7 @@ order subresources directly at this resource
                                             "properties": {
                                                 "value": {
                                                     "type": "number",
-                                                    "multipleOf": 0.001,
+
                                                     "minimum": 0,
                                                     "maximum": 999999,
                                                     "description": "Size in specified unit"
@@ -11092,21 +11092,21 @@ order subresources directly at this resource
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Freight cost for this shipping line, without additionals"
                                 },
                                 "declared_value": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "The package value declared to carrier, generally the sum of all items prices"
                                 },
                                 "declared_value_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"declared value\" additional service"
@@ -11118,7 +11118,7 @@ order subresources directly at this resource
                                 },
                                 "own_hand_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"own hand\" additional service"
@@ -11130,7 +11130,7 @@ order subresources directly at this resource
                                 },
                                 "receipt_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"acknowledgment of receipt\" additional service"
@@ -11158,7 +11158,7 @@ order subresources directly at this resource
                                             },
                                             "price": {
                                                 "type": "number",
-                                                "multipleOf": 0.00001,
+
                                                 "minimum": 0,
                                                 "maximum": 999999,
                                                 "description": "Cost for this additional service"
@@ -11191,14 +11191,14 @@ order subresources directly at this resource
                                             },
                                             "price": {
                                                 "type": "number",
-                                                "multipleOf": 0.00001,
+
                                                 "minimum": 0,
                                                 "maximum": 999999999,
                                                 "description": "Tax value applied"
                                             },
                                             "rate": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+
                                                 "minimum": 0,
                                                 "maximum": 100,
                                                 "description": "Tax rate as a function of package value"
@@ -11210,14 +11210,14 @@ order subresources directly at this resource
                                 },
                                 "discount": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount on shipping price, negative if value was additionated (not discounted)"
                                 },
                                 "total_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Total cost for this shipping line, with additionals and taxes"
@@ -11854,14 +11854,14 @@ order subresources directly at this resource
                                 },
                                 "discount": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount by payment method, negative if value was additionated (not discounted)"
                                 },
                                 "amount": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Transaction amount, disregarding installment rates"
@@ -11881,7 +11881,7 @@ order subresources directly at this resource
                                         },
                                         "value": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Installment value"
@@ -11893,7 +11893,7 @@ order subresources directly at this resource
                                         },
                                         "total": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Total value, sum of all plots"
@@ -11907,28 +11907,28 @@ order subresources directly at this resource
                                     "properties": {
                                         "installment": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Installment fee"
                                         },
                                         "operational": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Operation fee"
                                         },
                                         "intermediation": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Intermediation fee, if transaction have an intermediary"
                                         },
                                         "other": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Sum of other transaction rates"
@@ -12308,7 +12308,7 @@ order subresources directly at this resource
                                                     },
                                                     "addition": {
                                                         "type": "number",
-                                                        "multipleOf": 0.0001,
+
                                                         "minimum": -99999999,
                                                         "maximum": 99999999,
                                                         "description": "Additional value, could be negative"
@@ -12341,7 +12341,7 @@ order subresources directly at this resource
                                         },
                                         "add_to_price": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Additional value due to this gift wrap"
@@ -12351,21 +12351,21 @@ order subresources directly at this resource
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Item quantity in cart"
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price specifically for this cart"
                                 },
                                 "final_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Final item price including additions due to customizations and gift wrap"
@@ -12405,7 +12405,7 @@ order subresources directly at this resource
                                     },
                                     "points_value": {
                                         "type": "number",
-                                        "multipleOf": 0.00001,
+
                                         "minimum": 0,
                                         "maximum": 999999999,
                                         "description": "Number of loyalty points received"

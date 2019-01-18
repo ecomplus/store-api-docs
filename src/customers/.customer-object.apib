@@ -134,19 +134,19 @@
         + `type`: percentage (enum) - Discount type
             + `percentage` (string)
             + `fixed` (string)
-        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `value` (number, required) - Discount value, percentage or fixed - Mininum: **-99999999** - Maximum: **99999999**
     + `tax_exempt`: true (boolean) - Whether the customer should be charged taxes when placing orders
     + `currency_id`: BRL (string) - Default currency for the user, designator according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `orders_count` (number) - Total number of orders completed by this customer
-    + `orders_total_value` (number) - The total amount in orders completed by this customer - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
+    + `orders_total_value` (number) - The total amount in orders completed by this customer - Mininum: **0** - Maximum: **999999999999**
     + `loyalty_points` (object) - Loyalty points programs, `program_id` as property name - Max properties: **100**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object, specify how many points the customer have
             + `name` (string) - The name of the loyalty points program - Max length: **50**
-            + `accumulated_points` (number, required) - Number of accumulated loyalty points - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `accumulated_points` (number, required) - Number of accumulated loyalty points - Mininum: **0** - Maximum: **999999999**
     + `affiliate_code` (string) - Code to identify the affiliate that referred the customer - Max length: **200**
-    + `total_spent` (number) - The total amount of money that this customer has spent at the store - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
-    + `total_cancelled` (number) - The total amount in cancelled orders - Mininum: **0** - Maximum: **999999999999** - Max precision: **0.00001**
+    + `total_spent` (number) - The total amount of money that this customer has spent at the store - Mininum: **0** - Maximum: **999999999999**
+    + `total_cancelled` (number) - The total amount in cancelled orders - Mininum: **0** - Maximum: **999999999999**
     + `orders` (array) - List of customer orders - Max elements: **1000**
         + (object) - Registered order
             + `_id` (string, required) - Order ID - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -155,12 +155,12 @@
             + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
             + `amount` (object) - Object with sums of values
-                + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-                + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999**
+                + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+                + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999**
+                + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999**
+                + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999**
+                + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999**
             + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
             + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
     + `credit_cards` (array) - List of customer saved credit cards - Max elements: **40**

@@ -21,14 +21,14 @@ use it to create, read, update and delete customization fields of a specific pro
                 + `type`: percentage (enum) - Type of price addition
                     + percentage (string)
                     + fixed (string)
-                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
     + `custom_value`: true (boolean) - If this field accept custom value defined by customer
     + `attachment`: false (boolean) - If this field accept customer file attachment
     + `add_to_price` (object) - Default (to all options) price alteration if customer use this field
         + `type`: percentage (enum) - Type of price addition
             + percentage (string)
             + fixed (string)
-        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
 
 #### JSON Schema [GET]
 
@@ -118,7 +118,7 @@ use it to create, read, update and delete customization fields of a specific pro
                                             },
                                             "addition": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+                                                
                                                 "minimum": -99999999,
                                                 "maximum": 99999999,
                                                 "description": "Additional value, could be negative"
@@ -160,7 +160,7 @@ use it to create, read, update and delete customization fields of a specific pro
                             },
                             "addition": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Additional value, could be negative"
@@ -426,7 +426,7 @@ Request body must obey the specifications of
                                             },
                                             "addition": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+                                                
                                                 "minimum": -99999999,
                                                 "maximum": 99999999,
                                                 "description": "Additional value, could be negative"
@@ -468,7 +468,7 @@ Request body must obey the specifications of
                             },
                             "addition": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Additional value, could be negative"
@@ -644,7 +644,7 @@ but there are no required fields, object should have at least one valid property
                                             },
                                             "addition": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+                                                
                                                 "minimum": -99999999,
                                                 "maximum": 99999999,
                                                 "description": "Additional value, could be negative"
@@ -686,7 +686,7 @@ but there are no required fields, object should have at least one valid property
                             },
                             "addition": {
                                 "type": "number",
-                                "multipleOf": 0.0001,
+                                
                                 "minimum": -99999999,
                                 "maximum": 99999999,
                                 "description": "Additional value, could be negative"

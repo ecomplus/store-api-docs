@@ -374,42 +374,42 @@
                         "properties": {
                             "total": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order total amount"
                             },
                             "subtotal": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all items prices"
                             },
                             "freight": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order freight cost"
                             },
                             "discount": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Applied discount value"
                             },
                             "tax": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all the taxes applied to the order"
                             },
                             "extra": {
                                 "type": "number",
-                                "multipleOf": 0.00001,
+
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Sum of optional extra costs applied"
@@ -868,7 +868,7 @@
                                                     "properties": {
                                                         "value": {
                                                             "type": "number",
-                                                            "multipleOf": 0.001,
+
                                                             "minimum": 0,
                                                             "maximum": 999999,
                                                             "description": "Size in specified unit"
@@ -902,7 +902,7 @@
                                             "properties": {
                                                 "value": {
                                                     "type": "number",
-                                                    "multipleOf": 0.001,
+
                                                     "minimum": 0,
                                                     "maximum": 999999,
                                                     "description": "Size in specified unit"
@@ -985,21 +985,21 @@
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Freight cost for this shipping line, without additionals"
                                 },
                                 "declared_value": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "The package value declared to carrier, generally the sum of all items prices"
                                 },
                                 "declared_value_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"declared value\" additional service"
@@ -1011,7 +1011,7 @@
                                 },
                                 "own_hand_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"own hand\" additional service"
@@ -1023,7 +1023,7 @@
                                 },
                                 "receipt_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"acknowledgment of receipt\" additional service"
@@ -1051,7 +1051,7 @@
                                             },
                                             "price": {
                                                 "type": "number",
-                                                "multipleOf": 0.00001,
+
                                                 "minimum": 0,
                                                 "maximum": 999999,
                                                 "description": "Cost for this additional service"
@@ -1084,14 +1084,14 @@
                                             },
                                             "price": {
                                                 "type": "number",
-                                                "multipleOf": 0.00001,
+
                                                 "minimum": 0,
                                                 "maximum": 999999999,
                                                 "description": "Tax value applied"
                                             },
                                             "rate": {
                                                 "type": "number",
-                                                "multipleOf": 0.0001,
+
                                                 "minimum": 0,
                                                 "maximum": 100,
                                                 "description": "Tax rate as a function of package value"
@@ -1103,14 +1103,14 @@
                                 },
                                 "discount": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount on shipping price, negative if value was additionated (not discounted)"
                                 },
                                 "total_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Total cost for this shipping line, with additionals and taxes"
@@ -1747,14 +1747,14 @@
                                 },
                                 "discount": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount by payment method, negative if value was additionated (not discounted)"
                                 },
                                 "amount": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Transaction amount, disregarding installment rates"
@@ -1774,7 +1774,7 @@
                                         },
                                         "value": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Installment value"
@@ -1786,7 +1786,7 @@
                                         },
                                         "total": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Total value, sum of all plots"
@@ -1800,28 +1800,28 @@
                                     "properties": {
                                         "installment": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Installment fee"
                                         },
                                         "operational": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Operation fee"
                                         },
                                         "intermediation": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Intermediation fee, if transaction have an intermediary"
                                         },
                                         "other": {
                                             "type": "number",
-                                            "multipleOf": 0.00001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Sum of other transaction rates"
@@ -2201,7 +2201,7 @@
                                                     },
                                                     "addition": {
                                                         "type": "number",
-                                                        "multipleOf": 0.0001,
+
                                                         "minimum": -99999999,
                                                         "maximum": 99999999,
                                                         "description": "Additional value, could be negative"
@@ -2234,7 +2234,7 @@
                                         },
                                         "add_to_price": {
                                             "type": "number",
-                                            "multipleOf": 0.0001,
+
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Additional value due to this gift wrap"
@@ -2244,21 +2244,21 @@
                                 },
                                 "quantity": {
                                     "type": "number",
-                                    "multipleOf": 0.0001,
+
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Item quantity in cart"
                                 },
                                 "price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price specifically for this cart"
                                 },
                                 "final_price": {
                                     "type": "number",
-                                    "multipleOf": 0.00001,
+
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Final item price including additions due to customizations and gift wrap"
@@ -2298,7 +2298,7 @@
                                     },
                                     "points_value": {
                                         "type": "number",
-                                        "multipleOf": 0.00001,
+
                                         "minimum": 0,
                                         "maximum": 999999999,
                                         "description": "Number of loyalty points received"

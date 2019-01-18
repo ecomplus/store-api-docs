@@ -70,12 +70,12 @@
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `amount` (object, required) - Object with sums of values
-        + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-        + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+        + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999**
+        + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+        + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999**
+        + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999**
+        + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999**
+        + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999**
     + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
     + `shipping_method_label` (string) - Name of order shipping method(s) - Max length: **100**
     + `buyers` (array) - List of order customers - Max elements: **20**
@@ -207,7 +207,7 @@
             + `package` (object) - Shipping object information
                 + `dimensions` (object) - Package dimensions
                     + `^width|height|length$` (object) - Package width, height and length
-                        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                        + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                         + `unit`: cm (enum) - Unit of measurement
                             + `mm` (string)
                             + `cm` (string)
@@ -217,7 +217,7 @@
                             + `yd` (string)
                             + `mi` (string)
                 + `weight` (object) - Package weight for freight calculation
-                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999** - Max precision: **0.001**
+                    + `value` (number, required) - Size in specified unit - Mininum: **0** - Maximum: **999999**
                     + `unit`: g (enum) - Unit of measurement
                         + `mg` (string)
                         + `g` (string)
@@ -234,26 +234,26 @@
                 + `contract` (string) - Contract number of the shop with carrier, if exists - Max length: **70**
                 + `icon` (string) - Shipping method icon image URI - Max length: **255** - Format: **uri**
                 + `tracking_url` (string) - URI to carrier website to get package tracking status - Max length: **255** - Format: **uri**
-            + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
-            + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `price` (number) - Freight cost for this shipping line, without additionals - Mininum: **0** - Maximum: **9999999999**
+            + `declared_value` (number) - The package value declared to carrier, generally the sum of all items prices - Mininum: **0** - Maximum: **9999999999**
+            + `declared_value_price` (number) - Cost for the "declared value" additional service - Mininum: **0** - Maximum: **999999**
             + `own_hand`: false (boolean) - Whether the package must be delivered with additional service "own hand"
-            + `own_hand_price` (number) - Cost for the "own hand" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `own_hand_price` (number) - Cost for the "own hand" additional service - Mininum: **0** - Maximum: **999999**
             + `receipt`: false (boolean) - If the package will be delivered with acknowledgment of receipt
-            + `receipt_price` (number) - Cost for the "acknowledgment of receipt" additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+            + `receipt_price` (number) - Cost for the "acknowledgment of receipt" additional service - Mininum: **0** - Maximum: **999999**
             + `other_additionals` (array) - List of other additional services for this shipping line - Max elements: **30**
                 + (object) - Additional service
                     + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                     + `label` (string, required) - Name of the additional service - Max length: **50**
-                    + `price` (number) - Cost for this additional service - Mininum: **0** - Maximum: **999999** - Max precision: **0.00001**
+                    + `price` (number) - Cost for this additional service - Mininum: **0** - Maximum: **999999**
             + `taxes` (array) - List of taxes or other additional services for this shipping line - Max elements: **30**
                 + (object) - Applied tax or additional service
                     + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                     + `label` (string, required) - Tax title - Max length: **50**
-                    + `price` (number) - Tax value applied - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-                    + `rate` (number) - Tax rate as a function of package value - Mininum: **0** - Maximum: **100** - Max precision: **0.0001**
-            + `discount` (number) - Discount on shipping price, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999** - Max precision: **0.0001**
-            + `total_price` (number) - Total cost for this shipping line, with additionals and taxes - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                    + `price` (number) - Tax value applied - Mininum: **0** - Maximum: **999999999**
+                    + `rate` (number) - Tax rate as a function of package value - Mininum: **0** - Maximum: **100**
+            + `discount` (number) - Discount on shipping price, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999**
+            + `total_price` (number) - Total cost for this shipping line, with additionals and taxes - Mininum: **0** - Maximum: **9999999999**
             + `posting_deadline` (object) - Deadline for sending the package
                 + `days` (number, required) - Number of days to post the product after purchase - Mininum: **0** - Maximum: **999999**
                 + `working_days`: true (boolean) - If the deadline is calculated in working days
@@ -405,18 +405,18 @@
                 + `link` (string) - Direct link (URI) to banking billet - Max length: **255** - Format: **uri**
             + `currency_id` (string) - Currency ID specific for this transaction, if different of order currency ID - RegEx pattern: **`^[A-Z]{3}$`**
             + `currency_symbol` (string) - Currency symbol specific for this transaction - Max length: **20**
-            + `discount` (number) - Discount by payment method, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999** - Max precision: **0.0001**
-            + `amount` (number, required) - Transaction amount, disregarding installment rates - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+            + `discount` (number) - Discount by payment method, negative if value was additionated (not discounted) - Mininum: **-999999999** - Maximum: **999999999**
+            + `amount` (number, required) - Transaction amount, disregarding installment rates - Mininum: **0** - Maximum: **9999999999**
             + `installments` (object) - Installments option
                 + `number` (number, required) - Number of installments - Mininum: **1** - Maximum: **199**
-                + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `value` (number) - Installment value - Mininum: **0** - Maximum: **9999999999**
                 + `tax`: false (boolean) - Tax applied
-                + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999** - Max precision: **0.00001**
+                + `total` (number) - Total value, sum of all plots - Mininum: **0** - Maximum: **9999999999**
             + `creditor_fees` (object) - Cost data collected
-                + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
-                + `other` (number) - Sum of other transaction rates - Mininum: **0** - Maximum: **99999999** - Max precision: **0.00001**
+                + `installment` (number) - Installment fee - Mininum: **0** - Maximum: **99999999**
+                + `operational` (number) - Operation fee - Mininum: **0** - Maximum: **99999999**
+                + `intermediation` (number) - Intermediation fee, if transaction have an intermediary - Mininum: **0** - Maximum: **99999999**
+                + `other` (number) - Sum of other transaction rates - Mininum: **0** - Maximum: **99999999**
             + `status` (object) - Financial status and date of change
                 + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
                 + `current`: pending (enum, required) - Payment status
@@ -502,20 +502,20 @@
                         + `type`: percentage (enum) - Type of price addition
                             + `percentage` (string)
                             + `fixed` (string)
-                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999** - Max precision: **0.0001**
+                        + `addition` (number, required) - Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**
             + `gift_wrap` (object) - Gift wrap chosen by customer
                 + `tag` (string) - Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**
                 + `label` (string, required) - Title describing this gift wrap - Max length: **70**
-                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999** - Max precision: **0.0001**
-            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999** - Max precision: **0.0001**
-            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
-            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+                + `add_to_price` (number) - Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**
+            + `quantity` (number, required) - Item quantity in cart - Mininum: **0** - Maximum: **9999999**
+            + `price` (number, required) - Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**
+            + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
     + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
-            + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999** - Max precision: **0.00001**
+            + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
