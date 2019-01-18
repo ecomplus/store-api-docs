@@ -927,42 +927,36 @@ order subresources directly at this resource
                         "properties": {
                             "total": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order total amount"
                             },
                             "subtotal": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all items prices"
                             },
                             "freight": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Order freight cost"
                             },
                             "discount": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Applied discount value"
                             },
                             "tax": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "The sum of all the taxes applied to the order"
                             },
                             "extra": {
                                 "type": "number",
-
                                 "minimum": 0,
                                 "maximum": 9999999999,
                                 "description": "Sum of optional extra costs applied"
@@ -1421,7 +1415,6 @@ order subresources directly at this resource
                                                     "properties": {
                                                         "value": {
                                                             "type": "number",
-
                                                             "minimum": 0,
                                                             "maximum": 999999,
                                                             "description": "Size in specified unit"
@@ -1455,7 +1448,6 @@ order subresources directly at this resource
                                             "properties": {
                                                 "value": {
                                                     "type": "number",
-
                                                     "minimum": 0,
                                                     "maximum": 999999,
                                                     "description": "Size in specified unit"
@@ -1538,21 +1530,18 @@ order subresources directly at this resource
                                 },
                                 "price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Freight cost for this shipping line, without additionals"
                                 },
                                 "declared_value": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "The package value declared to carrier, generally the sum of all items prices"
                                 },
                                 "declared_value_price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"declared value\" additional service"
@@ -1564,7 +1553,6 @@ order subresources directly at this resource
                                 },
                                 "own_hand_price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"own hand\" additional service"
@@ -1576,7 +1564,6 @@ order subresources directly at this resource
                                 },
                                 "receipt_price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 999999,
                                     "description": "Cost for the \"acknowledgment of receipt\" additional service"
@@ -1604,7 +1591,6 @@ order subresources directly at this resource
                                             },
                                             "price": {
                                                 "type": "number",
-
                                                 "minimum": 0,
                                                 "maximum": 999999,
                                                 "description": "Cost for this additional service"
@@ -1637,14 +1623,12 @@ order subresources directly at this resource
                                             },
                                             "price": {
                                                 "type": "number",
-
                                                 "minimum": 0,
                                                 "maximum": 999999999,
                                                 "description": "Tax value applied"
                                             },
                                             "rate": {
                                                 "type": "number",
-
                                                 "minimum": 0,
                                                 "maximum": 100,
                                                 "description": "Tax rate as a function of package value"
@@ -1656,14 +1640,12 @@ order subresources directly at this resource
                                 },
                                 "discount": {
                                     "type": "number",
-
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount on shipping price, negative if value was additionated (not discounted)"
                                 },
                                 "total_price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Total cost for this shipping line, with additionals and taxes"
@@ -2300,14 +2282,12 @@ order subresources directly at this resource
                                 },
                                 "discount": {
                                     "type": "number",
-
                                     "minimum": -999999999,
                                     "maximum": 999999999,
                                     "description": "Discount by payment method, negative if value was additionated (not discounted)"
                                 },
                                 "amount": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 9999999999,
                                     "description": "Transaction amount, disregarding installment rates"
@@ -2327,7 +2307,6 @@ order subresources directly at this resource
                                         },
                                         "value": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Installment value"
@@ -2339,7 +2318,6 @@ order subresources directly at this resource
                                         },
                                         "total": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 9999999999,
                                             "description": "Total value, sum of all plots"
@@ -2353,28 +2331,24 @@ order subresources directly at this resource
                                     "properties": {
                                         "installment": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Installment fee"
                                         },
                                         "operational": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Operation fee"
                                         },
                                         "intermediation": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Intermediation fee, if transaction have an intermediary"
                                         },
                                         "other": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Sum of other transaction rates"
@@ -2754,7 +2728,6 @@ order subresources directly at this resource
                                                     },
                                                     "addition": {
                                                         "type": "number",
-
                                                         "minimum": -99999999,
                                                         "maximum": 99999999,
                                                         "description": "Additional value, could be negative"
@@ -2787,7 +2760,6 @@ order subresources directly at this resource
                                         },
                                         "add_to_price": {
                                             "type": "number",
-
                                             "minimum": 0,
                                             "maximum": 99999999,
                                             "description": "Additional value due to this gift wrap"
@@ -2797,21 +2769,18 @@ order subresources directly at this resource
                                 },
                                 "quantity": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 9999999,
                                     "description": "Item quantity in cart"
                                 },
                                 "price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Product sale price specifically for this cart"
                                 },
                                 "final_price": {
                                     "type": "number",
-
                                     "minimum": 0,
                                     "maximum": 999999999,
                                     "description": "Final item price including additions due to customizations and gift wrap"
@@ -2851,7 +2820,6 @@ order subresources directly at this resource
                                     },
                                     "points_value": {
                                         "type": "number",
-
                                         "minimum": 0,
                                         "maximum": 999999999,
                                         "description": "Number of loyalty points received"
