@@ -21,6 +21,9 @@
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `brand_colors` (object) - Main colors to compose shop's visual identity
+        + `primary` (string) - Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
+        + `secondary` (string) - Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
     + `contact_phone` (string) - Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `contact_cellphone` (string) - Secondary public contact phone, commonly a cell phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**

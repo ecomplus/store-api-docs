@@ -132,6 +132,23 @@
                         },
                         "description": "Image link to shop's logo"
                     },
+                    "brand_colors": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "primary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Primary color RGB code with #"
+                            },
+                            "secondary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Secondary color RGB code with #"
+                            }
+                        },
+                        "description": "Main colors to compose shop's visual identity"
+                    },
                     "contact_phone": {
                         "type": "string",
                         "maxLength": 19,
