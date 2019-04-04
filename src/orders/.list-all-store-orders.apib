@@ -17,130 +17,205 @@
                 "sort": [],
                 "fields": [
                   "_id",
+                  "source_name",
+                  "channel_id",
                   "number",
                   "code",
                   "status",
-                  "financial_status",
-                  "fulfillment_status",
-                  "amount"
+                  "financial_status.updated_at",
+                  "financial_status.current",
+                  "fulfillment_status.updated_at",
+                  "fulfillment_status.current",
+                  "amount",
+                  "payment_method_label",
+                  "shipping_method_label",
+                  "buyers._id",
+                  "buyers.main_email",
+                  "buyers.display_name",
+                  "items.product_id",
+                  "items.sku",
+                  "items.name",
+                  "items.quantity",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
-                  "_id": "fe1000000000000000000000",
-                  "number": 1100,
-                  "code": "N1100",
-                  "status": "closed",
-                  "financial_status": {
-                    "updated_at": "2017-11-15T14:30:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-12-01T18:00:00.612Z",
-                    "current": "delivered"
-                  },
+                  "_id": "5c9948fb6d0a665f892a25da",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
                   "amount": {
-                    "total": 250.75,
-                    "subtotal": 220,
-                    "freight": 30.75,
-                    "discount": 0
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000001",
-                  "number": 1101,
-                  "code": "P100",
-                  "status": "closed",
-                  "financial_status": {
-                    "updated_at": "2017-11-15T14:30:00.612Z",
-                    "current": "paid"
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
                   },
-                  "fulfillment_status": {
-                    "updated_at": "2017-12-02T15:40:45.612Z",
-                    "current": "delivered"
-                  },
-                  "amount": {
-                    "total": 50,
-                    "subtotal": 60,
-                    "freight": 0,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000002",
-                  "number": 1102,
-                  "code": "P200",
-                  "status": "cancelled",
-                  "financial_status": {
-                    "updated_at": "2017-11-16T03:30:00.612Z",
-                    "current": "voided"
-                  },
-                  "amount": {
-                    "total": 90.6,
-                    "subtotal": 70,
-                    "freight": 10.60,
-                    "discount": 0,
-                    "tax": 0,
-                    "extra": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000003",
-                  "number": 1103,
-                  "code": "P300",
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
                   "status": "open",
+                  "created_at": "2019-03-25T21:32:43.253Z",
+                  "number": 5857,
+                  "updated_at": "2019-03-25T21:34:08.153Z",
                   "financial_status": {
-                    "updated_at": "2017-11-17T09:10:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-11-20T12:00:45.612Z",
-                    "current": "shipped"
-                  },
-                  "amount": {
-                    "total": 110,
-                    "subtotal": 90,
-                    "freight": 30,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000004",
-                  "number": 1104,
-                  "status": "open",
-                  "financial_status": {
-                    "updated_at": "2017-11-18T10:10:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-11-19T11:00:00.612Z",
-                    "current": "invoice_issued"
-                  },
-                  "amount": {
-                    "total": 90.5,
-                    "subtotal": 90,
-                    "freight": 10.5,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000005",
-                  "number": 1105,
-                  "status": "open",
-                  "financial_status": {
-                    "updated_at": "2017-11-19T13:10:00.612Z",
+                    "updated_at": "2019-03-25T21:34:07.834Z",
                     "current": "pending"
-                  },
-                  "amount": {
-                    "total": 48.05,
-                    "subtotal": 42.9,
-                    "freight": 5.15,
-                    "discount": 0
                   }
+                },
+                {
+                  "_id": "5c994d546d0a665f892a25ee",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-03-25T21:51:16.604Z",
+                  "number": 5858,
+                  "updated_at": "2019-03-25T21:52:39.480Z",
+                  "financial_status": {
+                    "updated_at": "2019-03-25T21:52:39.159Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5c994e9d6d0a665f892a25fc",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-03-25T21:56:45.213Z",
+                  "number": 5859,
+                  "updated_at": "2019-03-25T21:58:06.700Z",
+                  "financial_status": {
+                    "updated_at": "2019-03-25T21:58:06.379Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5ca260816d0a665f892a3982",
+                  "buyers": [
+                    {
+                      "_id": "5c51af16807fd83062ab670d",
+                      "main_email": "vitorrggm@gmail.com",
+                      "display_name": "Vitor"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-04-01T19:03:29.521Z",
+                  "number": 5860,
+                  "updated_at": "2019-04-01T19:05:02.999Z",
+                  "financial_status": {
+                    "updated_at": "2019-04-01T19:05:02.679Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5ca262276d0a665f892a3994",
+                  "buyers": [
+                    {
+                      "_id": "5ca261c86d0a665f892a3990",
+                      "main_email": "vitordochurros@gmail.com",
+                      "display_name": "Vitor"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Débito Online",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-04-01T19:10:31.759Z",
+                  "number": 5861,
+                  "updated_at": "2019-04-01T19:10:33.303Z"
                 },
                 {
                   "_id": "fe1000000000000000000006",
+                  "created_at": "2019-04-01T19:10:31.759Z",
                   "number": 1106,
                   "status": "open",
                   "amount": {
