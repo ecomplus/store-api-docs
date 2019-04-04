@@ -53,6 +53,8 @@
             + `refunded` (string)
             + `voided` (string)
             + `unknown` (string)
+        + `notified_admins` (array) - List of administrators that already seen current status change - Max elements: **200**
+            + (string) - Authentication ID
     + `fulfillment_status` (object) - Fulfillment status and date of change
         + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
         + `current` (enum, required) - Order fulfillment (shipping) status
@@ -67,6 +69,8 @@
             + `returned_for_exchange` (string)
             + `received_for_exchange` (string)
             + `returned` (string)
+        + `notified_admins` (array) - List of administrators that already seen current status change - Max elements: **200**
+            + (string) - Authentication ID
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `amount` (object, required) - Object with sums of values

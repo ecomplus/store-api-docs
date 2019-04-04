@@ -317,6 +317,17 @@
                                     "unknown"
                                 ],
                                 "description": "Order financial status"
+                            },
+                            "notified_admins": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "maxItems": 200,
+                                "items": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Authentication ID"
+                                },
+                                "description": "List of administrators that already seen current status change"
                             }
                         },
                         "description": "Financial status and date of change"
@@ -349,6 +360,17 @@
                                     "returned"
                                 ],
                                 "description": "Order fulfillment (shipping) status"
+                            },
+                            "notified_admins": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "maxItems": 200,
+                                "items": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Authentication ID"
+                                },
+                                "description": "List of administrators that already seen current status change"
                             }
                         },
                         "description": "Fulfillment status and date of change"
