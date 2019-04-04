@@ -1291,36 +1291,36 @@ by particular object properties
                   "login",
                   "status",
                   "main_email",
-                  "display_name"
+                  "accepts_marketing",
+                  "display_name",
+                  "orders_count",
+                  "orders_total_value",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
                   "_id": "3c1000000000000000000001",
-                  "state": "registered",
+                  "state": "invited",
                   "enabled": true,
                   "login": true,
-                  "status": "active",
                   "main_email": "123@mail.com",
-                  "display_name": "Fulano"
+                  "display_name": "Fulano",
+                  "accepts_marketing": true,
+                  "created_at": "2019-01-21T13:53:57.065Z"
                 },
                 {
-                  "_id": "3c1000000000000000000002",
+                  "_id": "5bf563757f2ea911aecb8f6b",
                   "state": "registered",
                   "enabled": true,
                   "login": true,
-                  "status": "active",
-                  "main_email": "johndoe@mail.com",
-                  "display_name": "John"
-                },
-                {
-                  "_id": "3c1000000000000000000003",
-                  "state": "registered",
-                  "enabled": true,
-                  "login": true,
-                  "main_email": "mail@sample.ex",
-                  "display_name": "Jane"
+                  "status": "ok",
+                  "main_email": "matt@s2gmail.com",
+                  "display_name": "Matt",
+                  "accepts_marketing": false,
+                  "created_at": "2018-11-21T13:53:57.065Z"
                 },
                 {
                   "_id": "3c1000000000000000000004",
@@ -1329,7 +1329,11 @@ by particular object properties
                   "login": false,
                   "status": "untrusted",
                   "main_email": "456@mail.com",
-                  "display_name": "Richard"
+                  "display_name": "Richard",
+                  "created_at": "2019-01-30T14:05:10.010Z",
+                  "updated_at": "2019-04-01T19:03:47.719Z",
+                  "accepts_marketing": true,
+                  "orders_count": 10
                 },
                 {
                   "_id": "3c1000000000000000000005",
@@ -1338,7 +1342,12 @@ by particular object properties
                   "login": true,
                   "status": "star",
                   "main_email": "janerue@mail.ex",
-                  "display_name": "Jane Rue"
+                  "display_name": "Jane Rue",
+                  "created_at": "2019-01-30T14:05:10.010Z",
+                  "updated_at": "2019-04-01T19:03:47.719Z",
+                  "accepts_marketing": true,
+                  "orders_count": 2,
+                  "orders_total_value": 1535
                 },
                 {
                   "_id": "3c1000000000000000000006",
@@ -1347,7 +1356,12 @@ by particular object properties
                   "login": false,
                   "status": "buy_only",
                   "main_email": "abc@mail.com",
-                  "display_name": "Name"
+                  "display_name": "Name",
+                  "created_at": "2019-04-01T19:08:56.371Z",
+                  "updated_at": "2019-04-01T19:11:03.398Z",
+                  "accepts_marketing": false,
+                  "orders_count": 1,
+                  "orders_total_value": 767.5
                 }
               ]
             }

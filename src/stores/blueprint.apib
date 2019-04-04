@@ -30,6 +30,9 @@ shop main informations and IDs of saved documents
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `brand_colors` (object) - Main colors to compose shop's visual identity
+        + `primary` (string) - Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
+        + `secondary` (string) - Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
     + `contact_phone` (string) - Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `contact_cellphone` (string) - Secondary public contact phone, commonly a cell phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**
@@ -175,6 +178,23 @@ shop main informations and IDs of saved documents
                         },
                         "description": "Image link to shop's logo"
                     },
+                    "brand_colors": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "primary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Primary color RGB code with #"
+                            },
+                            "secondary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Secondary color RGB code with #"
+                            }
+                        },
+                        "description": "Main colors to compose shop's visual identity"
+                    },
                     "contact_phone": {
                         "type": "string",
                         "maxLength": 19,
@@ -270,6 +290,10 @@ and `languages` properties
               "logo": {
                 "url": "https://sample.shop.eg/assets/logo.png",
                 "size": "120x80"
+              },
+              "brand_colors": {
+                "primary": "#03a9b3",
+                "secondary": "#ffffff"
               }
             }
 
@@ -303,32 +327,6 @@ but in this case there are no required fields
               "_id": "5a674f224e0dcec2c3353d9d",
               "created_at": "2017-11-19T13:10:00.612Z",
               "store_id": 100,
-              "resources": {
-                "products": [
-                  "1234567890abcdef01291510",
-                  "1234567890abcdef01291511",
-                  "1234567890abcdef01291512"
-                ],
-                "brands": [
-                  "a10000000000000000001110",
-                  "a10000000000000000001111",
-                  "a10000000000000000001112",
-                  "a10000000000000000001113",
-                  "a10000000000000000001114",
-                  "a10000000000000000001115"
-                ],
-                "categories": [
-                  "b10000000000000000001110",
-                  "b10000000000000000001111",
-                  "b10000000000000000001112",
-                  "b10000000000000000001113",
-                  "b10000000000000000001114"
-                ],
-                "orders": [
-                  "fe1000000000000000000000",
-                  "fe1000000000000000000001"
-                ]
-              },
               "name": "Minha Loja Online",
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               "segment_id": 23,
@@ -344,6 +342,10 @@ but in this case there are no required fields
               "logo": {
                 "url": "https://sample.shop.eg/assets/logo.png",
                 "size": "120x80"
+              },
+              "brand_colors": {
+                "primary": "#03a9b3",
+                "secondary": "#ffffff"
               }
             }
 

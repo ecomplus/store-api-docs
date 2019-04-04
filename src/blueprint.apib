@@ -4947,7 +4947,10 @@ by particular object properties
                   "_id",
                   "name",
                   "slug",
-                  "parent"
+                  "parent",
+                  "icon",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
@@ -4955,7 +4958,13 @@ by particular object properties
                 {
                   "_id": "b10000000000000000001110",
                   "name": "Category 0",
-                  "slug": "category-zero"
+                  "slug": "category-zero",
+                  "icon": {
+                    "url": "https://sample.shop.eg/assets/category.svg",
+                    "size": "60x60"
+                  },
+                  "updated_at": "2019-02-22T13:36:06.547Z",
+                  "created_at": "2019-02-22T13:36:06.547Z"
                 },
                 {
                   "_id": "b10000000000000000001111",
@@ -4965,7 +4974,8 @@ by particular object properties
                     "_id": "b10000000000000000001110",
                     "name": "Category 0",
                     "slug": "category-zero"
-                  }
+                  },
+                  "created_at": "2019-02-22T14:43:40.647Z"
                 },
                 {
                   "_id": "b10000000000000000001112",
@@ -4975,7 +4985,8 @@ by particular object properties
                     "_id": "b10000000000000000001111",
                     "name": "Category 1",
                     "slug": "category-one"
-                  }
+                  },
+                  "created_at": "2019-02-22T16:00:49.671Z"
                 },
                 {
                   "_id": "b10000000000000000001113",
@@ -4985,7 +4996,9 @@ by particular object properties
                     "_id": "b10000000000000000001112",
                     "name": "Category 2",
                     "slug": "category-two"
-                  }
+                  },
+                  "updated_at": "2019-02-22T13:36:06.547Z",
+                  "created_at": "2019-02-22T13:36:06.547Z"
                 },
                 {
                   "_id": "b10000000000000000001114",
@@ -4995,12 +5008,14 @@ by particular object properties
                     "_id": "b10000000000000000001113",
                     "name": "Category 3",
                     "slug": "category-three"
-                  }
+                  },
+                  "created_at": "2019-02-22T16:00:49.671Z"
                 },
                 {
                   "_id": "b10000000000000000001115",
                   "name": "Category 5",
-                  "slug": "category-five"
+                  "slug": "category-five",
+                  "created_at": "2019-02-22T14:41:59.607Z"
                 },
                 {
                   "_id": "b10000000000000000001116",
@@ -5010,7 +5025,8 @@ by particular object properties
                     "_id": "b10000000000000000001115",
                     "name": "Category 5",
                     "slug": "category-five"
-                  }
+                  },
+                  "created_at": "2019-02-22T14:41:01.323Z"
                 },
                 {
                   "_id": "f10000000000000000000001",
@@ -5020,7 +5036,8 @@ by particular object properties
                     "_id": "b10000000000000000001110",
                     "name": "Category 0",
                     "slug": "category-zero"
-                  }
+                  },
+                  "created_at": "2019-02-22T16:01:38.850Z"
                 }
               ]
             }
@@ -6290,40 +6307,97 @@ by particular object properties
                 "fields": [
                   "_id",
                   "title",
-                  "grid_id"
+                  "grid_id",
+                  "options.option_id",
+                  "options.text",
+                  "options.colors",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
-                  "_id": "9d1500000000000000001110",
-                  "title": "Custom grid",
-                  "grid_id": "custom_grid"
+                  "_id": "5c81415cc626be23430d50be",
+                  "title": "Connector",
+                  "grid_id": "conector",
+                  "options": [
+                    {
+                      "text": "P2",
+                      "option_id": "p2"
+                    },
+                    {
+                      "text": "USB",
+                      "option_id": "usb"
+                    }
+                  ],
+                  "updated_at": "2019-03-07T19:56:39.024Z",
+                  "created_at": "2019-03-07T19:56:39.024Z"
                 },
                 {
-                  "_id": "9d1500000000000000001111",
-                  "title": "Smartphone model",
-                  "grid_id": "smartphone_model"
+                  "_id": "5c8141b6c626be23430d50c3",
+                  "title": "DPI",
+                  "grid_id": "dpi",
+                  "options": [
+                    {
+                      "text": "16400",
+                      "option_id": "16400"
+                    },
+                    {
+                      "text": "4000",
+                      "option_id": "4000"
+                    },
+                    {
+                      "text": "6000",
+                      "option_id": "6000"
+                    }
+                  ],
+                  "updated_at": "2019-03-07T19:47:34.185Z",
+                  "created_at": "2019-03-07T19:47:34.185Z"
                 },
                 {
-                  "_id": "9d1500000000000000001112",
-                  "title": "Include glass film",
-                  "grid_id": "glass_film"
-                },
-                {
-                  "_id": "9d1500000000000000001113",
-                  "title": "Gender",
-                  "grid_id": "gender"
-                },
-                {
-                  "_id": "9d1500000000000000001114",
-                  "title": "Shirt size",
-                  "grid_id": "size"
-                },
-                {
-                  "_id": "9d1500000000000000001115",
+                  "_id": "5c8151d2c626be23430d50cc",
                   "title": "Colors",
-                  "grid_id": "colors"
+                  "grid_id": "colors",
+                  "options": [
+                    {
+                      "text": "White",
+                      "option_id": "white",
+                      "colors": [
+                        "#ffffff"
+                      ]
+                    },
+                    {
+                      "text": "Yellow",
+                      "option_id": "yellow",
+                      "colors": [
+                        "#ffcc00"
+                      ]
+                    },
+                    {
+                      "text": "Purple",
+                      "option_id": "purple",
+                      "colors": [
+                        "#c400ff"
+                      ]
+                    },
+                    {
+                      "text": "Green",
+                      "option_id": "green",
+                      "colors": [
+                        "#09ff00"
+                      ]
+                    },
+                    {
+                      "text": "Wood",
+                      "option_id": "wood",
+                      "colors": [
+                        "#852100"
+                      ]
+                    }
+                  ],
+                  "updated_at": "2019-03-07T20:21:10.081Z",
+                  "created_at": "2019-03-07T20:21:10.081Z"
                 }
               ]
             }
@@ -7920,36 +7994,36 @@ by particular object properties
                   "login",
                   "status",
                   "main_email",
-                  "display_name"
+                  "accepts_marketing",
+                  "display_name",
+                  "orders_count",
+                  "orders_total_value",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
                   "_id": "3c1000000000000000000001",
-                  "state": "registered",
+                  "state": "invited",
                   "enabled": true,
                   "login": true,
-                  "status": "active",
                   "main_email": "123@mail.com",
-                  "display_name": "Fulano"
+                  "display_name": "Fulano",
+                  "accepts_marketing": true,
+                  "created_at": "2019-01-21T13:53:57.065Z"
                 },
                 {
-                  "_id": "3c1000000000000000000002",
+                  "_id": "5bf563757f2ea911aecb8f6b",
                   "state": "registered",
                   "enabled": true,
                   "login": true,
-                  "status": "active",
-                  "main_email": "johndoe@mail.com",
-                  "display_name": "John"
-                },
-                {
-                  "_id": "3c1000000000000000000003",
-                  "state": "registered",
-                  "enabled": true,
-                  "login": true,
-                  "main_email": "mail@sample.ex",
-                  "display_name": "Jane"
+                  "status": "ok",
+                  "main_email": "matt@s2gmail.com",
+                  "display_name": "Matt",
+                  "accepts_marketing": false,
+                  "created_at": "2018-11-21T13:53:57.065Z"
                 },
                 {
                   "_id": "3c1000000000000000000004",
@@ -7958,7 +8032,11 @@ by particular object properties
                   "login": false,
                   "status": "untrusted",
                   "main_email": "456@mail.com",
-                  "display_name": "Richard"
+                  "display_name": "Richard",
+                  "created_at": "2019-01-30T14:05:10.010Z",
+                  "updated_at": "2019-04-01T19:03:47.719Z",
+                  "accepts_marketing": true,
+                  "orders_count": 10
                 },
                 {
                   "_id": "3c1000000000000000000005",
@@ -7967,7 +8045,12 @@ by particular object properties
                   "login": true,
                   "status": "star",
                   "main_email": "janerue@mail.ex",
-                  "display_name": "Jane Rue"
+                  "display_name": "Jane Rue",
+                  "created_at": "2019-01-30T14:05:10.010Z",
+                  "updated_at": "2019-04-01T19:03:47.719Z",
+                  "accepts_marketing": true,
+                  "orders_count": 2,
+                  "orders_total_value": 1535
                 },
                 {
                   "_id": "3c1000000000000000000006",
@@ -7976,7 +8059,12 @@ by particular object properties
                   "login": false,
                   "status": "buy_only",
                   "main_email": "abc@mail.com",
-                  "display_name": "Name"
+                  "display_name": "Name",
+                  "created_at": "2019-04-01T19:08:56.371Z",
+                  "updated_at": "2019-04-01T19:11:03.398Z",
+                  "accepts_marketing": false,
+                  "orders_count": 1,
+                  "orders_total_value": 767.5
                 }
               ]
             }
@@ -9091,70 +9179,82 @@ by particular object properties
                   "_id",
                   "available",
                   "completed",
-                  "subtotal"
+                  "permalink",
+                  "status",
+                  "customers",
+                  "items.product_id",
+                  "items.sku",
+                  "items.name",
+                  "items.quantity",
+                  "subtotal",
+                  "discount",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
-                  "_id": "2ca000000000000000000001",
+                  "_id": "5c6b159ec626be23430d4e87",
                   "available": true,
                   "completed": false,
-                  "subtotal": 102.90
+                  "items": [
+                    {
+                      "sku": "IPZ7060-613-1",
+                      "product_id": "5bbbb3ea2707d825d174c0c5",
+                      "quantity": 168,
+                      "name": "T-Shirt / S"
+                    },
+                    {
+                      "sku": "IPZ7060-507-2",
+                      "product_id": "5bbbb3ea2707d825d174c0c5",
+                      "quantity": 168,
+                      "name": "T-Shirt / M"
+                    }
+                  ],
+                  "subtotal": 4200,
+                  "status": "Production",
+                  "updated_at": "2019-02-18T20:33:04.856Z",
+                  "created_at": "2019-02-18T20:33:04.856Z"
                 },
                 {
-                  "_id": "2ca000000000000000000002",
-                  "available": true,
-                  "completed": true,
-                  "subtotal": 50.75
-                },
-                {
-                  "_id": "2ca000000000000000000003",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 171.60
-                },
-                {
-                  "_id": "2ca000000000000000000004",
-                  "available": false,
-                  "completed": true,
-                  "subtotal": 85.80
-                },
-                {
-                  "_id": "2ca000000000000000000005",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 100
-                },
-                {
-                  "_id": "2ca000000000000000000006",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 102.90
-                },
-                {
-                  "_id": "2ca000000000000000000007",
-                  "available": false,
-                  "completed": false,
-                  "subtotal": 101.90
-                },
-                {
-                  "_id": "2ca000000000000000000008",
-                  "available": true,
-                  "completed": true,
-                  "subtotal": 60
-                },
-                {
-                  "_id": "2ca000000000000000000009",
+                  "_id": "5c70531ac626be23430d5047",
+                  "items": [
+                    {
+                      "product_id": "5c703e79c626be23430d5038",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 16005.51,
                   "available": true,
                   "completed": false,
-                  "subtotal": 400
+                  "created_at": "2019-02-22T19:52:58.033Z"
                 },
                 {
-                  "_id": "2ca000000000000000000000",
+                  "_id": "5c9902976d0a665f892a250a",
+                  "items": [
+                    {
+                      "product_id": "5c703e79c626be23430d5038",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 16005.51,
                   "available": true,
                   "completed": false,
-                  "subtotal": 220.45
+                  "created_at": "2019-03-25T16:32:23.703Z"
+                },
+                {
+                  "_id": "5c9904476d0a665f892a250f",
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 820.14,
+                  "available": true,
+                  "completed": false,
+                  "created_at": "2019-03-25T16:39:35.044Z"
                 }
               ]
             }
@@ -9555,6 +9655,8 @@ order subresources directly at this resource
             + `refunded` (string)
             + `voided` (string)
             + `unknown` (string)
+        + `notified_admins` (array) - List of administrators that already seen current status change - Max elements: **200**
+            + (string) - Authentication ID
     + `fulfillment_status` (object) - Fulfillment status and date of change
         + `updated_at` (string) - Last status change, date and time in ISO 8601 standard representation - Format: **date-time**
         + `current` (enum, required) - Order fulfillment (shipping) status
@@ -9569,6 +9671,8 @@ order subresources directly at this resource
             + `returned_for_exchange` (string)
             + `received_for_exchange` (string)
             + `returned` (string)
+        + `notified_admins` (array) - List of administrators that already seen current status change - Max elements: **200**
+            + (string) - Authentication ID
     + `currency_id`: BRL (string) - Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**
     + `currency_symbol`: R$ (string) - Graphic symbol used as a shorthand for currency's name - Max length: **20**
     + `amount` (object, required) - Object with sums of values
@@ -10362,6 +10466,17 @@ order subresources directly at this resource
                                     "unknown"
                                 ],
                                 "description": "Order financial status"
+                            },
+                            "notified_admins": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "maxItems": 200,
+                                "items": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Authentication ID"
+                                },
+                                "description": "List of administrators that already seen current status change"
                             }
                         },
                         "description": "Financial status and date of change"
@@ -10394,6 +10509,17 @@ order subresources directly at this resource
                                     "returned"
                                 ],
                                 "description": "Order fulfillment (shipping) status"
+                            },
+                            "notified_admins": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "maxItems": 200,
+                                "items": {
+                                    "type": "string",
+                                    "pattern": "^[a-f0-9]{24}$",
+                                    "description": "Authentication ID"
+                                },
+                                "description": "List of administrators that already seen current status change"
                             }
                         },
                         "description": "Fulfillment status and date of change"
@@ -12485,130 +12611,205 @@ by particular object properties
                 "sort": [],
                 "fields": [
                   "_id",
+                  "source_name",
+                  "channel_id",
                   "number",
                   "code",
                   "status",
-                  "financial_status",
-                  "fulfillment_status",
-                  "amount"
+                  "financial_status.updated_at",
+                  "financial_status.current",
+                  "fulfillment_status.updated_at",
+                  "fulfillment_status.current",
+                  "amount",
+                  "payment_method_label",
+                  "shipping_method_label",
+                  "buyers._id",
+                  "buyers.main_email",
+                  "buyers.display_name",
+                  "items.product_id",
+                  "items.sku",
+                  "items.name",
+                  "items.quantity",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
-                  "_id": "fe1000000000000000000000",
-                  "number": 1100,
-                  "code": "N1100",
-                  "status": "closed",
-                  "financial_status": {
-                    "updated_at": "2017-11-15T14:30:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-12-01T18:00:00.612Z",
-                    "current": "delivered"
-                  },
+                  "_id": "5c9948fb6d0a665f892a25da",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
                   "amount": {
-                    "total": 250.75,
-                    "subtotal": 220,
-                    "freight": 30.75,
-                    "discount": 0
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000001",
-                  "number": 1101,
-                  "code": "P100",
-                  "status": "closed",
-                  "financial_status": {
-                    "updated_at": "2017-11-15T14:30:00.612Z",
-                    "current": "paid"
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
                   },
-                  "fulfillment_status": {
-                    "updated_at": "2017-12-02T15:40:45.612Z",
-                    "current": "delivered"
-                  },
-                  "amount": {
-                    "total": 50,
-                    "subtotal": 60,
-                    "freight": 0,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000002",
-                  "number": 1102,
-                  "code": "P200",
-                  "status": "cancelled",
-                  "financial_status": {
-                    "updated_at": "2017-11-16T03:30:00.612Z",
-                    "current": "voided"
-                  },
-                  "amount": {
-                    "total": 90.6,
-                    "subtotal": 70,
-                    "freight": 10.60,
-                    "discount": 0,
-                    "tax": 0,
-                    "extra": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000003",
-                  "number": 1103,
-                  "code": "P300",
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
                   "status": "open",
+                  "created_at": "2019-03-25T21:32:43.253Z",
+                  "number": 5857,
+                  "updated_at": "2019-03-25T21:34:08.153Z",
                   "financial_status": {
-                    "updated_at": "2017-11-17T09:10:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-11-20T12:00:45.612Z",
-                    "current": "shipped"
-                  },
-                  "amount": {
-                    "total": 110,
-                    "subtotal": 90,
-                    "freight": 30,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000004",
-                  "number": 1104,
-                  "status": "open",
-                  "financial_status": {
-                    "updated_at": "2017-11-18T10:10:00.612Z",
-                    "current": "paid"
-                  },
-                  "fulfillment_status": {
-                    "updated_at": "2017-11-19T11:00:00.612Z",
-                    "current": "invoice_issued"
-                  },
-                  "amount": {
-                    "total": 90.5,
-                    "subtotal": 90,
-                    "freight": 10.5,
-                    "discount": 10
-                  }
-                },
-                {
-                  "_id": "fe1000000000000000000005",
-                  "number": 1105,
-                  "status": "open",
-                  "financial_status": {
-                    "updated_at": "2017-11-19T13:10:00.612Z",
+                    "updated_at": "2019-03-25T21:34:07.834Z",
                     "current": "pending"
-                  },
-                  "amount": {
-                    "total": 48.05,
-                    "subtotal": 42.9,
-                    "freight": 5.15,
-                    "discount": 0
                   }
+                },
+                {
+                  "_id": "5c994d546d0a665f892a25ee",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-03-25T21:51:16.604Z",
+                  "number": 5858,
+                  "updated_at": "2019-03-25T21:52:39.480Z",
+                  "financial_status": {
+                    "updated_at": "2019-03-25T21:52:39.159Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5c994e9d6d0a665f892a25fc",
+                  "buyers": [
+                    {
+                      "_id": "5bb3747e2707d825d174c094",
+                      "main_email": "leomp120894@gmail.com",
+                      "display_name": "Léo"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-03-25T21:56:45.213Z",
+                  "number": 5859,
+                  "updated_at": "2019-03-25T21:58:06.700Z",
+                  "financial_status": {
+                    "updated_at": "2019-03-25T21:58:06.379Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5ca260816d0a665f892a3982",
+                  "buyers": [
+                    {
+                      "_id": "5c51af16807fd83062ab670d",
+                      "main_email": "vitorrggm@gmail.com",
+                      "display_name": "Vitor"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Boleto Bancário",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-04-01T19:03:29.521Z",
+                  "number": 5860,
+                  "updated_at": "2019-04-01T19:05:02.999Z",
+                  "financial_status": {
+                    "updated_at": "2019-04-01T19:05:02.679Z",
+                    "current": "pending"
+                  }
+                },
+                {
+                  "_id": "5ca262276d0a665f892a3994",
+                  "buyers": [
+                    {
+                      "_id": "5ca261c86d0a665f892a3990",
+                      "main_email": "vitordochurros@gmail.com",
+                      "display_name": "Vitor"
+                    }
+                  ],
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1,
+                      "sku": "smtp-xomi-09876",
+                      "name": "Smartphone Xiaomi Redmi S2 64GB Versão Global Desbloqueado"
+                    }
+                  ],
+                  "amount": {
+                    "total": 767.516,
+                    "subtotal": 820.14,
+                    "discount": 82.014,
+                    "freight": 29.39
+                  },
+                  "shipping_method_label": ".Com",
+                  "payment_method_label": "Débito Online",
+                  "source_name": "Web",
+                  "status": "open",
+                  "created_at": "2019-04-01T19:10:31.759Z",
+                  "number": 5861,
+                  "updated_at": "2019-04-01T19:10:33.303Z"
                 },
                 {
                   "_id": "fe1000000000000000000006",
+                  "created_at": "2019-04-01T19:10:31.759Z",
                   "number": 1106,
                   "status": "open",
                   "amount": {
@@ -15270,6 +15471,9 @@ shop main informations and IDs of saved documents
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `brand_colors` (object) - Main colors to compose shop's visual identity
+        + `primary` (string) - Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
+        + `secondary` (string) - Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
     + `contact_phone` (string) - Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `contact_cellphone` (string) - Secondary public contact phone, commonly a cell phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `languages` (array) - List of available languages on store channels - Max elements: **30**
@@ -15415,6 +15619,23 @@ shop main informations and IDs of saved documents
                         },
                         "description": "Image link to shop's logo"
                     },
+                    "brand_colors": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "primary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Primary color RGB code with #"
+                            },
+                            "secondary": {
+                                "type": "string",
+                                "pattern": "^#[a-f0-9]{6}$",
+                                "description": "Secondary color RGB code with #"
+                            }
+                        },
+                        "description": "Main colors to compose shop's visual identity"
+                    },
                     "contact_phone": {
                         "type": "string",
                         "maxLength": 19,
@@ -15510,6 +15731,10 @@ and `languages` properties
               "logo": {
                 "url": "https://sample.shop.eg/assets/logo.png",
                 "size": "120x80"
+              },
+              "brand_colors": {
+                "primary": "#03a9b3",
+                "secondary": "#ffffff"
               }
             }
 
@@ -15543,32 +15768,6 @@ but in this case there are no required fields
               "_id": "5a674f224e0dcec2c3353d9d",
               "created_at": "2017-11-19T13:10:00.612Z",
               "store_id": 100,
-              "resources": {
-                "products": [
-                  "1234567890abcdef01291510",
-                  "1234567890abcdef01291511",
-                  "1234567890abcdef01291512"
-                ],
-                "brands": [
-                  "a10000000000000000001110",
-                  "a10000000000000000001111",
-                  "a10000000000000000001112",
-                  "a10000000000000000001113",
-                  "a10000000000000000001114",
-                  "a10000000000000000001115"
-                ],
-                "categories": [
-                  "b10000000000000000001110",
-                  "b10000000000000000001111",
-                  "b10000000000000000001112",
-                  "b10000000000000000001113",
-                  "b10000000000000000001114"
-                ],
-                "orders": [
-                  "fe1000000000000000000000",
-                  "fe1000000000000000000001"
-                ]
-              },
               "name": "Minha Loja Online",
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               "segment_id": 23,
@@ -15584,6 +15783,10 @@ but in this case there are no required fields
               "logo": {
                 "url": "https://sample.shop.eg/assets/logo.png",
                 "size": "120x80"
+              },
+              "brand_colors": {
+                "primary": "#03a9b3",
+                "secondary": "#ffffff"
               }
             }
 

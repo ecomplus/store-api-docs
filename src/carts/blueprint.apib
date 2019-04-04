@@ -606,70 +606,82 @@ by particular object properties
                   "_id",
                   "available",
                   "completed",
-                  "subtotal"
+                  "permalink",
+                  "status",
+                  "customers",
+                  "items.product_id",
+                  "items.sku",
+                  "items.name",
+                  "items.quantity",
+                  "subtotal",
+                  "discount",
+                  "created_at",
+                  "updated_at"
                 ],
                 "query": {}
               },
               "result": [
                 {
-                  "_id": "2ca000000000000000000001",
+                  "_id": "5c6b159ec626be23430d4e87",
                   "available": true,
                   "completed": false,
-                  "subtotal": 102.90
+                  "items": [
+                    {
+                      "sku": "IPZ7060-613-1",
+                      "product_id": "5bbbb3ea2707d825d174c0c5",
+                      "quantity": 168,
+                      "name": "T-Shirt / S"
+                    },
+                    {
+                      "sku": "IPZ7060-507-2",
+                      "product_id": "5bbbb3ea2707d825d174c0c5",
+                      "quantity": 168,
+                      "name": "T-Shirt / M"
+                    }
+                  ],
+                  "subtotal": 4200,
+                  "status": "Production",
+                  "updated_at": "2019-02-18T20:33:04.856Z",
+                  "created_at": "2019-02-18T20:33:04.856Z"
                 },
                 {
-                  "_id": "2ca000000000000000000002",
-                  "available": true,
-                  "completed": true,
-                  "subtotal": 50.75
-                },
-                {
-                  "_id": "2ca000000000000000000003",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 171.60
-                },
-                {
-                  "_id": "2ca000000000000000000004",
-                  "available": false,
-                  "completed": true,
-                  "subtotal": 85.80
-                },
-                {
-                  "_id": "2ca000000000000000000005",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 100
-                },
-                {
-                  "_id": "2ca000000000000000000006",
-                  "available": true,
-                  "completed": false,
-                  "subtotal": 102.90
-                },
-                {
-                  "_id": "2ca000000000000000000007",
-                  "available": false,
-                  "completed": false,
-                  "subtotal": 101.90
-                },
-                {
-                  "_id": "2ca000000000000000000008",
-                  "available": true,
-                  "completed": true,
-                  "subtotal": 60
-                },
-                {
-                  "_id": "2ca000000000000000000009",
+                  "_id": "5c70531ac626be23430d5047",
+                  "items": [
+                    {
+                      "product_id": "5c703e79c626be23430d5038",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 16005.51,
                   "available": true,
                   "completed": false,
-                  "subtotal": 400
+                  "created_at": "2019-02-22T19:52:58.033Z"
                 },
                 {
-                  "_id": "2ca000000000000000000000",
+                  "_id": "5c9902976d0a665f892a250a",
+                  "items": [
+                    {
+                      "product_id": "5c703e79c626be23430d5038",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 16005.51,
                   "available": true,
                   "completed": false,
-                  "subtotal": 220.45
+                  "created_at": "2019-03-25T16:32:23.703Z"
+                },
+                {
+                  "_id": "5c9904476d0a665f892a250f",
+                  "items": [
+                    {
+                      "product_id": "5c768fcfc626be23430d5090",
+                      "quantity": 1
+                    }
+                  ],
+                  "subtotal": 820.14,
+                  "available": true,
+                  "completed": false,
+                  "created_at": "2019-03-25T16:39:35.044Z"
                 }
               ]
             }
