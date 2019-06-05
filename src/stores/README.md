@@ -23,6 +23,7 @@ Response body will follow
 [this model](#reference/stores/store-object), but only with public data,
 returning `_id`, `store_id`, `name`, `description`, `segment_id`,
 `contact_email`, `referral_id`, `partner_id`, `logo`,
+`domain`, `homepage`, `brand_colors`,
 `contact_phone`, `contact_cellphone`
 and `languages` properties
 
