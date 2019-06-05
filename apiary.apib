@@ -15474,6 +15474,8 @@ shop main informations and IDs of saved documents
         + `url` (string, required) - Image link - Max length: **255** - Format: **uri**
         + `size` (string) - Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**
         + `alt` (string) - Alternative text, HTML alt tag (important for SEO) - Max length: **255**
+    + `domain` (string) - Preferred sales channel domain name, with subdomain if any - Min length: **4** - Max length: **255** - RegEx pattern: **`^[0-9a-z-.]+$`**
+    + `homepage` (string) - Preferred shop homepage link (full URI) - Max length: **255** - Format: **uri**
     + `brand_colors` (object) - Main colors to compose shop's visual identity
         + `primary` (string) - Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
         + `secondary` (string) - Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**
@@ -15622,6 +15624,19 @@ shop main informations and IDs of saved documents
                         },
                         "description": "Image link to shop's logo"
                     },
+                    "domain": {
+                        "type": "string",
+                        "minLength": 4,
+                        "maxLength": 255,
+                        "pattern": "^[0-9a-z-.]+$",
+                        "description": "Preferred sales channel domain name, with subdomain if any"
+                    },
+                    "homepage": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "format": "uri",
+                        "description": "Preferred shop homepage link (full URI)"
+                    },
                     "brand_colors": {
                         "type": "object",
                         "additionalProperties": false,
@@ -15704,6 +15719,7 @@ Response body will follow
 [this model](#reference/stores/store-object), but only with public data,
 returning `_id`, `store_id`, `name`, `description`, `segment_id`,
 `contact_email`, `referral_id`, `partner_id`, `logo`,
+`domain`, `homepage`, `brand_colors`,
 `contact_phone`, `contact_cellphone`
 and `languages` properties
 
