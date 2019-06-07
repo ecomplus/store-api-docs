@@ -310,6 +310,30 @@ application subresources directly at this resource
                                     "description": "Methods to be used (HTTP verbs)"
                                 },
                                 "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                            },
+                            "authentications": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "GET"
+                                    ],
+                                    "description": "For authentications, only GET method is allowed"
+                                },
+                                "description": "Special scope to read authentications"
+                            },
+                            "authentications/notifications": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "POST"
+                                    ],
+                                    "description": "For admin notifictions, only POST method is allowed"
+                                },
+                                "description": "Special scope to create admin notifications"
                             }
                         },
                         "description": "If this app uses authentication, list the needed permissions"
