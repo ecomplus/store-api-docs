@@ -58,6 +58,12 @@
                 + `PATCH` (string)
                 + `PUT` (string)
                 + `DELETE` (string)
+        + `authentications` (array) - Special scope to read authentications
+            + (enum) - For authentications, only GET method is allowed
+                + `GET` (string)
+        + `authentications/notifications` (array) - Special scope to create admin notifications
+            + (enum) - For admin notifictions, only POST method is allowed
+                + `POST` (string)
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
