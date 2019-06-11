@@ -13807,6 +13807,12 @@ application subresources directly at this resource
                 + `PATCH` (string)
                 + `PUT` (string)
                 + `DELETE` (string)
+        + `authentications` (array) - Special scope to read authentications
+            + (enum) - For authentications, only GET method is allowed
+                + `GET` (string)
+        + `authentications/notifications` (array) - Special scope to create admin notifications
+            + (enum) - For admin notifictions, only POST method is allowed
+                + `POST` (string)
     + `flags` (array) - Flags to associate additional info - Max elements: **10**
         + (string) - Flag title
     + `notes` (string) - Optional notes with additional info about this user - Max length: **255**
@@ -15870,6 +15876,36 @@ Users created from this resource should authenticate with API by
     + `name` (string) - User full name - Max length: **255**
     + `phone` (string) - User phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**
     + `pass_md5_hash` (string) - MD5 hash generated with the user's password - RegEx pattern: **`^[a-f0-9]{32}$`**
+    + `notifications` (array) - List of notifications for current admin user - Max elements: **500**
+        + (object) - Notification object
+            + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `datetime` (string, required) - Date and time of the notified event, in the ISO 8601 standard representation - Format: **date-time**
+            + `read`: false (boolean) - Whether notification was read
+            + `type`: info (enum) - Notification urgency type (and color)
+                + `danger` (string)
+                + `warning` (string)
+                + `success` (string)
+                + `info` (string)
+            + `content` (object, required) - Content for notification body - Min properties: **1**
+                + `text_i18n` (object) - Default notification text translations, optional if API event is specified - Max properties: **10**
+                    + `^[a-z]{2}(_[a-z]{2})?$` (string) - Translated notification text - Max length: **255**
+                + `api_event` (object) - Store API event related to current notification
+                    + `action` (enum, required) - Type of action taken
+                        + `create` (string)
+                        + `change` (string)
+                        + `delete` (string)
+                    + `resource` (enum, required) - Related API resource
+                        + `authentications` (string)
+                        + `products` (string)
+                        + `categories` (string)
+                        + `brands` (string)
+                        + `collections` (string)
+                        + `grids` (string)
+                        + `customers` (string)
+                        + `carts` (string)
+                        + `orders` (string)
+                        + `applications` (string)
+                    + `resource_id` (string, required) - Related resource ID (to be linked) - RegEx pattern: **`^[a-f0-9]{24}$`**
     + `panel_preferences` (object) - User preferences in the admin dashboard - Max properties: **100**
         + `^[a-z0-9_]+$`: true (boolean) - Boolean option value
     + `panel_shortcuts` (object) - Keyboard shortcuts, keys separated by `+` as property name - Max properties: **100**
@@ -15967,12 +16003,13 @@ Users created from this resource should authenticate with API by
                     },
                     "notifications": {
                         "type": "array",
-                        "maxItems": 1000,
+                        "maxItems": 500,
                         "items": {
                             "type": "object",
                             "required": [
                                 "_id",
-                                "text"
+                                "datetime",
+                                "content"
                             ],
                             "additionalProperties": false,
                             "properties": {
@@ -15981,15 +16018,15 @@ Users created from this resource should authenticate with API by
                                     "pattern": "^[a-f0-9]{24}$",
                                     "description": "Unique ID (ObjectID)"
                                 },
+                                "datetime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Date and time of the notified event, in the ISO 8601 standard representation"
+                                },
                                 "read": {
                                     "type": "boolean",
                                     "default": false,
                                     "description": "Whether notification was read"
-                                },
-                                "text": {
-                                    "type": "string",
-                                    "maxLength": 255,
-                                    "description": "Notification text"
                                 },
                                 "type": {
                                     "type": "string",
@@ -16002,21 +16039,68 @@ Users created from this resource should authenticate with API by
                                     ],
                                     "description": "Notification urgency type (and color)"
                                 },
-                                "resource": {
-                                    "type": "string",
-                                    "enum": [
-                                        "authentications",
-                                        "products",
-                                        "categories",
-                                        "brands",
-                                        "collections",
-                                        "grids",
-                                        "customers",
-                                        "carts",
-                                        "orders",
-                                        "applications"
-                                    ],
-                                    "description": "Related API resource"
+                                "content": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "properties": {
+                                        "text_i18n": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "maxProperties": 10,
+                                            "patternProperties": {
+                                                "^[a-z]{2}(_[a-z]{2})?$": {
+                                                    "type": "string",
+                                                    "maxLength": 255,
+                                                    "description": "Translated notification text"
+                                                }
+                                            },
+                                            "description": "Default notification text translations, optional if API event is specified"
+                                        },
+                                        "api_event": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "required": [
+                                                "action",
+                                                "resource",
+                                                "resource_id"
+                                            ],
+                                            "properties": {
+                                                "action": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "create",
+                                                        "change",
+                                                        "delete"
+                                                    ],
+                                                    "description": "Type of action taken"
+                                                },
+                                                "resource": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "authentications",
+                                                        "products",
+                                                        "categories",
+                                                        "brands",
+                                                        "collections",
+                                                        "grids",
+                                                        "customers",
+                                                        "carts",
+                                                        "orders",
+                                                        "applications"
+                                                    ],
+                                                    "description": "Related API resource"
+                                                },
+                                                "resource_id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-f0-9]{24}$",
+                                                    "description": "Related resource ID (to be linked)"
+                                                }
+                                            },
+                                            "description": "Store API event related to current notification"
+                                        }
+                                    },
+                                    "description": "Content for notification body"
                                 }
                             },
                             "description": "Notification object"

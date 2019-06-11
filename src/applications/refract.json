@@ -936,6 +936,64 @@
                                       ]
                                     }
                                   }
+                                },
+                                {
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Special scope to read authentications"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "authentications"
+                                    },
+                                    "value": {
+                                      "element": "array",
+                                      "content": [
+                                        {
+                                          "element": "enum",
+                                          "meta": {
+                                            "description": "For authentications, only GET method is allowed"
+                                          },
+                                          "content": [
+                                            {
+                                              "element": "string",
+                                              "content": "GET"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Special scope to create admin notifications"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "authentications/notifications"
+                                    },
+                                    "value": {
+                                      "element": "array",
+                                      "content": [
+                                        {
+                                          "element": "enum",
+                                          "meta": {
+                                            "description": "For admin notifictions, only POST method is allowed"
+                                          },
+                                          "content": [
+                                            {
+                                              "element": "string",
+                                              "content": "POST"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
                                 }
                               ]
                             }

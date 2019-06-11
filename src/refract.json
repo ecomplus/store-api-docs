@@ -30642,6 +30642,64 @@
                                       ]
                                     }
                                   }
+                                },
+                                {
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Special scope to read authentications"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "authentications"
+                                    },
+                                    "value": {
+                                      "element": "array",
+                                      "content": [
+                                        {
+                                          "element": "enum",
+                                          "meta": {
+                                            "description": "For authentications, only GET method is allowed"
+                                          },
+                                          "content": [
+                                            {
+                                              "element": "string",
+                                              "content": "GET"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "element": "member",
+                                  "meta": {
+                                    "description": "Special scope to create admin notifications"
+                                  },
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "authentications/notifications"
+                                    },
+                                    "value": {
+                                      "element": "array",
+                                      "content": [
+                                        {
+                                          "element": "enum",
+                                          "meta": {
+                                            "description": "For admin notifictions, only POST method is allowed"
+                                          },
+                                          "content": [
+                                            {
+                                              "element": "string",
+                                              "content": "POST"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
                                 }
                               ]
                             }
@@ -35890,6 +35948,314 @@
                         {
                           "element": "member",
                           "meta": {
+                            "description": "List of notifications for current admin user - Max elements: **500**"
+                          },
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "notifications"
+                            },
+                            "value": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "object",
+                                  "content": [
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "_id"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Date and time of the notified event, in the ISO 8601 standard representation - Format: **date-time**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "datetime"
+                                        },
+                                        "value": {
+                                          "element": "string"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Whether notification was read"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "read"
+                                        },
+                                        "value": {
+                                          "element": "boolean",
+                                          "content": false
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Notification urgency type (and color)"
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "type"
+                                        },
+                                        "value": {
+                                          "element": "enum",
+                                          "attributes": {
+                                            "samples": [
+                                              [
+                                                {
+                                                  "element": "string",
+                                                  "content": "info"
+                                                }
+                                              ]
+                                            ]
+                                          },
+                                          "content": [
+                                            {
+                                              "element": "string",
+                                              "content": "danger"
+                                            },
+                                            {
+                                              "element": "string",
+                                              "content": "warning"
+                                            },
+                                            {
+                                              "element": "string",
+                                              "content": "success"
+                                            },
+                                            {
+                                              "element": "string",
+                                              "content": "info"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "element": "member",
+                                      "meta": {
+                                        "description": "Content for notification body - Min properties: **1**"
+                                      },
+                                      "attributes": {
+                                        "typeAttributes": [
+                                          "required"
+                                        ]
+                                      },
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "content"
+                                        },
+                                        "value": {
+                                          "element": "object",
+                                          "content": [
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Default notification text translations, optional if API event is specified - Max properties: **10**"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "text_i18n"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Translated notification text - Max length: **255**"
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "^[a-z]{2}(_[a-z]{2})?$"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "element": "member",
+                                              "meta": {
+                                                "description": "Store API event related to current notification"
+                                              },
+                                              "content": {
+                                                "key": {
+                                                  "element": "string",
+                                                  "content": "api_event"
+                                                },
+                                                "value": {
+                                                  "element": "object",
+                                                  "content": [
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Type of action taken"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "action"
+                                                        },
+                                                        "value": {
+                                                          "element": "enum",
+                                                          "content": [
+                                                            {
+                                                              "element": "string",
+                                                              "content": "create"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "change"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "delete"
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Related API resource"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "resource"
+                                                        },
+                                                        "value": {
+                                                          "element": "enum",
+                                                          "content": [
+                                                            {
+                                                              "element": "string",
+                                                              "content": "authentications"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "products"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "categories"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "brands"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "collections"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "grids"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "customers"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "carts"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "orders"
+                                                            },
+                                                            {
+                                                              "element": "string",
+                                                              "content": "applications"
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "element": "member",
+                                                      "meta": {
+                                                        "description": "Related resource ID (to be linked) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                                      },
+                                                      "attributes": {
+                                                        "typeAttributes": [
+                                                          "required"
+                                                        ]
+                                                      },
+                                                      "content": {
+                                                        "key": {
+                                                          "element": "string",
+                                                          "content": "resource_id"
+                                                        },
+                                                        "value": {
+                                                          "element": "string"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "element": "member",
+                          "meta": {
                             "description": "User preferences in the admin dashboard - Max properties: **100**"
                           },
                           "content": {
@@ -36353,7 +36719,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Authentications\",\n    \"description\": \"Authenticated API user\",\n    \"type\": \"object\",\n    \"required\": [\n        \"username\"\n    ],\n    \"dependencies\": {\n        \"pass_md5_hash\": [\n            \"email\"\n        ]\n    },\n    \"additionalProperties\": false,\n    \"properties\": {\n        \"username\": {\n            \"type\": \"string\",\n            \"minLength\": 4,\n            \"maxLength\": 30,\n            \"pattern\": \"^[0-9a-z]+$\",\n            \"description\": \"Simple username for identification, only numbers and lowercase letters\"\n        },\n        \"locale\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-z]{2}(_[a-z]{2})?$\",\n            \"default\": \"pt_br\",\n            \"description\": \"User language two letter code, sometimes with region, eg.: pt_br, fr, en_us\"\n        },\n        \"email\": {\n            \"type\": \"string\",\n            \"maxLength\": 200,\n            \"format\": \"email\",\n            \"description\": \"User email address\"\n        },\n        \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"User full name\"\n        },\n        \"phone\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"User phone number\"\n        },\n        \"pass_md5_hash\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{32}$\",\n            \"description\": \"MD5 hash generated with the user's password\"\n        },\n        \"notifications\": {\n            \"type\": \"array\",\n            \"maxItems\": 1000,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\",\n                    \"text\"\n                ],\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"read\": {\n                        \"type\": \"boolean\",\n                        \"default\": false,\n                        \"description\": \"Whether notification was read\"\n                    },\n                    \"text\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Notification text\"\n                    },\n                    \"type\": {\n                        \"type\": \"string\",\n                        \"default\": \"info\",\n                        \"enum\": [\n                            \"danger\",\n                            \"warning\",\n                            \"success\",\n                            \"info\"\n                        ],\n                        \"description\": \"Notification urgency type (and color)\"\n                    },\n                    \"resource\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"authentications\",\n                            \"products\",\n                            \"categories\",\n                            \"brands\",\n                            \"collections\",\n                            \"grids\",\n                            \"customers\",\n                            \"carts\",\n                            \"orders\",\n                            \"applications\"\n                        ],\n                        \"description\": \"Related API resource\"\n                    }\n                },\n                \"description\": \"Notification object\"\n            },\n            \"description\": \"List of notifications for current admin user\"\n        },\n        \"panel_preferences\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 100,\n            \"patternProperties\": {\n                \"^[a-z0-9_]+$\": {\n                    \"type\": \"boolean\",\n                    \"default\": true,\n                    \"description\": \"Boolean option value\"\n                }\n            },\n            \"description\": \"User preferences in the admin dashboard\"\n        },\n        \"panel_shortcuts\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 100,\n            \"patternProperties\": {\n                \"^[a-z0-9](([+][a-z0-9])+)?$\": {\n                    \"type\": \"string\",\n                    \"minLength\": 3,\n                    \"maxLength\": 255,\n                    \"description\": \"Shortcut JS (or jQuery) action\"\n                }\n            },\n            \"description\": \"Keyboard shortcuts, keys separated by + as property name\"\n        },\n        \"panel_random_cards\": {\n            \"type\": \"integer\",\n            \"min\": 0,\n            \"max\": 20,\n            \"default\": 0,\n            \"description\": \"Number of random cards to show on dashboard home\"\n        },\n        \"panel_cards\": {\n            \"type\": \"array\",\n            \"maxItems\": 40,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\"\n                ],\n                \"additionalProperties\": false,\n                \"minProperties\": 2,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"card_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-z0-9_]{2,60}$\",\n                        \"description\": \"Unique identifier, card name using only lowercase, numbers and underscore\"\n                    },\n                    \"title\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 70,\n                        \"description\": \"Card title\"\n                    },\n                    \"paragraph\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Card text, usually a brief description\"\n                    },\n                    \"custom_aggregation\": {\n                        \"type\": \"object\",\n                        \"required\": [\n                            \"resource\",\n                            \"pipeline\"\n                        ],\n                        \"additionalProperties\": false,\n                        \"properties\": {\n                            \"resource\": {\n                                \"type\": \"string\",\n                                \"enum\": [\n                                    \"products\",\n                                    \"categories\",\n                                    \"brands\",\n                                    \"collections\",\n                                    \"grids\",\n                                    \"customers\",\n                                    \"carts\",\n                                    \"orders\"\n                                ],\n                                \"description\": \"API resource\"\n                            },\n                            \"pipeline\": {\n                                \"type\": \"array\",\n                                \"minItems\": 1,\n                                \"maxItems\": 50,\n                                \"items\": {\n                                    \"type\": \"object\",\n                                    \"description\": \"Custom aggregation pipeline step\"\n                                },\n                                \"description\": \"Aggregation pipeline\"\n                            }\n                        },\n                        \"description\": \"Custom card calling MongoDB aggregate\"\n                    }\n                },\n                \"description\": \"Card object\"\n            },\n            \"description\": \"List of dashboard cards chosen by user\"\n        },\n        \"panel_dismissed_cards\": {\n            \"type\": \"array\",\n            \"maxItems\": 300,\n            \"items\": {\n                \"type\": \"string\",\n                \"pattern\": \"^[a-z0-9_]{2,60}$\",\n                \"description\": \"Unique identifier, card name using only lowercase, numbers and underscore\"\n            },\n            \"description\": \"List of dashboard dismissed cards, by card_id\"\n        },\n        \"panel_form_fields\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 20,\n            \"patternProperties\": {\n                \"^[a-z]{4,60}s$\": {\n                    \"type\": \"array\",\n                    \"maxItems\": 200,\n                    \"items\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"pattern\": \"^[a-z0-9_.]+$\",\n                        \"description\": \"Resource property name with dot notation for nested object\"\n                    },\n                    \"description\": \"List of chosen resource properties (fields)\"\n                }\n            },\n            \"description\": \"Custom (user-selected) fields to display on dashboard forms, resource as property name\"\n        },\n        \"edit_storefront\": {\n            \"type\": \"boolean\",\n            \"default\": true,\n            \"description\": \"Whether the user is able to use builder and file manager to edit storefront\"\n        },\n        \"flags\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 10,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"description\": \"Flag title\"\n            },\n            \"description\": \"Flags to associate additional info\"\n        },\n        \"notes\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Optional notes with additional info about this user\"\n        }\n    }\n}\n"
+                              "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Authentications\",\n    \"description\": \"Authenticated API user\",\n    \"type\": \"object\",\n    \"required\": [\n        \"username\"\n    ],\n    \"dependencies\": {\n        \"pass_md5_hash\": [\n            \"email\"\n        ]\n    },\n    \"additionalProperties\": false,\n    \"properties\": {\n        \"username\": {\n            \"type\": \"string\",\n            \"minLength\": 4,\n            \"maxLength\": 30,\n            \"pattern\": \"^[0-9a-z]+$\",\n            \"description\": \"Simple username for identification, only numbers and lowercase letters\"\n        },\n        \"locale\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-z]{2}(_[a-z]{2})?$\",\n            \"default\": \"pt_br\",\n            \"description\": \"User language two letter code, sometimes with region, eg.: pt_br, fr, en_us\"\n        },\n        \"email\": {\n            \"type\": \"string\",\n            \"maxLength\": 200,\n            \"format\": \"email\",\n            \"description\": \"User email address\"\n        },\n        \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"User full name\"\n        },\n        \"phone\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"User phone number\"\n        },\n        \"pass_md5_hash\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{32}$\",\n            \"description\": \"MD5 hash generated with the user's password\"\n        },\n        \"notifications\": {\n            \"type\": \"array\",\n            \"maxItems\": 500,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\",\n                    \"datetime\",\n                    \"content\"\n                ],\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"datetime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"Date and time of the notified event, in the ISO 8601 standard representation\"\n                    },\n                    \"read\": {\n                        \"type\": \"boolean\",\n                        \"default\": false,\n                        \"description\": \"Whether notification was read\"\n                    },\n                    \"type\": {\n                        \"type\": \"string\",\n                        \"default\": \"info\",\n                        \"enum\": [\n                            \"danger\",\n                            \"warning\",\n                            \"success\",\n                            \"info\"\n                        ],\n                        \"description\": \"Notification urgency type (and color)\"\n                    },\n                    \"content\": {\n                        \"type\": \"object\",\n                        \"additionalProperties\": false,\n                        \"minProperties\": 1,\n                        \"properties\": {\n                            \"text_i18n\": {\n                                \"type\": \"object\",\n                                \"additionalProperties\": false,\n                                \"maxProperties\": 10,\n                                \"patternProperties\": {\n                                    \"^[a-z]{2}(_[a-z]{2})?$\": {\n                                        \"type\": \"string\",\n                                        \"maxLength\": 255,\n                                        \"description\": \"Translated notification text\"\n                                    }\n                                },\n                                \"description\": \"Default notification text translations, optional if API event is specified\"\n                            },\n                            \"api_event\": {\n                                \"type\": \"object\",\n                                \"additionalProperties\": false,\n                                \"required\": [\n                                    \"action\",\n                                    \"resource\",\n                                    \"resource_id\"\n                                ],\n                                \"properties\": {\n                                    \"action\": {\n                                        \"type\": \"string\",\n                                        \"enum\": [\n                                            \"create\",\n                                            \"change\",\n                                            \"delete\"\n                                        ],\n                                        \"description\": \"Type of action taken\"\n                                    },\n                                    \"resource\": {\n                                        \"type\": \"string\",\n                                        \"enum\": [\n                                            \"authentications\",\n                                            \"products\",\n                                            \"categories\",\n                                            \"brands\",\n                                            \"collections\",\n                                            \"grids\",\n                                            \"customers\",\n                                            \"carts\",\n                                            \"orders\",\n                                            \"applications\"\n                                        ],\n                                        \"description\": \"Related API resource\"\n                                    },\n                                    \"resource_id\": {\n                                        \"type\": \"string\",\n                                        \"pattern\": \"^[a-f0-9]{24}$\",\n                                        \"description\": \"Related resource ID (to be linked)\"\n                                    }\n                                },\n                                \"description\": \"Store API event related to current notification\"\n                            }\n                        },\n                        \"description\": \"Content for notification body\"\n                    }\n                },\n                \"description\": \"Notification object\"\n            },\n            \"description\": \"List of notifications for current admin user\"\n        },\n        \"panel_preferences\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 100,\n            \"patternProperties\": {\n                \"^[a-z0-9_]+$\": {\n                    \"type\": \"boolean\",\n                    \"default\": true,\n                    \"description\": \"Boolean option value\"\n                }\n            },\n            \"description\": \"User preferences in the admin dashboard\"\n        },\n        \"panel_shortcuts\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 100,\n            \"patternProperties\": {\n                \"^[a-z0-9](([+][a-z0-9])+)?$\": {\n                    \"type\": \"string\",\n                    \"minLength\": 3,\n                    \"maxLength\": 255,\n                    \"description\": \"Shortcut JS (or jQuery) action\"\n                }\n            },\n            \"description\": \"Keyboard shortcuts, keys separated by + as property name\"\n        },\n        \"panel_random_cards\": {\n            \"type\": \"integer\",\n            \"min\": 0,\n            \"max\": 20,\n            \"default\": 0,\n            \"description\": \"Number of random cards to show on dashboard home\"\n        },\n        \"panel_cards\": {\n            \"type\": \"array\",\n            \"maxItems\": 40,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\"\n                ],\n                \"additionalProperties\": false,\n                \"minProperties\": 2,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"card_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-z0-9_]{2,60}$\",\n                        \"description\": \"Unique identifier, card name using only lowercase, numbers and underscore\"\n                    },\n                    \"title\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 70,\n                        \"description\": \"Card title\"\n                    },\n                    \"paragraph\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Card text, usually a brief description\"\n                    },\n                    \"custom_aggregation\": {\n                        \"type\": \"object\",\n                        \"required\": [\n                            \"resource\",\n                            \"pipeline\"\n                        ],\n                        \"additionalProperties\": false,\n                        \"properties\": {\n                            \"resource\": {\n                                \"type\": \"string\",\n                                \"enum\": [\n                                    \"products\",\n                                    \"categories\",\n                                    \"brands\",\n                                    \"collections\",\n                                    \"grids\",\n                                    \"customers\",\n                                    \"carts\",\n                                    \"orders\"\n                                ],\n                                \"description\": \"API resource\"\n                            },\n                            \"pipeline\": {\n                                \"type\": \"array\",\n                                \"minItems\": 1,\n                                \"maxItems\": 50,\n                                \"items\": {\n                                    \"type\": \"object\",\n                                    \"description\": \"Custom aggregation pipeline step\"\n                                },\n                                \"description\": \"Aggregation pipeline\"\n                            }\n                        },\n                        \"description\": \"Custom card calling MongoDB aggregate\"\n                    }\n                },\n                \"description\": \"Card object\"\n            },\n            \"description\": \"List of dashboard cards chosen by user\"\n        },\n        \"panel_dismissed_cards\": {\n            \"type\": \"array\",\n            \"maxItems\": 300,\n            \"items\": {\n                \"type\": \"string\",\n                \"pattern\": \"^[a-z0-9_]{2,60}$\",\n                \"description\": \"Unique identifier, card name using only lowercase, numbers and underscore\"\n            },\n            \"description\": \"List of dashboard dismissed cards, by card_id\"\n        },\n        \"panel_form_fields\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 20,\n            \"patternProperties\": {\n                \"^[a-z]{4,60}s$\": {\n                    \"type\": \"array\",\n                    \"maxItems\": 200,\n                    \"items\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"pattern\": \"^[a-z0-9_.]+$\",\n                        \"description\": \"Resource property name with dot notation for nested object\"\n                    },\n                    \"description\": \"List of chosen resource properties (fields)\"\n                }\n            },\n            \"description\": \"Custom (user-selected) fields to display on dashboard forms, resource as property name\"\n        },\n        \"edit_storefront\": {\n            \"type\": \"boolean\",\n            \"default\": true,\n            \"description\": \"Whether the user is able to use builder and file manager to edit storefront\"\n        },\n        \"flags\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 10,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"description\": \"Flag title\"\n            },\n            \"description\": \"Flags to associate additional info\"\n        },\n        \"notes\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Optional notes with additional info about this user\"\n        }\n    }\n}\n"
                             }
                           ]
                         }
