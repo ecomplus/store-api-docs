@@ -14,15 +14,15 @@ product subresources directly at this resource, such as product images, variatio
 
 :[](.json-schema.apib)
 
-### All Products [/products.json{?sku}]
+### All Products [/products.json{?sku,slug}]
 
 */products.json?sku*
 
 > Authentication<br>_GET_: **none**
 
-Pagination is not available, the unique possible filter is by `sku`
+Pagination is not available, the unique possible filter is by `sku` and/or `slug`
 
-Returns only `_id` and `sku` of each product
+Returns only `_id`, `sku` and `slug` (optional) of each product
 
 #### List All Store Products [GET /products.json]
 
