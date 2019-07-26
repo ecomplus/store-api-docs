@@ -2858,15 +2858,15 @@ product subresources directly at this resource, such as product images, variatio
                 }
             }
 
-### All Products [/products.json{?sku}]
+### All Products [/products.json{?sku,slug}]
 
 */products.json?sku*
 
 > Authentication<br>_GET_: **none**
 
-Pagination is not available, the unique possible filter is by `sku`
+Pagination is not available, the unique possible filter is by `sku` and/or `slug`
 
-Returns only `_id` and `sku` of each product
+Returns only `_id`, `sku` and `slug` (optional) of each product
 
 #### List All Store Products [GET /products.json]
 
@@ -2887,11 +2887,13 @@ Returns only `_id` and `sku` of each product
               "result": [
                 {
                   "_id": "1234567890abcdef01291510",
-                  "sku": "COD1"
+                  "sku": "COD1",
+                  "slug": "some-product-url-slug"
                 },
                 {
                   "_id": "1234567890abcdef01291511",
-                  "sku": "S_123456789"
+                  "sku": "S_123456789",
+                  "slug": "mens-jeans"
                 },
                 {
                   "_id": "1234567890abcdef01291512",
@@ -2924,7 +2926,8 @@ Returns only `_id` and `sku` of each product
               "result": [
                 {
                   "_id": "1234567890abcdef01291510",
-                  "sku": "COD1"
+                  "sku": "COD1",
+                  "slug": "some-product-url-slug"
                 }
               ]
             }

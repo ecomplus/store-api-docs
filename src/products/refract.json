@@ -6186,12 +6186,12 @@
                 "title": "All Products"
               },
               "attributes": {
-                "href": "/products.json{?sku}"
+                "href": "/products.json{?sku,slug}"
               },
               "content": [
                 {
                   "element": "copy",
-                  "content": "*/products.json?sku*\n\n> Authentication<br>_GET_: **none**\n\nPagination is not available, the unique possible filter is by `sku`\n\nReturns only `_id` and `sku` of each product"
+                  "content": "*/products.json?sku*\n\n> Authentication<br>_GET_: **none**\n\nPagination is not available, the unique possible filter is by `sku` and/or `slug`\n\nReturns only `_id`, `sku` and `slug` (optional) of each product"
                 },
                 {
                   "element": "transition",
@@ -6277,7 +6277,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"1234567890abcdef01291510\",\n      \"sku\": \"COD1\"\n    },\n    {\n      \"_id\": \"1234567890abcdef01291511\",\n      \"sku\": \"S_123456789\"\n    },\n    {\n      \"_id\": \"1234567890abcdef01291512\",\n      \"sku\": \"sYY7-100P\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"1234567890abcdef01291510\",\n      \"sku\": \"COD1\",\n      \"slug\": \"some-product-url-slug\"\n    },\n    {\n      \"_id\": \"1234567890abcdef01291511\",\n      \"sku\": \"S_123456789\",\n      \"slug\": \"mens-jeans\"\n    },\n    {\n      \"_id\": \"1234567890abcdef01291512\",\n      \"sku\": \"sYY7-100P\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }
@@ -6395,7 +6395,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"meta\": {\n    \"query\": {\n      \"sku\": \"COD1\"\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"1234567890abcdef01291510\",\n      \"sku\": \"COD1\"\n    }\n  ]\n}\n"
+                              "content": "{\n  \"meta\": {\n    \"query\": {\n      \"sku\": \"COD1\"\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"1234567890abcdef01291510\",\n      \"sku\": \"COD1\",\n      \"slug\": \"some-product-url-slug\"\n    }\n  ]\n}\n"
                             }
                           ]
                         }
