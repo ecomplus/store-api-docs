@@ -678,7 +678,7 @@
               "content": [
                 {
                   "element": "copy",
-                  "content": "*/stores/[_id].json*\n\n> Authentication<br>_GET_: **none**\n\nResponse body will follow\n[this model](#reference/stores/store-object), but only with public data,\nreturning `_id`, `store_id`, `name`, `description`, `segment_id`,\n`contact_email`, `referral_id`, `partner_id`, `logo`,\n`domain`, `homepage`, `brand_colors`,\n`contact_phone`, `contact_cellphone`\nand `languages` properties"
+                  "content": "*/stores/[_id].json*\n\n*/stores/[store_id].json*\n\n> Authentication<br>_GET_: **none**\n\nResponse body will follow\n[this model](#reference/stores/store-object), but only with public data,\nreturning `_id`, `store_id`, `name`, `description`, `segment_id`,\n`contact_email`, `referral_id`, `partner_id`, `logo`,\n`domain`, `homepage`, `brand_colors`,\n`contact_phone`, `contact_cellphone`\nand `languages` properties"
                 },
                 {
                   "element": "transition",
