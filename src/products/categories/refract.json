@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Product Categories"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Product Categories"
+            }
           },
           "content": [
             {
@@ -26,114 +44,151 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Product Category Object"
+                "title": {
+                  "element": "string",
+                  "content": "Product Category Object"
+                }
               },
               "attributes": {
-                "href": "/products/schema/categories.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/schema/categories.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Product Category Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Product Category Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category name - Max length: **255**"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "_id"
                           },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "slug"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "ID in Mercado Libre Taxonomy - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "ml_category_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "ID in Google Taxonomy - Mininum: **1** - Maximum: **999999999999**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "google_product_category_id"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
+                          "value": {
+                            "element": "string"
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category name - Max length: **255**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "slug"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "ID in Mercado Libre Taxonomy - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "ml_category_id"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "ID in Google Taxonomy - Mininum: **1** - Maximum: **999999999999**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "google_product_category_id"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -142,7 +197,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -180,7 +238,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -204,12 +265,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n        \"_id\"\n    ],\n    \"properties\": {\n        \"_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"Category ID\"\n        }\n    },\n    \"title\": \"Add category by ID to product\"\n}\n"
                             }
@@ -224,10 +294,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "All Categories of a Product"
+                "title": {
+                  "element": "string",
+                  "content": "All Categories of a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/categories.json{?limit,offset,sort,fields}"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/categories.json{?limit,offset,sort,fields}"
+                }
               },
               "content": [
                 {
@@ -237,23 +313,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List All Product Categories"
+                    "title": {
+                      "element": "string",
+                      "content": "List All Product Categories"
+                    }
                   },
                   "attributes": {
-                    "href": "/products/{product}/categories.json",
+                    "href": {
+                      "element": "string",
+                      "content": "/products/{product}/categories.json"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -276,7 +370,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -340,7 +437,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -364,12 +464,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"b10000000000000000001110\",\n      \"name\": \"Category 0\",\n      \"slug\": \"category-zero\"\n    },\n    {\n      \"_id\": \"b10000000000000000001116\",\n      \"name\": \"Category 6\",\n      \"slug\": \"category-six\"\n    },\n    {\n      \"_id\": \"f10000000000000000000001\",\n      \"name\": \"Polo Shirts\",\n      \"slug\": \"polo\"\n    }\n  ]\n}\n"
                             }
@@ -384,10 +493,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "New Category to a Product"
+                "title": {
+                  "element": "string",
+                  "content": "New Category to a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/categories.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/categories.json"
+                }
               },
               "content": [
                 {
@@ -397,7 +512,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Add New Product Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Add New Product Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -406,13 +524,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -435,7 +565,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -498,24 +631,42 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"b10000000000000000001112\"\n}\n"
                             },
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBodySchema"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBodySchema"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/schema+json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/schema+json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n        \"_id\"\n    ],\n    \"properties\": {\n        \"_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"Category ID\"\n        }\n    },\n    \"title\": \"Add category by ID to product\"\n}\n"
                             }
@@ -524,7 +675,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "201",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "201"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -548,12 +702,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"b10000000000000000001112\"\n}\n"
                             }
@@ -568,10 +731,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Category of a Product"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Category of a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/categories/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/categories/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -581,7 +750,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Product Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Product Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -590,13 +762,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -612,13 +796,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -641,7 +837,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -705,7 +904,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -729,12 +931,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"f10000000000000000000001\",\n  \"name\": \"Polo Shirts\",\n  \"slug\": \"polo\"\n}\n"
                             }
@@ -747,7 +958,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Remove Category From Product"
+                    "title": {
+                      "element": "string",
+                      "content": "Remove Category From Product"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -756,13 +970,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -778,13 +1004,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -807,7 +1045,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "DELETE",
+                            "method": {
+                              "element": "string",
+                              "content": "DELETE"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -871,7 +1112,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -887,4 +1131,3 @@
     }
   ]
 }
-

@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Cart Items"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Cart Items"
+            }
           },
           "content": [
             {
@@ -26,641 +44,845 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Cart Item Object"
+                "title": {
+                  "element": "string",
+                  "content": "Cart Item Object"
+                }
               },
               "attributes": {
-                "href": "/carts/schema/items.json"
+                "href": {
+                  "element": "string",
+                  "content": "/carts/schema/items.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Cart Item Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Cart Item Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "product_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "ID to specify the variation added to cart, if product has variations - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "product_id"
                           },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "variation_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Product or variation unique reference code - Min length: **2** - Max length: **100** - RegEx pattern: **`^[A-Za-z0-9-_.]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "sku"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Product or variation full name, or other label for this cart item - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Product or variation picture for this cart item"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "picture"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image size variation"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^small|normal|big|zoom|custom$"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Image link - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "url"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "size"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "alt"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Item customization fields - Max elements: **100**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "customizations"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "object",
-                                  "content": [
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Customization field ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "_id"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Title for this customization field, can be the grid title - Max length: **70**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "label"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Option chosen or created by customer"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "option"
-                                        },
-                                        "value": {
-                                          "element": "object",
-                                          "content": [
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Identify option if it was predefined (not custom value created by customer) - RegEx pattern: **`^[a-z0-9_]{2,30}$`**"
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "option_id"
-                                                },
-                                                "value": {
-                                                  "element": "string"
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Option text value displayed for the client - Max length: **70**"
-                                              },
-                                              "attributes": {
-                                                "typeAttributes": [
-                                                  "required"
-                                                ]
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "text"
-                                                },
-                                                "value": {
-                                                  "element": "string"
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Option color palette (if the field involves colors), starting by main color - Max elements: **6**"
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "colors"
-                                                },
-                                                "value": {
-                                                  "element": "array",
-                                                  "content": [
-                                                    {
-                                                      "element": "string",
-                                                      "meta": {
-                                                        "description": "RGB code with #"
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "URL of file attached by customer to this field - Max length: **255** - Format: **uri**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "attachment"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Price alteration due to this customization"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "add_to_price"
-                                        },
-                                        "value": {
-                                          "element": "object",
-                                          "content": [
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Type of price addition"
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "type"
-                                                },
-                                                "value": {
-                                                  "element": "enum",
-                                                  "attributes": {
-                                                    "samples": [
-                                                      [
-                                                        {
-                                                          "element": "string",
-                                                          "content": "percentage"
-                                                        }
-                                                      ]
-                                                    ]
-                                                  },
-                                                  "content": [
-                                                    {
-                                                      "element": "string",
-                                                      "content": "percentage"
-                                                    },
-                                                    {
-                                                      "element": "string",
-                                                      "content": "fixed"
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "element": "member",
-                                              "meta": {
-                                                "description": "Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**"
-                                              },
-                                              "attributes": {
-                                                "typeAttributes": [
-                                                  "required"
-                                                ]
-                                              },
-                                              "content": {
-                                                "key": {
-                                                  "element": "string",
-                                                  "content": "addition"
-                                                },
-                                                "value": {
-                                                  "element": "number"
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Gift wrap chosen by customer"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "gift_wrap"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "tag"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Title describing this gift wrap - Max length: **70**"
-                                  },
-                                  "attributes": {
-                                    "typeAttributes": [
-                                      "required"
-                                    ]
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "label"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "add_to_price"
-                                    },
-                                    "value": {
-                                      "element": "number"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Item quantity in cart - Mininum: **0** - Maximum: **9999999**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "quantity"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "min_quantity"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "max_quantity"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "True if product quantity should not be checked, using quantity specified for this item"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "keep_item_quantity"
-                            },
-                            "value": {
-                              "element": "boolean",
-                              "content": false
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "currency_id"
-                            },
-                            "value": {
-                              "element": "string",
-                              "content": "BRL"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Graphic symbol used as a shorthand for currency's name - Max length: **20**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "currency_symbol"
-                            },
-                            "value": {
-                              "element": "string",
-                              "content": "R$"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "price"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "final_price"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "True if the product price should not be checked, using price specified for this item"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "keep_item_price"
-                            },
-                            "value": {
-                              "element": "boolean",
-                              "content": false
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Flags to associate additional info - Max elements: **10**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "flags"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "meta": {
-                                    "description": "Flag title"
-                                  }
-                                }
-                              ]
-                            }
+                          "value": {
+                            "element": "string"
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "ID to specify the variation added to cart, if product has variations - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "variation_id"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Product or variation unique reference code - Min length: **2** - Max length: **100** - RegEx pattern: **`^[A-Za-z0-9-_.]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "sku"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Product or variation full name, or other label for this cart item - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Product or variation picture for this cart item"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "picture"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image size variation"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^small|normal|big|zoom|custom$"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Image link - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "url"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "size"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "alt"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Item customization fields - Max elements: **100**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "customizations"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "object",
+                                "content": [
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Customization field ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "_id"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Title for this customization field, can be the grid title - Max length: **70**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "label"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Option chosen or created by customer"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "option"
+                                      },
+                                      "value": {
+                                        "element": "object",
+                                        "content": [
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Identify option if it was predefined (not custom value created by customer) - RegEx pattern: **`^[a-z0-9_]{2,30}$`**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "option_id"
+                                              },
+                                              "value": {
+                                                "element": "string"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Option text value displayed for the client - Max length: **70**"
+                                              }
+                                            },
+                                            "attributes": {
+                                              "typeAttributes": {
+                                                "element": "array",
+                                                "content": [
+                                                  {
+                                                    "element": "string",
+                                                    "content": "required"
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "text"
+                                              },
+                                              "value": {
+                                                "element": "string"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Option color palette (if the field involves colors), starting by main color - Max elements: **6**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "colors"
+                                              },
+                                              "value": {
+                                                "element": "array",
+                                                "content": [
+                                                  {
+                                                    "element": "string",
+                                                    "meta": {
+                                                      "description": {
+                                                        "element": "string",
+                                                        "content": "RGB code with #"
+                                                      }
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "URL of file attached by customer to this field - Max length: **255** - Format: **uri**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "attachment"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Price alteration due to this customization"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "add_to_price"
+                                      },
+                                      "value": {
+                                        "element": "object",
+                                        "content": [
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Type of price addition"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "type"
+                                              },
+                                              "value": {
+                                                "element": "enum",
+                                                "attributes": {
+                                                  "enumerations": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "attributes": {
+                                                          "typeAttributes": {
+                                                            "element": "array",
+                                                            "content": [
+                                                              {
+                                                                "element": "string",
+                                                                "content": "fixed"
+                                                              }
+                                                            ]
+                                                          }
+                                                        },
+                                                        "content": "percentage"
+                                                      },
+                                                      {
+                                                        "element": "string",
+                                                        "attributes": {
+                                                          "typeAttributes": {
+                                                            "element": "array",
+                                                            "content": [
+                                                              {
+                                                                "element": "string",
+                                                                "content": "fixed"
+                                                              }
+                                                            ]
+                                                          }
+                                                        },
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": {
+                                                  "element": "string",
+                                                  "attributes": {
+                                                    "typeAttributes": {
+                                                      "element": "array",
+                                                      "content": [
+                                                        {
+                                                          "element": "string",
+                                                          "content": "fixed"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "content": "percentage"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Additional value, could be negative - Mininum: **-99999999** - Maximum: **99999999**"
+                                              }
+                                            },
+                                            "attributes": {
+                                              "typeAttributes": {
+                                                "element": "array",
+                                                "content": [
+                                                  {
+                                                    "element": "string",
+                                                    "content": "required"
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "addition"
+                                              },
+                                              "value": {
+                                                "element": "number"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Gift wrap chosen by customer"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "gift_wrap"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "tag"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Title describing this gift wrap - Max length: **70**"
+                                  }
+                                },
+                                "attributes": {
+                                  "typeAttributes": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "string",
+                                        "content": "required"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "label"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Additional value due to this gift wrap - Mininum: **0** - Maximum: **99999999**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "add_to_price"
+                                  },
+                                  "value": {
+                                    "element": "number"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Item quantity in cart - Mininum: **0** - Maximum: **9999999**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "quantity"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Minimum item quantity for this cart - Mininum: **0** - Maximum: **999999**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "min_quantity"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Maximum item quantity for this cart - Mininum: **0** - Maximum: **9999999**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "max_quantity"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "True if product quantity should not be checked, using quantity specified for this item"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "keep_item_quantity"
+                          },
+                          "value": {
+                            "element": "boolean",
+                            "content": false
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Designator of currency according to ISO 4217 (3 uppercase letters) - RegEx pattern: **`^[A-Z]{3}$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "currency_id"
+                          },
+                          "value": {
+                            "element": "string",
+                            "content": "BRL"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Graphic symbol used as a shorthand for currency's name - Max length: **20**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "currency_symbol"
+                          },
+                          "value": {
+                            "element": "string",
+                            "content": "R$"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Product sale price specifically for this cart - Mininum: **0** - Maximum: **999999999**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "price"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "final_price"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "True if the product price should not be checked, using price specified for this item"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "keep_item_price"
+                          },
+                          "value": {
+                            "element": "boolean",
+                            "content": false
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Flags to associate additional info - Max elements: **10**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "flags"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Flag title"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -669,7 +891,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -707,7 +932,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -731,12 +959,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"One of the cart items\",\n    \"type\": \"object\",\n    \"required\": [\n        \"product_id\",\n        \"quantity\",\n        \"price\"\n    ],\n    \"additionalProperties\": false,\n    \"properties\": {\n        \"product_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"Product ID\"\n        },\n        \"variation_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"ID to specify the variation added to cart, if product has variations\"\n        },\n        \"sku\": {\n            \"type\": \"string\",\n            \"minLength\": 2,\n            \"maxLength\": 100,\n            \"pattern\": \"^[A-Za-z0-9-_.]+$\",\n            \"description\": \"Product or variation unique reference code\"\n        },\n        \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Product or variation full name, or other label for this cart item\"\n        },\n        \"picture\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"patternProperties\": {\n                \"^small|normal|big|zoom|custom$\": {\n                    \"type\": \"object\",\n                    \"required\": [\n                        \"url\"\n                    ],\n                    \"additionalProperties\": false,\n                    \"properties\": {\n                        \"url\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 255,\n                            \"format\": \"uri\",\n                            \"description\": \"Image link\"\n                        },\n                        \"size\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 11,\n                            \"pattern\": \"^[1-9]([0-9]+)?x[1-9]([0-9]+)?$\",\n                            \"description\": \"Image size (width x height) in px, such as 100x50 (100px width, 50px height)\"\n                        },\n                        \"alt\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 255,\n                            \"description\": \"Alternative text, HTML alt tag (important for SEO)\"\n                        }\n                    },\n                    \"description\": \"Image size variation\"\n                }\n            },\n            \"description\": \"Product or variation picture for this cart item\"\n        },\n        \"customizations\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\",\n                    \"option\"\n                ],\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Customization field ID\"\n                    },\n                    \"label\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 70,\n                        \"description\": \"Title for this customization field, can be the grid title\"\n                    },\n                    \"option\": {\n                        \"type\": \"object\",\n                        \"required\": [\n                            \"text\"\n                        ],\n                        \"additionalProperties\": false,\n                        \"properties\": {\n                            \"option_id\": {\n                                \"type\": \"string\",\n                                \"pattern\": \"^[a-z0-9_]{2,30}$\",\n                                \"description\": \"Identify option if it was predefined (not custom value created by customer)\"\n                            },\n                            \"text\": {\n                                \"type\": \"string\",\n                                \"maxLength\": 70,\n                                \"description\": \"Option text value displayed for the client\"\n                            },\n                            \"colors\": {\n                                \"type\": \"array\",\n                                \"maxItems\": 6,\n                                \"items\": {\n                                    \"type\": \"string\",\n                                    \"pattern\": \"^#[a-f0-9]{6}$\",\n                                    \"description\": \"RGB code with #\"\n                                },\n                                \"description\": \"Option color palette (if the field involves colors), starting by main color\"\n                            }\n                        },\n                        \"description\": \"Option chosen or created by customer\"\n                    },\n                    \"attachment\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"format\": \"uri\",\n                        \"description\": \"URL of file attached by customer to this field\"\n                    },\n                    \"add_to_price\": {\n                        \"type\": \"object\",\n                        \"required\": [\n                            \"addition\"\n                        ],\n                        \"additionalProperties\": false,\n                        \"properties\": {\n                            \"type\": {\n                                \"type\": \"string\",\n                                \"enum\": [\n                                    \"percentage\",\n                                    \"fixed\"\n                                ],\n                                \"default\": \"percentage\",\n                                \"description\": \"Type of price addition\"\n                            },\n                            \"addition\": {\n                                \"type\": \"number\",\n                                \"minimum\": -99999999,\n                                \"maximum\": 99999999,\n                                \"description\": \"Additional value, could be negative\"\n                            }\n                        },\n                        \"description\": \"Price alteration due to this customization\"\n                    }\n                },\n                \"description\": \"Customization field\"\n            },\n            \"description\": \"Item customization fields\"\n        },\n        \"gift_wrap\": {\n            \"type\": \"object\",\n            \"required\": [\n                \"label\"\n            ],\n            \"additionalProperties\": false,\n            \"properties\": {\n                \"tag\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 20,\n                    \"pattern\": \"^[a-z0-9_]+$\",\n                    \"description\": \"Tag to identify object, use only lowercase letters, digits and underscore\"\n                },\n                \"label\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 70,\n                    \"description\": \"Title describing this gift wrap\"\n                },\n                \"add_to_price\": {\n                    \"type\": \"number\",\n                    \"minimum\": 0,\n                    \"maximum\": 99999999,\n                    \"description\": \"Additional value due to this gift wrap\"\n                }\n            },\n            \"description\": \"Gift wrap chosen by customer\"\n        },\n        \"quantity\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 9999999,\n            \"description\": \"Item quantity in cart\"\n        },\n        \"min_quantity\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 999999,\n            \"description\": \"Minimum item quantity for this cart\"\n        },\n        \"max_quantity\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 9999999,\n            \"description\": \"Maximum item quantity for this cart\"\n        },\n        \"keep_item_quantity\": {\n            \"type\": \"boolean\",\n            \"default\": false,\n            \"description\": \"True if product quantity should not be checked, using quantity specified for this item\"\n        },\n        \"currency_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[A-Z]{3}$\",\n            \"default\": \"BRL\",\n            \"description\": \"Designator of currency according to ISO 4217 (3 uppercase letters)\"\n        },\n        \"currency_symbol\": {\n            \"type\": \"string\",\n            \"maxLength\": 20,\n            \"default\": \"R$\",\n            \"description\": \"Graphic symbol used as a shorthand for currency's name\"\n        },\n        \"price\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 999999999,\n            \"description\": \"Product sale price specifically for this cart\"\n        },\n        \"final_price\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 999999999,\n            \"description\": \"Final item price including additions due to customizations and gift wrap\"\n        },\n        \"keep_item_price\": {\n            \"type\": \"boolean\",\n            \"default\": false,\n            \"description\": \"True if the product price should not be checked, using price specified for this item\"\n        },\n        \"flags\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 10,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"description\": \"Flag title\"\n            },\n            \"description\": \"Flags to associate additional info\"\n        }\n    }\n}\n"
                             }
@@ -751,10 +988,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "All Items of a Cart"
+                "title": {
+                  "element": "string",
+                  "content": "All Items of a Cart"
+                }
               },
               "attributes": {
-                "href": "/carts/{cart}/items.json{?limit,offset,sort,fields}"
+                "href": {
+                  "element": "string",
+                  "content": "/carts/{cart}/items.json{?limit,offset,sort,fields}"
+                }
               },
               "content": [
                 {
@@ -764,23 +1007,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List All Cart Items"
+                    "title": {
+                      "element": "string",
+                      "content": "List All Cart Items"
+                    }
                   },
                   "attributes": {
-                    "href": "/carts/{cart}/items.json",
+                    "href": {
+                      "element": "string",
+                      "content": "/carts/{cart}/items.json"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -803,7 +1064,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -867,7 +1131,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -891,12 +1158,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"product_id\",\n      \"variation_id\",\n      \"sku\",\n      \"quantity\",\n      \"price\",\n      \"final_price\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"2ca00000000000000000e001\",\n      \"product_id\": \"123a5432109876543210cdef\",\n      \"quantity\": 2,\n      \"price\": 42.9\n    },\n    {\n      \"_id\": \"2ca00000000000000000e002\",\n      \"product_id\": \"1234567890abcdef01291511\",\n      \"variation_id\": \"a234567890abcdef01291511\",\n      \"sku\": \"S_123456789\",\n      \"quantity\": 1,\n      \"price\": 70\n    },\n    {\n      \"_id\": \"2ca00000000000000000e002\",\n      \"product_id\": \"1234567890abcdef01291511\",\n      \"variation_id\": \"a334567890abcdef01291512\",\n      \"sku\": \"S_123456789\",\n      \"quantity\": 1,\n      \"price\": 65\n    }\n  ]\n}\n"
                             }
@@ -911,10 +1187,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "New Item to a Cart"
+                "title": {
+                  "element": "string",
+                  "content": "New Item to a Cart"
+                }
               },
               "attributes": {
-                "href": "/carts/{cart}/items.json"
+                "href": {
+                  "element": "string",
+                  "content": "/carts/{cart}/items.json"
+                }
               },
               "content": [
                 {
@@ -924,7 +1206,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Add New Cart Item"
+                    "title": {
+                      "element": "string",
+                      "content": "Add New Cart Item"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -933,13 +1218,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -962,7 +1259,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1025,12 +1325,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"product_id\": \"123a5432109876543210cdef\",\n  \"quantity\": 2,\n  \"price\": 42.9\n}\n"
                             }
@@ -1039,7 +1348,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1063,12 +1375,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"2ca00000000000000000e001\"\n}\n"
                             }
@@ -1083,10 +1404,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Item of a Cart"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Item of a Cart"
+                }
               },
               "attributes": {
-                "href": "/carts/{cart}/items/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/carts/{cart}/items/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -1096,7 +1423,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Cart Item"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Cart Item"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1105,13 +1435,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1127,13 +1469,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart item ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart item ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1156,7 +1510,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1220,7 +1577,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1244,12 +1604,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"2ca00000000000000000e002\",\n  \"product_id\": \"1234567890abcdef01291511\",\n  \"variation_id\": \"a234567890abcdef01291511\",\n  \"sku\": \"S_123456789\",\n  \"quantity\": 1,\n  \"price\": 70\n}\n"
                             }
@@ -1262,7 +1631,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Cart Item"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Cart Item"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1271,13 +1643,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1293,13 +1677,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart item ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart item ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1322,7 +1718,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1385,12 +1784,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"quantity\": 2\n}\n"
                             }
@@ -1399,7 +1807,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1410,7 +1821,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Remove Cart Item"
+                    "title": {
+                      "element": "string",
+                      "content": "Remove Cart Item"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1419,13 +1833,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1441,13 +1867,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The cart item ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The cart item ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1470,7 +1908,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "DELETE",
+                            "method": {
+                              "element": "string",
+                              "content": "DELETE"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1534,7 +1975,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1550,4 +1994,3 @@
     }
   ]
 }
-

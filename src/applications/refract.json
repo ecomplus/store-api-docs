@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Applications"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Applications"
+            }
           },
           "content": [
             {
@@ -26,1020 +44,1532 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Application Object"
+                "title": {
+                  "element": "string",
+                  "content": "Application Object"
+                }
               },
               "attributes": {
-                "href": "/applications/schema.json"
+                "href": {
+                  "element": "string",
+                  "content": "/applications/schema.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Application Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "ID of application - Mininum: **1000** - Maximum: **16777215**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "app_id"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Application Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "ID of application - Mininum: **1000** - Maximum: **16777215**"
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "The working state of this app in the shop"
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "app_id"
                           },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "state"
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "The working state of this app in the shop"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "state"
+                          },
+                          "value": {
+                            "element": "enum",
+                            "attributes": {
+                              "enumerations": {
+                                "element": "array",
+                                "content": [
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "inactive"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "active"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "test"
+                                  }
+                                ]
+                              }
                             },
-                            "value": {
-                              "element": "enum",
+                            "content": {
+                              "element": "string",
                               "attributes": {
-                                "samples": [
-                                  [
+                                "typeAttributes": {
+                                  "element": "array",
+                                  "content": [
                                     {
                                       "element": "string",
-                                      "content": "test"
+                                      "content": "fixed"
                                     }
                                   ]
-                                ]
+                                }
                               },
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "content": "inactive"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "active"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "test"
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "App title - Max length: **70**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "title"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "App unique slug, only lowercase letters, numbers and hyphen - Min length: **3** - Max length: **50** - RegEx pattern: **`^[0-9a-z-]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "slug"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Whether this app is paid"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "paid"
-                            },
-                            "value": {
-                              "element": "boolean",
-                              "content": false
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Version of the application that was installed, eg.: 1.0.0 - Min length: **5** - Max length: **8** - RegEx pattern: **`^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$`**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "version"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "When app installation was updated, date and time in ISO 8601 standard representation - Format: **date-time**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "version_date"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Type of app"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "type"
-                            },
-                            "value": {
-                              "element": "enum",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "content": "dashboard"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "storefront"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "external"
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Modules handled by this app"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "modules"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered after each storefront page load"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "page_loaded"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered after each term searched on storefront"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "term_searched"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered after each cart saves on storefront, just before checkout"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "cart_confirmed"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered to calculate shipping options, must return calculated values and times"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "calculate_shipping"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered when listing payments, must return available methods"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "list_payments"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered to validate and apply discout value, must return discount and conditions"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "apply_discount"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered when order is being closed, must create payment transaction and return info"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "create_transaction"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Triggered after each order created from storefront, could return custom fields"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "checkout_done"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether current app is enabled to handle the module requests"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "enabled"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "endpoint"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "admin_settings"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Configuration field object, property name same as saved on data object"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^[a-z0-9_]{2,30}$"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "JSON Schema (https://json-schema.org/specification.html) for field model"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "schema"
-                                            },
-                                            "value": {
-                                              "element": "object"
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Whether the field value is private, saved in ``hidden_data``"
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "hide"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": true
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "If this app is a dashboard or storefront JS, specify resources that trigger the script load - Max elements: **100**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "load_events"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "meta": {
-                                    "description": "Resource/Subresources/Third-level/ID"
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Script (JS) link - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "script_uri"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Link to GitHub repository - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "github_repository"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Status defined by seller, such as active or waiting - Max length: **50**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "status"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Whether this app needs to authenticate with API"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "authentication"
-                            },
-                            "value": {
-                              "element": "boolean",
-                              "content": false
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Endpoint that receives POST back with authentication credentials, must be https - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "auth_callback_uri"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "If this app uses authentication, list the needed permissions - Min properties: **1** - Max properties: **20**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "auth_scope"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^([$]?(?!app|aut|upd)([a-z]{1,60}))$"
-                                    },
-                                    "value": {
-                                      "element": "array",
-                                      "content": [
-                                        {
-                                          "element": "enum",
-                                          "meta": {
-                                            "description": "Methods to be used (HTTP verbs)"
-                                          },
-                                          "content": [
-                                            {
-                                              "element": "string",
-                                              "content": "all"
-                                            },
-                                            {
-                                              "element": "string",
-                                              "content": "GET"
-                                            },
-                                            {
-                                              "element": "string",
-                                              "content": "POST"
-                                            },
-                                            {
-                                              "element": "string",
-                                              "content": "PATCH"
-                                            },
-                                            {
-                                              "element": "string",
-                                              "content": "PUT"
-                                            },
-                                            {
-                                              "element": "string",
-                                              "content": "DELETE"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Special scope to read authentications"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "authentications"
-                                    },
-                                    "value": {
-                                      "element": "array",
-                                      "content": [
-                                        {
-                                          "element": "enum",
-                                          "meta": {
-                                            "description": "For authentications, only GET method is allowed"
-                                          },
-                                          "content": [
-                                            {
-                                              "element": "string",
-                                              "content": "GET"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Special scope to create admin notifications"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "authentications/notifications"
-                                    },
-                                    "value": {
-                                      "element": "array",
-                                      "content": [
-                                        {
-                                          "element": "enum",
-                                          "meta": {
-                                            "description": "For admin notifictions, only POST method is allowed"
-                                          },
-                                          "content": [
-                                            {
-                                              "element": "string",
-                                              "content": "POST"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Flags to associate additional info - Max elements: **10**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "flags"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "meta": {
-                                    "description": "Flag title"
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Optional notes with additional info about this user - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "notes"
-                            },
-                            "value": {
-                              "element": "string"
+                              "content": "test"
                             }
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "App title - Max length: **70**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "title"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "App unique slug, only lowercase letters, numbers and hyphen - Min length: **3** - Max length: **50** - RegEx pattern: **`^[0-9a-z-]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "slug"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Whether this app is paid"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "paid"
+                          },
+                          "value": {
+                            "element": "boolean",
+                            "content": false
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Version of the application that was installed, eg.: 1.0.0 - Min length: **5** - Max length: **8** - RegEx pattern: **`^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$`**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "version"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "When app installation was updated, date and time in ISO 8601 standard representation - Format: **date-time**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "version_date"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Type of app"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "type"
+                          },
+                          "value": {
+                            "element": "enum",
+                            "attributes": {
+                              "enumerations": {
+                                "element": "array",
+                                "content": [
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "dashboard"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "storefront"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "external"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Modules handled by this app"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "modules"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered after each storefront page load"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "page_loaded"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered after each term searched on storefront"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "term_searched"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered after each cart saves on storefront, just before checkout"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "cart_confirmed"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered to calculate shipping options, must return calculated values and times"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "calculate_shipping"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered when listing payments, must return available methods"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "list_payments"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered to validate and apply discout value, must return discount and conditions"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "apply_discount"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered when order is being closed, must create payment transaction and return info"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "create_transaction"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Triggered after each order created from storefront, could return custom fields"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "checkout_done"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether current app is enabled to handle the module requests"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "enabled"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "URL to receive POST request of respective module - Max length: **255** - Format: **uri**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "endpoint"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Configuration options for staff on admin dashboard, saved on app data - Max properties: **100**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "admin_settings"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Configuration field object, property name same as saved on data object"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^[a-z0-9_]{2,30}$"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "JSON Schema (https://json-schema.org/specification.html) for field model"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "schema"
+                                          },
+                                          "value": {
+                                            "element": "object"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Whether the field value is private, saved in ``hidden_data``"
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "hide"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": true
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "If this app is a dashboard or storefront JS, specify resources that trigger the script load - Max elements: **100**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "load_events"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Resource/Subresources/Third-level/ID"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Script (JS) link - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "script_uri"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Link to GitHub repository - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "github_repository"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Status defined by seller, such as active or waiting - Max length: **50**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "status"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Whether this app needs to authenticate with API"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "authentication"
+                          },
+                          "value": {
+                            "element": "boolean",
+                            "content": false
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Endpoint that receives POST back with authentication credentials, must be https - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "auth_callback_uri"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "If this app uses authentication, list the needed permissions - Min properties: **1** - Max properties: **20**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "auth_scope"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Requested resource, cannot be \"applications\", \"authentications\" or \"$update\""
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^([$]?(?!app|aut|upd)([a-z]{1,60}))$"
+                                  },
+                                  "value": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "enum",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Methods to be used (HTTP verbs)"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "enumerations": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "all"
+                                              },
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "GET"
+                                              },
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "POST"
+                                              },
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "PATCH"
+                                              },
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "PUT"
+                                              },
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "DELETE"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Special scope to read authentications"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "authentications"
+                                  },
+                                  "value": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "enum",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "For authentications, only GET method is allowed"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "enumerations": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "GET"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "element": "string",
+                                          "attributes": {
+                                            "typeAttributes": {
+                                              "element": "array",
+                                              "content": [
+                                                {
+                                                  "element": "string",
+                                                  "content": "fixed"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "content": "GET"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Special scope to create admin notifications"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "authentications/notifications"
+                                  },
+                                  "value": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "enum",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "For admin notifictions, only POST method is allowed"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "enumerations": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "attributes": {
+                                                  "typeAttributes": {
+                                                    "element": "array",
+                                                    "content": [
+                                                      {
+                                                        "element": "string",
+                                                        "content": "fixed"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "content": "POST"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "element": "string",
+                                          "attributes": {
+                                            "typeAttributes": {
+                                              "element": "array",
+                                              "content": [
+                                                {
+                                                  "element": "string",
+                                                  "content": "fixed"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "content": "POST"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Flags to associate additional info - Max elements: **10**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "flags"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Flag title"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Optional notes with additional info about this user - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "notes"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -1048,7 +1578,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1086,7 +1619,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1110,12 +1646,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Applications\",\n    \"description\": \"App object model\",\n    \"type\": \"object\",\n    \"required\": [\n        \"app_id\",\n        \"title\",\n        \"version\",\n        \"type\"\n    ],\n    \"dependencies\": {\n        \"auth_scope\": [\n            \"auth_callback_uri\"\n        ]\n    },\n    \"additionalProperties\": false,\n    \"definitions\": {\n        \"module\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"enabled\",\n                \"endpoint\"\n            ],\n            \"properties\": {\n                \"enabled\": {\n                    \"type\": \"boolean\",\n                    \"default\": true,\n                    \"description\": \"Whether current app is enabled to handle the module requests\"\n                },\n                \"endpoint\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"format\": \"uri\",\n                    \"description\": \"URL to receive POST request of respective module\"\n                }\n            },\n            \"description\": \"Module object\"\n        }\n    },\n    \"properties\": {\n        \"app_id\": {\n            \"type\": \"integer\",\n            \"minimum\": 1000,\n            \"maximum\": 16777215,\n            \"description\": \"ID of application\"\n        },\n        \"state\": {\n            \"type\": \"string\",\n            \"enum\": [\n                \"inactive\",\n                \"active\",\n                \"test\"\n            ],\n            \"default\": \"test\",\n            \"description\": \"The working state of this app in the shop\"\n        },\n        \"title\": {\n            \"type\": \"string\",\n            \"maxLength\": 70,\n            \"description\": \"App title\"\n        },\n        \"slug\": {\n            \"type\": \"string\",\n            \"minLength\": 3,\n            \"maxLength\": 50,\n            \"pattern\": \"^[0-9a-z-]+$\",\n            \"description\": \"App unique slug, only lowercase letters, numbers and hyphen\"\n        },\n        \"paid\": {\n            \"type\": \"boolean\",\n            \"default\": false,\n            \"description\": \"Whether this app is paid\"\n        },\n        \"version\": {\n            \"type\": \"string\",\n            \"minLength\": 5,\n            \"maxLength\": 8,\n            \"pattern\": \"^(0|([1-9][0-9]?))[.](0|([1-9][0-9]?))[.](0|([1-9][0-9]?))$\",\n            \"description\": \"Version of the application that was installed, eg.: 1.0.0\"\n        },\n        \"version_date\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When app installation was updated, date and time in ISO 8601 standard representation\"\n        },\n        \"type\": {\n            \"type\": \"string\",\n            \"enum\": [\n                \"dashboard\",\n                \"storefront\",\n                \"external\"\n            ],\n            \"description\": \"Type of app\"\n        },\n        \"modules\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"properties\": {\n                \"page_loaded\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered after each storefront page load\"\n                },\n                \"term_searched\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered after each term searched on storefront\"\n                },\n                \"cart_confirmed\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered after each cart saves on storefront, just before checkout\"\n                },\n                \"calculate_shipping\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered to calculate shipping options, must return calculated values and times\"\n                },\n                \"list_payments\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered when listing payments, must return available methods\"\n                },\n                \"apply_discount\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered to validate and apply discout value, must return discount and conditions\"\n                },\n                \"create_transaction\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered when order is being closed, must create payment transaction and return info\"\n                },\n                \"checkout_done\": {\n                    \"$ref\": \"#/definitions/module\",\n                    \"description\": \"Triggered after each order created from storefront, could return custom fields\"\n                }\n            },\n            \"description\": \"Modules handled by this app\"\n        },\n        \"admin_settings\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 100,\n            \"patternProperties\": {\n                \"^[a-z0-9_]{2,30}$\": {\n                    \"type\": \"object\",\n                    \"additionalProperties\": false,\n                    \"required\": [\n                        \"schema\"\n                    ],\n                    \"properties\": {\n                        \"schema\": {\n                            \"type\": \"object\",\n                            \"description\": \"JSON Schema (https://json-schema.org/specification.html) for field model\"\n                        },\n                        \"hide\": {\n                            \"type\": \"boolean\",\n                            \"default\": true,\n                            \"description\": \"Whether the field value is private, saved in `hidden_data`\"\n                        }\n                    },\n                    \"description\": \"Configuration field object, property name same as saved on data object\"\n                }\n            },\n            \"description\": \"Configuration options for staff on admin dashboard, saved on app data\"\n        },\n        \"load_events\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 100,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 60,\n                \"pattern\": \"^(([^/_][a-z0-9/_@:$+]{1,60}[^/])|[*])$\",\n                \"description\": \"Resource/Subresources/Third-level/ID\"\n            },\n            \"description\": \"If this app is a dashboard or storefront JS, specify resources that trigger the script load\"\n        },\n        \"script_uri\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"description\": \"Script (JS) link\"\n        },\n        \"github_repository\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"description\": \"Link to GitHub repository\"\n        },\n        \"status\": {\n            \"type\": \"string\",\n            \"maxLength\": 50,\n            \"description\": \"Status defined by seller, such as active or waiting\"\n        },\n        \"authentication\": {\n            \"type\": \"boolean\",\n            \"default\": false,\n            \"description\": \"Whether this app needs to authenticate with API\"\n        },\n        \"auth_callback_uri\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"pattern\": \"^https:\",\n            \"description\": \"Endpoint that receives POST back with authentication credentials, must be https\"\n        },\n        \"auth_scope\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"minProperties\": 1,\n            \"maxProperties\": 500,\n            \"patternProperties\": {\n                \"^([$]?(?!app|aut|upd)([a-z][a-z0-9/_]{1,60}[^/]))$\": {\n                    \"type\": \"array\",\n                    \"uniqueItems\": true,\n                    \"items\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"all\",\n                            \"GET\",\n                            \"POST\",\n                            \"PATCH\",\n                            \"PUT\",\n                            \"DELETE\"\n                        ],\n                        \"description\": \"Methods to be used (HTTP verbs)\"\n                    },\n                    \"description\": \"Requested resource, cannot be \\\"applications\\\", \\\"authentications\\\" or \\\"$update\\\"\"\n                }\n            },\n            \"properties\": {\n                \"authentications\": {\n                    \"type\": \"array\",\n                    \"uniqueItems\": true,\n                    \"items\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"GET\"\n                        ],\n                        \"description\": \"For authentications, only GET method is allowed\"\n                    },\n                    \"description\": \"Special scope to read authentications\"\n                },\n                \"authentications/notifications\": {\n                    \"type\": \"array\",\n                    \"uniqueItems\": true,\n                    \"items\": {\n                        \"type\": \"string\",\n                        \"enum\": [\n                            \"POST\"\n                        ],\n                        \"description\": \"For admin notifictions, only POST method is allowed\"\n                    },\n                    \"description\": \"Special scope to create admin notifications\"\n                }\n            },\n            \"description\": \"If this app uses authentication, list the needed permissions\"\n        },\n        \"flags\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 10,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"description\": \"Flag title\"\n            },\n            \"description\": \"Flags to associate additional info\"\n        },\n        \"notes\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Optional notes with additional info about this user\"\n        }\n    }\n}\n"
                             }
@@ -1130,10 +1675,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "All Applications"
+                "title": {
+                  "element": "string",
+                  "content": "All Applications"
+                }
               },
               "attributes": {
-                "href": "/applications.json{?limit,offset,sort,fields}"
+                "href": {
+                  "element": "string",
+                  "content": "/applications.json{?limit,offset,sort,fields}"
+                }
               },
               "content": [
                 {
@@ -1143,10 +1694,16 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List All Store Applications"
+                    "title": {
+                      "element": "string",
+                      "content": "List All Store Applications"
+                    }
                   },
                   "attributes": {
-                    "href": "/applications.json"
+                    "href": {
+                      "element": "string",
+                      "content": "/applications.json"
+                    }
                   },
                   "content": [
                     {
@@ -1155,7 +1712,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1219,7 +1779,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1243,12 +1806,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"title\",\n      \"state\",\n      \"version\",\n      \"type\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000110\",\n      \"app_id\": 1001,\n      \"state\": \"active\",\n      \"version\": \"1.1.1\",\n      \"version_date\": \"2017-11-15T09:15:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"state\": \"active\",\n      \"version\": \"3.0.0\",\n      \"type\": \"dashboard\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000112\",\n      \"app_id\": 1003,\n      \"state\": \"test\",\n      \"version\": \"2.14.0\",\n      \"version_date\": \"2017-11-14T12:00:10.612Z\",\n      \"type\": \"storefront\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    },\n    {\n      \"_id\": \"42aa00000000000000000114\",\n      \"app_id\": 1005,\n      \"state\": \"active\",\n      \"version\": \"3.1.3\",\n      \"version_date\": \"2017-12-20T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
@@ -1261,7 +1833,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Pagination And Ordering"
+                    "title": {
+                      "element": "string",
+                      "content": "Pagination And Ordering"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1270,13 +1845,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Max number of objects to return",
-                            "title": "number"
+                            "description": {
+                              "element": "string",
+                              "content": "Max number of objects to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "number"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1292,13 +1879,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "First entry to return",
-                            "title": "number"
+                            "description": {
+                              "element": "string",
+                              "content": "First entry to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "number"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1314,13 +1913,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Rules to order resultant objects",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Rules to order resultant objects"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1336,13 +1947,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Object properties to return",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Object properties to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1365,7 +1988,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1429,7 +2055,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1453,12 +2082,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 3,\n    \"offset\": 3,\n    \"sort\": [\n      {\n        \"field\": \"version_date\",\n        \"order\": -1\n      }\n    ],\n    \"fields\": [\n      \"app_id\",\n      \"title\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000111\",\n      \"app_id\": 1002,\n      \"title\": \"Products panel extension\"\n    }\n  ]\n}\n"
                             }
@@ -1471,23 +2109,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Find Applications"
+                    "title": {
+                      "element": "string",
+                      "content": "Find Applications"
+                    }
                   },
                   "attributes": {
-                    "href": "/applications.json{?app_id}",
+                    "href": {
+                      "element": "string",
+                      "content": "/applications.json{?app_id}"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Object property to query",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Object property to query"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1510,7 +2166,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1574,7 +2233,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1598,12 +2260,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"app_id\",\n      \"state\",\n      \"version\",\n      \"version_date\",\n      \"type\"\n    ],\n    \"query\": {\n      \"app_id\": 1004\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"42aa00000000000000000113\",\n      \"app_id\": 1004,\n      \"state\": \"inactive\",\n      \"version\": \"2.0.23\",\n      \"version_date\": \"2017-12-15T00:15:10.612Z\",\n      \"type\": \"external\"\n    }\n  ]\n}\n"
                             }
@@ -1618,10 +2289,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "New Application"
+                "title": {
+                  "element": "string",
+                  "content": "New Application"
+                }
               },
               "attributes": {
-                "href": "/applications.json"
+                "href": {
+                  "element": "string",
+                  "content": "/applications.json"
+                }
               },
               "content": [
                 {
@@ -1631,7 +2308,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Create New Application"
+                    "title": {
+                      "element": "string",
+                      "content": "Create New Application"
+                    }
                   },
                   "content": [
                     {
@@ -1640,7 +2320,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1703,12 +2386,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"app_id\": 1002,\n  \"state\": \"active\",\n  \"title\": \"Products panel extension\",\n  \"slug\": \"products-panel-ext\",\n  \"paid\": true,\n  \"version\": \"3.0.0\",\n  \"type\": \"dashboard\",\n  \"load_events\": [\n    \"products\"\n  ],\n  \"script_uri\": \"https://sample.mycdn.com/script.min.js\"\n}\n"
                             }
@@ -1717,7 +2409,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "201",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "201"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1741,12 +2436,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"42aa00000000000000000111\"\n}\n"
                             }
@@ -1761,10 +2465,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Application"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Application"
+                }
               },
               "attributes": {
-                "href": "/applications/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/applications/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -1774,23 +2484,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Application"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Application"
+                    }
                   },
                   "attributes": {
-                    "href": "/applications/{application}.json",
+                    "href": {
+                      "element": "string",
+                      "content": "/applications/{application}.json"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1813,7 +2541,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1851,7 +2582,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1875,12 +2609,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"42aa00000000000000000111\",\n  \"created_at\": \"2017-11-19T13:10:00.612Z\",\n  \"store_id\": 100,\n  \"app_id\": 1002,\n  \"state\": \"active\",\n  \"title\": \"Products panel extension\",\n  \"slug\": \"products-panel-ext\",\n  \"paid\": true,\n  \"payment_status\": \"trial\",\n  \"version\": \"3.0.0\",\n  \"type\": \"dashboard\",\n  \"load_events\": [\n    \"products\"\n  ],\n  \"script_uri\": \"https://sample.mycdn.com/script.min.js\",\n  \"data\": {\n    \"sample\": 123,\n    \"eg\": [ 1, 2, 3 ]\n  }\n}\n"
                             }
@@ -1893,7 +2636,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "With Authentication"
+                    "title": {
+                      "element": "string",
+                      "content": "With Authentication"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1902,13 +2648,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1931,7 +2689,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1995,7 +2756,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -2019,12 +2783,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"42aa00000000000000000111\",\n  \"created_at\": \"2017-11-19T13:10:00.612Z\",\n  \"store_id\": 100,\n  \"app_id\": 1002,\n  \"state\": \"active\",\n  \"title\": \"Products panel extension\",\n  \"slug\": \"products-panel-ext\",\n  \"paid\": true,\n  \"payment_status\": \"trial\",\n  \"version\": \"3.0.0\",\n  \"type\": \"dashboard\",\n  \"load_events\": [\n    \"products\"\n  ],\n  \"script_uri\": \"https://sample.mycdn.com/script.min.js\",\n  \"authentication\": false,\n  \"data\": {\n    \"sample\": 123,\n    \"eg\": [ 1, 2, 3 ]\n  },\n  \"hidden_data\": {\n    \"token\": \"sdkcblsdcbslkc\"\n  }\n}\n"
                             }
@@ -2037,7 +2810,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Application"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Application"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -2046,13 +2822,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -2075,7 +2863,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -2138,12 +2929,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"state\": \"inactive\",\n  \"status\": \"paused\"\n}\n"
                             }
@@ -2152,7 +2952,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -2163,7 +2966,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Overwrite Application"
+                    "title": {
+                      "element": "string",
+                      "content": "Overwrite Application"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -2172,13 +2978,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -2201,7 +3019,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PUT",
+                            "method": {
+                              "element": "string",
+                              "content": "PUT"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -2264,12 +3085,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"app_id\": 1002,\n  \"state\": \"inactive\",\n  \"title\": \"Products panel extension\",\n  \"slug\": \"products-panel-ext\",\n  \"paid\": true,\n  \"version\": \"3.0.0\",\n  \"type\": \"dashboard\",\n  \"load_events\": [\n    \"products\"\n  ],\n  \"script_uri\": \"https://sample.mycdn.com/script.min.js\",\n  \"status\": \"paused\"\n}\n"
                             }
@@ -2278,7 +3108,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -2289,7 +3122,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Remove Application"
+                    "title": {
+                      "element": "string",
+                      "content": "Remove Application"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -2298,13 +3134,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -2327,7 +3175,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "DELETE",
+                            "method": {
+                              "element": "string",
+                              "content": "DELETE"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -2391,7 +3242,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -2407,4 +3261,3 @@
     }
   ]
 }
-

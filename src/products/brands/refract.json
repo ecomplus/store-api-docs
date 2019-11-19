@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Product Brands"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Product Brands"
+            }
           },
           "content": [
             {
@@ -26,151 +44,200 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Product Brand Object"
+                "title": {
+                  "element": "string",
+                  "content": "Product Brand Object"
+                }
               },
               "attributes": {
-                "href": "/products/schema/brands.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/schema/brands.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Product Brand Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Brand ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Product Brand Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Brand ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Brand name - Max length: **255**"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "_id"
                           },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Brand page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "slug"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Brand logo"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "logo"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image link - Max length: **255** - Format: **uri**"
-                                  },
-                                  "attributes": {
-                                    "typeAttributes": [
-                                      "required"
-                                    ]
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "url"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "size"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "alt"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
+                          "value": {
+                            "element": "string"
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Brand name - Max length: **255**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Brand page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "slug"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Brand logo"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "logo"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image link - Max length: **255** - Format: **uri**"
+                                  }
+                                },
+                                "attributes": {
+                                  "typeAttributes": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "string",
+                                        "content": "required"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "url"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "size"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "alt"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -179,7 +246,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -217,7 +287,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -241,12 +314,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n        \"_id\"\n    ],\n    \"properties\": {\n        \"_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"Brand ID\"\n        }\n    },\n    \"title\": \"Add brand by ID to product\"\n}\n"
                             }
@@ -261,10 +343,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "All Brands of a Product"
+                "title": {
+                  "element": "string",
+                  "content": "All Brands of a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/brands.json{?limit,offset,sort,fields}"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/brands.json{?limit,offset,sort,fields}"
+                }
               },
               "content": [
                 {
@@ -274,23 +362,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List All Product Brands"
+                    "title": {
+                      "element": "string",
+                      "content": "List All Product Brands"
+                    }
                   },
                   "attributes": {
-                    "href": "/products/{product}/brands.json",
+                    "href": {
+                      "element": "string",
+                      "content": "/products/{product}/brands.json"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -313,7 +419,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -377,7 +486,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -401,12 +513,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"a10000000000000000001112\",\n      \"name\": \"Brand 2\",\n      \"slug\": \"brand-two\"\n    },\n    {\n      \"_id\": \"a10000000000000000000001\",\n      \"name\": \"Shirts Example\",\n      \"slug\": \"shirts-example\",\n      \"logo\": {\n        \"url\": \"https://mycdn.com/shirts-example.jpg\",\n        \"size\": \"100x50\"\n      }\n    }\n  ]\n}\n"
                             }
@@ -421,10 +542,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "New Brand to a Product"
+                "title": {
+                  "element": "string",
+                  "content": "New Brand to a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/brands.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/brands.json"
+                }
               },
               "content": [
                 {
@@ -434,7 +561,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Add New Product Brand"
+                    "title": {
+                      "element": "string",
+                      "content": "Add New Product Brand"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -443,13 +573,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -472,7 +614,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -535,24 +680,42 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"a10000000000000000001112\"\n}\n"
                             },
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBodySchema"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBodySchema"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/schema+json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/schema+json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n        \"_id\"\n    ],\n    \"properties\": {\n        \"_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[a-f0-9]{24}$\",\n            \"description\": \"Brand ID\"\n        }\n    },\n    \"title\": \"Add brand by ID to product\"\n}\n"
                             }
@@ -561,7 +724,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "201",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "201"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -585,12 +751,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"a10000000000000000001112\"\n}\n"
                             }
@@ -605,10 +780,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Brand of a Product"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Brand of a Product"
+                }
               },
               "attributes": {
-                "href": "/products/{product}/brands/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/products/{product}/brands/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -618,7 +799,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Product Brand"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Product Brand"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -627,13 +811,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -649,13 +845,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Brand ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Brand ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -678,7 +886,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -742,7 +953,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -766,12 +980,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"a10000000000000000000001\",\n  \"name\": \"Shirts Example\",\n  \"slug\": \"shirts-example\",\n  \"logo\": {\n    \"url\": \"https://mycdn.com/shirts-example.jpg\",\n    \"size\": \"100x50\"\n  }\n}\n"
                             }
@@ -784,7 +1007,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Remove Brand From Product"
+                    "title": {
+                      "element": "string",
+                      "content": "Remove Brand From Product"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -793,13 +1019,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Product ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Product ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -815,13 +1053,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Brand ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Brand ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -844,7 +1094,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "DELETE",
+                            "method": {
+                              "element": "string",
+                              "content": "DELETE"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -908,7 +1161,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -924,4 +1180,3 @@
     }
   ]
 }
-

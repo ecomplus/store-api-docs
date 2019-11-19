@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Brand i18n"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Brand i18n"
+            }
           },
           "content": [
             {
@@ -26,44 +44,57 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Brand i18n Object"
+                "title": {
+                  "element": "string",
+                  "content": "Brand i18n Object"
+                }
               },
               "attributes": {
-                "href": "/brands/schema/i18n.json"
+                "href": {
+                  "element": "string",
+                  "content": "/brands/schema/i18n.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Brand i18n Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Translated name - Max length: **255**"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Brand i18n Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Translated name - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "^[a-z]{2}(_[a-z]{2})?$"
                           },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "^[a-z]{2}(_[a-z]{2})?$"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
+                          "value": {
+                            "element": "string"
                           }
                         }
-                      ]
-                    }
-                  ]
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -72,7 +103,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -110,7 +144,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -134,12 +171,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "i18n/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "i18n/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Name language translations\",\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"minProperties\": 1,\n    \"maxProperties\": 10,\n    \"patternProperties\": {\n        \"^[a-z]{2}(_[a-z]{2})?$\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Translated name\"\n        }\n    }\n}\n"
                             }
@@ -154,10 +200,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "i18n of a Brand"
+                "title": {
+                  "element": "string",
+                  "content": "i18n of a Brand"
+                }
               },
               "attributes": {
-                "href": "/brands/{brand}/i18n.json"
+                "href": {
+                  "element": "string",
+                  "content": "/brands/{brand}/i18n.json"
+                }
               },
               "content": [
                 {
@@ -167,7 +219,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Brand Name Translations"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Brand Name Translations"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -176,13 +231,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The brand ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The brand ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -205,7 +272,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -269,7 +339,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -293,12 +366,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"pt_br\": \"Camisetas Exemplo\",\n  \"es_es\": \"Camisetas Ejemplo\"\n}\n"
                             }
@@ -311,7 +393,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Brand Name Translations"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Brand Name Translations"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -320,13 +405,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The brand ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The brand ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -349,7 +446,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -412,12 +512,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"it\": \"Camicie Esempio\"\n}\n"
                             }
@@ -426,7 +535,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -442,4 +554,3 @@
     }
   ]
 }
-

@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Categories"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Categories"
+            }
           },
           "content": [
             {
@@ -26,774 +44,973 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Category Object"
+                "title": {
+                  "element": "string",
+                  "content": "Category Object"
+                }
               },
               "attributes": {
-                "href": "/categories/schema.json"
+                "href": {
+                  "element": "string",
+                  "content": "/categories/schema.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Category Object"
-                      },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category full name - Max length: **255**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Category Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category full name - Max length: **255**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category name translations - Max properties: **10**"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "name"
                           },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "i18n"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Translated full category name - Max length: **255**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^[a-z]{2}(_[a-z]{2})?$"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "subtitle"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "slug"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Permanent URL to category page - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "permalink"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Optional URL specific to mobile devices - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "mobile_link"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Short category description in plain text - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "short_description"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Full category description, may use HTML tags - Max length: **250000**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "body_html"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Full category description, plain text only - Max length: **250000**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "body_text"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Title tag for page SEO - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "meta_title"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Meta description tag for page SEO - Max length: **1000**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "meta_description"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category parent (above) of this category"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "parent"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "_id"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Category name - Max length: **255**"
-                                  },
-                                  "attributes": {
-                                    "typeAttributes": [
-                                      "required"
-                                    ]
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "name"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "slug"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "List of categories daughters of this category - Max elements: **200**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "childs"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "object",
-                                  "content": [
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "_id"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Category name - Max length: **255**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "name"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "slug"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Grids for results filtering and products composition, `grid_id` as property name - Max properties: **200**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "grids"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Grid properties"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^[a-z0-9_]{2,30}$"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Grid object ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "_id"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Grid title - Max length: **70**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "title"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "Grid used to results filtering (search aggregations)"
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "is_filter"
-                                            },
-                                            "value": {
-                                              "element": "boolean",
-                                              "content": false
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Category icon image"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "icon"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image link - Max length: **255** - Format: **uri**"
-                                  },
-                                  "attributes": {
-                                    "typeAttributes": [
-                                      "required"
-                                    ]
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "url"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "size"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "alt"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "List of category images - Max elements: **50**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "pictures"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "object",
-                                  "content": [
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "_id"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "tag"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Image link - Max length: **255** - Format: **uri**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "url"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "size"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "alt"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Mercado Libre Taxonomy: https://api.mercadolibre.com/sites/MLB/categories - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "ml_category_id"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Google Taxonomy: https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt - Mininum: **1** - Maximum: **999999999999**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "google_product_category_id"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "List of custom attributes - Max elements: **100**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "metafields"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "object",
-                                  "content": [
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "_id"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "String to help distinguish who (or which app) created and can use the metafield - Max length: **30**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "namespace"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Field name - Max length: **50**"
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "field"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Custom property value - Max length: **255**"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
-                                        ]
-                                      },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "value"
-                                        },
-                                        "value": {
-                                          "element": "string"
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Flags to associate additional info - Max elements: **10**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "flags"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "meta": {
-                                    "description": "Flag title"
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Optional notes with additional info about this category - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "notes"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
+                          "value": {
+                            "element": "string"
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category name translations - Max properties: **10**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "i18n"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Translated full category name - Max length: **255**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^[a-z]{2}(_[a-z]{2})?$"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Optional subtitle intended to be used for SEO or layout purposes - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "subtitle"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Slug to complete page URL, starting with number or lowercase letter - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "slug"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Permanent URL to category page - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "permalink"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Optional URL specific to mobile devices - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "mobile_link"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Short category description in plain text - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "short_description"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Full category description, may use HTML tags - Max length: **250000**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "body_html"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Full category description, plain text only - Max length: **250000**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "body_text"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Title tag for page SEO - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "meta_title"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Meta description tag for page SEO - Max length: **1000**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "meta_description"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category parent (above) of this category"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "parent"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "_id"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Category name - Max length: **255**"
+                                  }
+                                },
+                                "attributes": {
+                                  "typeAttributes": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "string",
+                                        "content": "required"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "name"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "slug"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "List of categories daughters of this category - Max elements: **200**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "childs"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "object",
+                                "content": [
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Category ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "_id"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Category name - Max length: **255**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "name"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Category page slug - Max length: **255** - RegEx pattern: **`^[a-z0-9]([a-z0-9-_./]+)?$`**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "slug"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Grids for results filtering and products composition, `grid_id` as property name - Max properties: **200**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "grids"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Grid properties"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^[a-z0-9_]{2,30}$"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Grid object ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "_id"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Grid title - Max length: **70**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "title"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "Grid used to results filtering (search aggregations)"
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "is_filter"
+                                          },
+                                          "value": {
+                                            "element": "boolean",
+                                            "content": false
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Category icon image"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "icon"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image link - Max length: **255** - Format: **uri**"
+                                  }
+                                },
+                                "attributes": {
+                                  "typeAttributes": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "string",
+                                        "content": "required"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "url"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "size"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "alt"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "List of category images - Max elements: **50**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "pictures"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "object",
+                                "content": [
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "_id"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Tag to identify object, use only lowercase letters, digits and underscore - Max length: **20** - RegEx pattern: **`^[a-z0-9_]+$`**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "tag"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Image link - Max length: **255** - Format: **uri**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "url"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "size"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "alt"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Mercado Libre Taxonomy: https://api.mercadolibre.com/sites/MLB/categories - RegEx pattern: **`^ML[A-Z][0-9]{2,9}$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "ml_category_id"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Google Taxonomy: https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt - Mininum: **1** - Maximum: **999999999999**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "google_product_category_id"
+                          },
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "List of custom attributes - Max elements: **100**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "metafields"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "object",
+                                "content": [
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "_id"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "String to help distinguish who (or which app) created and can use the metafield - Max length: **30**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "namespace"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Field name - Max length: **50**"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "field"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Custom property value - Max length: **255**"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "value"
+                                      },
+                                      "value": {
+                                        "element": "string"
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Flags to associate additional info - Max elements: **10**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "flags"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Flag title"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Optional notes with additional info about this category - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "notes"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -802,7 +1019,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -840,7 +1060,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -864,12 +1087,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Categories\",\n    \"description\": \"Category object model\",\n    \"type\": \"object\",\n    \"required\": [\n        \"name\"\n    ],\n    \"additionalProperties\": false,\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Category full name\"\n        },\n        \"i18n\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 10,\n            \"patternProperties\": {\n                \"^[a-z]{2}(_[a-z]{2})?$\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"description\": \"Translated full category name\"\n                }\n            },\n            \"description\": \"Category name translations\"\n        },\n        \"subtitle\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Optional subtitle intended to be used for SEO or layout purposes\"\n        },\n        \"slug\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"pattern\": \"^[a-z0-9]([a-z0-9-_./]+)?$\",\n            \"description\": \"Slug to complete page URL, starting with number or lowercase letter\"\n        },\n        \"permalink\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"description\": \"Permanent URL to category page\"\n        },\n        \"mobile_link\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"description\": \"Optional URL specific to mobile devices\"\n        },\n        \"short_description\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Short category description in plain text\"\n        },\n        \"body_html\": {\n            \"type\": \"string\",\n            \"maxLength\": 250000,\n            \"description\": \"Full category description, may use HTML tags\"\n        },\n        \"body_text\": {\n            \"type\": \"string\",\n            \"maxLength\": 250000,\n            \"description\": \"Full category description, plain text only\"\n        },\n        \"meta_title\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Title tag for page SEO\"\n        },\n        \"meta_description\": {\n            \"type\": \"string\",\n            \"maxLength\": 1000,\n            \"description\": \"Meta description tag for page SEO\"\n        },\n        \"parent\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"required\": [\n                \"name\"\n            ],\n            \"properties\": {\n                \"_id\": {\n                    \"type\": \"string\",\n                    \"pattern\": \"^[a-f0-9]{24}$\",\n                    \"description\": \"Category ID\"\n                },\n                \"name\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"description\": \"Category name\"\n                },\n                \"slug\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"pattern\": \"^[a-z0-9]([a-z0-9-_./]+)?$\",\n                    \"description\": \"Category page slug\"\n                }\n            },\n            \"description\": \"Category parent (above) of this category\"\n        },\n        \"childs\": {\n            \"type\": \"array\",\n            \"maxItems\": 200,\n            \"items\": {\n                \"type\": \"object\",\n                \"additionalProperties\": false,\n                \"required\": [\n                    \"name\"\n                ],\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Category ID\"\n                    },\n                    \"name\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Category name\"\n                    },\n                    \"slug\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"pattern\": \"^[a-z0-9]([a-z0-9-_./]+)?$\",\n                        \"description\": \"Category page slug\"\n                    }\n                },\n                \"description\": \"Child category\"\n            },\n            \"description\": \"List of categories daughters of this category\"\n        },\n        \"grids\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"maxProperties\": 200,\n            \"patternProperties\": {\n                \"^[a-z0-9_]{2,30}$\": {\n                    \"type\": \"object\",\n                    \"required\": [\n                        \"title\"\n                    ],\n                    \"additionalProperties\": false,\n                    \"properties\": {\n                        \"_id\": {\n                            \"type\": \"string\",\n                            \"pattern\": \"^[a-f0-9]{24}$\",\n                            \"description\": \"Grid object ID\"\n                        },\n                        \"title\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 70,\n                            \"description\": \"Grid title\"\n                        },\n                        \"is_filter\": {\n                            \"type\": \"boolean\",\n                            \"default\": false,\n                            \"description\": \"Grid used to results filtering (search aggregations)\"\n                        }\n                    },\n                    \"description\": \"Grid properties\"\n                }\n            },\n            \"description\": \"Grids for results filtering and products composition, grid_id as property name\"\n        },\n        \"icon\": {\n            \"type\": \"object\",\n            \"required\": [\n                \"url\"\n            ],\n            \"additionalProperties\": false,\n            \"properties\": {\n                \"url\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"format\": \"uri\",\n                    \"description\": \"Image link\"\n                },\n                \"size\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 11,\n                    \"pattern\": \"^[1-9]([0-9]+)?x[1-9]([0-9]+)?$\",\n                    \"description\": \"Image size (width x height) in px, such as 100x50 (100px width, 50px height)\"\n                },\n                \"alt\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"description\": \"Alternative text, HTML alt tag (important for SEO)\"\n                }\n            },\n            \"description\": \"Category icon image\"\n        },\n        \"pictures\": {\n            \"type\": \"array\",\n            \"maxItems\": 50,\n            \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                    \"_id\",\n                    \"url\"\n                ],\n                \"additionalProperties\": false,\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"tag\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 20,\n                        \"pattern\": \"^[a-z0-9_]+$\",\n                        \"description\": \"Tag to identify object, use only lowercase letters, digits and underscore\"\n                    },\n                    \"url\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"format\": \"uri\",\n                        \"description\": \"Image link\"\n                    },\n                    \"size\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 11,\n                        \"pattern\": \"^[1-9]([0-9]+)?x[1-9]([0-9]+)?$\",\n                        \"description\": \"Image size (width x height) in px, such as 100x50 (100px width, 50px height)\"\n                    },\n                    \"alt\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Alternative text, HTML alt tag (important for SEO)\"\n                    }\n                },\n                \"description\": \"Image object\"\n            },\n            \"description\": \"List of category images\"\n        },\n        \"ml_category_id\": {\n            \"type\": \"string\",\n            \"pattern\": \"^ML[A-Z][0-9]{2,9}$\",\n            \"description\": \"Mercado Libre Taxonomy: https://api.mercadolibre.com/sites/MLB/categories\"\n        },\n        \"google_product_category_id\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"maximum\": 999999999999,\n            \"description\": \"Google Taxonomy: https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt\"\n        },\n        \"metafields\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n                \"type\": \"object\",\n                \"additionalProperties\": false,\n                \"required\": [\n                    \"_id\",\n                    \"value\"\n                ],\n                \"properties\": {\n                    \"_id\": {\n                        \"type\": \"string\",\n                        \"pattern\": \"^[a-f0-9]{24}$\",\n                        \"description\": \"Unique ID (ObjectID)\"\n                    },\n                    \"namespace\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 30,\n                        \"description\": \"String to help distinguish who (or which app) created and can use the metafield\"\n                    },\n                    \"field\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 50,\n                        \"description\": \"Field name\"\n                    },\n                    \"value\": {\n                        \"type\": \"string\",\n                        \"maxLength\": 255,\n                        \"description\": \"Custom property value\"\n                    }\n                },\n                \"description\": \"Custom attribute object\"\n            },\n            \"description\": \"List of custom attributes\"\n        },\n        \"flags\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 10,\n            \"items\": {\n                \"type\": \"string\",\n                \"maxLength\": 20,\n                \"description\": \"Flag title\"\n            },\n            \"description\": \"Flags to associate additional info\"\n        },\n        \"notes\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Optional notes with additional info about this category\"\n        }\n    }\n}\n"
                             }
@@ -884,10 +1116,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "All Categories"
+                "title": {
+                  "element": "string",
+                  "content": "All Categories"
+                }
               },
               "attributes": {
-                "href": "/categories.json{?limit,offset,sort,fields}"
+                "href": {
+                  "element": "string",
+                  "content": "/categories.json{?limit,offset,sort,fields}"
+                }
               },
               "content": [
                 {
@@ -897,10 +1135,16 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List All Store Categories"
+                    "title": {
+                      "element": "string",
+                      "content": "List All Store Categories"
+                    }
                   },
                   "attributes": {
-                    "href": "/categories.json"
+                    "href": {
+                      "element": "string",
+                      "content": "/categories.json"
+                    }
                   },
                   "content": [
                     {
@@ -909,7 +1153,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -947,7 +1194,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -971,12 +1221,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"name\",\n      \"slug\",\n      \"parent\",\n      \"icon\",\n      \"created_at\",\n      \"updated_at\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"b10000000000000000001110\",\n      \"name\": \"Category 0\",\n      \"slug\": \"category-zero\",\n      \"icon\": {\n        \"url\": \"https://sample.shop.eg/assets/category.svg\",\n        \"size\": \"60x60\"\n      },\n      \"updated_at\": \"2019-02-22T13:36:06.547Z\",\n      \"created_at\": \"2019-02-22T13:36:06.547Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001111\",\n      \"name\": \"Category 1\",\n      \"slug\": \"category-one\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001110\",\n        \"name\": \"Category 0\",\n        \"slug\": \"category-zero\"\n      },\n      \"created_at\": \"2019-02-22T14:43:40.647Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001112\",\n      \"name\": \"Category 2\",\n      \"slug\": \"category-two\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001111\",\n        \"name\": \"Category 1\",\n        \"slug\": \"category-one\"\n      },\n      \"created_at\": \"2019-02-22T16:00:49.671Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001113\",\n      \"name\": \"Category 3\",\n      \"slug\": \"category-three\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001112\",\n        \"name\": \"Category 2\",\n        \"slug\": \"category-two\"\n      },\n      \"updated_at\": \"2019-02-22T13:36:06.547Z\",\n      \"created_at\": \"2019-02-22T13:36:06.547Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001114\",\n      \"name\": \"Category 4\",\n      \"slug\": \"category-four\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001113\",\n        \"name\": \"Category 3\",\n        \"slug\": \"category-three\"\n      },\n      \"created_at\": \"2019-02-22T16:00:49.671Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001115\",\n      \"name\": \"Category 5\",\n      \"slug\": \"category-five\",\n      \"created_at\": \"2019-02-22T14:41:59.607Z\"\n    },\n    {\n      \"_id\": \"b10000000000000000001116\",\n      \"name\": \"Category 6\",\n      \"slug\": \"category-six\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001115\",\n        \"name\": \"Category 5\",\n        \"slug\": \"category-five\"\n      },\n      \"created_at\": \"2019-02-22T14:41:01.323Z\"\n    },\n    {\n      \"_id\": \"f10000000000000000000001\",\n      \"name\": \"Polo Shirts\",\n      \"slug\": \"polo\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001110\",\n        \"name\": \"Category 0\",\n        \"slug\": \"category-zero\"\n      },\n      \"created_at\": \"2019-02-22T16:01:38.850Z\"\n    }\n  ]\n}\n"
                             }
@@ -989,7 +1248,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Pagination And Ordering"
+                    "title": {
+                      "element": "string",
+                      "content": "Pagination And Ordering"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -998,13 +1260,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Max number of objects to return",
-                            "title": "number"
+                            "description": {
+                              "element": "string",
+                              "content": "Max number of objects to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "number"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1020,13 +1294,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "First entry to return",
-                            "title": "number"
+                            "description": {
+                              "element": "string",
+                              "content": "First entry to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "number"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1042,13 +1328,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Rules to order resultant objects",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Rules to order resultant objects"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1064,13 +1362,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Object properties to return",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Object properties to return"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1093,7 +1403,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1131,7 +1444,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1155,12 +1471,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 4,\n    \"offset\": 2,\n    \"sort\": [\n      {\n        \"field\": \"name\",\n        \"order\": -1\n      }\n    ],\n    \"fields\": [\n      \"name\",\n      \"short_description\"\n    ],\n    \"query\": {}\n  },\n  \"result\": [\n    {\n      \"_id\": \"b10000000000000000001115\",\n      \"name\": \"Category 5\",\n      \"short_description\": \"Category 5 short description text\"\n    },\n    {\n      \"_id\": \"b10000000000000000001114\",\n      \"name\": \"Category 4\",\n      \"short_description\": \"Category 4 short description text\"\n    },\n    {\n      \"_id\": \"b10000000000000000001113\",\n      \"name\": \"Category 3\",\n      \"short_description\": \"Category 3 short description text\"\n    },\n    {\n      \"_id\": \"b10000000000000000001112\",\n      \"name\": \"Category 2\",\n      \"short_description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"\n    }\n  ]\n}\n"
                             }
@@ -1173,23 +1498,41 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Find Categories"
+                    "title": {
+                      "element": "string",
+                      "content": "Find Categories"
+                    }
                   },
                   "attributes": {
-                    "href": "/categories.json{?slug}",
+                    "href": {
+                      "element": "string",
+                      "content": "/categories.json{?slug}"
+                    },
                     "hrefVariables": {
                       "element": "hrefVariables",
                       "content": [
                         {
                           "element": "member",
                           "meta": {
-                            "description": "Object property to query",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "Object property to query"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "optional"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "optional"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1212,7 +1555,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1250,7 +1596,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1274,12 +1623,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"meta\": {\n    \"limit\": 1000,\n    \"offset\": 0,\n    \"sort\": [],\n    \"fields\": [\n      \"_id\",\n      \"name\",\n      \"slug\",\n      \"parent\"\n    ],\n    \"query\": {\n      \"slug\": \"category-four\"\n    }\n  },\n  \"result\": [\n    {\n      \"_id\": \"b10000000000000000001114\",\n      \"name\": \"Category 4\",\n      \"slug\": \"category-four\",\n      \"parent\": {\n        \"_id\": \"b10000000000000000001113\",\n        \"name\": \"Category 3\",\n        \"slug\": \"category-three\"\n      }\n    }\n  ]\n}\n"
                             }
@@ -1294,10 +1652,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "New Category"
+                "title": {
+                  "element": "string",
+                  "content": "New Category"
+                }
               },
               "attributes": {
-                "href": "/categories.json"
+                "href": {
+                  "element": "string",
+                  "content": "/categories.json"
+                }
               },
               "content": [
                 {
@@ -1307,7 +1671,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Create New Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Create New Category"
+                    }
                   },
                   "content": [
                     {
@@ -1316,7 +1683,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1379,12 +1749,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"name\": \"Polo Shirts\",\n  \"slug\": \"polo\",\n  \"short_description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"body_html\": \"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\",\n  \"body_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\",\n  \"meta_title\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\",\n  \"meta_description\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\",\n  \"parent\": {\n    \"_id\": \"b10000000000000000001110\",\n    \"name\": \"Category 0\",\n    \"slug\": \"category-zero\"\n  },\n  \"childs\": [\n    {\n      \"_id\": \"b10000000000000000001112\",\n      \"name\": \"Category 2\",\n      \"slug\": \"category-two\"\n    },\n    {\n      \"_id\": \"b10000000000000000001113\",\n      \"name\": \"Category 3\",\n      \"slug\": \"category-three\"\n    }\n  ],\n  \"grids\": {\n    \"gender\": {\n      \"_id\": \"b90000000000000000000101\",\n      \"title\": \"Gender\"\n    },\n    \"size\": {\n      \"_id\": \"b90000000000000000000102\",\n      \"title\": \"Shirt size\",\n      \"is_filter\": true\n    },\n    \"colors\": {\n      \"_id\": \"b90000000000000000000103\",\n      \"title\": \"Colors\",\n      \"is_filter\": true\n    }\n  },\n  \"icon\": {\n    \"url\": \"https://mycdn.com/icon/polo-example.png\",\n    \"size\": \"30x20\"\n  },\n  \"pictures\": [\n    {\n      \"_id\": \"b74000000000000000000103\",\n      \"tag\": \"banner\",\n      \"url\": \"https://mycdn.com/polo-example-banner.jpg\",\n      \"size\": \"900x200\",\n      \"alt\": \"Trending Polo Shirts\"\n    }\n  ]\n}\n"
                             }
@@ -1393,7 +1772,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "201",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "201"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1417,12 +1799,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"f10000000000000000000001\"\n}\n"
                             }
@@ -1437,10 +1828,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Category"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Category"
+                }
               },
               "attributes": {
-                "href": "/categories/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/categories/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -1450,7 +1847,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1459,13 +1859,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1488,7 +1900,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1526,7 +1941,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1550,12 +1968,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"f10000000000000000000001\",\n  \"created_at\": \"2017-11-19T13:10:00.612Z\",\n  \"store_id\": 100,\n  \"name\": \"Polo Shirts\",\n  \"slug\": \"polo\",\n  \"short_description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"body_html\": \"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\",\n  \"body_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\",\n  \"meta_title\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\",\n  \"meta_description\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\",\n  \"parent\": {\n    \"_id\": \"b10000000000000000001110\",\n    \"name\": \"Category 0\",\n    \"slug\": \"category-zero\"\n  },\n  \"childs\": [\n    {\n      \"_id\": \"b10000000000000000001112\",\n      \"name\": \"Category 2\",\n      \"slug\": \"category-two\"\n    },\n    {\n      \"_id\": \"b10000000000000000001113\",\n      \"name\": \"Category 3\",\n      \"slug\": \"category-three\"\n    }\n  ],\n  \"grids\": {\n    \"gender\": {\n      \"_id\": \"b90000000000000000000101\",\n      \"title\": \"Gender\",\n      \"is_filter\": false\n    },\n    \"size\": {\n      \"_id\": \"b90000000000000000000102\",\n      \"title\": \"Shirt size\",\n      \"is_filter\": true\n    },\n    \"colors\": {\n      \"_id\": \"b90000000000000000000103\",\n      \"title\": \"Colors\",\n      \"is_filter\": true\n    }\n  },\n  \"icon\": {\n    \"url\": \"https://mycdn.com/icon/polo-example.png\",\n    \"size\": \"30x20\"\n  },\n  \"pictures\": [\n    {\n      \"_id\": \"b74000000000000000000103\",\n      \"tag\": \"banner\",\n      \"url\": \"https://mycdn.com/polo-example-banner.jpg\",\n      \"size\": \"900x200\",\n      \"alt\": \"Trending Polo Shirts\"\n    }\n  ]\n}\n"
                             }
@@ -1568,7 +1995,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1577,13 +2007,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1606,7 +2048,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1669,12 +2114,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"name\": \"Polo Shirts Sample\",\n  \"permalink\": \"https://myshop.sample/polo-shirts/\"\n}\n"
                             }
@@ -1683,7 +2137,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1694,7 +2151,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Overwrite Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Overwrite Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1703,13 +2163,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1732,7 +2204,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PUT",
+                            "method": {
+                              "element": "string",
+                              "content": "PUT"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1795,12 +2270,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"name\": \"Polo Shirts Sample\",\n  \"slug\": \"polo\",\n  \"short_description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"body_html\": \"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\",\n  \"body_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\",\n  \"parent\": {\n    \"_id\": \"b10000000000000000001110\",\n    \"name\": \"Category 0\",\n    \"slug\": \"category-zero\"\n  },\n  \"childs\": [\n    {\n      \"_id\": \"b10000000000000000001112\",\n      \"name\": \"Category 2\",\n      \"slug\": \"category-two\"\n    }\n  ],\n  \"grids\": {\n    \"size\": {\n      \"_id\": \"b90000000000000000000102\",\n      \"title\": \"Shirt size\",\n      \"is_filter\": true\n    },\n    \"colors\": {\n      \"_id\": \"b90000000000000000000103\",\n      \"title\": \"Colors\",\n      \"is_filter\": true\n    }\n  },\n  \"icon\": {\n    \"url\": \"https://mycdn.com/icon/polo-example.png\",\n    \"size\": \"30x20\"\n  },\n  \"pictures\": [\n    {\n      \"_id\": \"b74000000000000000000103\",\n      \"tag\": \"banner\",\n      \"url\": \"https://mycdn.com/polo-example-banner.jpg\",\n      \"size\": \"900x200\",\n      \"alt\": \"Trending Polo Shirts\"\n    }\n  ]\n}\n"
                             }
@@ -1809,7 +2293,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1820,7 +2307,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Remove Category"
+                    "title": {
+                      "element": "string",
+                      "content": "Remove Category"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -1829,13 +2319,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The category ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The category ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -1858,7 +2360,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "DELETE",
+                            "method": {
+                              "element": "string",
+                              "content": "DELETE"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1922,7 +2427,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1938,4 +2446,3 @@
     }
   ]
 }
-

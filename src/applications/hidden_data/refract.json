@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Application Hidden Data"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Application Hidden Data"
+            }
           },
           "content": [
             {
@@ -26,10 +44,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Application Hidden Data Object"
+                "title": {
+                  "element": "string",
+                  "content": "Application Hidden Data Object"
+                }
               },
               "attributes": {
-                "href": "/applications/schema/hidden_data.json"
+                "href": {
+                  "element": "string",
+                  "content": "/applications/schema/hidden_data.json"
+                }
               },
               "content": [
                 {
@@ -39,7 +63,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -48,7 +75,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -86,7 +116,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -110,12 +143,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Application private data, available only with authentication\",\n    \"type\": \"object\",\n    \"minProperties\": 1,\n    \"maxProperties\": 3000,\n    \"description\": \"Schema free, limits: https://docs.mongodb.com/manual/reference/limits/#bson-documents\"\n}\n"
                             }
@@ -130,10 +172,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Hidden Data of an Application"
+                "title": {
+                  "element": "string",
+                  "content": "Hidden Data of an Application"
+                }
               },
               "attributes": {
-                "href": "/applications/{application}/hidden_data.json"
+                "href": {
+                  "element": "string",
+                  "content": "/applications/{application}/hidden_data.json"
+                }
               },
               "content": [
                 {
@@ -143,7 +191,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Application Hidden Data"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Application Hidden Data"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -152,13 +203,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -181,7 +244,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -245,7 +311,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -269,12 +338,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"token\": \"sdkcblsdcbslkc\"\n}\n"
                             }
@@ -287,7 +365,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Application Hidden Data"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Application Hidden Data"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -296,13 +377,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The application ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The application ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -325,7 +418,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -388,12 +484,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"token\": \"ajgvcawbhcdjchsdbchasbjk\",\n  \"client_id\": 12345678,\n  \"secret\": \"47cn8n9uqh81c\"\n}\n"
                             }
@@ -402,7 +507,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -418,4 +526,3 @@
     }
   ]
 }
-

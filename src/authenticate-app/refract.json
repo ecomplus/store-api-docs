@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Authenticate App"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Authenticate App"
+            }
           },
           "content": [
             {
@@ -26,10 +44,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Authenticate With Callback"
+                "title": {
+                  "element": "string",
+                  "content": "Authenticate With Callback"
+                }
               },
               "attributes": {
-                "href": "/_callback.json"
+                "href": {
+                  "element": "string",
+                  "content": "/_callback.json"
+                }
               },
               "content": [
                 {
@@ -39,7 +63,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Request Access Token"
+                    "title": {
+                      "element": "string",
+                      "content": "Request Access Token"
+                    }
                   },
                   "content": [
                     {
@@ -48,7 +75,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "POST",
+                            "method": {
+                              "element": "string",
+                              "content": "POST"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -84,65 +114,93 @@
                           "content": [
                             {
                               "element": "dataStructure",
-                              "content": [
-                                {
-                                  "element": "object",
-                                  "content": [
-                                    {
-                                      "element": "member",
-                                      "meta": {
-                                        "description": "Authentication object ID"
-                                      },
-                                      "attributes": {
-                                        "typeAttributes": [
-                                          "required"
+                              "content": {
+                                "element": "object",
+                                "content": [
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
+                                        "content": "Authentication object ID"
+                                      }
+                                    },
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "required"
+                                          }
                                         ]
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "_id"
                                       },
-                                      "content": {
-                                        "key": {
-                                          "element": "string",
-                                          "content": "_id"
-                                        },
-                                        "value": {
-                                          "element": "string",
-                                          "content": "100000000000000000000012"
-                                        }
+                                      "value": {
+                                        "element": "string",
+                                        "content": "100000000000000000000012"
                                       }
                                     }
-                                  ]
-                                }
-                              ]
+                                  }
+                                ]
+                              }
                             },
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"100000000000000000000012\"\n}\n"
                             },
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBodySchema"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBodySchema"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/schema+json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/schema+json"
+                                }
                               },
-                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"_id\": {\n      \"type\": \"string\",\n      \"description\": \"Authentication object ID\"\n    }\n  },\n  \"required\": [\n    \"_id\"\n  ]\n}"
+                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"_id\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"_id\"\n  ]\n}"
                             }
                           ]
                         },
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -176,4 +234,3 @@
     }
   ]
 }
-

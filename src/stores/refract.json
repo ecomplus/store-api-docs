@@ -4,19 +4,37 @@
     {
       "element": "category",
       "meta": {
-        "classes": [
-          "api"
-        ],
-        "title": ""
+        "classes": {
+          "element": "array",
+          "content": [
+            {
+              "element": "string",
+              "content": "api"
+            }
+          ]
+        },
+        "title": {
+          "element": "string",
+          "content": ""
+        }
       },
       "content": [
         {
           "element": "category",
           "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Stores"
+            "classes": {
+              "element": "array",
+              "content": [
+                {
+                  "element": "string",
+                  "content": "resourceGroup"
+                }
+              ]
+            },
+            "title": {
+              "element": "string",
+              "content": "Stores"
+            }
           },
           "content": [
             {
@@ -26,560 +44,771 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Store Object"
+                "title": {
+                  "element": "string",
+                  "content": "Store Object"
+                }
               },
               "attributes": {
-                "href": "/stores/schema.json"
+                "href": {
+                  "element": "string",
+                  "content": "/stores/schema.json"
+                }
               },
               "content": [
                 {
                   "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
-                      "meta": {
-                        "id": "Store Object"
+                  "content": {
+                    "element": "object",
+                    "meta": {
+                      "id": {
+                        "element": "string",
+                        "content": "Store Object"
+                      }
+                    },
+                    "content": [
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Store name - Max length: **255**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
                       },
-                      "content": [
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Store name - Max length: **255**"
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Simple description of store - Max length: **3000**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "description"
                           },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "ID of store main segment, get options and IDs at /segments.json - Mininum: **0** - Maximum: **65535**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Simple description of store - Max length: **3000**"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "segment_id"
                           },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "description"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
+                          "value": {
+                            "element": "number"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Responsible person or organization document type"
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "ID of store main segment, get options and IDs at /segments.json - Mininum: **0** - Maximum: **65535**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
                             ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "segment_id"
-                            },
-                            "value": {
-                              "element": "number"
-                            }
                           }
                         },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Responsible person or organization document type"
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "doc_type"
                           },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "doc_type"
-                            },
-                            "value": {
-                              "element": "enum",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "content": "CPF"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "CNPJ"
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "doc_number"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Municipal or state registration if exists"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "inscription_type"
-                            },
-                            "value": {
-                              "element": "enum",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "content": "State"
-                                },
-                                {
-                                  "element": "string",
-                                  "content": "Municipal"
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Municipal or state registration number (with characters) if exists - Max length: **50**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "inscription_number"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Registered company name or responsible fullname - Max length: **255**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "corporate_name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Full registered address of company - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "address"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Financial contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "phone"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Name of company representative for commercial contact - Max length: **255**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "representant_name"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Email address of company representative - Max length: **255** - Format: **email**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "representant_email"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Public email address for news and general contact - Max length: **255** - Format: **email**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "contact_email"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Email address to receive notifications, invoices and vouchers - Max length: **255** - Format: **email**"
-                          },
-                          "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "financial_email"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Image link to shop's logo"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "logo"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image link - Max length: **255** - Format: **uri**"
-                                  },
-                                  "attributes": {
-                                    "typeAttributes": [
-                                      "required"
-                                    ]
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "url"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "size"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "alt"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Preferred sales channel domain name, with subdomain if any - Min length: **4** - Max length: **255** - RegEx pattern: **`^[0-9a-z-.]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "domain"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Preferred shop homepage link (full URI) - Max length: **255** - Format: **uri**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "homepage"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Main colors to compose shop's visual identity"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "brand_colors"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "primary"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                },
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "secondary"
-                                    },
-                                    "value": {
-                                      "element": "string"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "contact_phone"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Secondary public contact phone, commonly a cell phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "contact_cellphone"
-                            },
-                            "value": {
-                              "element": "string"
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "List of available languages on store channels - Max elements: **30**"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "languages"
-                            },
-                            "value": {
-                              "element": "array",
-                              "content": [
-                                {
-                                  "element": "string",
-                                  "meta": {
-                                    "description": "Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`"
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "element": "member",
-                          "meta": {
-                            "description": "Providers for OAuth customer authentication in store"
-                          },
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "oauth_providers"
-                            },
-                            "value": {
-                              "element": "object",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "meta": {
-                                    "description": "Social network OAuth app"
-                                  },
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "^facebook|google|windowslive$"
-                                    },
-                                    "value": {
-                                      "element": "object",
-                                      "content": [
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "App client ID - Max length: **255**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "client_id"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
+                          "value": {
+                            "element": "enum",
+                            "attributes": {
+                              "enumerations": {
+                                "element": "array",
+                                "content": [
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
                                           }
-                                        },
-                                        {
-                                          "element": "member",
-                                          "meta": {
-                                            "description": "App client secret - Max length: **255**"
-                                          },
-                                          "attributes": {
-                                            "typeAttributes": [
-                                              "required"
-                                            ]
-                                          },
-                                          "content": {
-                                            "key": {
-                                              "element": "string",
-                                              "content": "client_secret"
-                                            },
-                                            "value": {
-                                              "element": "string"
-                                            }
+                                        ]
+                                      }
+                                    },
+                                    "content": "CPF"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
                                           }
-                                        }
-                                      ]
-                                    }
+                                        ]
+                                      }
+                                    },
+                                    "content": "CNPJ"
                                   }
-                                }
-                              ]
+                                ]
+                              }
                             }
                           }
                         }
-                      ]
-                    }
-                  ]
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Responsible person or organization document number (only numbers) - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "doc_number"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Municipal or state registration if exists"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "inscription_type"
+                          },
+                          "value": {
+                            "element": "enum",
+                            "attributes": {
+                              "enumerations": {
+                                "element": "array",
+                                "content": [
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "State"
+                                  },
+                                  {
+                                    "element": "string",
+                                    "attributes": {
+                                      "typeAttributes": {
+                                        "element": "array",
+                                        "content": [
+                                          {
+                                            "element": "string",
+                                            "content": "fixed"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "content": "Municipal"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Municipal or state registration number (with characters) if exists - Max length: **50**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "inscription_number"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Registered company name or responsible fullname - Max length: **255**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "corporate_name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Full registered address of company - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "address"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Financial contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "phone"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Name of company representative for commercial contact - Max length: **255**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "representant_name"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Email address of company representative - Max length: **255** - Format: **email**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "representant_email"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Public email address for news and general contact - Max length: **255** - Format: **email**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "contact_email"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Email address to receive notifications, invoices and vouchers - Max length: **255** - Format: **email**"
+                          }
+                        },
+                        "attributes": {
+                          "typeAttributes": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "content": "required"
+                              }
+                            ]
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "financial_email"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Image link to shop's logo"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "logo"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image link - Max length: **255** - Format: **uri**"
+                                  }
+                                },
+                                "attributes": {
+                                  "typeAttributes": {
+                                    "element": "array",
+                                    "content": [
+                                      {
+                                        "element": "string",
+                                        "content": "required"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "url"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Image size (width x height) in px, such as 100x50 (100px width, 50px height) - Max length: **11** - RegEx pattern: **`^[1-9]([0-9]+)?x[1-9]([0-9]+)?$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "size"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Alternative text, HTML alt tag (important for SEO) - Max length: **255**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "alt"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Preferred sales channel domain name, with subdomain if any - Min length: **4** - Max length: **255** - RegEx pattern: **`^[0-9a-z-.]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "domain"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Preferred shop homepage link (full URI) - Max length: **255** - Format: **uri**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "homepage"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Main colors to compose shop's visual identity"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "brand_colors"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Primary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "primary"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Secondary color RGB code with # - RegEx pattern: **`^#[a-f0-9]{6}$`**"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "secondary"
+                                  },
+                                  "value": {
+                                    "element": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Public contact phone - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "contact_phone"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Secondary public contact phone, commonly a cell phone number - Max length: **19** - RegEx pattern: **`^[0-9]+$`**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "contact_cellphone"
+                          },
+                          "value": {
+                            "element": "string"
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "List of available languages on store channels - Max elements: **30**"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "languages"
+                          },
+                          "value": {
+                            "element": "array",
+                            "content": [
+                              {
+                                "element": "string",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Language two letters code, sometimes with region, eg.: `pt_br`, fr, `en_us`"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "element": "member",
+                        "meta": {
+                          "description": {
+                            "element": "string",
+                            "content": "Providers for OAuth customer authentication in store"
+                          }
+                        },
+                        "content": {
+                          "key": {
+                            "element": "string",
+                            "content": "oauth_providers"
+                          },
+                          "value": {
+                            "element": "object",
+                            "content": [
+                              {
+                                "element": "member",
+                                "meta": {
+                                  "description": {
+                                    "element": "string",
+                                    "content": "Social network OAuth app"
+                                  }
+                                },
+                                "content": {
+                                  "key": {
+                                    "element": "string",
+                                    "content": "^facebook|google|windowslive$"
+                                  },
+                                  "value": {
+                                    "element": "object",
+                                    "content": [
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "App client ID - Max length: **255**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "client_id"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "element": "member",
+                                        "meta": {
+                                          "description": {
+                                            "element": "string",
+                                            "content": "App client secret - Max length: **255**"
+                                          }
+                                        },
+                                        "attributes": {
+                                          "typeAttributes": {
+                                            "element": "array",
+                                            "content": [
+                                              {
+                                                "element": "string",
+                                                "content": "required"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "content": {
+                                          "key": {
+                                            "element": "string",
+                                            "content": "client_secret"
+                                          },
+                                          "value": {
+                                            "element": "string"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "JSON Schema"
+                    "title": {
+                      "element": "string",
+                      "content": "JSON Schema"
+                    }
                   },
                   "content": [
                     {
@@ -588,7 +817,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -626,7 +858,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -650,12 +885,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n    \"$schema\": \"http://json-schema.org/draft-06/schema#\",\n    \"title\": \"Stores\",\n    \"description\": \"Store info and resource IDs\",\n    \"type\": \"object\",\n    \"required\": [\n        \"name\",\n        \"segment_id\",\n        \"doc_type\",\n        \"doc_number\",\n        \"corporate_name\",\n        \"financial_email\"\n    ],\n    \"additionalProperties\": false,\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Store name\"\n        },\n        \"description\": {\n            \"type\": \"string\",\n            \"maxLength\": 3000,\n            \"description\": \"Simple description of store\"\n        },\n        \"segment_id\": {\n            \"type\": \"integer\",\n            \"minimum\": 0,\n            \"maximum\": 65535,\n            \"description\": \"ID of store main segment, get options and IDs at /segments.json\"\n        },\n        \"doc_type\": {\n            \"type\": \"string\",\n            \"enum\": [\n                \"CPF\",\n                \"CNPJ\"\n            ],\n            \"description\": \"Responsible person or organization document type\"\n        },\n        \"doc_number\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"Responsible person or organization document number (only numbers)\"\n        },\n        \"inscription_type\": {\n            \"type\": \"string\",\n            \"enum\": [\n                \"State\",\n                \"Municipal\"\n            ],\n            \"description\": \"Municipal or state registration if exists\"\n        },\n        \"inscription_number\": {\n            \"type\": \"string\",\n            \"maxLength\": 50,\n            \"description\": \"Municipal or state registration number (with characters) if exists\"\n        },\n        \"corporate_name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Registered company name or responsible fullname\"\n        },\n        \"address\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Full registered address of company\"\n        },\n        \"phone\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"Financial contact phone\"\n        },\n        \"representant_name\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"description\": \"Name of company representative for commercial contact\"\n        },\n        \"representant_email\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"email\",\n            \"description\": \"Email address of company representative\"\n        },\n        \"contact_email\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"email\",\n            \"description\": \"Public email address for news and general contact\"\n        },\n        \"financial_email\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"email\",\n            \"description\": \"Email address to receive notifications, invoices and vouchers\"\n        },\n        \"logo\": {\n            \"type\": \"object\",\n            \"required\": [\n                \"url\"\n            ],\n            \"additionalProperties\": false,\n            \"properties\": {\n                \"url\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"format\": \"uri\",\n                    \"description\": \"Image link\"\n                },\n                \"size\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 11,\n                    \"pattern\": \"^[1-9]([0-9]+)?x[1-9]([0-9]+)?$\",\n                    \"description\": \"Image size (width x height) in px, such as 100x50 (100px width, 50px height)\"\n                },\n                \"alt\": {\n                    \"type\": \"string\",\n                    \"maxLength\": 255,\n                    \"description\": \"Alternative text, HTML alt tag (important for SEO)\"\n                }\n            },\n            \"description\": \"Image link to shop's logo\"\n        },\n        \"domain\": {\n            \"type\": \"string\",\n            \"minLength\": 4,\n            \"maxLength\": 255,\n            \"pattern\": \"^[0-9a-z-.]+$\",\n            \"description\": \"Preferred sales channel domain name, with subdomain if any\"\n        },\n        \"homepage\": {\n            \"type\": \"string\",\n            \"maxLength\": 255,\n            \"format\": \"uri\",\n            \"description\": \"Preferred shop homepage link (full URI)\"\n        },\n        \"brand_colors\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"properties\": {\n                \"primary\": {\n                    \"type\": \"string\",\n                    \"pattern\": \"^#[a-f0-9]{6}$\",\n                    \"description\": \"Primary color RGB code with #\"\n                },\n                \"secondary\": {\n                    \"type\": \"string\",\n                    \"pattern\": \"^#[a-f0-9]{6}$\",\n                    \"description\": \"Secondary color RGB code with #\"\n                }\n            },\n            \"description\": \"Main colors to compose shop's visual identity\"\n        },\n        \"contact_phone\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"Public contact phone\"\n        },\n        \"contact_cellphone\": {\n            \"type\": \"string\",\n            \"maxLength\": 19,\n            \"pattern\": \"^[0-9]+$\",\n            \"description\": \"Secondary public contact phone, commonly a cell phone number\"\n        },\n        \"languages\": {\n            \"type\": \"array\",\n            \"uniqueItems\": true,\n            \"maxItems\": 30,\n            \"items\": {\n                \"type\": \"string\",\n                \"pattern\": \"^[a-z]{2}(_[a-z]{2})?$\",\n                \"description\": \"Language two letters code, sometimes with region, eg.: pt_br, fr, en_us\"\n            },\n            \"description\": \"List of available languages on store channels\"\n        },\n        \"oauth_providers\": {\n            \"type\": \"object\",\n            \"additionalProperties\": false,\n            \"patternProperties\": {\n                \"^facebook|google|windowslive$\": {\n                    \"type\": \"object\",\n                    \"additionalProperties\": false,\n                    \"required\": [\n                        \"provider\",\n                        \"client_id\",\n                        \"client_secret\"\n                    ],\n                    \"properties\": {\n                        \"client_id\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 255,\n                            \"description\": \"App client ID\"\n                        },\n                        \"client_secret\": {\n                            \"type\": \"string\",\n                            \"maxLength\": 255,\n                            \"description\": \"App client secret\"\n                        }\n                    },\n                    \"description\": \"Social network OAuth app\"\n                }\n            },\n            \"description\": \"Providers for OAuth customer authentication in store\"\n        }\n    }\n}\n"
                             }
@@ -670,10 +914,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Specific Store"
+                "title": {
+                  "element": "string",
+                  "content": "Specific Store"
+                }
               },
               "attributes": {
-                "href": "/stores/{_id}.json"
+                "href": {
+                  "element": "string",
+                  "content": "/stores/{_id}.json"
+                }
               },
               "content": [
                 {
@@ -683,7 +933,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Store"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Store"
+                    }
                   },
                   "attributes": {
                     "hrefVariables": {
@@ -692,13 +945,25 @@
                         {
                           "element": "member",
                           "meta": {
-                            "description": "The store object ID",
-                            "title": "string"
+                            "description": {
+                              "element": "string",
+                              "content": "The store object ID"
+                            },
+                            "title": {
+                              "element": "string",
+                              "content": "string"
+                            }
                           },
                           "attributes": {
-                            "typeAttributes": [
-                              "required"
-                            ]
+                            "typeAttributes": {
+                              "element": "array",
+                              "content": [
+                                {
+                                  "element": "string",
+                                  "content": "required"
+                                }
+                              ]
+                            }
                           },
                           "content": {
                             "key": {
@@ -721,7 +986,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -785,7 +1053,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -809,12 +1080,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"5a674f224e0dcec2c3353d9d\",\n  \"store_id\": 100,\n  \"name\": \"Minha Loja Online\",\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"segment_id\": 23,\n  \"contact_email\": \"contato@sample.shop.eg\",\n  \"logo\": {\n    \"url\": \"https://sample.shop.eg/assets/logo.png\",\n    \"size\": \"120x80\"\n  },\n  \"brand_colors\": {\n    \"primary\": \"#03a9b3\",\n    \"secondary\": \"#ffffff\"\n  }\n}\n"
                             }
@@ -829,10 +1109,16 @@
             {
               "element": "resource",
               "meta": {
-                "title": "Your Store"
+                "title": {
+                  "element": "string",
+                  "content": "Your Store"
+                }
               },
               "attributes": {
-                "href": "/stores/me.json"
+                "href": {
+                  "element": "string",
+                  "content": "/stores/me.json"
+                }
               },
               "content": [
                 {
@@ -842,7 +1128,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Read Your Store"
+                    "title": {
+                      "element": "string",
+                      "content": "Read Your Store"
+                    }
                   },
                   "content": [
                     {
@@ -851,7 +1140,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "GET",
+                            "method": {
+                              "element": "string",
+                              "content": "GET"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -915,7 +1207,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200",
+                            "statusCode": {
+                              "element": "string",
+                              "content": "200"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -939,12 +1234,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"_id\": \"5a674f224e0dcec2c3353d9d\",\n  \"created_at\": \"2017-11-19T13:10:00.612Z\",\n  \"store_id\": 100,\n  \"name\": \"Minha Loja Online\",\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\n  \"segment_id\": 23,\n  \"doc_type\": \"CNPJ\",\n  \"doc_number\": \"12345678901234\",\n  \"corporate_name\": \"Minha Loja Online LTDA\",\n  \"address\": \"Rua Exemplar 100, Bairro Examplar, São Paulo, SP\",\n  \"phone\": \"31988887777\",\n  \"representant_name\": \"Fulano Ciclano\",\n  \"representant_email\": \"fulano@sample.shop.eg\",\n  \"contact_email\": \"contato@sample.shop.eg\",\n  \"financial_email\": \"financeiro@sample.shop.eg\",\n  \"logo\": {\n    \"url\": \"https://sample.shop.eg/assets/logo.png\",\n    \"size\": \"120x80\"\n  },\n  \"brand_colors\": {\n    \"primary\": \"#03a9b3\",\n    \"secondary\": \"#ffffff\"\n  }\n}\n"
                             }
@@ -957,7 +1261,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "Edit Your Store"
+                    "title": {
+                      "element": "string",
+                      "content": "Edit Your Store"
+                    }
                   },
                   "content": [
                     {
@@ -966,7 +1273,10 @@
                         {
                           "element": "httpRequest",
                           "attributes": {
-                            "method": "PATCH",
+                            "method": {
+                              "element": "string",
+                              "content": "PATCH"
+                            },
                             "headers": {
                               "element": "httpHeaders",
                               "content": [
@@ -1029,12 +1339,21 @@
                             {
                               "element": "asset",
                               "meta": {
-                                "classes": [
-                                  "messageBody"
-                                ]
+                                "classes": {
+                                  "element": "array",
+                                  "content": [
+                                    {
+                                      "element": "string",
+                                      "content": "messageBody"
+                                    }
+                                  ]
+                                }
                               },
                               "attributes": {
-                                "contentType": "application/json"
+                                "contentType": {
+                                  "element": "string",
+                                  "content": "application/json"
+                                }
                               },
                               "content": "{\n  \"description\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\n}\n"
                             }
@@ -1043,7 +1362,10 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "204"
+                            "statusCode": {
+                              "element": "string",
+                              "content": "204"
+                            }
                           },
                           "content": []
                         }
@@ -1059,4 +1381,3 @@
     }
   ]
 }
-

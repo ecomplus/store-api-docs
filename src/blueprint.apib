@@ -9623,7 +9623,7 @@ order subresources directly at this resource
     + `channel_type`: ecommerce (enum) - Channel type or source
         + `ecommerce` (string)
         + `mobile` (string)
-        + `pdv` (string)
+        + `pos` (string)
         + `button` (string)
         + `facebook` (string)
         + `chatbot` (string)
@@ -9682,7 +9682,7 @@ order subresources directly at this resource
         + `total` (number, required) - Order total amount - Mininum: **0** - Maximum: **9999999999**
         + `subtotal` (number) - The sum of all items prices - Mininum: **0** - Maximum: **9999999999**
         + `freight` (number) - Order freight cost - Mininum: **0** - Maximum: **9999999999**
-        + `discount` (number) - Applied discount value - Mininum: **0** - Maximum: **9999999999**
+        + `discount` (number) - Final discount value applied - Mininum: **0** - Maximum: **9999999999**
         + `tax` (number) - The sum of all the taxes applied to the order - Mininum: **0** - Maximum: **9999999999**
         + `extra` (number) - Sum of optional extra costs applied - Mininum: **0** - Maximum: **9999999999**
     + `payment_method_label` (string) - Name or summary of order payment method(s) - Max length: **100**
@@ -10121,6 +10121,15 @@ order subresources directly at this resource
             + `final_price` (number) - Final item price including additions due to customizations and gift wrap - Mininum: **0** - Maximum: **999999999**
             + `flags` (array) - Flags to associate additional info - Max elements: **10**
                 + (string) - Flag title
+    + `extra_discount` (object) - Extra discount applied by coupon or UTM campaign
+        + `discount_coupon` (string) - Text of discount coupon applied by customer - Max length: **255**
+        + `value` (number, required) - Extra discount value - Mininum: **0** - Maximum: **9999999999**
+        + `app` (object) - Extra discount rule (by application)
+            + `_id` (string, required) - Application ID - RegEx pattern: **`^[a-f0-9]{24}$`**
+            + `label` (string) - Name of the discount rule, can be the coupon or campaign name - Max length: **100**
+            + `description` (string) - Additional text description for the discount rule - Max length: **1000**
+        + `flags` (array) - Flags to associate additional info - Max elements: **10**
+            + (string) - Flag title
     + `loyalty_points` (object) - Loyalty points earned by customer due to this order, `program_id` as property name - Max properties: **30**
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
@@ -10374,7 +10383,7 @@ order subresources directly at this resource
                         "enum": [
                             "ecommerce",
                             "mobile",
-                            "pdv",
+                            "pos",
                             "button",
                             "facebook",
                             "chatbot"
@@ -10568,7 +10577,7 @@ order subresources directly at this resource
                                 "type": "number",
                                 "minimum": 0,
                                 "maximum": 9999999999,
-                                "description": "Applied discount value"
+                                "description": "Final discount value applied"
                             },
                             "tax": {
                                 "type": "number",
@@ -12421,6 +12430,63 @@ order subresources directly at this resource
                             "description": "One of the order items"
                         },
                         "description": "Products composing the order"
+                    },
+                    "extra_discount": {
+                        "type": "object",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "discount_coupon": {
+                                "type": "string",
+                                "maxLength": 255,
+                                "description": "Text of discount coupon applied by customer"
+                            },
+                            "value": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 9999999999,
+                                "description": "Extra discount value"
+                            },
+                            "app": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                    "_id"
+                                ],
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "pattern": "^[a-f0-9]{24}$",
+                                        "description": "Application ID"
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "maxLength": 100,
+                                        "description": "Name of the discount rule, can be the coupon or campaign name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "maxLength": 1000,
+                                        "description": "Additional text description for the discount rule"
+                                    }
+                                },
+                                "description": "Extra discount rule (by application)"
+                            },
+                            "flags": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "maxItems": 10,
+                                "items": {
+                                    "type": "string",
+                                    "maxLength": 20,
+                                    "description": "Flag title"
+                                },
+                                "description": "Flags to associate additional info"
+                            }
+                        },
+                        "description": "Extra discount applied by coupon or UTM campaign"
                     },
                     "loyalty_points": {
                         "type": "object",
