@@ -9628,7 +9628,7 @@ order subresources directly at this resource
         + `facebook` (string)
         + `chatbot` (string)
     + `domain` (string) - Store domain name (numbers and lowercase letters, eg.: www.myshop.sample) - Min length: **4** - Max length: **100** - RegEx pattern: **`^[0-9a-z-.]+$`**
-    + `number` (number) - Order number, if not specified will be filled auto incrementing
+    + `number` (number) - Order number, if not specified will be filled auto incrementing - Mininum: **1** - Maximum: **999999999**
     + `code` (string) - Order code used by seller and customer for identification, should be unique - Max length: **70**
     + `status`: open (enum) - Order main status
         + `open` (string)
@@ -9931,6 +9931,7 @@ order subresources directly at this resource
                     + `other` (string)
                 + `name` (string) - Short description for payment method - Max length: **200**
             + `payment_link` (string) - Direct link to pay current transaction - Max length: **1000** - Format: **uri**
+            + `payment_instructions` (string) - Additional text instructions for manual payments - Max length: **1000**
             + `payer` (object) - Transation payer info
                 + `fullname` (string) - Payer full name or company corporate name - Max length: **255**
                 + `birth_date` (object) - Date of payer birth
@@ -10134,6 +10135,9 @@ order subresources directly at this resource
         + `^[a-z0-9_]{2,30}$` (object) - Loyalty points program object
             + `name` (string) - The name of the loyalty points program - Max length: **50**
             + `points_value` (number, required) - Number of loyalty points received - Mininum: **0** - Maximum: **999999999**
+    + `subscription_order` (object) - Original subscription (recurrence) order
+        + `_id` (string, required) - Parent order ID - RegEx pattern: **`^[a-f0-9]{24}$`**
+        + `number` (number) - Parent order number - Mininum: **1** - Maximum: **999999999**
     + `metafields` (array) - List of custom attributes - Max elements: **100**
         + (object) - Custom attribute object
             + `_id` (string, required) - Unique ID (ObjectID) - RegEx pattern: **`^[a-f0-9]{24}$`**
@@ -11596,6 +11600,11 @@ order subresources directly at this resource
                                     "format": "uri",
                                     "description": "Direct link to pay current transaction"
                                 },
+                                "payment_instructions": {
+                                    "type": "string",
+                                    "maxLength": 1000,
+                                    "description": "Additional text instructions for manual payments"
+                                },
                                 "payer": {
                                     "type": "object",
                                     "additionalProperties": false,
@@ -12516,6 +12525,27 @@ order subresources directly at this resource
                             }
                         },
                         "description": "Loyalty points earned by customer due to this order, program_id as property name"
+                    },
+                    "subscription_order": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "_id"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{24}$",
+                                "description": "Parent order ID"
+                            },
+                            "number": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 999999999,
+                                "description": "Parent order number"
+                            }
+                        },
+                        "description": "Original subscription (recurrence) order"
                     },
                     "metafields": {
                         "type": "array",
