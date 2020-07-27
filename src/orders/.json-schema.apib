@@ -1435,6 +1435,11 @@
                                     "format": "uri",
                                     "description": "Direct link to pay current transaction"
                                 },
+                                "payment_instructions": {
+                                    "type": "string",
+                                    "maxLength": 1000,
+                                    "description": "Additional text instructions for manual payments"
+                                },
                                 "payer": {
                                     "type": "object",
                                     "additionalProperties": false,
@@ -2355,6 +2360,27 @@
                             }
                         },
                         "description": "Loyalty points earned by customer due to this order, program_id as property name"
+                    },
+                    "subscription_order": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "_id"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{24}$",
+                                "description": "Parent order ID"
+                            },
+                            "number": {
+                                "type": "integer",
+                                "min": 1,
+                                "max": 999999999,
+                                "description": "Parent order number"
+                            }
+                        },
+                        "description": "Original subscription (recurrence) order"
                     },
                     "metafields": {
                         "type": "array",
