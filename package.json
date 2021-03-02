@@ -1,0 +1,32 @@
+{
+  "name": "@ecomplus/store-api-docs",
+  "version": "1.0.0",
+  "description": "API Blueprint to E-Com Plus Store API documentation",
+  "main": "index.js",
+  "scripts": {
+    "build": "sh ./build.sh",
+    "release": "sh ./build.sh && standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/store-api-docs.git"
+  },
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/ecomplus/store-api-docs/issues"
+  },
+  "homepage": "https://github.com/ecomplus/store-api-docs#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "husky": "^4.3.8",
+    "standard-version": "^9.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
