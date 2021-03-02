@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/store-api-docs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "API Blueprint to E-Com Plus Store API documentation",
   "main": "index.js",
   "scripts": {
