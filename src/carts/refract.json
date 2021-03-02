@@ -958,6 +958,199 @@
                                     "meta": {
                                       "description": {
                                         "element": "string",
+                                        "content": "Parent kit product for this item"
+                                      }
+                                    },
+                                    "content": {
+                                      "key": {
+                                        "element": "string",
+                                        "content": "kit_product"
+                                      },
+                                      "value": {
+                                        "element": "object",
+                                        "content": [
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Kit product ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                              }
+                                            },
+                                            "attributes": {
+                                              "typeAttributes": {
+                                                "element": "array",
+                                                "content": [
+                                                  {
+                                                    "element": "string",
+                                                    "content": "required"
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "_id"
+                                              },
+                                              "value": {
+                                                "element": "string"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Kit product full name - Max length: **255**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "name"
+                                              },
+                                              "value": {
+                                                "element": "string"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Total quantity of items to close a kit unit - Mininum: **0** - Maximum: **9999999**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "pack_quantity"
+                                              },
+                                              "value": {
+                                                "element": "number"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Kit total pack price - Mininum: **0** - Maximum: **999999999**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "price"
+                                              },
+                                              "value": {
+                                                "element": "number"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "element": "member",
+                                            "meta": {
+                                              "description": {
+                                                "element": "string",
+                                                "content": "Current kit composition - Max elements: **100**"
+                                              }
+                                            },
+                                            "content": {
+                                              "key": {
+                                                "element": "string",
+                                                "content": "composition"
+                                              },
+                                              "value": {
+                                                "element": "array",
+                                                "content": [
+                                                  {
+                                                    "element": "object",
+                                                    "content": [
+                                                      {
+                                                        "element": "member",
+                                                        "meta": {
+                                                          "description": {
+                                                            "element": "string",
+                                                            "content": "Product ID - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                                          }
+                                                        },
+                                                        "attributes": {
+                                                          "typeAttributes": {
+                                                            "element": "array",
+                                                            "content": [
+                                                              {
+                                                                "element": "string",
+                                                                "content": "required"
+                                                              }
+                                                            ]
+                                                          }
+                                                        },
+                                                        "content": {
+                                                          "key": {
+                                                            "element": "string",
+                                                            "content": "_id"
+                                                          },
+                                                          "value": {
+                                                            "element": "string"
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "element": "member",
+                                                        "meta": {
+                                                          "description": {
+                                                            "element": "string",
+                                                            "content": "Selected variation ID if any - RegEx pattern: **`^[a-f0-9]{24}$`**"
+                                                          }
+                                                        },
+                                                        "content": {
+                                                          "key": {
+                                                            "element": "string",
+                                                            "content": "variation_id"
+                                                          },
+                                                          "value": {
+                                                            "element": "string"
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "element": "member",
+                                                        "meta": {
+                                                          "description": {
+                                                            "element": "string",
+                                                            "content": "Kit item quantity - Mininum: **0** - Maximum: **9999999**"
+                                                          }
+                                                        },
+                                                        "content": {
+                                                          "key": {
+                                                            "element": "string",
+                                                            "content": "quantity"
+                                                          },
+                                                          "value": {
+                                                            "element": "number"
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "element": "member",
+                                    "meta": {
+                                      "description": {
+                                        "element": "string",
                                         "content": "Gift wrap chosen by customer"
                                       }
                                     },

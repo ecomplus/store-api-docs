@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "sh ./build.sh",
-    "release": "sh ./build.sh && standard-version"
+    "release": "sh ./build.sh && git commit -am 'chore(rebuild): update api blueprints' && standard-version"
   },
   "repository": {
     "type": "git",
